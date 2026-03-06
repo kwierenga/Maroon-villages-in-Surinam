@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marrons van Suriname / Maroons of Suriname</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f0e8;
+    --surface: #fdfaf4;
+    --surface2: #f0ebe0;
+    --border: #d8cebc;
+    --gold: #8b6914;
+    --gold-light: #b8900e;
+    --text: #1a1508;
+    --text-muted: #6b5f45;
+    --text-light: #9a8e78;
+    --ndyuka:   #b03020;
+    --saramaka: #1a5f9a;
+    --matawai:  #1a7a40;
+    --kwinti:   #6a2a9a;
+    --aluku:    #c05010;
+    --paramaka: #0a7a68;
+    --sidebar-w: 460px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 18px;
+    background: var(--surface);
+    border-bottom: 2px solid var(--gold);
+    flex-shrink: 0;
+    z-index: 10;
+  }
+  .site-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--gold);
+    letter-spacing: 0.03em;
+  }
+  .site-title span {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 300;
+    display: block;
+    margin-top: 1px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .lang-toggle {
+    display: flex;
+    gap: 3px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px;
+  }
+  .lang-btn {
+    background: none; border: none;
+    color: var(--text-muted);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem; font-weight: 600;
+    padding: 4px 9px; border-radius: 3px;
+    cursor: pointer; letter-spacing: 0.06em;
+    transition: all 0.15s;
+  }
+  .lang-btn.active { background: var(--gold); color: #fff; }
+  .lang-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+
+  /* ── LAYOUT ── */
+  .main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── LEFT COLUMN: legend + detail text ── */
+  .sidebar {
+    width: 50%;
+    flex-shrink: 0;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── RIGHT COLUMN: map fills all remaining space ── */
+  #map {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+  }
+
+  /* Legend */
+  .legend {
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .legend-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+  .legend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 7px;
+    padding: 5px 7px; border-radius: 4px;
+    cursor: pointer; transition: background 0.15s;
+    border: 1px solid transparent;
+  }
+  .legend-item:hover { background: var(--surface2); border-color: var(--border); }
+  .legend-item.active { background: var(--surface2); border-color: var(--border); }
+  .legend-item.all-item { grid-column: 1 / -1; }
+  .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .legend-name { font-size: 0.78rem; font-weight: 600; line-height: 1.2; }
+  .legend-sub { font-size: 0.65rem; color: var(--text-light); margin-top: 1px; }
+
+  /* Detail panel */
+  .detail-panel {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+  }
+  .detail-empty {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    height: 100%; text-align: center;
+    padding: 30px 24px;
+    color: var(--text-light);
+  }
+  .detail-empty .arrow { font-size: 1.8rem; margin-bottom: 10px; opacity: 0.4; }
+  .detail-empty p { font-size: 0.82rem; line-height: 1.65; }
+
+  /* Village detail card */
+  .detail-card { display: none; }
+  .detail-card.active { display: block; }
+
+  .card-header {
+    padding: 16px 18px 12px;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0;
+    background: var(--surface);
+    z-index: 2;
+  }
+  .card-society-tag {
+    display: inline-block;
+    font-size: 0.63rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 2px;
+    color: #fff; margin-bottom: 7px;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+  .card-subtitle {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .card-meta {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-top: 8px;
+  }
+  .meta-pill {
+    font-size: 0.68rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2px 7px;
+    color: var(--text-muted);
+  }
+  .meta-pill strong { color: var(--text); font-weight: 600; }
+  .granman-pill {
+    font-size: 0.68rem;
+    border-radius: 3px;
+    padding: 2px 7px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+  }
+
+  /* Content sections */
+  .card-body { padding: 0 18px 20px; }
+
+  .section {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .section:first-child { border-top: none; margin-top: 14px; }
+
+  .section-title {
+    font-size: 0.63rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-light);
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-text {
+    font-size: 0.82rem;
+    line-height: 1.72;
+    color: var(--text);
+  }
+  .section-text p + p { margin-top: 7px; }
+
+  /* Scrollbar */
+  .detail-panel::-webkit-scrollbar { width: 4px; }
+  .detail-panel::-webkit-scrollbar-track { background: transparent; }
+  .detail-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+
+
+  /* Info window override */
+  .gm-style .gm-style-iw-c {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 6px !important;
+    padding: 0 !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+  }
+  .gm-style .gm-style-iw-d { overflow: hidden !important; }
+  .gm-style-iw-tc { display: none !important; }
+  .gm-style .gm-style-iw-t::after { display: none !important; }
+  .iw-wrap { padding: 11px 14px; min-width: 170px; max-width: 240px; }
+  .iw-soc { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+  .iw-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--text); line-height: 1.2; }
+  .iw-sub { font-size: 0.69rem; color: var(--text-muted); margin-top: 2px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="site-title">
+    Marrons van Suriname
+    <span>Zes Volken · Six Peoples · Siksi Pipel</span>
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('nl')" id="btn-nl">NL</button>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn" onclick="setLang('sr')" id="btn-sr">SR</button>
+  </div>
+</header>
+
+<div class="main">
+
+  <!-- LEFT COLUMN: legend + detail text -->
+  <div class="sidebar">
+
+    <div class="legend">
+      <div class="legend-label" data-nl="Volken — klik om in te zoomen" data-en="Peoples — click to zoom" data-sr="Pipel — koti fu zoom">Volken — klik om in te zoomen</div>
+      <div class="legend-grid">
+        <div class="legend-item all-item" onclick="filterAndZoom('all')" id="filter-all">
+          <div class="legend-dot" style="background:var(--gold)"></div>
+          <div>
+            <div class="legend-name" data-nl="Alle volken" data-en="All peoples" data-sr="Ala pipel">Alle volken</div>
+          </div>
+        </div>
+        <div class="legend-item" onclick="filterAndZoom('ndyuka')" id="filter-ndyuka">
+          <div class="legend-dot" style="background:var(--ndyuka)"></div>
+          <div>
+            <div class="legend-name">Ndyuka (Okanisi)</div>
+            <div class="legend-sub">Tapanahony · Marowijne</div>
+          </div>
+        </div>
+        <div class="legend-item" onclick="filterAndZoom('saramaka')" id="filter-saramaka">
+          <div class="legend-dot" style="background:var(--saramaka)"></div>
+          <div>
+            <div class="legend-name">Saramaka (Saamaka)</div>
+            <div class="legend-sub" data-nl="Surinamerivier" data-en="Suriname River" data-sr="Sranan Liba">Surinamerivier</div>
+          </div>
+        </div>
+        <div class="legend-item" onclick="filterAndZoom('matawai')" id="filter-matawai">
+          <div class="legend-dot" style="background:var(--matawai)"></div>
+          <div>
+            <div class="legend-name">Matawai</div>
+            <div class="legend-sub" data-nl="Saramaccarivier" data-en="Saramacca River" data-sr="Saramaka Liba">Saramaccarivier</div>
+          </div>
+        </div>
+        <div class="legend-item" onclick="filterAndZoom('kwinti')" id="filter-kwinti">
+          <div class="legend-dot" style="background:var(--kwinti)"></div>
+          <div>
+            <div class="legend-name">Kwinti</div>
+            <div class="legend-sub" data-nl="Coppenamerivier" data-en="Coppename River" data-sr="Coppename Liba">Coppenamerivier</div>
+          </div>
+        </div>
+        <div class="legend-item" onclick="filterAndZoom('aluku')" id="filter-aluku">
+          <div class="legend-dot" style="background:var(--aluku)"></div>
+          <div>
+            <div class="legend-name">Aluku (Boni)</div>
+            <div class="legend-sub">Lawa · Marowijne</div>
+          </div>
+        </div>
+        <div class="legend-item" onclick="filterAndZoom('paramaka')" id="filter-paramaka">
+          <div class="legend-dot" style="background:var(--paramaka)"></div>
+          <div>
+            <div class="legend-name">Paramaka (Paamaka)</div>
+            <div class="legend-sub">Marowijne · Lawa</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- end .legend -->
+
+    <div class="detail-panel" id="detail-panel">
+      <div class="detail-empty" id="detail-empty">
+        <div class="arrow">↑</div>
+        <p data-nl="Klik op een dorp op de kaart voor uitgebreide informatie over de geschiedenis, stichting, leiderschap en hedendaagse uitdagingen." data-en="Click a village on the map for detailed information on history, founding, leadership and contemporary challenges." data-sr="Koti wan fowru na kaart fu moro informasi over historia, stichten, leiderschap en heden.">Klik op een dorp op de kaart voor uitgebreide informatie over de geschiedenis, stichting, leiderschap en hedendaagse uitdagingen.</p>
+      </div>
+    </div><!-- end .detail-panel -->
+
+  </div><!-- end .sidebar -->
+
+  <!-- RIGHT COLUMN: map -->
+  <div id="map"></div>
+
+</div><!-- end .main -->
+
+<script src="villages-data.js"></script>
+<script>
+// ═══════════════════════════════════════════════════════════
+// LANGUAGE
+// ═══════════════════════════════════════════════════════════
+let currentLang = 'nl';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+  document.querySelectorAll('[data-nl]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-nl');
+  });
+  const activeCard = document.querySelector('.detail-card.active');
+  if (activeCard) showVillageDetail(activeCard.dataset.id);
+}
+
+// ═══════════════════════════════════════════════════════════
+// SOCIETY ZOOM BOUNDS
+// ═══════════════════════════════════════════════════════════
+const SOCIETY_BOUNDS = {
+  all:      { center: { lat: 4.2, lng: -55.5 }, zoom: 8 },
+  ndyuka:   { center: { lat: 4.5, lng: -54.3 }, zoom: 9 },
+  saramaka: { center: { lat: 4.3, lng: -55.6 }, zoom: 9 },
+  matawai:  { center: { lat: 4.2, lng: -56.0 }, zoom: 10 },
+  kwinti:   { center: { lat: 4.8, lng: -56.5 }, zoom: 10 },
+  aluku:    { center: { lat: 4.0, lng: -54.1 }, zoom: 9 },
+  paramaka: { center: { lat: 3.9, lng: -54.4 }, zoom: 10 },
+};
+
+// ═══════════════════════════════════════════════════════════
+// SOCIETIES
+// ═══════════════════════════════════════════════════════════
+const SOCIETIES = {
+  ndyuka:   { color: '#b03020', name: 'Ndyuka (Okanisi)',    treaty: '1760' },
+  saramaka: { color: '#1a5f9a', name: 'Saramaka (Saamaka)',  treaty: '1762' },
+  matawai:  { color: '#1a7a40', name: 'Matawai',             treaty: '1767' },
+  kwinti:   { color: '#6a2a9a', name: 'Kwinti',              treaty: null   },
+  aluku:    { color: '#c05010', name: 'Aluku (Boni)',         treaty: null   },
+  paramaka: { color: '#0a7a68', name: 'Paramaka (Paamaka)',   treaty: null   },
+};
+
+// Village data loaded from villages-data.js
+
+// ═══════════════════════════════════════════════════════════
+// MAP SETUP
+// ═══════════════════════════════════════════════════════════
+let map, markers = [], infoWindow, activeFilter = 'all';
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 4.2, lng: -55.5 },
+    zoom: 8,
+    mapTypeId: 'roadmap',
+    mapTypeControl: true,
+    mapTypeControlOptions: { position: google.maps.ControlPosition.TOP_RIGHT },
+    styles: [
+      { featureType: 'poi', stylers: [{ visibility: 'off' }] },
+      { featureType: 'transit', stylers: [{ visibility: 'off' }] },
+      { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#a0c4e8' }] },
+      { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#2a6090' }] },
+      { featureType: 'landscape.natural', elementType: 'geometry', stylers: [{ color: '#d4e8c2' }] },
+      { featureType: 'landscape.natural.terrain', elementType: 'geometry', stylers: [{ color: '#c8e0b0' }] },
+      { featureType: 'administrative.country', elementType: 'geometry.stroke', stylers: [{ color: '#888', weight: 1.5 }] },
+      { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{ color: '#aaa', weight: 1 }] },
+      { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#f0d080' }] },
+      { featureType: 'road.local', elementType: 'geometry', stylers: [{ color: '#fffff0' }] },
+    ]
+  });
+
+  infoWindow = new google.maps.InfoWindow({ maxWidth: 260 });
+
+  VILLAGES.forEach(v => {
+    const soc = SOCIETIES[v.society];
+    const marker = new google.maps.Marker({
+      position: { lat: v.lat, lng: v.lng },
+      map,
+      title: v.names.nl,
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: soc.color,
+        fillOpacity: 0.92,
+        strokeColor: v.granman ? '#fff' : 'rgba(255,255,255,0.7)',
+        strokeWeight: v.granman ? 2.5 : 1.5,
+        scale: v.granman ? 11 : 7,
+      },
+      zIndex: v.granman ? 10 : 5,
+    });
+
+    marker.addListener('click', () => {
+      const lang = currentLang;
+      const name = v.names[lang] || v.names.nl;
+      const sub = v.subtitles[lang] || v.subtitles.nl;
+      infoWindow.setContent(`
+        <div class="iw-wrap">
+          <div class="iw-soc" style="color:${soc.color}">${soc.name}</div>
+          <div class="iw-name">${name}</div>
+          <div class="iw-sub">${sub}</div>
+        </div>
+      `);
+      infoWindow.open(map, marker);
+      showVillageDetail(v.id);
+    });
+
+    markers.push({ marker, village: v });
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// DETAIL PANEL
+// ═══════════════════════════════════════════════════════════
+const SECTION_LABELS = {
+  intro:      { nl: 'Introductie',     en: 'Introduction',  sr: 'Introductie'  },
+  founding:   { nl: 'Stichting',       en: 'Founding',      sr: 'Stichten'     },
+  history:    { nl: 'Geschiedenis',    en: 'History',       sr: 'Historia'     },
+  leadership: { nl: 'Leiderschap',     en: 'Leadership',    sr: 'Leiderskap'   },
+  challenges: { nl: 'Uitdagingen vandaag', en: 'Challenges today', sr: 'Uitdagingen' },
+};
+
+function showVillageDetail(id) {
+  const v = VILLAGES.find(x => x.id === id);
+  if (!v) return;
+  const soc = SOCIETIES[v.society];
+  const lang = currentLang;
+
+  document.getElementById('detail-empty').style.display = 'none';
+  document.querySelectorAll('.detail-card').forEach(c => c.remove());
+
+  const card = document.createElement('div');
+  card.className = 'detail-card active';
+  card.dataset.id = id;
+
+  const granmanHTML = v.granman
+    ? `<div class="granman-pill" style="background:${soc.color}">★ ${lang === 'nl' ? 'Zetel Granman' : lang === 'en' ? 'Granman\'s Seat' : 'Oso Granman'}</div>`
+    : '';
+
+  const treatyHTML = soc.treaty
+    ? `<div class="meta-pill"><strong>${lang === 'nl' ? 'Verdrag' : lang === 'en' ? 'Treaty' : 'Verdrag'}</strong> ${soc.treaty}</div>`
+    : '';
+
+  let sectionsHTML = '';
+  for (const [key, labels] of Object.entries(SECTION_LABELS)) {
+    const text = v.sections[key]?.[lang] || v.sections[key]?.nl || '';
+    if (!text) continue;
+    sectionsHTML += `
+      <div class="section">
+        <div class="section-title">${labels[lang] || labels.nl}</div>
+        <div class="section-text"><p>${text}</p></div>
+      </div>`;
+  }
+
+  card.innerHTML = `
+    <div class="card-header">
+      <div class="card-society-tag" style="background:${soc.color}">${soc.name}</div>
+      <div class="card-title">${v.names[lang] || v.names.nl}</div>
+      <div class="card-subtitle">${v.subtitles[lang] || v.subtitles.nl}</div>
+      <div class="card-meta">
+        ${granmanHTML}
+        <div class="meta-pill"><strong>${lang === 'nl' ? 'Rivier' : lang === 'en' ? 'River' : 'Liba'}</strong> ${v.river}</div>
+        <div class="meta-pill"><strong>${lang === 'nl' ? 'District' : 'District'}</strong> ${v.district}</div>
+        ${treatyHTML}
+      </div>
+    </div>
+    <div class="card-body">${sectionsHTML}</div>
+  `;
+
+  document.getElementById('detail-panel').appendChild(card);
+  document.getElementById('detail-panel').scrollTop = 0;
+}
+
+// ═══════════════════════════════════════════════════════════
+// FILTER + ZOOM
+// ═══════════════════════════════════════════════════════════
+function filterAndZoom(society) {
+  activeFilter = society;
+
+  document.querySelectorAll('.legend-item').forEach(el => el.classList.remove('active'));
+  const el = document.getElementById('filter-' + society);
+  if (el) el.classList.add('active');
+
+  markers.forEach(({ marker, village }) => {
+    marker.setVisible(society === 'all' || village.society === society);
+  });
+
+  const bounds = SOCIETY_BOUNDS[society] || SOCIETY_BOUNDS.all;
+  map.setCenter(bounds.center);
+  map.setZoom(bounds.zoom);
+
+  // Clear detail
+  document.querySelectorAll('.detail-card').forEach(c => c.remove());
+  document.getElementById('detail-empty').style.display = 'flex';
+  infoWindow.close();
+}
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAJ-UlXfM7lvNMv7ZpRmU6mxmi_BUdCCE&callback=initMap">
+</script>
+</body>
+</html>
