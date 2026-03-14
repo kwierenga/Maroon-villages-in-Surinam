@@ -1883,57 +1883,82 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 12
 }).addTo(omap);
 
+/* ── Territory disclaimer ── */
+const disclaimer = L.control({position: 'bottomleft'});
+disclaimer.onAdd = function() {
+  const d = L.DomUtil.create('div');
+  d.style.cssText = 'background:rgba(26,58,42,0.88);color:#f7f0e3;font-family:Raleway,sans-serif;font-size:10px;padding:6px 9px;border-radius:3px;max-width:220px;line-height:1.4;';
+  d.innerHTML = '<strong style="display:block;margin-bottom:2px;letter-spacing:0.05em">TERRITORY BOUNDARIES</strong>River corridors shown are approximate. Suriname has not complied with the 2007 IACtHR ruling requiring formal demarcation. Boundaries will be updated when verified village coordinates are available.';
+  return d;
+};
+disclaimer.addTo(omap);
+
+/* ── River corridors — one polyline per group showing home river system ── */
+/* These trace the actual rivers, not territorial boundaries               */
 const groups = [
   {
     name: 'Ndyuka (Aukan)', color: '#1a5c7a', url: 'groups/ndyuka.html',
     desc: 'Eastern Branch · Tapanahoni, Marowijne &amp; Cottica rivers<br>Peace treaty: 10 Oct 1760 · ~115,500 people',
-    poly: [[4.8,-54.4],[4.6,-54.2],[4.2,-54.1],[3.9,-54.3],[3.7,-54.6],[3.8,-55.1],[4.1,-55.4],[4.5,-55.2],[4.9,-54.8]]
+    labelAt: [4.05, -54.85],
+    /* Tapanahoni River north to confluence with Lawa, then north along Marowijne */
+    river: [[3.90,-55.19],[3.95,-55.10],[4.00,-54.98],[4.05,-54.92],[4.08,-54.80],[4.08,-54.62],[4.10,-54.47],[4.21,-54.35],[4.35,-54.22],[4.50,-54.10],[4.70,-54.06],[5.00,-54.05],[5.20,-54.04],[5.49,-54.07]]
   },
   {
-    name: 'Saramaka (Saamaka)', color: '#5a3a1a', url: 'groups/saramaka.html',
+    name: 'Saramaka (Saamaka)', color: '#8B5A2B', url: 'groups/saramaka.html',
     desc: 'Central Branch · Upper Suriname River, Gaánlío &amp; Pikílío<br>Peace treaty: 19 Sep 1762 · ~115,500 people',
-    poly: [[3.9,-56.8],[3.6,-56.5],[3.2,-56.2],[2.8,-56.3],[2.6,-56.7],[2.8,-57.2],[3.3,-57.4],[3.8,-57.1]]
+    labelAt: [4.10, -55.70],
+    /* Upper Suriname River from Kajana south to Pokigron north, plus Pikin Rio branch */
+    river: [[3.90,-55.57],[3.96,-55.57],[4.10,-55.58],[4.25,-55.60],[4.39,-55.68],[4.50,-55.73],[4.65,-55.72],[4.75,-55.65],[4.87,-55.09]]
   },
   {
     name: 'Matawai', color: '#3a5a1a', url: 'groups/matawai.html',
-    desc: 'Central Branch · Saramacca River tributaries<br>Peace treaty: 1767 · ~8,500 people',
-    poly: [[4.4,-56.7],[4.2,-56.4],[3.9,-56.3],[3.7,-56.6],[3.8,-57.0],[4.1,-57.1],[4.4,-56.9]]
+    desc: 'Central Branch · Upper Saramacca River<br>Peace treaty: 1767 · ~8,500 people',
+    labelAt: [4.35, -56.35],
+    /* Saramacca River from Poesoegroenoe north to Kwakoegron */
+    river: [[4.39,-56.34],[4.36,-56.36],[4.30,-56.40],[4.20,-56.43],[4.10,-56.44],[5.00,-56.08],[5.16,-56.07]]
   },
   {
     name: 'Paramaka (Paamaka)', color: '#1a4a5a', url: 'groups/paramaka.html',
-    desc: 'Eastern Branch · Marowijne &amp; Lawa rivers<br>Peace treaty: ~1872 · ~11,000 people',
-    poly: [[4.5,-54.2],[4.2,-54.0],[3.8,-54.1],[3.5,-54.4],[3.4,-54.8],[3.6,-55.2],[4.0,-55.3],[4.4,-55.0]]
+    desc: 'Eastern Branch · Lower Marowijne &amp; Lawa rivers<br>Peace treaty: ~1872 · ~11,000 people',
+    labelAt: [4.25, -54.45],
+    /* Marowijne/Lawa from Langatabiki south to Stoelmanseiland */
+    river: [[4.40,-54.46],[4.30,-54.42],[4.21,-54.35],[4.10,-54.47],[4.08,-54.62],[4.08,-54.80],[4.05,-54.92],[4.00,-54.98],[3.95,-55.10],[3.90,-55.19]]
   },
   {
-    name: 'Aluku (Boni)', color: '#5a1a0a', url: 'groups/aluku.html',
-    desc: 'Eastern Branch · Lawa River, mainly French Guiana<br>Wars ended: 1793 · French citizens · ~11,600 people',
-    poly: [[4.0,-53.8],[3.7,-53.6],[3.3,-53.8],[3.1,-54.2],[3.3,-54.7],[3.6,-54.8],[4.0,-54.5]]
+    name: 'Aluku (Boni)', color: '#8B2500', url: 'groups/aluku.html',
+    desc: 'Eastern Branch · Lawa River (French Guiana)<br>Wars ended: 1793 · French citizens · ~11,600 people',
+    labelAt: [3.50, -54.10],
+    /* Lawa River from Stoelmanseiland south to Maripasoula area */
+    river: [[4.08,-54.62],[3.90,-54.55],[3.70,-54.38],[3.54,-54.04],[3.40,-53.95],[3.20,-53.82]]
   },
   {
     name: 'Kwinti', color: '#2a4a1a', url: 'groups/kwinti.html',
     desc: 'Central Branch · Coppename River<br>Peace treaty: 1887 · ~1,200 people · No granman',
-    poly: [[5.0,-56.4],[4.8,-56.2],[4.5,-56.3],[4.2,-56.5],[4.2,-57.0],[4.5,-57.2],[4.9,-57.0]]
+    labelAt: [5.16, -56.20],
+    /* Coppename River at Witagron / Kaaimanston */
+    river: [[5.16,-56.07],[5.14,-56.09],[5.10,-56.15],[5.00,-56.30],[4.85,-56.50]]
   }
 ];
 
 groups.forEach(g => {
-  const poly = L.polygon(g.poly, {
-    color: g.color, weight: 2,
-    fillColor: g.color, fillOpacity: 0.22
+  /* River corridor line */
+  const line = L.polyline(g.river, {
+    color: g.color, weight: 5, opacity: 0.75
   }).addTo(omap);
 
-  const centre = poly.getBounds().getCenter();
+  /* Label at specified point */
   const icon = L.divIcon({
     html: `<div style="background:${g.color};color:#f7f0e3;font-family:'Raleway',sans-serif;font-size:11px;font-weight:700;padding:3px 7px;border-radius:2px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,0.4);letter-spacing:0.04em">${g.name}</div>`,
-    className: '', iconAnchor: [0, 0]
+    className: '', iconAnchor: [0, 10]
   });
-  L.marker(centre, {icon}).addTo(omap);
+  L.marker(g.labelAt, {icon, interactive: false}).addTo(omap);
 
-  poly.bindPopup(
+  line.bindPopup(
     `<strong style="font-family:'Playfair Display',serif;font-size:1rem">${g.name}</strong><br>
      <span style="font-size:0.82rem">${g.desc}</span><br>
+     <em style="font-size:0.75rem;color:#7a3f1e">River corridor shown — formal territorial boundaries not yet demarcated</em><br>
      <a href="${g.url}" style="font-family:'Raleway',sans-serif;font-size:0.75rem;font-weight:700;color:#7a3f1e;letter-spacing:0.06em;text-transform:uppercase">Full profile →</a>`,
-    {maxWidth: 260}
+    {maxWidth: 280}
   );
 });
 
