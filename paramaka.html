@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paramaka — Maroon Villages in Suriname</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root {
+      --forest:#1a3a2a;--canopy:#2d5e3f;--earth:#7a3f1e;--ochre:#c8822a;--gold:#e8b04a;
+      --river:#3a6b5e;--cream:#f7f0e3;--cream-dark:#ede3d0;--text-dark:#1e1a14;--text-mid:#3d3228;
+      --accent:#1a4a5a;--accent-lt:#d4e8f0;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Lora',Georgia,serif;background:var(--cream);color:var(--text-dark);line-height:1.7;}
+    a{color:inherit;text-decoration:none;}
+    .top-bar{background:var(--earth);color:var(--cream);font-family:'Raleway',sans-serif;font-size:.78rem;letter-spacing:.04em;padding:6px 2rem;display:flex;justify-content:space-between;}
+    .top-bar a{color:var(--gold);} .top-bar a:hover{color:#fff;}
+    header{background:var(--forest);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.35);}
+    .header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;gap:2rem;}
+    .logo-wrap{display:flex;align-items:center;gap:1rem;padding:.9rem 0;}
+    .logo-icon{width:44px;height:44px;flex-shrink:0;}
+    .logo-text strong{display:block;font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);}
+    .logo-text span{font-family:'Raleway',sans-serif;font-size:.65rem;color:var(--cream);letter-spacing:.1em;text-transform:uppercase;}
+    .breadcrumb{margin-left:auto;font-family:'Raleway',sans-serif;font-size:.78rem;color:rgba(247,240,227,.6);}
+    .breadcrumb a{color:var(--gold);} .breadcrumb a:hover{color:#fff;}
+    .group-hero{background:linear-gradient(135deg,#0d1a10 0%,var(--accent) 50%,#1a3a2a 100%);color:var(--cream);padding:3.5rem 0 2.5rem;position:relative;overflow:hidden;}
+    .group-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0px,transparent 18px,rgba(232,176,74,.07) 18px,rgba(232,176,74,.07) 20px);}
+    .hero-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;}
+    .hero-badge{font-family:'Raleway',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+    .hero-badge::before{content:'';display:block;width:30px;height:2px;background:var(--gold);}
+    .group-hero h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1.05;margin-bottom:.4rem;}
+    .group-hero .aka{font-family:'Raleway',sans-serif;font-size:.85rem;color:rgba(247,240,227,.65);letter-spacing:.08em;margin-bottom:1rem;}
+    .group-hero p{max-width:640px;color:rgba(247,240,227,.88);font-size:1rem;}
+    .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;min-width:220px;}
+    .stat-box{background:rgba(255,255,255,.08);border:1px solid rgba(232,176,74,.25);padding:.8rem 1rem;text-align:center;}
+    .stat-box strong{display:block;font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold);}
+    .stat-box span{font-family:'Raleway',sans-serif;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(247,240,227,.6);}
+    .pattern-bar{height:10px;background:repeating-linear-gradient(90deg,var(--accent) 0,var(--accent) 10px,var(--ochre) 10px,var(--ochre) 20px,var(--forest) 20px,var(--forest) 30px,var(--gold) 30px,var(--gold) 40px,var(--forest) 40px,var(--forest) 50px);}
+    .group-nav-strip{background:var(--canopy);padding:.8rem 0;}
+    .group-nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;}
+    .gn-label{font-family:'Raleway',sans-serif;font-size:.7rem;color:rgba(247,240,227,.45);letter-spacing:.08em;text-transform:uppercase;padding:.35rem 0;margin-right:.3rem;}
+    .gn-link{font-family:'Raleway',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(247,240,227,.7);padding:.35rem .8rem;border:1px solid rgba(247,240,227,.15);transition:background .15s,color .15s;}
+    .gn-link:hover{background:rgba(255,255,255,.1);color:var(--gold);}
+    .gn-link.current{background:var(--ochre);color:#fff;border-color:var(--ochre);}
+    .page-wrap{max-width:1200px;margin:0 auto;padding:2.5rem 1.5rem;display:grid;grid-template-columns:1fr 340px;gap:2.5rem;align-items:start;}
+    .section-heading{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--forest);border-bottom:3px solid var(--ochre);padding-bottom:.4rem;margin-bottom:1.2rem;}
+    .section-heading.accent-head{border-bottom-color:var(--accent);}
+    .prose-section{margin-bottom:2.5rem;}
+    .prose-section p{color:var(--text-mid);margin-bottom:.85rem;font-size:.95rem;}
+    .map-section{margin-bottom:2.5rem;}
+    .map-label{font-family:'Raleway',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;}
+    #group-map{width:100%;height:400px;border:3px solid var(--accent);box-shadow:0 4px 16px rgba(0,0,0,.12);}
+    .map-caption{font-size:.76rem;color:var(--text-mid);margin-top:.5rem;font-style:italic;}
+    .info-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2.5rem;}
+    .info-card{background:#fff;border-top:3px solid var(--accent);padding:1.1rem 1.2rem;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    .info-card h4{font-family:'Raleway',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem;}
+    .info-card p{font-size:.85rem;color:var(--text-mid);}
+    .mini-timeline{margin-bottom:2.5rem;}
+    .mt-entry{display:flex;gap:1rem;margin-bottom:1rem;}
+    .mt-year{min-width:65px;text-align:right;font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:var(--accent);padding-top:.1rem;}
+    .mt-bar{width:3px;background:var(--accent);flex-shrink:0;border-radius:2px;}
+    .mt-content{font-size:.87rem;color:var(--text-mid);}
+    .mt-content strong{display:block;color:var(--text-dark);font-family:'Raleway',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.04em;margin-bottom:.1rem;}
+    .sidebar-box{background:#fff;border-top:4px solid var(--forest);padding:1.4rem;margin-bottom:1.6rem;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    .sidebar-box h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--forest);margin-bottom:.9rem;padding-bottom:.4rem;border-bottom:2px solid var(--cream-dark);}
+    .fact-list{list-style:none;}
+    .fact-list li{font-size:.83rem;color:var(--text-mid);padding:.4rem 0;border-bottom:1px solid var(--cream-dark);display:grid;grid-template-columns:100px 1fr;gap:.5rem;}
+    .fact-list li span:first-child{font-family:'Raleway',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);}
+    .nav-links{list-style:none;}
+    .nav-links li{border-bottom:1px solid var(--cream-dark);}
+    .nav-links li a{display:block;padding:.5rem .3rem;font-family:'Raleway',sans-serif;font-size:.82rem;color:var(--text-mid);transition:color .15s,padding-left .15s;}
+    .nav-links li a::before{content:'› ';color:var(--ochre);}
+    .nav-links li a:hover{color:var(--earth);padding-left:.4rem;}
+    .nav-links li a.active{color:var(--accent);font-weight:700;}
+    footer{background:var(--text-dark);color:var(--cream);padding:2rem 0 0;}
+    .footer-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;}
+    .footer-inner p{font-size:.82rem;color:rgba(247,240,227,.6);}
+    .footer-inner a{color:var(--gold);}
+    .footer-bottom{background:rgba(0,0,0,.3);text-align:center;padding:.8rem;font-family:'Raleway',sans-serif;font-size:.72rem;color:rgba(247,240,227,.4);letter-spacing:.05em;}
+    @media(max-width:900px){.page-wrap{grid-template-columns:1fr;}.hero-inner{grid-template-columns:1fr;}.hero-stats{grid-template-columns:repeat(4,1fr);}.group-hero h1{font-size:2rem;}.info-cards{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <span>Maroon Villages in Suriname — Group Profiles</span>
+  <span><a href="../index.html">← Back to Home</a></span>
+</div>
+<header>
+  <div class="header-inner">
+    <a class="logo-wrap" href="../index.html">
+      <svg class="logo-icon" viewBox="0 0 44 44" fill="none">
+        <circle cx="22" cy="22" r="21" stroke="#c8822a" stroke-width="1.5"/>
+        <circle cx="22" cy="22" r="13" stroke="#c8822a" stroke-width="1" stroke-dasharray="3 2"/>
+        <path d="M22 5 L22 39 M5 22 L39 22" stroke="#e8b04a" stroke-width="1.2"/>
+        <path d="M22 9 Q28 15 22 22 Q16 15 22 9Z" fill="#c8822a" opacity="0.8"/>
+        <path d="M22 35 Q16 29 22 22 Q28 29 22 35Z" fill="#c8822a" opacity="0.8"/>
+        <circle cx="22" cy="22" r="3.5" fill="#e8b04a"/>
+      </svg>
+      <div class="logo-text"><strong>Maroon Villages</strong><span>in Suriname</span></div>
+    </a>
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#villages">Groups</a> / Paramaka</div>
+  </div>
+</header>
+<div class="group-nav-strip">
+  <div class="group-nav-inner">
+    <span class="gn-label">Groups:</span>
+    <a class="gn-link" href="ndyuka.html">Ndyuka</a>
+    <a class="gn-link" href="saramaka.html">Saramaka</a>
+    <a class="gn-link" href="matawai.html">Matawai</a>
+    <a class="gn-link current" href="paramaka.html">Paramaka</a>
+    <a class="gn-link" href="aluku.html">Aluku</a>
+    <a class="gn-link" href="kwinti.html">Kwinti</a>
+  </div>
+</div>
+<div class="group-hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Eastern Branch · Marowijne District</div>
+      <h1>Paramaka</h1>
+      <p class="aka">Also known as: Paamaka · Paramacca · Paramaccan</p>
+      <p>The Paramaka (Paamaka) are an Eastern Branch Maroon group occupying the Marowijne River basin and the Lawa River near the Suriname–French Guiana border. They speak a variant of Ndyuka and have historically been closely associated with the Ndyuka, at times as near-vassals before establishing full independence. Gold mining is the dominant economic activity in many Paramaka villages today.</p>
+    </div>
+    <div class="hero-stats"><div class="stat-box"><strong>~11,000</strong><span>Population (2018 est.)</span></div><div class="stat-box"><strong>~1750s</strong><span>Relations with Ndyuka</span></div><div class="stat-box"><strong>Ndyuka</strong><span>Language</span></div><div class="stat-box"><strong>Eastern</strong><span>Branch</span></div></div>
+  </div>
+</div>
+<div class="pattern-bar"></div>
+<div class="page-wrap">
+  <main>
+    <div class="map-section">
+      <h2 class="section-heading accent-head">Geographic Territory</h2>
+      <div class="map-label">Primary territory — Marowijne &amp; Lawa River basin, eastern Suriname</div>
+      <div id="group-map"></div>
+      <p class="map-caption">Map shows the Paramaka territory in the Marowijne River basin in eastern Suriname, bordering French Guiana. The Lawa River (upper Marowijne) forms part of the Suriname–French Guiana border.</p>
+    </div>
+    <div class="prose-section">
+      <h2 class="section-heading">History</h2>
+      <p>The Paramaka formed as a distinct Maroon community in the Marowijne River basin in the 18th century. They speak a variant of Ndyuka and have historically been closely associated with the Ndyuka people. During the first half of the 19th century, the Paramaka established formal relations with the Ndyuka and were in many respects treated as Ndyuka vassals, though they maintained their own identity, leadership structures, and territorial base.</p>
+<p>Their territory lies along the Marowijne River, which forms the border between Suriname and French Guiana. This cross-border position has shaped Paramaka life in important ways — creating close ties with communities in French Guiana, and placing them in the middle of the complex politics surrounding movement across that border during both the gold rush era and the Interior War.</p>
+<p>The Paramaka did not sign a formal peace treaty in the same manner as the Ndyuka, Saramaka, and Matawai. Their relationship with colonial and later national authorities was mediated largely through their association with the Ndyuka. This has created some ambiguity around their formal legal status and land rights, which, like all Maroon groups, remain unrecognised by the Surinamese state.</p>
+<p>Today, many Paramaka men are involved in small-scale gold mining. The Minority Rights Group notes that Paramaka communities, alongside Aukan (Ndyuka) and Matawai communities, have become economically dependent on gold mining in some villages. Mercury contamination and associated health problems — malaria, sexually transmitted diseases, mercury poisoning — are documented concerns. A significant portion of the Paramaka population now lives in Paramaribo and in French Guiana.</p>
+    </div>
+    <div class="mini-timeline">
+      <h2 class="section-heading">Key Dates</h2>
+      <div class="mt-entry"><div class="mt-year">18th C</div><div class="mt-bar"></div><div class="mt-content"><strong>Formation</strong>Paramaka establish themselves as a distinct Maroon community in the Marowijne basin.</div></div><div class="mt-entry"><div class="mt-year">Early 19th C</div><div class="mt-bar"></div><div class="mt-content"><strong>Ndyuka Relations</strong>Paramaka establish formal relations with the Ndyuka; function partly as Ndyuka vassals for decades.</div></div><div class="mt-entry"><div class="mt-year">1975</div><div class="mt-bar"></div><div class="mt-content"><strong>Independence</strong>Suriname independence; cross-border dynamics with French Guiana become more complex.</div></div><div class="mt-entry"><div class="mt-year">1986-92</div><div class="mt-bar"></div><div class="mt-content"><strong>Interior War</strong>War disrupts communities throughout the Marowijne basin.</div></div><div class="mt-entry"><div class="mt-year">Present</div><div class="mt-bar"></div><div class="mt-content"><strong>Gold Mining</strong>Gold mining becomes dominant economic activity; mercury contamination is a serious concern.</div></div>
+    </div>
+  </main>
+  <aside>
+    <div class="sidebar-box">
+      <h3>At a Glance</h3>
+      <ul class="fact-list"><li><span>Branch</span><span>Eastern</span></li><li><span>River(s)</span><span>Marowijne, Lawa</span></li><li><span>District</span><span>Marowijne, Sipaliwini</span></li><li><span>Language</span><span>Ndyuka variant</span></li><li><span>Treaty</span><span>Informal, ~1750s</span></li><li><span>Population</span><span>~11,000 (2018)</span></li><li><span>Religion</span><span>Winti / Evangelical</span></li><li><span>Governance</span><span>Granman + kapiteins</span></li><li><span>Economy</span><span>Gold mining</span></li><li><span>Diaspora</span><span>French Guiana, Netherlands</span></li></ul>
+    </div>
+    <div class="sidebar-box">
+      <h3>Other Group Profiles</h3>
+      <ul class="nav-links">
+        <li><a href="ndyuka.html">Ndyuka (Aukan)</a></li>
+        <li><a href="saramaka.html">Saramaka (Saamaka)</a></li>
+        <li><a href="matawai.html">Matawai</a></li>
+        <li><a href="paramaka.html" class="active">Paramaka (Paamaka)</a></li>
+        <li><a href="aluku.html">Aluku (Boni)</a></li>
+        <li><a href="kwinti.html">Kwinti</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-box">
+      <h3>Related</h3>
+      <ul class="nav-links">
+        <li><a href="../index.html#history">Full History Timeline</a></li>
+        <li><a href="../index.html#present">Present Day Challenges</a></li>
+        <li><a href="../index.html#villages">Group Comparison Table</a></li>
+        <li><a href="../index.html#news">News &amp; Announcements</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2025 Maroon Villages in Suriname &nbsp;|&nbsp; <a href="../index.html">Home</a></p>
+    <p>Sources: Wikipedia, Minority Rights Group, Cultural Survival, Encyclopedia.com</p>
+  </div>
+  <div class="footer-bottom">v1.1 &nbsp;|&nbsp; Paramaka Group Profile</div>
+</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const map = L.map('group-map').setView([4.0, -54.5], 8);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 14
+  }).addTo(map);
+  L.polygon([[4.5, -54.2], [4.2, -54.0], [3.8, -54.1], [3.5, -54.4], [3.4, -54.8], [3.6, -55.2], [4.0, -55.3], [4.4, -55.0]], {color:'#1a4a5a',weight:2,fillColor:'#1a4a5a',fillOpacity:0.15}).addTo(map)
+    .bindTooltip('Paramaka Traditional Territory', {sticky:true});
+
+L.marker([4.0, -54.5], {icon: L.divIcon({
+html: `<div style="background:#1a4a5a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">🌊</div>`,
+iconSize:[28,28],iconAnchor:[14,14],className:’’
+}))).addTo(map).bindPopup(’<strong>Marowijne River Basin</strong><br>Core Paramaka territory along the Marowijne River. The river forms the border with French Guiana; many Paramaka have cross-border family ties.’);
+L.marker([3.7, -54.3], {icon: L.divIcon({
+html: `<div style="background:#1a4a5a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">🌊</div>`,
+iconSize:[28,28],iconAnchor:[14,14],className:’’
+}))).addTo(map).bindPopup(’<strong>Lawa River</strong><br>Upper section of the Marowijne, forming the Suriname–French Guiana border. The Lawa River area is also shared with Aluku communities across the border.’);
+L.marker([3.9, -54.8], {icon: L.divIcon({
+html: `<div style="background:#1a4a5a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">⛏</div>`,
+iconSize:[28,28],iconAnchor:[14,14],className:’’
+}))).addTo(map).bindPopup(’<strong>Gold Mining Zone</strong><br>Much of Paramaka territory overlaps with gold-rich areas. Paramaka communities are significantly involved in small-scale gold mining, alongside N’djuka and Matawai miners.’);
+</script>
+
+</body>
+</html>
