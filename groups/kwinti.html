@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kwinti — Maroon Villages in Suriname</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root {
       --forest:#1a3a2a;--canopy:#2d5e3f;--earth:#7a3f1e;--ochre:#c8822a;--gold:#e8b04a;
@@ -132,7 +131,7 @@
     <div class="map-section">
       <h2 class="section-heading accent-head">Geographic Territory</h2>
       <div class="map-label">Primary territory — Coppename River, central-west Suriname</div>
-      <div id="group-map"></div>
+      <div id="group-map" style="width:100%;height:420px;min-height:420px;display:block;"></div>
       <p class="map-caption">Map shows the Kwinti homeland along the Coppename River in central-west Suriname. Their territory is the most westerly of the six Maroon groups.</p>
     </div>
 </div>
@@ -186,31 +185,74 @@
   </div>
   <div class="footer-bottom">v1.1 &nbsp;|&nbsp; Kwinti Group Profile</div>
 </footer>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-const map = L.map('group-map').setView([4.55, -56.75], 9);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 14
-  }).addTo(map);
-  L.polygon([[5.0, -56.4], [4.8, -56.2], [4.5, -56.3], [4.2, -56.5], [4.2, -57.0], [4.5, -57.2], [4.9, -57.0]], {color:'#2a4a1a',weight:2,fillColor:'#2a4a1a',fillOpacity:0.15}).addTo(map)
-    .bindTooltip('Kwinti Traditional Territory', {sticky:true});
 
-L.marker([4.55, -56.75], {icon: L.divIcon({
-html: `<div style="background:#2a4a1a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">🌱</div>`,
-iconSize:[28,28],iconAnchor:[14,14],className:’’
-}))).addTo(map).bindPopup(’<strong>Coppename River</strong><br>The Kwinti heartland along the Coppename River in central-west Suriname. The most westerly of the six Maroon territories. Villages are small — the entire group numbers only around 1,200 people.’);
-L.marker([4.4, -56.5], {icon: L.divIcon({
-html: `<div style="background:#2a4a1a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">🏛</div>`,
-iconSize:[28,28],iconAnchor:[14,14],className:’’
-}))).addTo(map).bindPopup(’<strong>No Granman</strong><br>The Kwinti are the only Maroon group without a paramount chief (granman). Governance is distributed among kapiteins, making their political structure more decentralised than the other five groups.’);
-// Force recalculation at multiple intervals to handle layout shifts
-setTimeout(function() { map.invalidateSize(); }, 100);
-setTimeout(function() { map.invalidateSize(); }, 500);
-setTimeout(function() { map.invalidateSize(); }, 1000);
-});
+<!-- Remove Leaflet -->
+
+<!-- Google Maps replaces it -->
+
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('group-map'), {
+    center: {lat: 5.0, lng: -56.35},
+    zoom: 10,
+    mapTypeId: 'terrain',
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      mapTypeIds: ['terrain', 'roadmap', 'satellite', 'hybrid']
+    },
+    streetViewControl: false,
+    fullscreenControl: true
+  });
+
+  // River corridor polyline
+  var path = new google.maps.Polyline({
+    path: [{lat: 4.85, lng: -56.5}, {lat: 4.98, lng: -56.32}, {lat: 5.1, lng: -56.15}, {lat: 5.18, lng: -56.05}],
+    geodesic: true,
+    strokeColor: '#1a3a0e',
+    strokeOpacity: 0.85,
+    strokeWeight: 4
+  });
+  path.setMap(map);
+
+  // Markers
+  var infoWindow = new google.maps.InfoWindow();
+  var marker0 = new google.maps.Marker({
+    position: {lat: 5.163, lng: -56.074},
+    map: map,
+    title: 'Witagron',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#1a3a0e',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker0.addListener('click', function() {
+    infoWindow.setContent('<strong>Witagron</strong><br><span style="font-size:0.85rem">Kwinti head captain seat on Coppename River. Formerly Bitagron.</span>');
+    infoWindow.open(map, marker0);
+  });  var marker1 = new google.maps.Marker({
+    position: {lat: 5.14, lng: -56.09},
+    map: map,
+    title: 'Kaaimanston',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#1a3a0e',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker1.addListener('click', function() {
+    infoWindow.setContent('<strong>Kaaimanston</strong><br><span style="font-size:0.85rem">Sister village to Witagron. Partially destroyed during 1987 Interior War.</span>');
+    infoWindow.open(map, marker1);
+  });
+}
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPjB3EhOZYZPhBn9SVezWRUrBdXZUvB4&callback=initMap" async defer></script>
 
 </body>
 </html>
