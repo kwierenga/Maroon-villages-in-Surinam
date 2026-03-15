@@ -169,7 +169,7 @@ header {
   color: var(--accent); margin-bottom: 0.5rem;
 }
 #group-map {
-  width: 100%; height: 400px;
+  width: 100%; height: 420px; min-height: 420px; display: block;
   border: 3px solid var(--accent);
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
@@ -361,18 +361,20 @@ footer {
 
 <!-- Page body -->
 
+<div style="max-width:1200px;margin:0 auto 0;padding:2rem 1.5rem 0;">
+<!-- Map -->
+    <div class="map-section">
+      <h2 class="section-heading accent-head">Geographic Territory</h2>
+      <div class="map-label">Primary territory — Tapanahoni &amp; Marowijne River Basin, NE Suriname</div>
+      <div id="group-map"></div>
+      <p class="map-caption">Map shows the Ndyuka heartland along the Tapanahoni and Marowijne rivers in Marowijne District. Villages are distributed along river banks; canoe remains the primary means of transport between communities. Zoom out to see the broader Suriname context.</p>
+    </div>
+</div>
+
 <div class="page-wrap">
   <main>
 
 ```
-<!-- Map -->
-<div class="map-section">
-  <h2 class="section-heading accent-head">Geographic Territory</h2>
-  <div class="map-label">Primary territory — Tapanahoni &amp; Marowijne River Basin, NE Suriname</div>
-  <div id="group-map"></div>
-  <p class="map-caption">Map shows the Ndyuka heartland along the Tapanahoni and Marowijne rivers in Marowijne District. Villages are distributed along river banks; canoe remains the primary means of transport between communities. Zoom out to see the broader Suriname context.</p>
-</div>
-
 <!-- Key facts cards -->
 <div class="info-cards">
   <div class="info-card">
@@ -501,7 +503,8 @@ footer {
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-  // Ndyuka heartland: lower Tapanahoni River, NE Suriname
+document.addEventListener('DOMContentLoaded', function() {
+// Ndyuka heartland: lower Tapanahoni River, NE Suriname
   const map = L.map('group-map').setView([4.35, -54.95], 8);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -546,6 +549,11 @@ footer {
   })})
     .addTo(map)
     .bindPopup('<strong>Cottica River Region</strong><br>Ndyuka Cottica villages were among the most severely affected during the 1986–1992 Interior War. Many were razed by military forces.');
+  // Force recalculation at multiple intervals to handle layout shifts
+  setTimeout(function() { map.invalidateSize(); }, 100);
+  setTimeout(function() { map.invalidateSize(); }, 500);
+  setTimeout(function() { map.invalidateSize(); }, 1000);
+});
 </script>
 
 </body>
