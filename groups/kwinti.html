@@ -191,64 +191,39 @@
 <!-- Google Maps replaces it -->
 
 <script>
+function addMarker(map,iw,lat,lng,name,note,color) {
+  var m = new google.maps.Marker({
+    position:{lat:lat,lng:lng},map:map,title:name,
+    icon:{path:google.maps.SymbolPath.CIRCLE,scale:7,
+      fillColor:color,fillOpacity:0.9,strokeColor:'#fff',strokeWeight:2}
+  });
+  m.addListener('click',function(){
+    iw.setContent('<strong>'+name+'</strong><br><span style="font-size:0.8rem">'+note+'</span>');
+    iw.open(map,m);
+  });
+}
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('group-map'), {
-    center: {lat: 5.0, lng: -56.35},
-    zoom: 10,
-    mapTypeId: 'terrain',
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-      mapTypeIds: ['terrain', 'roadmap', 'satellite', 'hybrid']
-    },
-    streetViewControl: false,
-    fullscreenControl: true
+  var map = new google.maps.Map(document.getElementById('group-map'),{
+    center:{lat:5.15,lng:-56.08},zoom:10,mapTypeId:'terrain',
+    mapTypeControl:true,
+    mapTypeControlOptions:{mapTypeIds:['terrain','roadmap','satellite','hybrid']},
+    streetViewControl:false,fullscreenControl:true
   });
-
-  // River corridor polyline
-  var path = new google.maps.Polyline({
-    path: [{lat: 4.85, lng: -56.5}, {lat: 4.98, lng: -56.32}, {lat: 5.1, lng: -56.15}, {lat: 5.18, lng: -56.05}],
-    geodesic: true,
-    strokeColor: '#1a3a0e',
-    strokeOpacity: 0.85,
-    strokeWeight: 4
+  var iw = new google.maps.InfoWindow();
+  var paths = [[{lat:5.35,lng:-56.25},{lat:5.35,lng:-55.9},{lat:4.9,lng:-56.1},{lat:4.9,lng:-56.45},{lat:5.1,lng:-56.45}]];
+  paths.forEach(function(path){
+    new google.maps.Polygon({
+      paths:path,strokeColor:'#2a4a1a',strokeOpacity:0.9,strokeWeight:2,
+      fillColor:'#2a4a1a',fillOpacity:0.18,map:map
+    }).addListener('click',function(e){
+      iw.setContent('<em style="font-size:0.8rem;color:#7a3f1e">GPS-anchored territory polygon. Click a village marker for details.</em>');
+      iw.setPosition(e.latLng);iw.open(map);
+    });
   });
-  path.setMap(map);
-
-  // Markers
-  var infoWindow = new google.maps.InfoWindow();
-  var marker0 = new google.maps.Marker({
-    position: {lat: 5.163, lng: -56.074},
-    map: map,
-    title: 'Witagron',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#1a3a0e',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker0.addListener('click', function() {
-    infoWindow.setContent('<strong>Witagron</strong><br><span style="font-size:0.85rem">Kwinti head captain seat on Coppename River. Formerly Bitagron.</span>');
-    infoWindow.open(map, marker0);
-  });  var marker1 = new google.maps.Marker({
-    position: {lat: 5.14, lng: -56.09},
-    map: map,
-    title: 'Kaaimanston',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#1a3a0e',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker1.addListener('click', function() {
-    infoWindow.setContent('<strong>Kaaimanston</strong><br><span style="font-size:0.85rem">Sister village to Witagron. Partially destroyed during 1987 Interior War.</span>');
-    infoWindow.open(map, marker1);
-  });
+  addMarker(map,iw,-4.52,-56.79,'Bitagron','Kwinti granman residence; historically important; partially destroyed 1987 civil war; rebuilt post-w','#2a4a1a');
+  addMarker(map,iw,5.163,-56.074,'Witagron','Kwinti village on Coppename River; formerly Bitagron (renamed post-Interior War); residence of the K','#2a4a1a');
+  addMarker(map,iw,5.14,-56.09,'Kaaimanston','Kwinti village near Witagron on Coppename River; sister village to Witagron; partially destroyed dur','#2a4a1a');
+  addMarker(map,iw,5.14,-56.09,'Kaimanston','Kwinti village; Boven Coppename resort; sister village to Witagron; Planbureau Table 3.4 2013','#2a4a1a');
 }
 </script>
 
