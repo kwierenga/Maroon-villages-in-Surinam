@@ -191,96 +191,66 @@
 <!-- Google Maps replaces it -->
 
 <script>
+function addMarker(map,iw,lat,lng,name,note,color) {
+  var m = new google.maps.Marker({
+    position:{lat:lat,lng:lng},map:map,title:name,
+    icon:{path:google.maps.SymbolPath.CIRCLE,scale:7,
+      fillColor:color,fillOpacity:0.9,strokeColor:'#fff',strokeWeight:2}
+  });
+  m.addListener('click',function(){
+    iw.setContent('<strong>'+name+'</strong><br><span style="font-size:0.8rem">'+note+'</span>');
+    iw.open(map,m);
+  });
+}
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('group-map'), {
-    center: {lat: 4.2, lng: -55.65},
-    zoom: 8,
-    mapTypeId: 'terrain',
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-      mapTypeIds: ['terrain', 'roadmap', 'satellite', 'hybrid']
-    },
-    streetViewControl: false,
-    fullscreenControl: true
+  var map = new google.maps.Map(document.getElementById('group-map'),{
+    center:{lat:4.2,lng:-55.5},zoom:8,mapTypeId:'terrain',
+    mapTypeControl:true,
+    mapTypeControlOptions:{mapTypeIds:['terrain','roadmap','satellite','hybrid']},
+    streetViewControl:false,fullscreenControl:true
   });
-
-  // River corridor polyline
-  var path = new google.maps.Polyline({
-    path: [{lat: 3.9, lng: -55.57}, {lat: 4.05, lng: -55.55}, {lat: 4.25, lng: -55.58}, {lat: 4.38, lng: -55.66}, {lat: 4.6, lng: -55.72}, {lat: 4.8, lng: -55.6}, {lat: 4.87, lng: -55.09}],
-    geodesic: true,
-    strokeColor: '#4a2e0e',
-    strokeOpacity: 0.85,
-    strokeWeight: 4
+  var iw = new google.maps.InfoWindow();
+  var paths = [[{lat:3.64,lng:-56.26},{lat:5.35,lng:-55.01},{lat:5.22,lng:-54.91},{lat:3.87,lng:-55.44},{lat:3.83,lng:-55.48},{lat:3.72,lng:-55.62}]];
+  paths.forEach(function(path){
+    new google.maps.Polygon({
+      paths:path,strokeColor:'#8B5A2B',strokeOpacity:0.9,strokeWeight:2,
+      fillColor:'#8B5A2B',fillOpacity:0.18,map:map
+    }).addListener('click',function(e){
+      iw.setContent('<em style="font-size:0.8rem;color:#7a3f1e">GPS-anchored territory polygon. Click a village marker for details.</em>');
+      iw.setPosition(e.latLng);iw.open(map);
+    });
   });
-  path.setMap(map);
-
-  // Markers
-  var infoWindow = new google.maps.InfoWindow();
-  var marker0 = new google.maps.Marker({
-    position: {lat: 3.888591, lng: -55.571976},
-    map: map,
-    title: 'Kajana',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#4a2e0e',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker0.addListener('click', function() {
-    infoWindow.setContent('<strong>Kajana</strong><br><span style="font-size:0.85rem">Saramaka village on Gran Rio. Radio station, first-aid centre, school.</span>');
-    infoWindow.open(map, marker0);
-  });  var marker1 = new google.maps.Marker({
-    position: {lat: 4.254652, lng: -55.443449},
-    map: map,
-    title: 'Pikin Slee',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#4a2e0e',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker1.addListener('click', function() {
-    infoWindow.setContent('<strong>Pikin Slee</strong><br><span style="font-size:0.85rem">Second largest Saramaka village. Home of the Saamaka Maroon Museum.</span>');
-    infoWindow.open(map, marker1);
-  });  var marker2 = new google.maps.Marker({
-    position: {lat: 4.375094, lng: -55.4014},
-    map: map,
-    title: 'Aurora',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#4a2e0e',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker2.addListener('click', function() {
-    infoWindow.setContent('<strong>Aurora</strong><br><span style="font-size:0.85rem">Largest Saramaka village. Accessible by boat from Pokigron.</span>');
-    infoWindow.open(map, marker2);
-  });  var marker3 = new google.maps.Marker({
-    position: {lat: 4.87, lng: -55.09},
-    map: map,
-    title: 'Brokopondo Reservoir',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#4a2e0e',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker3.addListener('click', function() {
-    infoWindow.setContent('<strong>Brokopondo Reservoir</strong><br><span style="font-size:0.85rem">Created 1964. Flooded approximately half of traditional Saramaka territory.</span>');
-    infoWindow.open(map, marker3);
-  });
+  addMarker(map,iw,-4.83,-55.46,'Atjoni','Jetty of Atjoni near Pokigron; departure point for river transport','#8B5A2B');
+  addMarker(map,iw,4.028284,-55.466058,'Goddo','Village at source of Upper Suriname River; confluence of Gran Rio and Pikin Rio; Tapawatrasula rapid','#8B5A2B');
+  addMarker(map,iw,4.009547,-55.470898,'Djumu','Near Goddo; airstrip (Djoemoe Airstrip); source area of Upper Suriname; GPS verified by Google Earth','#8B5A2B');
+  addMarker(map,iw,4.120507,-55.446337,'Tumaripa','Village on Upper Suriname River list; GPS verified by Google Earth','#8B5A2B');
+  addMarker(map,iw,-5.72,-55.46,'Santigron','Maroon village 30km from Paramaribo on Saramacca River; mixed Ndyuka, Saramaka and Matawai; ~1750 re','#8B5A2B');
+  addMarker(map,iw,-3.76,-56.12,'Asidonhopo','Current residence of the Saramaka paramount chief (gaanman); on Pikin Rio shortly before confluence ','#8B5A2B');
+  addMarker(map,iw,4.375094,-55.4014,'Aurora','Largest village of the Saramaka Maroons; accessible by boat from Pokigron or Laduani Airstrip; healt','#8B5A2B');
+  addMarker(map,iw,-4.695,-55.542,'Nieuw Aurora','Extension of Aurora; school achieved 100% graduation rate 2017; part of Aurora twin-village cluster','#8B5A2B');
+  addMarker(map,iw,-4.69,-55.545,'Laduani','Small village adjacent to Aurora; location of Aurora health centre and Laduani Airstrip; medical pos','#8B5A2B');
+  addMarker(map,iw,4.254652,-55.443449,'Pikin Slee','Second largest Saramaka village (~3000-4000 people); home of Saamaka Maroon Museum (founded 14 Nov 2','#8B5A2B');
+  addMarker(map,iw,4.220936,-55.443365,'Botopasi','Saramaka village ~3.5km south of Pikin Slee; ~740 people (2001); school clinic church; served by Bot','#8B5A2B');
+  addMarker(map,iw,-3.901,-55.573,'Kajana','Saramaka village on Gran Rio; population ~200; first-aid medical centre; primary school; kindergarte','#8B5A2B');
+  addMarker(map,iw,5.167,-52.636,'Saramaka quarter Kourou','Saramaka neighbourhood of Kourou; Saramaka arrived 1967 to build Guiana Space Centre; shanty town be','#8B5A2B');
+  addMarker(map,iw,5.07,-55.0,'Nieuw-Lombe','Saramaka transmigration village in Brokopondo District; Dutch name Nieuw Lombe; Saramaccan name Nyun','#8B5A2B');
+  addMarker(map,iw,4.205959,-55.434172,'Kambaloa','Saramaka village with MZ health post on Upper Suriname River; no individual Wikipedia article; confi','#8B5A2B');
+  addMarker(map,iw,4.313288,-55.411595,'Goejaba','Saramaka village 8km northeast of Pikin Slee; named in MZ ENT report alongside Soekoenale Jaw Jaw Po','#8B5A2B');
+  addMarker(map,iw,4.424041,-55.373906,'Jaw Jaw','Saramaka village on Upper Suriname River; MZ clinic confirmed; named in MZ ENT screening report (201','#8B5A2B');
+  addMarker(map,iw,5.003,-55.175,'Brownsweg','Town at end of paved Afobaka road; gateway to Brokopondo Reservoir and Brownsberg Nature Park; mainl','#8B5A2B');
+  addMarker(map,iw,4.49151,-55.3661,'Pokigron','Main village at southern end of paved road (via Brownsweg / Avobakaweg); gateway to Upper Suriname R','#8B5A2B');
+  addMarker(map,iw,5.180674,-55.078264,'Klaaskreek','Saramaka transmigration village; main village of Klaaskreek resort; 12 kapiteins 3 basjas; MZ health','#8B5A2B');
+  addMarker(map,iw,-5.07,-55.0,'Njun Lombe','Saramaka transmigration village; 9 kapiteins 2 basjas; no running water since 2012; Planbureau 2013 ','#8B5A2B');
+  addMarker(map,iw,-4.993,-55.094,'Afobaka','Town at Afobaka Dam; MZ health centre confirmed; GLO school (OS) 5 teachers 60 pupils; gateway to Br','#8B5A2B');
+  addMarker(map,iw,4.035132,-55.4587,'Solan','Saramaka village; Boven Suriname resort; Planbureau 2013; GPS verified by Google Earth','#8B5A2B');
+  addMarker(map,iw,3.888591,-55.571976,'Stonuku','Saramaka village; Boven Suriname resort; Planbureau 2013; GPS verified by Google Earth','#8B5A2B');
+  addMarker(map,iw,4.477761,-55.359158,'Gingeston','Saramaka village on Upper Suriname River between Pokigron and Jaw Jaw; GPS verified by Google Earth','#8B5A2B');
+  addMarker(map,iw,4.450841,-55.353377,'Abenaston','Saramaka village on Upper Suriname River; GPS verified by Google Earth','#8B5A2B');
+  addMarker(map,iw,4.193784,-55.431652,'Dang','Saramaka village on Gran Rio between Kambaloa and Malobi; GPS verified by Google Earth','#8B5A2B');
+  addMarker(map,iw,4.131437,-55.436576,'Koemboe','Saramaka village on Gran Rio south of Malobi; GPS verified by Google Earth','#8B5A2B');
+  addMarker(map,iw,4.400516,-55.36778,'Malrosee','Saramaka village on Upper Suriname River; GPS verified by Google Earth','#8B5A2B');
+  addMarker(map,iw,4.050647,-55.44237,'Dahomey','Saramaka village on Gran Rio; named after or near Dahome rapids; GPS verified by Google Earth','#8B5A2B');
+  addMarker(map,iw,4.875,-55.09,'Brokopondo Reservoir','Created 1964. Flooded approx. half of traditional Saramaka territory.','#e8b04a');
 }
 </script>
 
