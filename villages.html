@@ -22,14 +22,14 @@
       --border:     #c8822a44;
 
 ```
-  /* Group colours */
-  --c-ndyuka:   #1a5c7a;
-  --c-saramaka: #5a3a1a;
-  --c-matawai:  #3a5a1a;
-  --c-paramaka: #1a4a5a;
-  --c-aluku:    #8B2500;
-  --c-kwinti:   #2a4a1a;
-  --c-other:    #555;
+  /* Group colours — dark enough for white text at 0.62rem */
+  --c-ndyuka:   #0d3d52;
+  --c-saramaka: #4a2e0e;
+  --c-matawai:  #2a4a0e;
+  --c-paramaka: #0d3040;
+  --c-aluku:    #7a1800;
+  --c-kwinti:   #1a3a0e;
+  --c-other:    #444;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -343,11 +343,11 @@ td {
 .badge {
   display: inline-block;
   font-family: 'Raleway', sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 2px 7px;
+  padding: 3px 8px;
   border-radius: 2px;
   color: white;
   white-space: nowrap;
@@ -591,8 +591,8 @@ function groupClass(g) {
   return 'other';
 }
 const GROUP_COLORS = {
-  ndyuka:'#1a5c7a', saramaka:'#5a3a1a', matawai:'#3a5a1a',
-  paramaka:'#1a4a5a', aluku:'#8B2500', kwinti:'#2a4a1a', other:'#555'
+  ndyuka:'#0d3d52', saramaka:'#4a2e0e', matawai:'#2a4a0e',
+  paramaka:'#0d3040', aluku:'#7a1800', kwinti:'#1a3a0e', other:'#444'
 };
 
 // ── Filter ──
