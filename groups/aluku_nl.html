@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kwinti — Maroon Villages in Suriname</title>
+  <title>Aluku — Maroon Villages in Suriname</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --forest:#1a3a2a;--canopy:#2d5e3f;--earth:#7a3f1e;--ochre:#c8822a;--gold:#e8b04a;
       --river:#3a6b5e;--cream:#f7f0e3;--cream-dark:#ede3d0;--text-dark:#1e1a14;--text-mid:#3d3228;
-      --accent:#2a4a1a;--accent-lt:#ddeada;
+      --accent:#5a1a0a;--accent-lt:#f0dada;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -101,15 +101,25 @@
     .lang-btn:hover { background:rgba(255,255,255,0.1);color:var(--gold); }
     .lang-btn.active { background:var(--ochre);color:white;border-color:var(--ochre); }
   </style>
+
+  <style>
+    .lang-toggle { display:flex;gap:4px;align-items:center;margin-left:auto; }
+    .lang-btn { font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;
+      letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:2px;
+      border:1px solid rgba(247,240,227,0.3);background:transparent;
+      color:rgba(247,240,227,0.6);cursor:pointer;transition:all 0.2s;text-decoration:none; }
+    .lang-btn:hover { background:rgba(255,255,255,0.1);color:var(--gold); }
+    .lang-btn.active { background:var(--ochre);color:white;border-color:var(--ochre); }
+  </style>
 </head>
 <body>
 <div class="top-bar">
   <span>Maroon Villages in Suriname — Group Profiles</span>
-  <span><a href="../index.html">← Back to Home</a></span>
+  <span><a href="../index_nl.html">← Back to Home</a></span>
 </div>
 <header>
   <div class="header-inner">
-    <a class="logo-wrap" href="../index.html">
+    <a class="logo-wrap" href="../index_nl.html">
       <svg class="logo-icon" viewBox="0 0 44 44" fill="none">
         <circle cx="22" cy="22" r="21" stroke="#c8822a" stroke-width="1.5"/>
         <circle cx="22" cy="22" r="13" stroke="#c8822a" stroke-width="1" stroke-dasharray="3 2"/>
@@ -120,50 +130,56 @@
       </svg>
       <div class="logo-text"><strong>Maroon Villages</strong><span>in Suriname</span></div>
     </a>
-    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../villages.html">Village Directory</a> / Kwinti</div>
+    <div class="breadcrumb"><a href="../index_nl.html">Home</a> / <a href="../villages_nl.html">Dorphenregister</a> / Aluku</div>
   </div>
 
     <div class="lang-toggle">
-      <a href="kwinti.html" class="lang-btn active">EN</a>
-      <a href="kwinti_nl.html" class="lang-btn">NL</a>
-      <a href="kwinti_sr.html" class="lang-btn">SR</a>
+      <a href="aluku_nl.html" class="lang-btn active">EN</a>
+      <a href="aluku_nl.html" class="lang-btn">NL</a>
+      <a href="aluku_sr.html" class="lang-btn">SR</a>
     </div>
 
     <div class="lang-toggle">
-      <a href="kwinti.html" class="lang-btn active">EN</a>
-      <a href="kwinti_nl.html" class="lang-btn">NL</a>
-      <a href="kwinti_sr.html" class="lang-btn">SR</a>
+      <a href="aluku_nl.html" class="lang-btn active">EN</a>
+      <a href="aluku_nl.html" class="lang-btn">NL</a>
+      <a href="aluku_sr.html" class="lang-btn">SR</a>
+    </div>
+
+    <div class="lang-toggle">
+      <a href="aluku_nl.html" class="lang-btn">EN</a>
+      <a href="aluku_nl.html" class="lang-btn active">NL</a>
+      <a href="aluku_sr.html" class="lang-btn">SR</a>
     </div>
 </header>
 <div class="group-nav-strip">
   <div class="group-nav-inner">
-    <span class="gn-label">Groups:</span>
-    <a class="gn-link" href="ndyuka.html">Ndyuka</a>
-    <a class="gn-link" href="saramaka.html">Saramaka</a>
-    <a class="gn-link" href="matawai.html">Matawai</a>
-    <a class="gn-link" href="paramaka.html">Paramaka</a>
-    <a class="gn-link" href="aluku.html">Aluku</a>
-    <a class="gn-link current" href="kwinti.html">Kwinti</a>
+    <span class="gn-label">Groepen:</span>
+    <a class="gn-link" href="ndyuka_nl.html">Ndyuka</a>
+    <a class="gn-link" href="saramaka_nl.html">Saramaka</a>
+    <a class="gn-link" href="matawai_nl.html">Matawai</a>
+    <a class="gn-link" href="paramaka_nl.html">Paramaka</a>
+    <a class="gn-link current" href="aluku_nl.html">Aluku</a>
+    <a class="gn-link" href="kwinti_nl.html">Kwinti</a>
   </div>
 </div>
 <div class="group-hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge">Central Branch · Coppename River</div>
-      <h1>Kwinti</h1>
-      <p class="aka">Also known as: Kwenti · Quinti</p>
-      <p>The Kwinti are the smallest of the six major Maroon groups, with an estimated population of around 1,200 people. They are settled along the Coppename River in central-west Suriname. Uniquely among the six groups, the Kwinti have no paramount granman — the only Maroon group without this tier of governance. They signed the last Maroon peace treaty with Surinamese authorities in 1887, more than 125 years after the first.</p>
+      <div class="hero-badge">Eastern Branch · Lawa River / French Guiana</div>
+      <h1>Aluku</h1>
+      <p class="aka">Also known as: Boni · Aluku Nenge · Opu Nenge</p>
+      <p>De Aluku — ook bekend als de Boni — voerden de langste weerstandsoorlog van enige Marron-groep tegen de Nederlandse koloniale autoriteit. Hun oorlogen eindigden pas in 1793 toen een alliantie van Nederlandse troepen en Ndyuka-vrijwilligers hen definitief versloeg. Hun kerngebied verschoof naar de Lawa aan de Surinaams-Frans-Guyana-grens, en tegenwoordig wonen de meeste Aluku in Frans-Guyana als Franse staatsburgers — de enige Marron-groep met EU-burgerschap.</p>
     </div>
-    <div class="hero-stats"><div class="stat-box"><strong>~1,200</strong><span>Population (2018 est.)</span></div><div class="stat-box"><strong>1887</strong><span>Peace Treaty</span></div><div class="stat-box"><strong>Ndyuka variant</strong><span>Language</span></div><div class="stat-box"><strong>Central</strong><span>Branch</span></div></div>
+    <div class="hero-stats"><div class="stat-box"><strong>~11,600</strong><span>Population (2018 est.)</span></div><div class="stat-box"><strong>1793</strong><span>Wars ended</span></div><div class="stat-box"><strong>Ndyuka</strong><span>Taal</span></div><div class="stat-box"><strong>Oostelijk</strong><span>Tak</span></div></div>
   </div>
 </div>
 <div class="pattern-bar"></div>
 <div style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem 0;">
     <div class="map-section">
-      <h2 class="section-heading accent-head">Geographic Territory</h2>
-      <div class="map-label">Primary territory — Coppename River, central-west Suriname</div>
+      <h2 class="section-heading accent-head">Geografisch Territorium</h2>
+      <div class="map-label">Primary territory — Lawa River, Suriname-French Guiana border</div>
       <div id="group-map" style="width:100%;height:420px;min-height:420px;display:block;"></div>
-      <p class="map-caption">Map shows the Kwinti homeland along the Coppename River in central-west Suriname. Their territory is the most westerly of the six Maroon groups.</p>
+      <p class="map-caption">Map shows the Aluku territory centred on the Lawa River, which forms the Suriname-French Guiana border. Most Aluku communities today are on the French Guiana side of the river, where Aluku people hold French citizenship.</p>
     </div>
 </div>
 
@@ -171,31 +187,31 @@
   <main>
     <div class="prose-section">
       <h2 class="section-heading">History</h2>
-      <p>The Kwinti are the smallest and least-documented of the six Maroon groups. They settled along the Coppename River in central-west Suriname — the most westerly of the six Maroon territories. Their relatively small population and geographic isolation have limited their visibility in historical records compared to the larger groups, yet their story is an integral part of the broader Maroon history of resistance and survival.</p>
-<p>The Kwinti signed a formal peace treaty with Surinamese authorities in 1887 — the last of the six groups to do so, and more than 125 years after the first Ndyuka treaty. This long gap reflects both the Kwinti's geographic isolation in the western interior and the evolving relationship between the Surinamese colonial and national administration and its Maroon communities.</p>
-<p>Uniquely among the six groups, the Kwinti have no paramount granman. Their governance structure relies instead on kapiteins governing individual communities, making their political organisation more decentralised than the other five groups. The reasons for this difference are not fully documented in the historical record, but it may reflect both the small size of the group and its geographic situation.</p>
-<p>The Kwinti, like all Maroon groups, lost their treaty protections when Suriname abrogated the old peace treaties after independence in 1975. Their ancestral lands remain without formal legal recognition by the Surinamese state. The Interior War of 1986–1992, though centred in the east of the country, had ripple effects on Kwinti communities as the broader political crisis disrupted all interior Maroon life. Some Kwinti men are involved in small-scale gold mining; others have migrated to Paramaribo and the Netherlands.</p>
-<p>Research on the Kwinti is relatively sparse. Academic anthropologists have focused primarily on the larger Ndyuka and Saramaka groups, and much of Kwinti oral history remains undocumented. This makes the Kwinti one of the most important communities for future research and cultural preservation efforts.</p>
+      <p>The Aluku — better known in Suriname by the name Boni, after their most celebrated resistance leader — fought the longest and most intense resistance war of any Maroon group against the Dutch colonial authority. Where the Ndyuka and Saramaka had won peace treaties by the early 1760s, the Aluku continued fighting for another three decades.</p>
+<p>Their resistance was ultimately defeated in 1793, when an alliance of Dutch mercenary troops and Ndyuka volunteers — bound by treaty obligation to support colonial forces against unrecognised Maroon groups — overcame them. This is one of the most complex chapters in Maroon history: the Ndyuka, having won their own freedom, were now legally required to help suppress the freedom struggle of others.</p>
+<p>Following their defeat, the Aluku retreated across the Maroni River into what was then Dutch Guiana (later French Guiana). Over the following centuries their territory became anchored to the Lawa River, which forms the modern border between Suriname and French Guiana. When France established formal administrative control over French Guiana, the Aluku gradually came under French jurisdiction. Today the majority of Aluku hold French citizenship — making them the only Maroon group with EU citizenship.</p>
+<p>This cross-border identity has created a distinctive dual existence. In French Guiana, the Aluku have experienced severe pressures from rapid development, gold mining by Brazilian garimpeiros, immigration from Haiti and Brazil, and French administrative policies that alternately ignored and disrupted their communities. In 2000, conflicts between Aluku gold miners and indigenous Wayana communities over mining operations came to a head. The economic and social situation in French Guiana contrasts sharply with Suriname but the threats to Aluku cultural survival are equally severe.</p>
+<p>Boni, the great Aluku resistance leader, is commemorated across Suriname as a symbol of courage and defiance. The name Aluku itself means "those who were not afraid," and their 30-year war against overwhelming colonial force remains one of the most remarkable stories of Maroon resistance in the Americas.</p>
     </div>
     <div class="mini-timeline">
       <h2 class="section-heading">Key Dates</h2>
-      <div class="mt-entry"><div class="mt-year">18th C</div><div class="mt-bar"></div><div class="mt-content"><strong>Formation</strong>Kwinti establish themselves as a distinct Maroon community on the Coppename River.</div></div><div class="mt-entry"><div class="mt-year">1887</div><div class="mt-bar"></div><div class="mt-content"><strong>Last Peace Treaty</strong>Kwinti sign the final Maroon peace treaty — 127 years after the first Ndyuka treaty.</div></div><div class="mt-entry"><div class="mt-year">1975</div><div class="mt-bar"></div><div class="mt-content"><strong>Independence</strong>Suriname independence; treaties abrogated; land rights protections removed.</div></div><div class="mt-entry"><div class="mt-year">1986-92</div><div class="mt-bar"></div><div class="mt-content"><strong>Interior War</strong>Conflict's broader effects reach all interior Maroon communities.</div></div><div class="mt-entry"><div class="mt-year">Present</div><div class="mt-bar"></div><div class="mt-content"><strong>Smallest Group</strong>~1,200 people; no granman; land rights unrecognised; some gold mining involvement; diaspora growing.</div></div>
+      <div class="mt-entry"><div class="mt-year">1760s</div><div class="mt-bar"></div><div class="mt-content"><strong>Still Fighting</strong>While Ndyuka and Saramaka sign peace treaties, the Aluku continue their resistance war.</div></div><div class="mt-entry"><div class="mt-year">1793</div><div class="mt-bar"></div><div class="mt-content"><strong>Wars End</strong>Alliance of Dutch troops and Ndyuka volunteers defeats the Aluku. Survivors flee to the Lawa River.</div></div><div class="mt-entry"><div class="mt-year">19th C</div><div class="mt-bar"></div><div class="mt-content"><strong>French Guiana</strong>Aluku establish permanent communities along the Lawa River on the French Guiana side of the border.</div></div><div class="mt-entry"><div class="mt-year">20th C</div><div class="mt-bar"></div><div class="mt-content"><strong>French Citizenship</strong>Aluku gradually gain French citizenship — the only Maroon group with EU citizenship.</div></div><div class="mt-entry"><div class="mt-year">2000</div><div class="mt-bar"></div><div class="mt-content"><strong>Mining Conflicts</strong>Clashes between Aluku gold miners and Wayana indigenous communities on the Lawa/Maroni River.</div></div><div class="mt-entry"><div class="mt-year">Present</div><div class="mt-bar"></div><div class="mt-content"><strong>Cross-border</strong>Majority in French Guiana; face pressures from immigration, gold rush, and French administrative policy.</div></div>
     </div>
   </main>
   <aside>
     <div class="sidebar-box">
-      <h3>At a Glance</h3>
-      <ul class="fact-list"><li><span>Branch</span><span>Central</span></li><li><span>River(s)</span><span>Coppename River</span></li><li><span>District</span><span>Sipaliwini</span></li><li><span>Language</span><span>Ndyuka variant</span></li><li><span>Treaty</span><span>1887 (last of 6)</span></li><li><span>Population</span><span>~1,200 (2018)</span></li><li><span>Unique</span><span>No granman</span></li><li><span>Religion</span><span>Winti / Evangelical</span></li><li><span>Size</span><span>Smallest Maroon group</span></li><li><span>Diaspora</span><span>Paramaribo, Netherlands</span></li></ul>
+      <h3>In één Oogopslag</h3>
+      <ul class="fact-list"><li><span>Tak</span><span>Oostelijk</span></li><li><span>River(s)</span><span>Lawa R. (upper Marowijne)</span></li><li><span>Location</span><span>Suriname–FG border</span></li><li><span>Taal</span><span>Ndyuka variant</span></li><li><span>Wars Ended</span><span>1793</span></li><li><span>Bevolking</span><span>~11,600 (2018)</span></li><li><span>Citizenship</span><span>French (majority)</span></li><li><span>Religie</span><span>Winti / Evangelical</span></li><li><span>Key Figure</span><span>Boni (resistance leader)</span></li><li><span>Diaspora</span><span>French Guiana (majority)</span></li></ul>
     </div>
     <div class="sidebar-box">
-      <h3>Other Group Profiles</h3>
+      <h3>Andere Groepsprofielen</h3>
       <ul class="nav-links">
-        <li><a href="ndyuka.html">Ndyuka (Aukan)</a></li>
-        <li><a href="saramaka.html">Saramaka (Saamaka)</a></li>
-        <li><a href="matawai.html">Matawai</a></li>
-        <li><a href="paramaka.html">Paramaka (Paamaka)</a></li>
-        <li><a href="aluku.html">Aluku (Boni)</a></li>
-        <li><a href="kwinti.html" class="active">Kwinti</a></li>
+        <li><a href="ndyuka_nl.html">Ndyuka (Aukan)</a></li>
+        <li><a href="saramaka_nl.html">Saramaka (Saamaka)</a></li>
+        <li><a href="matawai_nl.html">Matawai</a></li>
+        <li><a href="paramaka_nl.html">Paramaka (Paamaka)</a></li>
+        <li><a href="aluku_nl.html" class="active">Aluku (Boni)</a></li>
+        <li><a href="kwinti_nl.html">Kwinti</a></li>
       </ul>
     </div>
     <div class="sidebar-box">
@@ -203,7 +219,7 @@
       <ul class="nav-links">
         <li><a href="../index.html#history">Full History Timeline</a></li>
         <li><a href="../index.html#present">Present Day Challenges</a></li>
-        <li><a href="../villages.html">Village Directory (278)</a></li>
+        <li><a href="../villages_nl.html">Dorphenregister (278)</a></li>
         <li><a href="../index.html#news">News &amp; Announcements</a></li>
       </ul>
     </div>
@@ -211,10 +227,10 @@
 </div>
 <footer>
   <div class="footer-inner">
-    <p>&copy; 2025 Maroon Villages in Suriname &nbsp;|&nbsp; <a href="../index.html">Home</a></p>
-    <p>Sources: Wikipedia, Minority Rights Group, Cultural Survival, Encyclopedia.com</p>
+    <p>&copy; 2025 Maroon Villages in Suriname &nbsp;|&nbsp; <a href="../index_nl.html">Home</a></p>
+    <p>Bronnen: Wikipedia, Minority Rights Group, Cultural Survival, Encyclopedia.com</p>
   </div>
-  <div class="footer-bottom">v1.1 &nbsp;|&nbsp; Kwinti Group Profile</div>
+  <div class="footer-bottom">v1.1 &nbsp;|&nbsp; Aluku Group Profile</div>
 </footer>
 
 <!-- Remove Leaflet -->
@@ -235,26 +251,34 @@ function addMarker(map,iw,lat,lng,name,note,color) {
 }
 function initMap() {
   var map = new google.maps.Map(document.getElementById('group-map'),{
-    center:{lat:5.15,lng:-56.08},zoom:10,mapTypeId:'terrain',
+    center:{lat:3.7,lng:-54.12},zoom:9,mapTypeId:'terrain',
     mapTypeControl:true,
     mapTypeControlOptions:{mapTypeIds:['terrain','roadmap','satellite','hybrid']},
     streetViewControl:false,fullscreenControl:true
   });
   var iw = new google.maps.InfoWindow();
-  var paths = [[{lat:5.35,lng:-56.25},{lat:5.35,lng:-55.9},{lat:4.9,lng:-56.1},{lat:4.9,lng:-56.45},{lat:5.1,lng:-56.45}]];
+  var paths = [[{lat:3.31,lng:-54.07},{lat:3.98,lng:-54.3},{lat:3.95,lng:-54.19},{lat:3.72,lng:-53.9},{lat:3.4,lng:-53.96},{lat:3.36,lng:-54.0},{lat:3.33,lng:-54.02}]];
   paths.forEach(function(path){
     new google.maps.Polygon({
-      paths:path,strokeColor:'#2a4a1a',strokeOpacity:0.9,strokeWeight:2,
-      fillColor:'#2a4a1a',fillOpacity:0.18,map:map
+      paths:path,strokeColor:'#8B2500',strokeOpacity:0.9,strokeWeight:2,
+      fillColor:'#8B2500',fillOpacity:0.18,map:map
     }).addListener('click',function(e){
       iw.setContent('<em style="font-size:0.8rem;color:#7a3f1e">GPS-anchored territory polygon. Click a village marker for details.</em>');
       iw.setPosition(e.latLng);iw.open(map);
     });
   });
-  addMarker(map,iw,-4.52,-56.79,'Bitagron','Kwinti granman residence; historically important; partially destroyed 1987 civil war; rebuilt post-w','#2a4a1a');
-  addMarker(map,iw,5.163,-56.074,'Witagron','Kwinti village on Coppename River; formerly Bitagron (renamed post-Interior War); residence of the K','#2a4a1a');
-  addMarker(map,iw,5.14,-56.09,'Kaaimanston','Kwinti village near Witagron on Coppename River; sister village to Witagron; partially destroyed dur','#2a4a1a');
-  addMarker(map,iw,5.14,-56.09,'Kaimanston','Kwinti village; Boven Coppename resort; sister village to Witagron; Planbureau Table 3.4 2013','#2a4a1a');
+  addMarker(map,iw,3.852908,-54.227476,'Cottica Lawa','Village on Marowijne/Lawa border; Aluku history; resettled 1902; only Aluku village in Suriname. Cli','#8B2500');
+  addMarker(map,iw,3.809529,-54.150319,'Papaichton','Capital/granman seat of Aluku; commune seat; founded 1895; previously called Boniville; renamed Pomp','#8B2500');
+  addMarker(map,iw,3.642495,-54.034582,'Maripasoula','Largest commune in France by area; administrative hub; airport; mainly Aluku and Wayana; GPS verifie','#8B2500');
+  addMarker(map,iw,5.150962,-54.341335,'Apatou','Founded 1882 as Moutendé; renamed after Captain Apatou; mixed Aluku, Paramaka, Ndyuka, Saramaka; roa','#8B2500');
+  addMarker(map,iw,3.5,-54.05,'Kormontibo','Traditional Aluku village; one of the villages founded after 1841 settlement on Lawa River','#8B2500');
+  addMarker(map,iw,3.48,-54.06,'Assissi','Traditional Aluku village; one of the original Lawa River settlements','#8B2500');
+  addMarker(map,iw,3.52,-54.055,'Loca','Hamlet in commune of Papaïchton; traditional Aluku settlement','#8B2500');
+  addMarker(map,iw,3.51,-54.048,'Tabiki','Traditional Aluku village near Papaïchton','#8B2500');
+  addMarker(map,iw,3.54,-54.045,'Nouveau Wakapou','Traditional Aluku village near Papaïchton','#8B2500');
+  addMarker(map,iw,3.53,-54.04,'Agoodé','Traditional Aluku village; once called Boniville; near Papaïchton; capital before Papaïchton','#8B2500');
+  addMarker(map,iw,3.47,-54.07,'Pobiansi','One of earliest Aluku villages on Lawa River after 1841 settlement','#8B2500');
+  addMarker(map,iw,3.46,-54.08,'Puumofu','One of earliest Aluku villages on Lawa River','#8B2500');
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPjB3EhOZYZPhBn9SVezWRUrBdXZUvB4&callback=initMap" async defer></script>

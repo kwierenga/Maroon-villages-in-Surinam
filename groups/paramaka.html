@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -82,6 +81,26 @@
     .footer-bottom{background:rgba(0,0,0,.3);text-align:center;padding:.8rem;font-family:'Raleway',sans-serif;font-size:.72rem;color:rgba(247,240,227,.4);letter-spacing:.05em;}
     @media(max-width:900px){.page-wrap{grid-template-columns:1fr;}.hero-inner{grid-template-columns:1fr;}.hero-stats{grid-template-columns:repeat(4,1fr);}.group-hero h1{font-size:2rem;}.info-cards{grid-template-columns:1fr;}}
   </style>
+
+  <style>
+    .lang-toggle { display:flex;gap:4px;align-items:center;margin-left:auto; }
+    .lang-btn { font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;
+      letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:2px;
+      border:1px solid rgba(247,240,227,0.3);background:transparent;
+      color:rgba(247,240,227,0.6);cursor:pointer;transition:all 0.2s;text-decoration:none; }
+    .lang-btn:hover { background:rgba(255,255,255,0.1);color:var(--gold); }
+    .lang-btn.active { background:var(--ochre);color:white;border-color:var(--ochre); }
+  </style>
+
+  <style>
+    .lang-toggle { display:flex;gap:4px;align-items:center;margin-left:auto; }
+    .lang-btn { font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;
+      letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:2px;
+      border:1px solid rgba(247,240,227,0.3);background:transparent;
+      color:rgba(247,240,227,0.6);cursor:pointer;transition:all 0.2s;text-decoration:none; }
+    .lang-btn:hover { background:rgba(255,255,255,0.1);color:var(--gold); }
+    .lang-btn.active { background:var(--ochre);color:white;border-color:var(--ochre); }
+  </style>
 </head>
 <body>
 <div class="top-bar">
@@ -103,6 +122,18 @@
     </a>
     <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../villages.html">Village Directory</a> / Paramaka</div>
   </div>
+
+    <div class="lang-toggle">
+      <a href="paramaka.html" class="lang-btn active">EN</a>
+      <a href="paramaka_nl.html" class="lang-btn">NL</a>
+      <a href="paramaka_sr.html" class="lang-btn">SR</a>
+    </div>
+
+    <div class="lang-toggle">
+      <a href="paramaka.html" class="lang-btn active">EN</a>
+      <a href="paramaka_nl.html" class="lang-btn">NL</a>
+      <a href="paramaka_sr.html" class="lang-btn">SR</a>
+    </div>
 </header>
 <div class="group-nav-strip">
   <div class="group-nav-inner">
@@ -186,8 +217,8 @@
 </footer>
 
 <!-- Remove Leaflet -->
-
 <!-- Google Maps replaces it -->
+
 
 <script>
 function addMarker(map,iw,lat,lng,name,note,color) {
@@ -227,8 +258,9 @@ function initMap() {
   addMarker(map,iw,4.455168,-54.441543,'Gaacaba','Paramaka village; GPS verified by Google Earth','#1a4a5a');
 }
 </script>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPjB3EhOZYZPhBn9SVezWRUrBdXZUvB4&callback=initMap" async defer></script>
+
+
 
 </body>
 </html>
