@@ -190,80 +190,40 @@
 <!-- Google Maps replaces it -->
 
 <script>
+function addMarker(map,iw,lat,lng,name,note,color) {
+  var m = new google.maps.Marker({
+    position:{lat:lat,lng:lng},map:map,title:name,
+    icon:{path:google.maps.SymbolPath.CIRCLE,scale:7,
+      fillColor:color,fillOpacity:0.9,strokeColor:'#fff',strokeWeight:2}
+  });
+  m.addListener('click',function(){
+    iw.setContent('<strong>'+name+'</strong><br><span style="font-size:0.8rem">'+note+'</span>');
+    iw.open(map,m);
+  });
+}
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('group-map'), {
-    center: {lat: 4.5, lng: -56.4},
-    zoom: 9,
-    mapTypeId: 'terrain',
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-      mapTypeIds: ['terrain', 'roadmap', 'satellite', 'hybrid']
-    },
-    streetViewControl: false,
-    fullscreenControl: true
+  var map = new google.maps.Map(document.getElementById('group-map'),{
+    center:{lat:4.5,lng:-56.2},zoom:9,mapTypeId:'terrain',
+    mapTypeControl:true,
+    mapTypeControlOptions:{mapTypeIds:['terrain','roadmap','satellite','hybrid']},
+    streetViewControl:false,fullscreenControl:true
   });
-
-  // River corridor polyline
-  var path = new google.maps.Polyline({
-    path: [{lat: 4.39, lng: -56.34}, {lat: 4.35, lng: -56.44}, {lat: 4.28, lng: -56.58}, {lat: 4.38, lng: -56.68}, {lat: 4.58, lng: -56.55}, {lat: 4.78, lng: -56.3}, {lat: 4.98, lng: -56.12}, {lat: 5.16, lng: -56.07}],
-    geodesic: true,
-    strokeColor: '#2a4a0e',
-    strokeOpacity: 0.85,
-    strokeWeight: 4
+  var iw = new google.maps.InfoWindow();
+  var paths = [[{lat:4.12,lng:-56.55},{lat:4.53,lng:-56.28},{lat:4.56,lng:-56.23},{lat:4.12,lng:-56.38},{lat:4.12,lng:-56.42},{lat:4.13,lng:-56.51}],[{lat:5.36,lng:-55.73},{lat:5.28,lng:-55.63},{lat:5.08,lng:-55.63},{lat:5.0,lng:-55.73},{lat:5.08,lng:-55.83},{lat:5.28,lng:-55.83}]];
+  paths.forEach(function(path){
+    new google.maps.Polygon({
+      paths:path,strokeColor:'#3a5a1a',strokeOpacity:0.9,strokeWeight:2,
+      fillColor:'#3a5a1a',fillOpacity:0.18,map:map
+    }).addListener('click',function(e){
+      iw.setContent('<em style="font-size:0.8rem;color:#7a3f1e">GPS-anchored territory polygon. Click a village marker for details.</em>');
+      iw.setPosition(e.latLng);iw.open(map);
+    });
   });
-  path.setMap(map);
-
-  // Markers
-  var infoWindow = new google.maps.InfoWindow();
-  var marker0 = new google.maps.Marker({
-    position: {lat: -4.39, lng: -56.34},
-    map: map,
-    title: 'Poesoegroenoe',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#2a4a0e',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker0.addListener('click', function() {
-    infoWindow.setContent('<strong>Poesoegroenoe</strong><br><span style="font-size:0.85rem">Matawai granman seat. Medical post and airstrip. Road opened 2017.</span>');
-    infoWindow.open(map, marker0);
-  });  var marker1 = new google.maps.Marker({
-    position: {lat: -5.2, lng: -55.9},
-    map: map,
-    title: 'Kwakoegron',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#2a4a0e',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker1.addListener('click', function() {
-    infoWindow.setContent('<strong>Kwakoegron</strong><br><span style="font-size:0.85rem">Matawai village on lower Saramacca River. Resort centre.</span>');
-    infoWindow.open(map, marker1);
-  });  var marker2 = new google.maps.Marker({
-    position: {lat: -4.35, lng: -56.37},
-    map: map,
-    title: 'Nieuw Jacobkondre',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#2a4a0e',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker2.addListener('click', function() {
-    infoWindow.setContent('<strong>Nieuw Jacobkondre</strong><br><span style="font-size:0.85rem">Main administrative village of Boven Saramacca resort.</span>');
-    infoWindow.open(map, marker2);
-  });
+  addMarker(map,iw,-5.2,-55.9,'Kwakoegron','Matawai village and resort; population 263 (2012); captain of resort resides in Commissariskondre; h','#3a5a1a');
+  addMarker(map,iw,-4.39,-56.34,'Poesoegroenoe','Residence of Matawai granman; medical post; airstrip (Poesoegroenoe Airstrip); road opened 2017 conn','#3a5a1a');
+  addMarker(map,iw,-4.35,-56.37,'Nieuw Jacobkondre','Main administrative village of Boven Saramacca resort; road access to Southern East-West Link; Njoen','#3a5a1a');
+  addMarker(map,iw,-4.3,-56.4,'Pakka-Pakka','Matawai village; founded 1860s; originally housed both Matawai and Kwinti; no school or clinic but h','#3a5a1a');
+  addMarker(map,iw,-4.36,-56.36,'Ebbatop','Matawai village; ecotourism promoted alongside Nieuw Jacobkondre and Poesoegroenoe; mentioned in Mat','#3a5a1a');
 }
 </script>
 
