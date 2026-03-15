@@ -190,80 +190,41 @@
 <!-- Google Maps replaces it -->
 
 <script>
+function addMarker(map,iw,lat,lng,name,note,color) {
+  var m = new google.maps.Marker({
+    position:{lat:lat,lng:lng},map:map,title:name,
+    icon:{path:google.maps.SymbolPath.CIRCLE,scale:7,
+      fillColor:color,fillOpacity:0.9,strokeColor:'#fff',strokeWeight:2}
+  });
+  m.addListener('click',function(){
+    iw.setContent('<strong>'+name+'</strong><br><span style="font-size:0.8rem">'+note+'</span>');
+    iw.open(map,m);
+  });
+}
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('group-map'), {
-    center: {lat: 4.6, lng: -54.45},
-    zoom: 9,
-    mapTypeId: 'terrain',
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-      mapTypeIds: ['terrain', 'roadmap', 'satellite', 'hybrid']
-    },
-    streetViewControl: false,
-    fullscreenControl: true
+  var map = new google.maps.Map(document.getElementById('group-map'),{
+    center:{lat:4.65,lng:-54.47},zoom:9,mapTypeId:'terrain',
+    mapTypeControl:true,
+    mapTypeControlOptions:{mapTypeIds:['terrain','roadmap','satellite','hybrid']},
+    streetViewControl:false,fullscreenControl:true
   });
-
-  // River corridor polyline
-  var path = new google.maps.Polyline({
-    path: [{lat: 4.4, lng: -54.46}, {lat: 4.58, lng: -54.38}, {lat: 4.8, lng: -54.22}, {lat: 5.0, lng: -54.1}, {lat: 5.3, lng: -53.92}],
-    geodesic: true,
-    strokeColor: '#0d3040',
-    strokeOpacity: 0.85,
-    strokeWeight: 4
+  var iw = new google.maps.InfoWindow();
+  var paths = [[{lat:4.08,lng:-54.54},{lat:5.04,lng:-54.49},{lat:5.22,lng:-54.43},{lat:5.17,lng:-54.43},{lat:4.28,lng:-54.43}]];
+  paths.forEach(function(path){
+    new google.maps.Polygon({
+      paths:path,strokeColor:'#1a4a5a',strokeOpacity:0.9,strokeWeight:2,
+      fillColor:'#1a4a5a',fillOpacity:0.18,map:map
+    }).addListener('click',function(e){
+      iw.setContent('<em style="font-size:0.8rem;color:#7a3f1e">GPS-anchored territory polygon. Click a village marker for details.</em>');
+      iw.setPosition(e.latLng);iw.open(map);
+    });
   });
-  path.setMap(map);
-
-  // Markers
-  var infoWindow = new google.maps.InfoWindow();
-  var marker0 = new google.maps.Marker({
-    position: {lat: 4.991311, lng: -54.441541},
-    map: map,
-    title: 'Langatabiki',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#0d3040',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker0.addListener('click', function() {
-    infoWindow.setContent('<strong>Langatabiki</strong><br><span style="font-size:0.85rem">Paramaka granman seat. Founded 1879. Solar power since 2016.</span>');
-    infoWindow.open(map, marker0);
-  });  var marker1 = new google.maps.Marker({
-    position: {lat: 4.857828, lng: -54.477309},
-    map: map,
-    title: 'Nason',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#0d3040',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker1.addListener('click', function() {
-    infoWindow.setContent('<strong>Nason</strong><br><span style="font-size:0.85rem">Has clinic and school. Service hub for nearby Paramaka villages.</span>');
-    infoWindow.open(map, marker1);
-  });  var marker2 = new google.maps.Marker({
-    position: {lat: 4.257222, lng: -54.520171},
-    map: map,
-    title: 'Manlobi',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#0d3040',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker2.addListener('click', function() {
-    infoWindow.setContent('<strong>Manlobi</strong><br><span style="font-size:0.85rem">Paramaka village on Marowijne River.</span>');
-    infoWindow.open(map, marker2);
-  });
+  addMarker(map,iw,4.991311,-54.441541,'Langatabiki','Granman residence of Paramaka; founded 1879; airstrip; solar power since 2016; clinic; school; GPS v','#1a4a5a');
+  addMarker(map,iw,-4.43,-54.37,'Lokaloka','Island village on Marowijne; ~200 residents; last village of Paramaka upstream; no clinic; dependent','#1a4a5a');
+  addMarker(map,iw,4.857828,-54.477309,'Nason','Has clinic; school; serves as service hub for nearby Paramaka villages including Lokaloka; GPS verif','#1a4a5a');
+  addMarker(map,iw,4.257222,-54.520171,'Manlobi','Village near Nason on Marowijne/Lawa river system; GPS verified by Google Earth','#1a4a5a');
+  addMarker(map,iw,5.039411,-54.445404,'Babel','Paramaka village; GPS verified by Google Earth','#1a4a5a');
+  addMarker(map,iw,4.455168,-54.441543,'Gaacaba','Paramaka village; GPS verified by Google Earth','#1a4a5a');
 }
 </script>
 
