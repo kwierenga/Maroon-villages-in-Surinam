@@ -912,6 +912,27 @@ footer {
 ```
 
   </style>
+
+  <!-- Trilingual support -->
+
+  <style>
+    .lang-toggle {
+      display: flex; gap: 4px; align-items: center; margin-left: 1.5rem;
+    }
+    .lang-btn {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 9px; border-radius: 2px;
+      border: 1px solid rgba(247,240,227,0.3);
+      background: transparent; color: rgba(247,240,227,0.6);
+      cursor: pointer; transition: all 0.2s;
+      text-decoration: none;
+    }
+    .lang-btn:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
+    .lang-btn.active { background: var(--ochre); color: white; border-color: var(--ochre); }
+  </style>
+
 </head>
 <body>
 
@@ -1003,6 +1024,11 @@ footer {
     </li>
   </ul>
 </nav>
+<div class="lang-toggle">
+  <a href="index.html" class="lang-btn active">EN</a>
+  <a href="index_nl.html" class="lang-btn">NL</a>
+  <a href="index_sr.html" class="lang-btn">SR</a>
+</div>
 ```
 
   </div>
@@ -1015,7 +1041,7 @@ footer {
     <div class="slide-bg"></div>
     <div class="slide-overlay"></div>
     <div class="slide-content">
-      <h2>A Story of Resistance &amp; Resilience</h2>
+      <h2>A Story of Resistance & Resilience</h2>
       <p>The Surinamese Maroons — descendants of Africans who escaped enslavement, fought colonial armies to a standstill, and built free societies in the rainforest — represent one of the most remarkable stories of human determination in the Americas. Their struggle for sovereignty did not end in 1760. It continues today.</p>
     </div>
   </div>
@@ -1031,7 +1057,7 @@ footer {
     <div class="slide-bg"></div>
     <div class="slide-overlay"></div>
     <div class="slide-content">
-      <h2>Winti, Art &amp; Living Heritage</h2>
+      <h2>Winti, Art & Living Heritage</h2>
       <p>From Winti — a synthesis of West and Central African religious traditions — to intricate woodcarving, vibrant strip-woven textiles, and creole languages spoken by no one else on earth, Maroon cultural expression is one of the richest in the African diaspora.</p>
     </div>
   </div>
@@ -1054,7 +1080,7 @@ footer {
       <span class="ql-icon">🏡</span>
       <div class="ql-text">
         <strong>Village Directory</strong>
-        <span>278 documented settlements — searchable &amp; filterable</span>
+        <span>278 documented settlements — searchable & filterable</span>
       </div>
     </a>
     <a class="ql-item" href="#history">
@@ -1075,7 +1101,7 @@ footer {
       <span class="ql-icon">⚖️</span>
       <div class="ql-text">
         <strong>Land Rights</strong>
-        <span>Ongoing advocacy &amp; legal status</span>
+        <span>Ongoing advocacy & legal status</span>
       </div>
     </a>
   </div>
@@ -1110,7 +1136,7 @@ footer {
 ```
 <!-- Welcome -->
 <div class="welcome-block">
-  <h2>Welcome — A Story of Resilience &amp; Survival</h2>
+  <h2>Welcome — A Story of Resilience & Survival</h2>
   <p>The Surinamese Maroons — also known as <em>Businenge</em> or <em>Bushinengue</em>, meaning "black people of the forest" — are the descendants of Africans who escaped enslavement on Dutch colonial plantations during the 17th and 18th centuries. They fled into the interior rainforest, regrouped into small bands, and began forging a viable existence in an inhospitable environment. This daunting challenge was made more difficult still by the colonial government's persistent efforts to eliminate them — reserving special punishments for recaptured people: hamstringing, amputation of limbs, and deaths by torture. The Maroons survived all of it.</p>
   <p>For nearly a century they fought — outwitting colonial armies with guerrilla tactics, sheltering behind wooden palisades and pitfall traps in swampy forest — until the Dutch, exhausted by the cost in money and lives, came to the negotiating table. The mere existence of Maroon villages had always been proof to the enslaved that an alternative to slavery was possible. By 1760 the Ndyuka had won a formal peace treaty; by 1762 the Saramaka; by 1767 the Matawai. The Maroons had enjoyed a hundred years of freedom before slavery was even abolished in Suriname in 1863.</p>
   <p>That story of resistance did not end with independence. Colonial warfare, land grabs, natural disasters, civil war, and displacement have marked every chapter of Maroon history — and continue to mark it today. Their culture is widely regarded as one of the best-preserved pieces of African cultural heritage outside Africa. This site documents that heritage and that ongoing struggle.</p>
@@ -1119,14 +1145,14 @@ footer {
 
 <!-- News -->
 <section id="news">
-  <h2 class="section-heading">News &amp; Announcements</h2>
+  <h2 class="section-heading">News & Announcements</h2>
   <div class="news-grid">
 
     <article class="news-card">
       <div class="news-img-placeholder" style="background: linear-gradient(135deg,#1a3a2a,#2d5e3f);">⚖️</div>
       <div class="news-body">
         <span class="news-tag">Land Rights</span>
-        <h3>Saramaka Territorial Rights: 2007 IACtHR Ruling &amp; Implementation</h3>
+        <h3>Saramaka Territorial Rights: 2007 IACtHR Ruling & Implementation</h3>
         <p>The Inter-American Court of Human Rights ruled in 2007 that the Saramaka constitute a tribal people with rights over their traditional territory — a landmark decision for Maroon and Indigenous peoples worldwide. Implementation by the Surinamese government remains incomplete.</p>
         <a class="read-more" href="groups/saramaka.html">Read More »</a>
       </div>
@@ -1167,7 +1193,7 @@ footer {
 
 <!-- Groups Overview -->
 <section class="villages-section" id="villages">
-  <h2 class="section-heading">The Six Maroon Groups — Distribution &amp; Identity</h2>
+  <h2 class="section-heading">The Six Maroon Groups — Distribution & Identity</h2>
 
   <!-- What they share -->
   <div class="shared-traits">
@@ -1323,7 +1349,7 @@ footer {
 
 ```
 <div class="sidebar-box">
-  <h3>Bulletins &amp; Resources</h3>
+  <h3>Bulletins & Resources</h3>
   <ul class="bulletin-list">
     <li><a href="villages.html">Village Directory (278 villages)</a></li>
     <li><a href="#history">Peace Treaties 1760–1887</a></li>
@@ -1341,14 +1367,14 @@ footer {
   <ul class="sidebar-links">
     <li><a href="#history">History of Resilience</a></li>
     <li><a href="villages.html">Village Directory</a></li>
-    <li><a href="#present">Granman &amp; Leadership</a></li>
-    <li><a href="#history">Peace Treaties (1760–1887)</a></li>
-    <li><a href="#history">Interior War (1986–1992)</a></li>
-    <li><a href="#present">Land Rights Advocacy</a></li>
-    <li><a href="#culture">Cultural Practices</a></li>
-    <li><a href="bibliography.html">Photo &amp; Media Sources</a></li>
-    <li><a href="bibliography.html">Research &amp; Publications</a></li>
-    <li><a href="#contact">Contact Us</a></li>
+    <li><a href="#present">Group &amp; Leadership</a></li>
+    <li><a href="#history">Peace Treaties 1760–1887</a></li>
+    <li><a href="#history">Interior War 1986–1992</a></li>
+    <li><a href="#present">Land Rights — The Unresolved Question</a></li>
+    <li><a href="#culture">Cultural Heritage</a></li>
+    <li><a href="bibliography.html">Cultural Heritage &amp; Media</a></li>
+    <li><a href="bibliography.html">Bulletins & Resources</a></li>
+    <li><a href="#contact">Contact</a></li>
     <li><a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
   </ul>
 </div>
@@ -1375,7 +1401,7 @@ footer {
 
 <section class="timeline-section" id="history">
   <div class="timeline-inner">
-    <h2 class="section-heading">A History of Resistance &amp; Survival</h2>
+    <h2 class="section-heading">A History of Resistance & Survival</h2>
     <p style="color:var(--text-mid);max-width:780px;margin-bottom:0.5rem;">From forced arrival on slave ships to sovereign communities, civil war, and the halls of international courts — the Maroon story is one of unbroken defiance across four centuries.</p>
 
 ```
@@ -1510,7 +1536,7 @@ footer {
 
 <section class="timeline-section" id="history">
   <div class="timeline-inner">
-    <h2 class="section-heading">A History of Resilience &amp; Survival</h2>
+    <h2 class="section-heading">A History of Resistance & Survival</h2>
     <p style="color:var(--text-mid);max-width:860px;margin-bottom:0.5rem;">
       The history of the Surinamese Maroons is not a relic of the past. It is a continuous story of people who refused enslavement, built free societies against overwhelming force, survived colonial warfare and a modern civil war, and continue today to fight for the recognition of rights their ancestors won three centuries ago. Each era demanded — and received — the same determined response.
     </p>
@@ -1728,11 +1754,11 @@ footer {
 
   <div class="present-card">
     <h4>Gold Mining — Opportunity and Threat</h4>
-    <p>Since the mid-1980s, a gold rush in the Surinamese rainforest has drawn tens of thousands of miners. The majority are Brazilian <em>garimpeiros</em>, but roughly a quarter are Surinamese — predominantly Maroon. A majority of Ndyuka men are now involved in small-scale gold mining. The income is necessary; the consequences are severe. Mercury contamination, deforestation, and the arrival of mining camps have transformed river ecosystems and community life. The Maroons find themselves simultaneously benefiting from and being harmed by the extraction of resources from their own ancestral territory.</p>
+    <p>Since the mid-1980s, a gold rush in the Surinamese rainforest has drawn tens of thousands of miners. The majority are Brazilian garimpeiros, but roughly a quarter are Surinamese — predominantly Maroon. A majority of Ndyuka men are now involved in small-scale gold mining. The income is necessary; the consequences are severe. Mercury contamination, deforestation, and the arrival of mining camps have transformed river ecosystems and community life. The Maroons find themselves simultaneously benefiting from and being harmed by the extraction of resources from their own ancestral territory.</p>
   </div>
 
   <div class="present-card">
-    <h4>Urban Migration &amp; Diaspora</h4>
+    <h4>Urban Migration & Diaspora</h4>
     <p>Many Maroons have moved to Paramaribo, the capital, and to the Netherlands in search of economic opportunity and access to education and healthcare. According to the 2012 Census, 117,567 people identified as Maroon in Suriname — 21.7 percent of the total population, making them the second largest ethnic group. In the Netherlands, more than eleven thousand Maroons maintain active communities. Urban migration brings fragmentation of traditional village life and cultural erosion, but also a diaspora that is increasingly assertive about preserving and promoting Maroon identity.</p>
   </div>
 
@@ -1797,7 +1823,7 @@ footer {
 </div>
 
 <div class="footer-col">
-  <h4>History &amp; Rights</h4>
+  <h4>History & Rights</h4>
   <ul>
     <li><a href="#history">History of Resilience</a></li>
     <li><a href="#history">Peace Treaties 1760–1887</a></li>
@@ -1810,7 +1836,7 @@ footer {
 </div>
 
 <div class="footer-col">
-  <h4>About &amp; Contact</h4>
+  <h4>About & Contact</h4>
   <ul>
     <li><a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" target="_blank" rel="noopener">About This Project ↗</a></li>
     <li><a href="#history">History</a></li>
