@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ndyuka (Aukan) — Maroon Villages in Suriname</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root {
       --forest:     #1a3a2a;
@@ -366,7 +365,7 @@ footer {
     <div class="map-section">
       <h2 class="section-heading accent-head">Geographic Territory</h2>
       <div class="map-label">Primary territory — Tapanahoni &amp; Marowijne River Basin, NE Suriname</div>
-      <div id="group-map"></div>
+      <div id="group-map" style="width:100%;height:420px;min-height:420px;display:block;"></div>
       <p class="map-caption">Map shows the Ndyuka heartland along the Tapanahoni and Marowijne rivers in Marowijne District. Villages are distributed along river banks; canoe remains the primary means of transport between communities. Zoom out to see the broader Suriname context.</p>
     </div>
 </div>
@@ -500,61 +499,105 @@ footer {
   <div class="footer-bottom">v1.1 &nbsp;|&nbsp; Ndyuka Group Profile &nbsp;|&nbsp; maroon-villages-in-surinam</div>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Remove Leaflet -->
+
+<!-- Google Maps replaces it -->
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-// Ndyuka heartland: lower Tapanahoni River, NE Suriname
-  const map = L.map('group-map').setView([4.35, -54.95], 8);
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('group-map'), {
+    center: {lat: 4.35, lng: -54.95},
+    zoom: 8,
+    mapTypeId: 'terrain',
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      mapTypeIds: ['terrain', 'roadmap', 'satellite', 'hybrid']
+    },
+    streetViewControl: false,
+    fullscreenControl: true
+  });
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 14
-  }).addTo(map);
+  // River corridor polyline
+  var path = new google.maps.Polyline({
+    path: [{lat: 3.9, lng: -55.19}, {lat: 4.0, lng: -54.98}, {lat: 4.08, lng: -54.8}, {lat: 4.08, lng: -54.62}, {lat: 4.21, lng: -54.35}, {lat: 4.5, lng: -54.1}, {lat: 4.87, lng: -54.07}, {lat: 5.1, lng: -54.05}, {lat: 5.49, lng: -54.07}],
+    geodesic: true,
+    strokeColor: '#0d3d52',
+    strokeOpacity: 0.85,
+    strokeWeight: 4
+  });
+  path.setMap(map);
 
-  // Territory polygon approx — Tapanahoni/Marowijne basin
-  const territory = L.polygon([
-    [4.8, -54.4], [4.6, -54.2], [4.2, -54.1], [3.9, -54.3],
-    [3.7, -54.6], [3.8, -55.1], [4.1, -55.4], [4.5, -55.2],
-    [4.9, -54.8]
-  ], {
-    color: '#1a5c7a', weight: 2,
-    fillColor: '#1a5c7a', fillOpacity: 0.15
-  }).addTo(map);
-  territory.bindTooltip('Ndyuka Territory — Tapanahoni & Marowijne Basin', {sticky: true});
-
-  // Key river markers
-  const iconStyle = {
-    className: '',
-    html: `<div style="background:#1a5c7a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">🛶</div>`,
-    iconSize: [28, 28], iconAnchor: [14, 14]
-  };
-
-  L.marker([4.35, -54.95], {icon: L.divIcon(iconStyle)})
-    .addTo(map)
-    .bindPopup('<strong>Tapanahoni River Heartland</strong><br>Core Ndyuka territory. Lower Tapanahoni River basin — the traditional seat of Ndyuka granman authority.');
-
-  L.marker([5.0, -54.3], {icon: L.divIcon(iconStyle)})
-    .addTo(map)
-    .bindPopup('<strong>Marowijne River</strong><br>Eastern border river shared with French Guiana. Many Ndyuka villages line this river; ~10,000 fled across it as refugees in 1986.');
-
-  L.marker([5.8, -55.15], {icon: L.divIcon(iconStyle)})
-    .addTo(map)
-    .bindPopup('<strong>Albina / Moiwana area</strong><br>Coastal Ndyuka zone. Site of the 1986 Moiwana massacre.');
-
-  // Cottica River area
-  L.marker([5.65, -54.6], {icon: L.divIcon({
-    html: `<div style="background:#c8822a;color:white;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">⚠</div>`,
-    iconSize: [24,24], iconAnchor: [12,12]
-  })})
-    .addTo(map)
-    .bindPopup('<strong>Cottica River Region</strong><br>Ndyuka Cottica villages were among the most severely affected during the 1986–1992 Interior War. Many were razed by military forces.');
-  // Force recalculation at multiple intervals to handle layout shifts
-  setTimeout(function() { map.invalidateSize(); }, 100);
-  setTimeout(function() { map.invalidateSize(); }, 500);
-  setTimeout(function() { map.invalidateSize(); }, 1000);
-});
+  // Markers
+  var infoWindow = new google.maps.InfoWindow();
+  var marker0 = new google.maps.Marker({
+    position: {lat: 4.125925, lng: -54.626822},
+    map: map,
+    title: 'Diitabiki',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#0d3d52',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker0.addListener('click', function() {
+    infoWindow.setContent('<strong>Diitabiki</strong><br><span style="font-size:0.85rem">Ndyuka granman seat since 1950. Location of the oracle. On the Tapanahoni River.</span>');
+    infoWindow.open(map, marker0);
+  });  var marker1 = new google.maps.Marker({
+    position: {lat: 5.49, lng: -54.07},
+    map: map,
+    title: 'Albina',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#0d3d52',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker1.addListener('click', function() {
+    infoWindow.setContent('<strong>Albina</strong><br><span style="font-size:0.85rem">Gateway town on the Marowijne River. Large Ndyuka urban population.</span>');
+    infoWindow.open(map, marker1);
+  });  var marker2 = new google.maps.Marker({
+    position: {lat: 5.43, lng: -54.04},
+    map: map,
+    title: 'Moiwana',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#0d3d52',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker2.addListener('click', function() {
+    infoWindow.setContent('<strong>Moiwana</strong><br><span style="font-size:0.85rem">Site of the 29 November 1986 massacre of at least 38 unarmed Ndyuka civilians.</span>');
+    infoWindow.open(map, marker2);
+  });  var marker3 = new google.maps.Marker({
+    position: {lat: 4.08, lng: -54.62},
+    map: map,
+    title: 'Stoelmanseiland',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#0d3d52',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker3.addListener('click', function() {
+    infoWindow.setContent('<strong>Stoelmanseiland</strong><br><span style="font-size:0.85rem">Island at Tapanahoni-Lawa confluence. Hospital and airstrip.</span>');
+    infoWindow.open(map, marker3);
+  });
+}
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPjB3EhOZYZPhBn9SVezWRUrBdXZUvB4&callback=initMap" async defer></script>
 
 </body>
 </html>
