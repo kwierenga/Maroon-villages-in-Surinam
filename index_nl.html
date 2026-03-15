@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
@@ -24,897 +23,893 @@
       --border:     #c8822a44;
     }
 
-```
-/* ─── Reset & Base ───────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Lora', Georgia, serif;
-  background: var(--cream);
-  color: var(--text-dark);
-  line-height: 1.7;
-}
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
+    /* ─── Reset & Base ───────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
 
-/* ─── Top Bar ────────────────────────────────────────────────────────── */
-.top-bar {
-  background: var(--earth);
-  color: var(--cream);
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  padding: 6px 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.top-bar a { color: var(--gold); transition: color 0.2s; }
-.top-bar a:hover { color: #fff; }
+    /* ─── Top Bar ────────────────────────────────────────────────────────── */
+    .top-bar {
+      background: var(--earth);
+      color: var(--cream);
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      padding: 6px 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar a { color: var(--gold); transition: color 0.2s; }
+    .top-bar a:hover { color: #fff; }
 
-/* ─── Header / Nav ───────────────────────────────────────────────────── */
-header {
-  background: var(--forest);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.35);
-}
-.header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-.logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-  text-decoration: none;
-}
-.logo-icon {
-  width: 52px;
-  height: 52px;
-  flex-shrink: 0;
-}
-.logo-text { line-height: 1.2; }
-.logo-text strong {
-  display: block;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.01em;
-}
-.logo-text span {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.7rem;
-  color: var(--cream);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
+    /* ─── Header / Nav ───────────────────────────────────────────────────── */
+    header {
+      background: var(--forest);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.01em;
+    }
+    .logo-text span {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      color: var(--cream);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-nav { margin-left: auto; }
-.nav-list {
-  display: flex;
-  list-style: none;
-  gap: 0;
-  white-space: nowrap;
-}
-.nav-list > li { position: relative; }
-.nav-list > li > a {
-  display: block;
-  padding: 1.2rem 0.75rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--cream);
-  white-space: nowrap;
-  transition: background 0.2s, color 0.2s;
-}
-.nav-list > li > a:hover,
-.nav-list > li:hover > a {
-  background: var(--canopy);
-  color: var(--gold);
-}
-.dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 220px;
-  background: var(--canopy);
-  border-top: 3px solid var(--ochre);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  z-index: 200;
-  list-style: none;
-}
-.nav-list > li:hover .dropdown { display: block; }
-.dropdown li a {
-  display: block;
-  padding: 0.65rem 1.2rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.8rem;
-  color: var(--cream);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  transition: background 0.15s, padding-left 0.15s;
-}
-.dropdown li a:hover {
-  background: var(--forest);
-  color: var(--gold);
-  padding-left: 1.6rem;
-}
+    nav { margin-left: auto; }
+    .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 0;
+      white-space: nowrap;
+    }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a {
+      display: block;
+      padding: 1.2rem 0.75rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cream);
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-list > li > a:hover,
+    .nav-list > li:hover > a {
+      background: var(--canopy);
+      color: var(--gold);
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 220px;
+      background: var(--canopy);
+      border-top: 3px solid var(--ochre);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      z-index: 200;
+      list-style: none;
+    }
+    .nav-list > li:hover .dropdown { display: block; }
+    .dropdown li a {
+      display: block;
+      padding: 0.65rem 1.2rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.8rem;
+      color: var(--cream);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.15s, padding-left 0.15s;
+    }
+    .dropdown li a:hover {
+      background: var(--forest);
+      color: var(--gold);
+      padding-left: 1.6rem;
+    }
 
-/* ─── Hero Slider ────────────────────────────────────────────────────── */
-.hero {
-  position: relative;
-  height: 480px;
-  overflow: hidden;
-  background: var(--forest);
-}
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-  display: flex;
-  align-items: flex-end;
-}
-.slide.active { opacity: 1; }
-.slide-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.04);
-  transition: transform 8s ease;
-}
-.slide.active .slide-bg { transform: scale(1); }
-/* SVG pattern overlays simulate rainforest / river imagery */
-.slide-1 .slide-bg { background: linear-gradient(165deg, #0d2b1a 0%, #1a5c35 40%, #2d7a4f 70%, #3a9660 100%); }
-.slide-2 .slide-bg { background: linear-gradient(135deg, #1a2a40 0%, #1d4a5a 40%, #236b60 70%, #2d8a72 100%); }
-.slide-3 .slide-bg { background: linear-gradient(155deg, #3a1a0a 0%, #7a3518 40%, #a85a25 70%, #c87830 100%); }
-.slide-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(10,20,10,0.75) 0%, rgba(0,0,0,0.1) 60%);
-}
-.slide-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 2rem 3rem;
-  color: var(--cream);
-}
-.slide-content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  font-weight: 900;
-  line-height: 1.15;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-  margin-bottom: 0.6rem;
-}
-.slide-content p {
-  font-size: 1rem;
-  color: var(--cream-dark);
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
-  max-width: 560px;
-}
-.slide-controls {
-  position: absolute;
-  bottom: 1.2rem;
-  right: 2rem;
-  display: flex;
-  gap: 0.5rem;
-  z-index: 10;
-}
-.slide-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.35);
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.slide-dot.active { background: var(--gold); }
+    /* ─── Hero Slider ────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+      background: var(--forest);
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      display: flex;
+      align-items: flex-end;
+    }
+    .slide.active { opacity: 1; }
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+    .slide.active .slide-bg { transform: scale(1); }
+    /* SVG pattern overlays simulate rainforest / river imagery */
+    .slide-1 .slide-bg { background: linear-gradient(165deg, #0d2b1a 0%, #1a5c35 40%, #2d7a4f 70%, #3a9660 100%); }
+    .slide-2 .slide-bg { background: linear-gradient(135deg, #1a2a40 0%, #1d4a5a 40%, #236b60 70%, #2d8a72 100%); }
+    .slide-3 .slide-bg { background: linear-gradient(155deg, #3a1a0a 0%, #7a3518 40%, #a85a25 70%, #c87830 100%); }
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,20,10,0.75) 0%, rgba(0,0,0,0.1) 60%);
+    }
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem 3rem;
+      color: var(--cream);
+    }
+    .slide-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.15;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      margin-bottom: 0.6rem;
+    }
+    .slide-content p {
+      font-size: 1rem;
+      color: var(--cream-dark);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+      max-width: 560px;
+    }
+    .slide-controls {
+      position: absolute;
+      bottom: 1.2rem;
+      right: 2rem;
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+    .slide-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .slide-dot.active { background: var(--gold); }
 
-/* ─── Textile Pattern Divider ─────────────────────────────────────────── */
-.pattern-bar {
-  height: 14px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--ochre) 0px, var(--ochre) 10px,
-    var(--earth) 10px, var(--earth) 20px,
-    var(--forest) 20px, var(--forest) 30px,
-    var(--gold) 30px, var(--gold) 40px,
-    var(--forest) 40px, var(--forest) 50px,
-    var(--earth) 50px, var(--earth) 60px
-  );
-}
+    /* ─── Textile Pattern Divider ─────────────────────────────────────────── */
+    .pattern-bar {
+      height: 14px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--ochre) 0px, var(--ochre) 10px,
+        var(--earth) 10px, var(--earth) 20px,
+        var(--forest) 20px, var(--forest) 30px,
+        var(--gold) 30px, var(--gold) 40px,
+        var(--forest) 40px, var(--forest) 50px,
+        var(--earth) 50px, var(--earth) 60px
+      );
+    }
 
-/* ─── Quick-Links Strip ───────────────────────────────────────────────── */
-.quick-links {
-  background: var(--canopy);
-  padding: 0;
-}
-.quick-links-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.ql-item {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 1.1rem 1.5rem;
-  border-right: 1px solid rgba(255,255,255,0.1);
-  color: var(--cream);
-  transition: background 0.2s;
-  text-decoration: none;
-}
-.ql-item:last-child { border-right: none; }
-.ql-item:hover { background: var(--forest); }
-.ql-icon {
-  font-size: 1.6rem;
-  flex-shrink: 0;
-}
-.ql-text strong {
-  display: block;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.ql-text span {
-  font-size: 0.75rem;
-  color: rgba(247,240,227,0.7);
-}
+    /* ─── Quick-Links Strip ───────────────────────────────────────────────── */
+    .quick-links {
+      background: var(--canopy);
+      padding: 0;
+    }
+    .quick-links-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .ql-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.1rem 1.5rem;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      color: var(--cream);
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .ql-item:last-child { border-right: none; }
+    .ql-item:hover { background: var(--forest); }
+    .ql-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .ql-text strong {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .ql-text span {
+      font-size: 0.75rem;
+      color: rgba(247,240,227,0.7);
+    }
 
-/* ─── Main Layout ─────────────────────────────────────────────────────── */
-.main-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 3rem;
-  align-items: start;
-}
+    /* ─── Main Layout ─────────────────────────────────────────────────────── */
+    .main-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 3rem;
+      align-items: start;
+    }
 
-/* ─── Welcome Section ─────────────────────────────────────────────────── */
-.welcome-block {
-  background: #fff;
-  border-left: 5px solid var(--ochre);
-  padding: 2rem;
-  margin-bottom: 2.5rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-}
-.welcome-block h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.7rem;
-  color: var(--forest);
-  margin-bottom: 0.8rem;
-}
-.welcome-block p { color: var(--text-mid); margin-bottom: 0.8rem; }
+    /* ─── Welcome Section ─────────────────────────────────────────────────── */
+    .welcome-block {
+      background: #fff;
+      border-left: 5px solid var(--ochre);
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .welcome-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+    .welcome-block p { color: var(--text-mid); margin-bottom: 0.8rem; }
 
-/* ─── Section Heading ─────────────────────────────────────────────────── */
-.section-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: var(--forest);
-  border-bottom: 3px solid var(--ochre);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-}
+    /* ─── Section Heading ─────────────────────────────────────────────────── */
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--forest);
+      border-bottom: 3px solid var(--ochre);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
 
-/* ─── News Cards ──────────────────────────────────────────────────────── */
-.news-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-.news-card {
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.news-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-}
-.news-img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-.news-img-placeholder {
-  width: 100%; height: 150px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2.5rem;
-}
-.news-body { padding: 1rem; }
-.news-tag {
-  display: inline-block;
-  background: var(--ochre);
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  margin-bottom: 0.5rem;
-}
-.news-body h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--forest);
-  margin-bottom: 0.4rem;
-  line-height: 1.3;
-}
-.news-body p { font-size: 0.85rem; color: var(--text-mid); }
-.read-more {
-  display: inline-block;
-  margin-top: 0.6rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--earth);
-  letter-spacing: 0.04em;
-}
-.read-more:hover { color: var(--ochre); }
+    /* ─── News Cards ──────────────────────────────────────────────────────── */
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .news-card {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    .news-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .news-img-placeholder {
+      width: 100%; height: 150px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .news-body { padding: 1rem; }
+    .news-tag {
+      display: inline-block;
+      background: var(--ochre);
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      margin-bottom: 0.5rem;
+    }
+    .news-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+    .news-body p { font-size: 0.85rem; color: var(--text-mid); }
+    .read-more {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--earth);
+      letter-spacing: 0.04em;
+    }
+    .read-more:hover { color: var(--ochre); }
 
-/* ─── Groups Overview ─────────────────────────────────────────────────── */
-.villages-section { margin-bottom: 2.5rem; }
+    /* ─── Groups Overview ─────────────────────────────────────────────────── */
+    .villages-section { margin-bottom: 2.5rem; }
 
-/* Shared traits intro block */
-.shared-traits {
-  background: var(--cream-dark);
-  border-left: 5px solid var(--forest);
-  padding: 1.5rem 1.8rem;
-  margin-bottom: 1.8rem;
-}
-.shared-traits h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
-  color: var(--forest);
-  margin-bottom: 0.8rem;
-}
-.traits-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.4rem 1.5rem;
-}
-.trait-item {
-  font-size: 0.85rem;
-  color: var(--text-mid);
-  padding: 0.25rem 0;
-  border-bottom: 1px solid rgba(200,130,42,0.2);
-}
-.trait-item::before { content: '◆ '; color: var(--ochre); font-size: 0.6rem; vertical-align: middle; }
+    /* Shared traits intro block */
+    .shared-traits {
+      background: var(--cream-dark);
+      border-left: 5px solid var(--forest);
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+    .shared-traits h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+    .traits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1.5rem;
+    }
+    .trait-item {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      padding: 0.25rem 0;
+      border-bottom: 1px solid rgba(200,130,42,0.2);
+    }
+    .trait-item::before { content: '◆ '; color: var(--ochre); font-size: 0.6rem; vertical-align: middle; }
 
-/* Comparison table */
-.comparison-wrap {
-  overflow-x: auto;
-  margin-bottom: 1.8rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-}
-.comparison-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.82rem;
-  background: #fff;
-}
-.comparison-table thead tr {
-  background: var(--forest);
-  color: var(--cream);
-}
-.comparison-table th {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  padding: 0.7rem 0.9rem;
-  text-align: left;
-  white-space: nowrap;
-}
-.comparison-table td {
-  padding: 0.65rem 0.9rem;
-  border-bottom: 1px solid var(--cream-dark);
-  color: var(--text-mid);
-  vertical-align: top;
-}
-.comparison-table tbody tr:nth-child(even) td { background: var(--cream); }
-.comparison-table tbody tr:hover td { background: #fff8ee; }
-.comparison-table .group-name {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: var(--forest);
-  white-space: nowrap;
-}
-.comparison-table .branch-east { color: var(--river); font-weight: 600; }
-.comparison-table .branch-central { color: var(--earth); font-weight: 600; }
-.tbl-link {
-  display: inline-block;
-  background: var(--ochre);
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  padding: 3px 10px;
-  transition: background 0.2s;
-  white-space: nowrap;
-}
-.tbl-link:hover { background: var(--earth); }
+    /* Comparison table */
+    .comparison-wrap {
+      overflow-x: auto;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      background: #fff;
+    }
+    .comparison-table thead tr {
+      background: var(--forest);
+      color: var(--cream);
+    }
+    .comparison-table th {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      padding: 0.7rem 0.9rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .comparison-table td {
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid var(--cream-dark);
+      color: var(--text-mid);
+      vertical-align: top;
+    }
+    .comparison-table tbody tr:nth-child(even) td { background: var(--cream); }
+    .comparison-table tbody tr:hover td { background: #fff8ee; }
+    .comparison-table .group-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--forest);
+      white-space: nowrap;
+    }
+    .comparison-table .branch-east { color: var(--river); font-weight: 600; }
+    .comparison-table .branch-central { color: var(--earth); font-weight: 600; }
+    .tbl-link {
+      display: inline-block;
+      background: var(--ochre);
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .tbl-link:hover { background: var(--earth); }
 
-/* Group cards */
-.village-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-.village-card {
-  background: var(--forest);
-  color: var(--cream);
-  padding: 1.4rem 1.2rem 3.2rem;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.2s, transform 0.15s;
-  display: block;
-  text-decoration: none;
-}
-.village-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 4px; height: 100%;
-  background: var(--gold);
-}
-.village-card:hover { background: var(--canopy); transform: translateY(-2px); }
-.village-card .vc-group {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.3rem;
-}
-.village-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  margin-bottom: 0.4rem;
-  color: var(--cream);
-}
-.village-card p { font-size: 0.8rem; color: rgba(247,240,227,0.78); line-height: 1.6; }
-.village-card .vc-icon {
-  font-size: 1.8rem;
-  position: absolute;
-  bottom: 0.8rem; right: 0.8rem;
-  opacity: 0.18;
-}
-.vc-detail-link {
-  position: absolute;
-  bottom: 0.9rem; left: 1.2rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--gold);
-  text-transform: uppercase;
-}
-.vc-detail-link:hover { color: #fff; }
+    /* Group cards */
+    .village-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .village-card {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 1.4rem 1.2rem 3.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s, transform 0.15s;
+      display: block;
+      text-decoration: none;
+    }
+    .village-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--gold);
+    }
+    .village-card:hover { background: var(--canopy); transform: translateY(-2px); }
+    .village-card .vc-group {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .village-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: var(--cream);
+    }
+    .village-card p { font-size: 0.8rem; color: rgba(247,240,227,0.78); line-height: 1.6; }
+    .village-card .vc-icon {
+      font-size: 1.8rem;
+      position: absolute;
+      bottom: 0.8rem; right: 0.8rem;
+      opacity: 0.18;
+    }
+    .vc-detail-link {
+      position: absolute;
+      bottom: 0.9rem; left: 1.2rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .vc-detail-link:hover { color: #fff; }
 
-/* ─── Sidebar ─────────────────────────────────────────────────────────── */
-.sidebar { }
-.sidebar-box {
-  background: #fff;
-  border-top: 4px solid var(--forest);
-  padding: 1.5rem;
-  margin-bottom: 1.8rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-.sidebar-box h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  color: var(--forest);
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--cream-dark);
-}
-.sidebar-links { list-style: none; }
-.sidebar-links li {
-  border-bottom: 1px solid var(--cream-dark);
-}
-.sidebar-links li a {
-  display: block;
-  padding: 0.55rem 0.3rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.82rem;
-  color: var(--text-mid);
-  transition: color 0.15s, padding-left 0.15s;
-}
-.sidebar-links li a::before { content: '›  '; color: var(--ochre); }
-.sidebar-links li a:hover { color: var(--earth); padding-left: 0.4rem; }
+    /* ─── Sidebar ─────────────────────────────────────────────────────────── */
+    .sidebar { }
+    .sidebar-box {
+      background: #fff;
+      border-top: 4px solid var(--forest);
+      padding: 1.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .sidebar-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--cream-dark);
+    }
+    .sidebar-links { list-style: none; }
+    .sidebar-links li {
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .sidebar-links li a {
+      display: block;
+      padding: 0.55rem 0.3rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      transition: color 0.15s, padding-left 0.15s;
+    }
+    .sidebar-links li a::before { content: '›  '; color: var(--ochre); }
+    .sidebar-links li a:hover { color: var(--earth); padding-left: 0.4rem; }
 
-.bulletin-list { list-style: none; }
-.bulletin-list li {
-  padding: 0.6rem 0;
-  border-bottom: 1px solid var(--cream-dark);
-  font-size: 0.85rem;
-}
-.bulletin-list li a {
-  color: var(--earth);
-  font-weight: 600;
-}
-.bulletin-list li a:hover { color: var(--ochre); }
+    .bulletin-list { list-style: none; }
+    .bulletin-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+      font-size: 0.85rem;
+    }
+    .bulletin-list li a {
+      color: var(--earth);
+      font-weight: 600;
+    }
+    .bulletin-list li a:hover { color: var(--ochre); }
 
-/* ─── Culture Band ────────────────────────────────────────────────────── */
-.culture-band {
-  background: var(--forest);
-  color: var(--cream);
-  padding: 3rem 0;
-}
-.culture-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-.culture-inner .section-heading {
-  color: var(--gold);
-  border-bottom-color: var(--ochre);
-}
-.culture-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-.culture-item {
-  border-left: 3px solid var(--ochre);
-  padding-left: 1rem;
-}
-.culture-item h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-}
-.culture-item p { font-size: 0.88rem; color: rgba(247,240,227,0.8); }
+    /* ─── Culture Band ────────────────────────────────────────────────────── */
+    .culture-band {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 3rem 0;
+    }
+    .culture-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .culture-inner .section-heading {
+      color: var(--gold);
+      border-bottom-color: var(--ochre);
+    }
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .culture-item {
+      border-left: 3px solid var(--ochre);
+      padding-left: 1rem;
+    }
+    .culture-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .culture-item p { font-size: 0.88rem; color: rgba(247,240,227,0.8); }
 
-/* ─── Vision/Mission Strip ────────────────────────────────────────────── */
-.mission-strip {
-  background: var(--cream-dark);
-  border-top: 4px solid var(--ochre);
-  border-bottom: 4px solid var(--ochre);
-  padding: 2.5rem 0;
-}
-.mission-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-}
-.mission-block h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  color: var(--earth);
-  margin-bottom: 0.7rem;
-}
-.mission-block p { color: var(--text-mid); font-size: 0.92rem; }
-.mission-block ul {
-  list-style: none;
-  margin-top: 0.5rem;
-}
-.mission-block ul li {
-  padding: 0.3rem 0;
-  font-size: 0.9rem;
-  color: var(--text-mid);
-}
-.mission-block ul li::before { content: '◆  '; color: var(--ochre); font-size: 0.55rem; vertical-align: middle; }
+    /* ─── Vision/Mission Strip ────────────────────────────────────────────── */
+    .mission-strip {
+      background: var(--cream-dark);
+      border-top: 4px solid var(--ochre);
+      border-bottom: 4px solid var(--ochre);
+      padding: 2.5rem 0;
+    }
+    .mission-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .mission-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--earth);
+      margin-bottom: 0.7rem;
+    }
+    .mission-block p { color: var(--text-mid); font-size: 0.92rem; }
+    .mission-block ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    .mission-block ul li {
+      padding: 0.3rem 0;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+    .mission-block ul li::before { content: '◆  '; color: var(--ochre); font-size: 0.55rem; vertical-align: middle; }
 
-/* ─── Footer ──────────────────────────────────────────────────────────── */
-footer {
-  background: var(--text-dark);
-  color: var(--cream);
-  padding: 3rem 0 0;
-}
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem 2rem;
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 2.5rem;
-}
-.footer-col h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  color: var(--gold);
-  margin-bottom: 1rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid rgba(200,130,42,0.3);
-}
-.footer-col p { font-size: 0.83rem; color: rgba(247,240,227,0.7); line-height: 1.8; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 0.4rem; }
-.footer-col ul li a {
-  font-size: 0.83rem;
-  color: rgba(247,240,227,0.7);
-  transition: color 0.15s;
-}
-.footer-col ul li a:hover { color: var(--gold); }
-.footer-bottom {
-  background: rgba(0,0,0,0.3);
-  text-align: center;
-  padding: 1rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.75rem;
-  color: rgba(247,240,227,0.45);
-  letter-spacing: 0.05em;
-}
+    /* ─── Footer ──────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--text-dark);
+      color: var(--cream);
+      padding: 3rem 0 0;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer-col h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(200,130,42,0.3);
+    }
+    .footer-col p { font-size: 0.83rem; color: rgba(247,240,227,0.7); line-height: 1.8; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.4rem; }
+    .footer-col ul li a {
+      font-size: 0.83rem;
+      color: rgba(247,240,227,0.7);
+      transition: color 0.15s;
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      background: rgba(0,0,0,0.3);
+      text-align: center;
+      padding: 1rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(247,240,227,0.45);
+      letter-spacing: 0.05em;
+    }
 
-/* ─── Pull Quote ──────────────────────────────────────────────────────── */
-.pull-quote {
-  background: var(--earth);
-  color: var(--cream);
-  padding: 2.5rem 0;
-  text-align: center;
-}
-.pull-quote blockquote {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.45rem;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--cream);
-}
-.pull-quote blockquote::before { content: '\201C'; font-size: 4rem; color: var(--gold); line-height: 0; vertical-align: -1rem; margin-right: 0.2rem; }
-.pull-quote blockquote::after  { content: '\201D'; font-size: 4rem; color: var(--gold); line-height: 0; vertical-align: -1rem; margin-left: 0.2rem; }
-.pull-quote cite {
-  display: block;
-  margin-top: 1rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-style: normal;
-}
+    /* ─── Pull Quote ──────────────────────────────────────────────────────── */
+    .pull-quote {
+      background: var(--earth);
+      color: var(--cream);
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+    .pull-quote blockquote {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--cream);
+    }
+    .pull-quote blockquote::before { content: '\201C'; font-size: 4rem; color: var(--gold); line-height: 0; vertical-align: -1rem; margin-right: 0.2rem; }
+    .pull-quote blockquote::after  { content: '\201D'; font-size: 4rem; color: var(--gold); line-height: 0; vertical-align: -1rem; margin-left: 0.2rem; }
+    .pull-quote cite {
+      display: block;
+      margin-top: 1rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
 
-/* ─── Timeline ────────────────────────────────────────────────────────── */
-.timeline-section {
-  background: var(--cream);
-  padding: 3rem 0;
-}
-.timeline-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-.timeline {
-  position: relative;
-  margin-top: 2rem;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 160px;
-  top: 0; bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, var(--ochre), var(--forest));
-}
-.tl-entry {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 0 2rem;
-  margin-bottom: 2rem;
-  position: relative;
-}
-.tl-date {
-  text-align: right;
-  padding-right: 2rem;
-  padding-top: 0.15rem;
-}
-.tl-date strong {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--earth);
-  display: block;
-}
-.tl-date span {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ochre);
-}
-.tl-dot {
-  position: absolute;
-  left: 152px;
-  top: 6px;
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--ochre);
-  border: 3px solid var(--cream);
-  box-shadow: 0 0 0 2px var(--ochre);
-  z-index: 1;
-}
-.tl-dot.major {
-  background: var(--forest);
-  box-shadow: 0 0 0 2px var(--forest);
-  width: 22px; height: 22px;
-  left: 150px;
-}
-.tl-body {
-  background: #fff;
-  border-left: 4px solid var(--ochre);
-  padding: 1rem 1.2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-.tl-body.major-event {
-  border-left-color: var(--forest);
-  background: var(--cream-dark);
-}
-.tl-body h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  color: var(--forest);
-  margin-bottom: 0.3rem;
-}
-.tl-body.major-event h4 { color: var(--earth); }
-.tl-body p { font-size: 0.86rem; color: var(--text-mid); }
-.tl-tag {
-  display: inline-block;
-  background: var(--ochre);
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 1px 7px;
-  margin-bottom: 0.35rem;
-}
-.tl-tag.resistance { background: var(--forest); }
-.tl-tag.modern     { background: var(--river); }
-.tl-tag.crisis     { background: var(--earth); }
+    /* ─── Timeline ────────────────────────────────────────────────────────── */
+    .timeline-section {
+      background: var(--cream);
+      padding: 3rem 0;
+    }
+    .timeline-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .timeline {
+      position: relative;
+      margin-top: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 160px;
+      top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--ochre), var(--forest));
+    }
+    .tl-entry {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .tl-date {
+      text-align: right;
+      padding-right: 2rem;
+      padding-top: 0.15rem;
+    }
+    .tl-date strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--earth);
+      display: block;
+    }
+    .tl-date span {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ochre);
+    }
+    .tl-dot {
+      position: absolute;
+      left: 152px;
+      top: 6px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--ochre);
+      border: 3px solid var(--cream);
+      box-shadow: 0 0 0 2px var(--ochre);
+      z-index: 1;
+    }
+    .tl-dot.major {
+      background: var(--forest);
+      box-shadow: 0 0 0 2px var(--forest);
+      width: 22px; height: 22px;
+      left: 150px;
+    }
+    .tl-body {
+      background: #fff;
+      border-left: 4px solid var(--ochre);
+      padding: 1rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .tl-body.major-event {
+      border-left-color: var(--forest);
+      background: var(--cream-dark);
+    }
+    .tl-body h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--forest);
+      margin-bottom: 0.3rem;
+    }
+    .tl-body.major-event h4 { color: var(--earth); }
+    .tl-body p { font-size: 0.86rem; color: var(--text-mid); }
+    .tl-tag {
+      display: inline-block;
+      background: var(--ochre);
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1px 7px;
+      margin-bottom: 0.35rem;
+    }
+    .tl-tag.resistance { background: var(--forest); }
+    .tl-tag.modern     { background: var(--river); }
+    .tl-tag.crisis     { background: var(--earth); }
 
-/* ─── Present Day ─────────────────────────────────────────────────────── */
-.present-section {
-  background: var(--canopy);
-  color: var(--cream);
-  padding: 3rem 0;
-}
-.present-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-.present-inner .section-heading {
-  color: var(--gold);
-  border-bottom-color: rgba(200,130,42,0.5);
-}
-.present-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-.present-card {
-  background: rgba(0,0,0,0.2);
-  border-top: 3px solid var(--gold);
-  padding: 1.4rem;
-}
-.present-card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-}
-.present-card p { font-size: 0.87rem; color: rgba(247,240,227,0.85); line-height: 1.7; }
+    /* ─── Present Day ─────────────────────────────────────────────────────── */
+    .present-section {
+      background: var(--canopy);
+      color: var(--cream);
+      padding: 3rem 0;
+    }
+    .present-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .present-inner .section-heading {
+      color: var(--gold);
+      border-bottom-color: rgba(200,130,42,0.5);
+    }
+    .present-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .present-card {
+      background: rgba(0,0,0,0.2);
+      border-top: 3px solid var(--gold);
+      padding: 1.4rem;
+    }
+    .present-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .present-card p { font-size: 0.87rem; color: rgba(247,240,227,0.85); line-height: 1.7; }
 
-/* ─── Responsive ──────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .main-wrap { grid-template-columns: 1fr; }
-  .quick-links-inner { grid-template-columns: 1fr 1fr; }
-  .news-grid { grid-template-columns: 1fr; }
-  .village-cards { grid-template-columns: 1fr 1fr; }
-  .culture-grid { grid-template-columns: 1fr; }
-  .mission-inner { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr 1fr; }
-  .nav-list { display: none; }
-  .slide-content h2 { font-size: 1.6rem; }
-  .hero { height: 360px; }
-  .present-grid { grid-template-columns: 1fr; }
-  .timeline::before { left: 90px; }
-  .tl-entry { grid-template-columns: 90px 1fr; }
-  .tl-dot { left: 82px; }
-  .tl-dot.major { left: 80px; }
-}
-@media (max-width: 560px) {
-  .quick-links-inner { grid-template-columns: 1fr; }
-  .village-cards { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; }
-  .slide-content { padding: 1.2rem 1.5rem; }
-  .timeline::before { left: 70px; }
-  .tl-entry { grid-template-columns: 70px 1fr; gap: 0 1rem; }
-  .tl-dot { left: 62px; }
-  .tl-dot.major { left: 60px; }
-  .tl-date strong { font-size: 0.85rem; }
-  .pull-quote blockquote { font-size: 1.1rem; }
-}
-/* ─── Overview Map Section ───────────────────────────────────────────────── */
-.overview-map-section {
-  background: var(--text-dark);
-  padding: 2.5rem 0;
-}
-.overview-map-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-.overview-map-inner .section-heading {
-  color: var(--gold);
-  border-bottom-color: var(--ochre);
-  margin-bottom: 0.6rem;
-}
-.overview-map-inner .map-intro {
-  color: rgba(247,240,227,0.75);
-  font-size: 0.88rem;
-  margin-bottom: 1rem;
-  max-width: 760px;
-}
-#overview-map {
-  width: 100%;
-  height: 460px;
-  border: 3px solid rgba(200,130,42,0.4);
-}
-.map-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 1.4rem;
-  margin-top: 0.8rem;
-}
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.75rem;
-  color: rgba(247,240,227,0.75);
-  letter-spacing: 0.04em;
-}
-.legend-swatch {
-  width: 14px; height: 14px;
-  border-radius: 2px;
-  flex-shrink: 0;
-  opacity: 0.75;
-}
-```
-
+    /* ─── Responsive ──────────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .main-wrap { grid-template-columns: 1fr; }
+      .quick-links-inner { grid-template-columns: 1fr 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      .village-cards { grid-template-columns: 1fr 1fr; }
+      .culture-grid { grid-template-columns: 1fr; }
+      .mission-inner { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .nav-list { display: none; }
+      .slide-content h2 { font-size: 1.6rem; }
+      .hero { height: 360px; }
+      .present-grid { grid-template-columns: 1fr; }
+      .timeline::before { left: 90px; }
+      .tl-entry { grid-template-columns: 90px 1fr; }
+      .tl-dot { left: 82px; }
+      .tl-dot.major { left: 80px; }
+    }
+    @media (max-width: 560px) {
+      .quick-links-inner { grid-template-columns: 1fr; }
+      .village-cards { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .slide-content { padding: 1.2rem 1.5rem; }
+      .timeline::before { left: 70px; }
+      .tl-entry { grid-template-columns: 70px 1fr; gap: 0 1rem; }
+      .tl-dot { left: 62px; }
+      .tl-dot.major { left: 60px; }
+      .tl-date strong { font-size: 0.85rem; }
+      .pull-quote blockquote { font-size: 1.1rem; }
+    }
+    /* ─── Overview Map Section ───────────────────────────────────────────────── */
+    .overview-map-section {
+      background: var(--text-dark);
+      padding: 2.5rem 0;
+    }
+    .overview-map-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .overview-map-inner .section-heading {
+      color: var(--gold);
+      border-bottom-color: var(--ochre);
+      margin-bottom: 0.6rem;
+    }
+    .overview-map-inner .map-intro {
+      color: rgba(247,240,227,0.75);
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+      max-width: 760px;
+    }
+    #overview-map {
+      width: 100%;
+      height: 460px;
+      border: 3px solid rgba(200,130,42,0.4);
+    }
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.4rem;
+      margin-top: 0.8rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(247,240,227,0.75);
+      letter-spacing: 0.04em;
+    }
+    .legend-swatch {
+      width: 14px; height: 14px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
   </style>
 
   <!-- Trilingual support -->
-
   <style>
     .lang-toggle {
       display: flex; gap: 4px; align-items: center; margin-left: 1.5rem;
@@ -932,12 +927,10 @@ footer {
     .lang-btn:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
     .lang-btn.active { background: var(--ochre); color: white; border-color: var(--ochre); }
   </style>
-
 </head>
 <body>
 
 <!-- ─── Top Bar ──────────────────────────────────────────────────────────── -->
-
 <div class="top-bar">
   <span>Preserving the heritage of Suriname's Maroon communities</span>
   <span>
@@ -948,7 +941,6 @@ footer {
 </div>
 
 <!-- ─── Header ───────────────────────────────────────────────────────────── -->
-
 <header>
   <div class="header-inner">
     <a class="logo-wrap" href="index.html">
@@ -967,75 +959,71 @@ footer {
       </div>
     </a>
 
-```
-<nav>
-  <ul class="nav-list">
-    <li>
-      <a href="villages.html">Dorpen</a>
-      <ul class="dropdown">
-        <li><a href="villages.html">Dorphenregister (278)</a></li>
-        <li><a href="groups/ndyuka.html">Ndyuka</a></li>
-        <li><a href="groups/saramaka.html">Saramaka</a></li>
-        <li><a href="groups/matawai.html">Matawai</a></li>
-        <li><a href="groups/paramaka.html">Paramaka</a></li>
-        <li><a href="groups/aluku.html">Aluku</a></li>
-        <li><a href="groups/kwinti.html">Kwinti</a></li>
+    <nav>
+      <ul class="nav-list">
+        <li>
+          <a href="villages.html">Dorpen</a>
+          <ul class="dropdown">
+            <li><a href="villages.html">Dorphenregister (278)</a></li>
+            <li><a href="groups/ndyuka.html">Ndyuka</a></li>
+            <li><a href="groups/saramaka.html">Saramaka</a></li>
+            <li><a href="groups/matawai.html">Matawai</a></li>
+            <li><a href="groups/paramaka.html">Paramaka</a></li>
+            <li><a href="groups/aluku.html">Aluku</a></li>
+            <li><a href="groups/kwinti.html">Kwinti</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#history">Geschiedenis</a>
+          <ul class="dropdown">
+            <li><a href="#history">Origins &amp; Escape</a></li>
+            <li><a href="#history">Wars of Freedom</a></li>
+            <li><a href="#history">Vredesverdragen 1760–1887</a></li>
+            <li><a href="#history">Binnenlandse Oorlog 1986–1992</a></li>
+            <li><a href="moiwana.html">Moiwana Bloedbad 1986</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#present">Heden</a>
+          <ul class="dropdown">
+            <li><a href="#present">Land Rights Today</a></li>
+            <li><a href="#present">Gold Mining</a></li>
+            <li><a href="#present">Urban Migration</a></li>
+            <li><a href="#present">Diaspora in Netherlands</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#culture">Cultuur</a>
+          <ul class="dropdown">
+            <li><a href="#culture">Textile Art</a></li>
+            <li><a href="#culture">Woodcarving</a></li>
+            <li><a href="#culture">Music &amp; Dance</a></li>
+            <li><a href="#culture">Taal</a></li>
+            <li><a href="#culture">Governance</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="bibliography.html">Bronnen</a>
+          <ul class="dropdown">
+            <li><a href="bibliography.html">Bibliography &amp; Sources</a></li>
+            <li><a href="RESEARCH_NOTES.md">Onderzoeksnotities</a></li>
+            <li><a href="maroon_villages.csv">Village Data (CSV)</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
       </ul>
-    </li>
-    <li>
-      <a href="#history">Geschiedenis</a>
-      <ul class="dropdown">
-        <li><a href="#history">Origins &amp; Escape</a></li>
-        <li><a href="#history">Wars of Freedom</a></li>
-        <li><a href="#history">Vredesverdragen 1760–1887</a></li>
-        <li><a href="#history">Binnenlandse Oorlog 1986–1992</a></li>
-        <li><a href="moiwana.html">Moiwana Bloedbad 1986</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#present">Heden</a>
-      <ul class="dropdown">
-        <li><a href="#present">Land Rights Today</a></li>
-        <li><a href="#present">Gold Mining</a></li>
-        <li><a href="#present">Urban Migration</a></li>
-        <li><a href="#present">Diaspora in Netherlands</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#culture">Cultuur</a>
-      <ul class="dropdown">
-        <li><a href="#culture">Textile Art</a></li>
-        <li><a href="#culture">Woodcarving</a></li>
-        <li><a href="#culture">Music &amp; Dance</a></li>
-        <li><a href="#culture">Taal</a></li>
-        <li><a href="#culture">Governance</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="bibliography.html">Bronnen</a>
-      <ul class="dropdown">
-        <li><a href="bibliography.html">Bibliography &amp; Sources</a></li>
-        <li><a href="RESEARCH_NOTES.md">Onderzoeksnotities</a></li>
-        <li><a href="maroon_villages.csv">Village Data (CSV)</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
-  </ul>
-</nav>
-<div class="lang-toggle">
-  <a href="index.html" class="lang-btn">EN</a>
-  <a href="index_nl.html" class="lang-btn active">NL</a>
-  <a href="index_sr.html" class="lang-btn">SR</a>
-</div>
-```
-
+    </nav>
+    <div class="lang-toggle">
+      <a href="index.html" class="lang-btn">EN</a>
+      <a href="index_nl.html" class="lang-btn active">NL</a>
+      <a href="index_sr.html" class="lang-btn">SR</a>
+    </div>
   </div>
 </header>
 
 <!-- ─── Hero Slider ────────────────────────────────────────────────────────── -->
-
 <section class="hero" id="home">
   <div class="slide active slide-1">
     <div class="slide-bg"></div>
@@ -1069,11 +1057,9 @@ footer {
 </section>
 
 <!-- Textile-inspired pattern bar -->
-
 <div class="pattern-bar"></div>
 
 <!-- ─── Quick Links ────────────────────────────────────────────────────────── -->
-
 <div class="quick-links">
   <div class="quick-links-inner">
     <a class="ql-item" href="villages.html">
@@ -1108,7 +1094,6 @@ footer {
 </div>
 
 <!-- ─── Overview Map ─────────────────────────────────────────────────────────── -->
-
 <section class="overview-map-section" id="map">
   <div class="overview-map-inner">
     <h2 class="section-heading">Waar de Zes Groepen Wonen — Traditionele Gebieden</h2>
@@ -1126,270 +1111,262 @@ footer {
 </section>
 
 <!-- ─── Main Content + Sidebar ────────────────────────────────────────────── -->
-
 <div class="main-wrap">
 
   <!-- Main Column -->
-
   <main>
 
-```
-<!-- Welcome -->
-<div class="welcome-block">
-  <h2>Welkom — Een Verhaal van Veerkracht & Overleving</h2>
-  <p>The Surinamese Maroons — also known as <em>Businenge</em> or <em>Bushinengue</em>, meaning "black people of the forest" — are the descendants of Africans who escaped enslavement on Dutch colonial plantations during the 17th and 18th centuries. They fled into the interior rainforest, regrouped into small bands, and began forging a viable existence in an inhospitable environment. This daunting challenge was made more difficult still by the colonial government's persistent efforts to eliminate them — reserving special punishments for recaptured people: hamstringing, amputation of limbs, and deaths by torture. The Maroons survived all of it.</p>
-  <p>Bijna een eeuw lang vochten zij — koloniale legers met guerrillatactieken te slim af, beschutting zoekend achter houten palissaden en valkuilen in moerassig woud — totdat de Nederlanders, uitgeput door de kosten in geld en mensenlevens, naar de onderhandelingstafel kwamen. Het loutere bestaan van Marron-dorpen was altijd al bewijs geweest voor de tot slaaf gemaakten dat een alternatief voor slavernij mogelijk was. Tegen 1760 had de Ndyuka een formeel vredesverdrag gewonnen; in 1762 de Saramaka; in 1767 de Matawai. De Marrons hadden al honderd jaar vrijheid genoten voordat de slavernij in Suriname in 1863 werd afgeschaft.</p>
-  <p>Dat verhaal van verzet eindigde niet met de onafhankelijkheid. Koloniale oorlogvoering, landgraaierij, natuurrampen, burgeroorlog en ontheemding hebben elk hoofdstuk van de Marron-geschiedenis gekenmerkt — en blijven dat tot op de dag van vandaag doen. Hun cultuur wordt algemeen beschouwd als een van de best bewaarde stukken Afrikaans cultureel erfgoed buiten Afrika. Deze site documenteert dat erfgoed en die voortdurende strijd.</p>
-  <p><strong>10 oktober is de nationale Dag van de Marrons</strong> in Suriname — ter herdenking van het eerste vredesverdrag, op die datum in 1760 met het Ndyuka-volk getekend.</p>
-</div>
-
-<!-- News -->
-<section id="news">
-  <h2 class="section-heading">Nieuws & Aankondigingen</h2>
-  <div class="news-grid">
-
-    <article class="news-card">
-      <div class="news-img-placeholder" style="background: linear-gradient(135deg,#1a3a2a,#2d5e3f);">⚖️</div>
-      <div class="news-body">
-        <span class="news-tag">Landrechten</span>
-        <h3>Saramaka Territoriale Rechten: IACtHR-uitspraak 2007 & Implementatie</h3>
-        <p>Het Inter-Amerikaans Hof voor de Rechten van de Mens oordeelde in 2007 dat de Saramaka een stamvolk vormen met rechten over hun traditioneel grondgebied — een baanbrekende beslissing voor Marron- en inheemse volken wereldwijd. De uitvoering door de Surinaamse overheid blijft onvolledig.</p>
-        <a class="read-more" href="groups/saramaka.html">Lees Meer »</a>
-      </div>
-    </article>
-
-    <article class="news-card">
-      <div class="news-img-placeholder" style="background: linear-gradient(135deg,#7a3f1e,#c8822a);">🎨</div>
-      <div class="news-body">
-        <span class="news-tag">Cultuur</span>
-        <h3>Marron-cultuur erkend als Immaterieel Erfgoed</h3>
-        <p>De rijke culturele praktijken van de zes Marrongroepen — houtsnijwerk, textielkunst, Winti-religie, muziek en mondelinge overlevering — worden internationaal steeds meer erkend als onvervangbare elementen van het cultureel erfgoed van de Afrikaanse diaspora.</p>
-        <a class="read-more" href="#culture">Lees Meer »</a>
-      </div>
-    </article>
-
-    <article class="news-card">
-      <div class="news-img-placeholder" style="background: linear-gradient(135deg,#1d4a5a,#2d8a72);">🏛️</div>
-      <div class="news-body">
-        <span class="news-tag">Politiek</span>
-        <h3>Ronnie Brunswijk: Eerste Marron Vice-President van Suriname</h3>
-        <p>Op 16 juli 2020 werd Ndyuka Marron Ronnie Brunswijk — voorheen de leider van het Jungle Commando tijdens de Binnenlandse Oorlog van 1986–1992 — ingehuldigd als Vice-President van Suriname, de eerste Marron die dit ambt bekleedde.</p>
-        <a class="read-more" href="groups/ndyuka.html">Lees Meer »</a>
-      </div>
-    </article>
-
-    <article class="news-card">
-      <div class="news-img-placeholder" style="background: linear-gradient(135deg,#2d3a1a,#4a6e30);">🌿</div>
-      <div class="news-body">
-        <span class="news-tag">Erfgoed</span>
-        <h3>Dag van de Marrons — 10 Oktober</h3>
-        <p>Sinds 1974 is 10 oktober een nationale feestdag in Suriname ter herdenking van het eerste vredesverdrag, getekend in 1760 tussen de Ndyuka en de Nederlandse koloniale autoriteit. Ceremonies, culturele optredens en gemeenschapsbijeenkomsten markeren de gelegenheid elk jaar.</p>
-        <a class="read-more" href="#history">Lees Meer »</a>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- Groups Overview -->
-<section class="villages-section" id="villages">
-  <h2 class="section-heading">De Zes Marrongroepen — Verspreiding & Identiteit</h2>
-
-  <!-- What they share -->
-  <div class="shared-traits">
-    <h3>Wat de Zes Groepen Gemeen Hebben</h3>
-    <div class="traits-grid">
-      <div class="trait-item">Afstammelingen van Afrikanen die ontvluchtten aan de Nederlandse plantagslavernij, 17e–18e eeuw</div>
-      <div class="trait-item">Gemeenschappen gebouwd langs binnenlandse rivieren; kano het voornaamste vervoermiddel</div>
-      <div class="trait-item">Matrilineaire afstamming — verwantschap en erfenis via de vrouwelijke lijn</div>
-      <div class="trait-item">Bestuur door een <em>granman</em> (opperste leider), <em>kapiteins</em> en <em>basias</em></div>
-      <div class="trait-item">Traditionele religie: Winti — voorouderverering, geestenpantheon, waarzeggerij</div>
-      <div class="trait-item">Creooltalen met West-/Centraal-Afrikaanse, Engelse, Portugese en Nederlandse wortels</div>
-      <div class="trait-item">Onderscheiden artistieke tradities: houtsnijwerk, geweven textiel, kalabas-decoratie</div>
-      <div class="trait-item">Formeel niet-erkende landrechten ondanks eeuwen van ononderbroken bewoning</div>
-      <div class="trait-item">Formele vredesverdragen gewonnen van de Nederlandse koloniale autoriteit tussen 1760 en 1887</div>
-      <div class="trait-item">Aanzienlijke diasporabevolkingen in Paramaribo en Nederland</div>
+    <!-- Welcome -->
+    <div class="welcome-block">
+      <h2>Welkom — Een Verhaal van Veerkracht & Overleving</h2>
+      <p>The Surinamese Maroons — also known as <em>Businenge</em> or <em>Bushinengue</em>, meaning "black people of the forest" — are the descendants of Africans who escaped enslavement on Dutch colonial plantations during the 17th and 18th centuries. They fled into the interior rainforest, regrouped into small bands, and began forging a viable existence in an inhospitable environment. This daunting challenge was made more difficult still by the colonial government's persistent efforts to eliminate them — reserving special punishments for recaptured people: hamstringing, amputation of limbs, and deaths by torture. The Maroons survived all of it.</p>
+      <p>Bijna een eeuw lang vochten zij — koloniale legers met guerrillatactieken te slim af, beschutting zoekend achter houten palissaden en valkuilen in moerassig woud — totdat de Nederlanders, uitgeput door de kosten in geld en mensenlevens, naar de onderhandelingstafel kwamen. Het loutere bestaan van Marron-dorpen was altijd al bewijs geweest voor de tot slaaf gemaakten dat een alternatief voor slavernij mogelijk was. Tegen 1760 had de Ndyuka een formeel vredesverdrag gewonnen; in 1762 de Saramaka; in 1767 de Matawai. De Marrons hadden al honderd jaar vrijheid genoten voordat de slavernij in Suriname in 1863 werd afgeschaft.</p>
+      <p>Dat verhaal van verzet eindigde niet met de onafhankelijkheid. Koloniale oorlogvoering, landgraaierij, natuurrampen, burgeroorlog en ontheemding hebben elk hoofdstuk van de Marron-geschiedenis gekenmerkt — en blijven dat tot op de dag van vandaag doen. Hun cultuur wordt algemeen beschouwd als een van de best bewaarde stukken Afrikaans cultureel erfgoed buiten Afrika. Deze site documenteert dat erfgoed en die voortdurende strijd.</p>
+      <p><strong>10 oktober is de nationale Dag van de Marrons</strong> in Suriname — ter herdenking van het eerste vredesverdrag, op die datum in 1760 met het Ndyuka-volk getekend.</p>
     </div>
-  </div>
 
-  <!-- Comparison table -->
-  <div class="comparison-wrap">
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Groep</th>
-          <th>Tak</th>
-          <th>Hoofdrivier(en)</th>
-          <th>Taal</th>
-          <th>Vredesverdrag</th>
-          <th>Geschatte Bevolking</th>
-          <th>Detail</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="group-name">Ndyuka (Aukan)</td>
-          <td class="branch-east">Oostelijk</td>
-          <td>Tapanahoni, Marowijne, Cottica</td>
-          <td>Ndyuka</td>
-          <td>10 Oct 1760</td>
-          <td>~115,500</td>
-          <td><a class="tbl-link" href="groups/ndyuka.html">Bekijk →</a></td>
-        </tr>
-        <tr>
-          <td class="group-name">Saramaka (Saamaka)</td>
-          <td class="branch-central">Centraal</td>
-          <td>Upper Suriname R., Gaánlío, Pikílío</td>
-          <td>Saramaccan</td>
-          <td>19 Sep 1762</td>
-          <td>~115,500</td>
-          <td><a class="tbl-link" href="groups/saramaka.html">Bekijk →</a></td>
-        </tr>
-        <tr>
-          <td class="group-name">Matawai</td>
-          <td class="branch-central">Centraal</td>
-          <td>Saramacca R. tributaries</td>
-          <td>Saramaccan</td>
-          <td>1767</td>
-          <td>~8,500</td>
-          <td><a class="tbl-link" href="groups/matawai.html">Bekijk →</a></td>
-        </tr>
-        <tr>
-          <td class="group-name">Paramaka (Paamaka)</td>
-          <td class="branch-east">Oostelijk</td>
-          <td>Marowijne, Lawa Rivers</td>
-          <td>Ndyuka</td>
-          <td>~1750s (informal)</td>
-          <td>~11,000</td>
-          <td><a class="tbl-link" href="groups/paramaka.html">Bekijk →</a></td>
-        </tr>
-        <tr>
-          <td class="group-name">Aluku (Boni)</td>
-          <td class="branch-east">Oostelijk</td>
-          <td>Lawa R., Suriname–French Guiana border</td>
-          <td>Ndyuka</td>
-          <td>Wars ended 1793</td>
-          <td>~11,600</td>
-          <td><a class="tbl-link" href="groups/aluku.html">Bekijk →</a></td>
-        </tr>
-        <tr>
-          <td class="group-name">Kwinti</td>
-          <td class="branch-central">Centraal</td>
-          <td>Coppename River</td>
-          <td>Ndyuka variant</td>
-          <td>1887</td>
-          <td>~1,200</td>
-          <td><a class="tbl-link" href="groups/kwinti.html">Bekijk →</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p style="font-size:0.75rem;color:var(--text-mid);margin-bottom:1.5rem;font-style:italic;">Population estimates from Richard Price (2018). Figures include Suriname and French Guiana. The 2012 Surinamese census recorded 117,567 self-identified Maroons (21.7% of national population).</p>
+    <!-- News -->
+    <section id="news">
+      <h2 class="section-heading">Nieuws & Aankondigingen</h2>
+      <div class="news-grid">
 
-  <!-- Group cards -->
-  <div class="village-cards">
+        <article class="news-card">
+          <div class="news-img-placeholder" style="background: linear-gradient(135deg,#1a3a2a,#2d5e3f);">⚖️</div>
+          <div class="news-body">
+            <span class="news-tag">Landrechten</span>
+            <h3>Saramaka Territoriale Rechten: IACtHR-uitspraak 2007 & Implementatie</h3>
+            <p>Het Inter-Amerikaans Hof voor de Rechten van de Mens oordeelde in 2007 dat de Saramaka een stamvolk vormen met rechten over hun traditioneel grondgebied — een baanbrekende beslissing voor Marron- en inheemse volken wereldwijd. De uitvoering door de Surinaamse overheid blijft onvolledig.</p>
+            <a class="read-more" href="groups/saramaka.html">Lees Meer »</a>
+          </div>
+        </article>
 
-    <a class="village-card" href="groups/ndyuka.html">
-      <div class="vc-group">Eastern Branch</div>
-      <h3>Ndyuka (Aukan)</h3>
-      <p>De grootste Marrongroep samen met de Saramaka. Dorpen langs de Tapanahoni, Marowijne en Cottica in noordoost-Suriname. Eerste die een vredesverdrag met de Nederlanders sloot, op 10 oktober 1760 — nu de nationale Dag van de Marrons.</p>
-      <span class="vc-icon">🛶</span>
-      <span class="vc-detail-link">Volledig profiel →</span>
-    </a>
+        <article class="news-card">
+          <div class="news-img-placeholder" style="background: linear-gradient(135deg,#7a3f1e,#c8822a);">🎨</div>
+          <div class="news-body">
+            <span class="news-tag">Cultuur</span>
+            <h3>Marron-cultuur erkend als Immaterieel Erfgoed</h3>
+            <p>De rijke culturele praktijken van de zes Marrongroepen — houtsnijwerk, textielkunst, Winti-religie, muziek en mondelinge overlevering — worden internationaal steeds meer erkend als onvervangbare elementen van het cultureel erfgoed van de Afrikaanse diaspora.</p>
+            <a class="read-more" href="#culture">Lees Meer »</a>
+          </div>
+        </article>
 
-    <a class="village-card" href="groups/saramaka.html">
-      <div class="vc-group">Central Branch</div>
-      <h3>Saramaka (Saamaka)</h3>
-      <p>Dorpen langs de Bovensurname en zijn zijrivieren. De helft van hun voorouderlijk grondgebied werd overstroomd voor de Brokopondostuwdam in de jaren 1960. Won de baanbrekende IACtHR-uitspraak van 2007 over territoriale rechten. Vredesverdrag getekend in 1762.</p>
-      <span class="vc-icon">🌿</span>
-      <span class="vc-detail-link">Volledig profiel →</span>
-    </a>
+        <article class="news-card">
+          <div class="news-img-placeholder" style="background: linear-gradient(135deg,#1d4a5a,#2d8a72);">🏛️</div>
+          <div class="news-body">
+            <span class="news-tag">Politiek</span>
+            <h3>Ronnie Brunswijk: Eerste Marron Vice-President van Suriname</h3>
+            <p>Op 16 juli 2020 werd Ndyuka Marron Ronnie Brunswijk — voorheen de leider van het Jungle Commando tijdens de Binnenlandse Oorlog van 1986–1992 — ingehuldigd als Vice-President van Suriname, de eerste Marron die dit ambt bekleedde.</p>
+            <a class="read-more" href="groups/ndyuka.html">Lees Meer »</a>
+          </div>
+        </article>
 
-    <a class="village-card" href="groups/matawai.html">
-      <div class="vc-group">Central Branch</div>
-      <h3>Matawai</h3>
-      <p>Gevestigd langs zijrivieren van de Saramacca in centraal Suriname. De meest gekerstende van de zes groepen, met protestantse zendingsaanwezigheid sinds de 18e eeuw. Vredesverdrag getekend in 1767.</p>
-      <span class="vc-icon">🏡</span>
-      <span class="vc-detail-link">Volledig profiel →</span>
-    </a>
+        <article class="news-card">
+          <div class="news-img-placeholder" style="background: linear-gradient(135deg,#2d3a1a,#4a6e30);">🌿</div>
+          <div class="news-body">
+            <span class="news-tag">Erfgoed</span>
+            <h3>Dag van de Marrons — 10 Oktober</h3>
+            <p>Sinds 1974 is 10 oktober een nationale feestdag in Suriname ter herdenking van het eerste vredesverdrag, getekend in 1760 tussen de Ndyuka en de Nederlandse koloniale autoriteit. Ceremonies, culturele optredens en gemeenschapsbijeenkomsten markeren de gelegenheid elk jaar.</p>
+            <a class="read-more" href="#history">Lees Meer »</a>
+          </div>
+        </article>
 
-    <a class="village-card" href="groups/paramaka.html">
-      <div class="vc-group">Eastern Branch</div>
-      <h3>Paramaka (Paamaka)</h3>
-      <p>Dorpen langs de Marowijne en Lawa bij de Frans-Guyana-grens. Historisch nauw verwant aan de Ndyuka. Spreken een variant van Ndyuka. Bevolking van ongeveer 11.000, inclusief velen nu in Frans-Guyana en kust-Suriname.</p>
-      <span class="vc-icon">🌊</span>
-      <span class="vc-detail-link">Volledig profiel →</span>
-    </a>
+      </div>
+    </section>
 
-    <a class="village-card" href="groups/aluku.html">
-      <div class="vc-group">Eastern Branch</div>
-      <h3>Aluku (Boni)</h3>
-      <p>Streden de langste weerstandsoorlog tegen de Nederlanders — hun oorlog eindigde pas in 1793. Het kerngebied verschoof naar de Lawa aan de Surinaams-Frans-Guyana-grens. Vandaag woont de meerderheid in Frans-Guyana als Franse staatsburgers.</p>
-      <span class="vc-icon">🔥</span>
-      <span class="vc-detail-link">Volledig profiel →</span>
-    </a>
+    <!-- Groups Overview -->
+    <section class="villages-section" id="villages">
+      <h2 class="section-heading">De Zes Marrongroepen — Verspreiding & Identiteit</h2>
 
-    <a class="village-card" href="groups/kwinti.html">
-      <div class="vc-group">Central Branch</div>
-      <h3>Kwinti</h3>
-      <p>De kleinste van de zes groepen (~1.200 mensen), gevestigd langs de Coppename in centraal Suriname. De enige Marrongroep zonder een opperste granman. Laatste die een formeel vredesverdrag tekende, in 1887.</p>
-      <span class="vc-icon">🌱</span>
-      <span class="vc-detail-link">Volledig profiel →</span>
-    </a>
+      <!-- What they share -->
+      <div class="shared-traits">
+        <h3>Wat de Zes Groepen Gemeen Hebben</h3>
+        <div class="traits-grid">
+          <div class="trait-item">Afstammelingen van Afrikanen die ontvluchtten aan de Nederlandse plantagslavernij, 17e–18e eeuw</div>
+          <div class="trait-item">Gemeenschappen gebouwd langs binnenlandse rivieren; kano het voornaamste vervoermiddel</div>
+          <div class="trait-item">Matrilineaire afstamming — verwantschap en erfenis via de vrouwelijke lijn</div>
+          <div class="trait-item">Bestuur door een <em>granman</em> (opperste leider), <em>kapiteins</em> en <em>basias</em></div>
+          <div class="trait-item">Traditionele religie: Winti — voorouderverering, geestenpantheon, waarzeggerij</div>
+          <div class="trait-item">Creooltalen met West-/Centraal-Afrikaanse, Engelse, Portugese en Nederlandse wortels</div>
+          <div class="trait-item">Onderscheiden artistieke tradities: houtsnijwerk, geweven textiel, kalabas-decoratie</div>
+          <div class="trait-item">Formeel niet-erkende landrechten ondanks eeuwen van ononderbroken bewoning</div>
+          <div class="trait-item">Formele vredesverdragen gewonnen van de Nederlandse koloniale autoriteit tussen 1760 en 1887</div>
+          <div class="trait-item">Aanzienlijke diasporabevolkingen in Paramaribo en Nederland</div>
+        </div>
+      </div>
 
-  </div>
-</section>
-```
+      <!-- Comparison table -->
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Groep</th>
+              <th>Tak</th>
+              <th>Hoofdrivier(en)</th>
+              <th>Taal</th>
+              <th>Vredesverdrag</th>
+              <th>Geschatte Bevolking</th>
+              <th>Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="group-name">Ndyuka (Aukan)</td>
+              <td class="branch-east">Oostelijk</td>
+              <td>Tapanahoni, Marowijne, Cottica</td>
+              <td>Ndyuka</td>
+              <td>10 Oct 1760</td>
+              <td>~115,500</td>
+              <td><a class="tbl-link" href="groups/ndyuka.html">Bekijk →</a></td>
+            </tr>
+            <tr>
+              <td class="group-name">Saramaka (Saamaka)</td>
+              <td class="branch-central">Centraal</td>
+              <td>Upper Suriname R., Gaánlío, Pikílío</td>
+              <td>Saramaccan</td>
+              <td>19 Sep 1762</td>
+              <td>~115,500</td>
+              <td><a class="tbl-link" href="groups/saramaka.html">Bekijk →</a></td>
+            </tr>
+            <tr>
+              <td class="group-name">Matawai</td>
+              <td class="branch-central">Centraal</td>
+              <td>Saramacca R. tributaries</td>
+              <td>Saramaccan</td>
+              <td>1767</td>
+              <td>~8,500</td>
+              <td><a class="tbl-link" href="groups/matawai.html">Bekijk →</a></td>
+            </tr>
+            <tr>
+              <td class="group-name">Paramaka (Paamaka)</td>
+              <td class="branch-east">Oostelijk</td>
+              <td>Marowijne, Lawa Rivers</td>
+              <td>Ndyuka</td>
+              <td>~1750s (informal)</td>
+              <td>~11,000</td>
+              <td><a class="tbl-link" href="groups/paramaka.html">Bekijk →</a></td>
+            </tr>
+            <tr>
+              <td class="group-name">Aluku (Boni)</td>
+              <td class="branch-east">Oostelijk</td>
+              <td>Lawa R., Suriname–French Guiana border</td>
+              <td>Ndyuka</td>
+              <td>Wars ended 1793</td>
+              <td>~11,600</td>
+              <td><a class="tbl-link" href="groups/aluku.html">Bekijk →</a></td>
+            </tr>
+            <tr>
+              <td class="group-name">Kwinti</td>
+              <td class="branch-central">Centraal</td>
+              <td>Coppename River</td>
+              <td>Ndyuka variant</td>
+              <td>1887</td>
+              <td>~1,200</td>
+              <td><a class="tbl-link" href="groups/kwinti.html">Bekijk →</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-mid);margin-bottom:1.5rem;font-style:italic;">Population estimates from Richard Price (2018). Figures include Suriname and French Guiana. The 2012 Surinamese census recorded 117,567 self-identified Maroons (21.7% of national population).</p>
+
+      <!-- Group cards -->
+      <div class="village-cards">
+
+        <a class="village-card" href="groups/ndyuka.html">
+          <div class="vc-group">Eastern Branch</div>
+          <h3>Ndyuka (Aukan)</h3>
+          <p>De grootste Marrongroep samen met de Saramaka. Dorpen langs de Tapanahoni, Marowijne en Cottica in noordoost-Suriname. Eerste die een vredesverdrag met de Nederlanders sloot, op 10 oktober 1760 — nu de nationale Dag van de Marrons.</p>
+          <span class="vc-icon">🛶</span>
+          <span class="vc-detail-link">Volledig profiel →</span>
+        </a>
+
+        <a class="village-card" href="groups/saramaka.html">
+          <div class="vc-group">Central Branch</div>
+          <h3>Saramaka (Saamaka)</h3>
+          <p>Dorpen langs de Bovensurname en zijn zijrivieren. De helft van hun voorouderlijk grondgebied werd overstroomd voor de Brokopondostuwdam in de jaren 1960. Won de baanbrekende IACtHR-uitspraak van 2007 over territoriale rechten. Vredesverdrag getekend in 1762.</p>
+          <span class="vc-icon">🌿</span>
+          <span class="vc-detail-link">Volledig profiel →</span>
+        </a>
+
+        <a class="village-card" href="groups/matawai.html">
+          <div class="vc-group">Central Branch</div>
+          <h3>Matawai</h3>
+          <p>Gevestigd langs zijrivieren van de Saramacca in centraal Suriname. De meest gekerstende van de zes groepen, met protestantse zendingsaanwezigheid sinds de 18e eeuw. Vredesverdrag getekend in 1767.</p>
+          <span class="vc-icon">🏡</span>
+          <span class="vc-detail-link">Volledig profiel →</span>
+        </a>
+
+        <a class="village-card" href="groups/paramaka.html">
+          <div class="vc-group">Eastern Branch</div>
+          <h3>Paramaka (Paamaka)</h3>
+          <p>Dorpen langs de Marowijne en Lawa bij de Frans-Guyana-grens. Historisch nauw verwant aan de Ndyuka. Spreken een variant van Ndyuka. Bevolking van ongeveer 11.000, inclusief velen nu in Frans-Guyana en kust-Suriname.</p>
+          <span class="vc-icon">🌊</span>
+          <span class="vc-detail-link">Volledig profiel →</span>
+        </a>
+
+        <a class="village-card" href="groups/aluku.html">
+          <div class="vc-group">Eastern Branch</div>
+          <h3>Aluku (Boni)</h3>
+          <p>Streden de langste weerstandsoorlog tegen de Nederlanders — hun oorlog eindigde pas in 1793. Het kerngebied verschoof naar de Lawa aan de Surinaams-Frans-Guyana-grens. Vandaag woont de meerderheid in Frans-Guyana als Franse staatsburgers.</p>
+          <span class="vc-icon">🔥</span>
+          <span class="vc-detail-link">Volledig profiel →</span>
+        </a>
+
+        <a class="village-card" href="groups/kwinti.html">
+          <div class="vc-group">Central Branch</div>
+          <h3>Kwinti</h3>
+          <p>De kleinste van de zes groepen (~1.200 mensen), gevestigd langs de Coppename in centraal Suriname. De enige Marrongroep zonder een opperste granman. Laatste die een formeel vredesverdrag tekende, in 1887.</p>
+          <span class="vc-icon">🌱</span>
+          <span class="vc-detail-link">Volledig profiel →</span>
+        </a>
+
+      </div>
+    </section>
 
   </main>
 
   <!-- Sidebar -->
-
   <aside class="sidebar">
 
-```
-<div class="sidebar-box">
-  <h3>Bulletins & Bronnen</h3>
-  <ul class="bulletin-list">
-    <li><a href="villages.html">Village Directory (278 villages)</a></li>
-    <li><a href="#history">Vredesverdragen 1760–1887</a></li>
-    <li><a href="https://www.corteidh.or.cr/docs/casos/articulos/seriec_172_ing.pdf" target="_blank" rel="noopener">IACtHR Saramaka Judgement 2007 ↗</a></li>
-    <li><a href="moiwana.html">Moiwana Massacre — IACtHR 2005</a></li>
-    <li><a href="#present">Maroon Land Rights</a></li>
-    <li><a href="#culture">Cultural Heritage</a></li>
-    <li><a href="#culture">Winti Religion</a></li>
-    <li><a href="bibliography.html">All Resources</a></li>
-  </ul>
-</div>
+    <div class="sidebar-box">
+      <h3>Bulletins & Bronnen</h3>
+      <ul class="bulletin-list">
+        <li><a href="villages.html">Village Directory (278 villages)</a></li>
+        <li><a href="#history">Vredesverdragen 1760–1887</a></li>
+        <li><a href="https://www.corteidh.or.cr/docs/casos/articulos/seriec_172_ing.pdf" target="_blank" rel="noopener">IACtHR Saramaka Judgement 2007 ↗</a></li>
+        <li><a href="moiwana.html">Moiwana Massacre — IACtHR 2005</a></li>
+        <li><a href="#present">Maroon Land Rights</a></li>
+        <li><a href="#culture">Cultural Heritage</a></li>
+        <li><a href="#culture">Winti Religion</a></li>
+        <li><a href="bibliography.html">All Resources</a></li>
+      </ul>
+    </div>
 
-<div class="sidebar-box">
-  <h3>Snelle Navigatie</h3>
-  <ul class="sidebar-links">
-    <li><a href="#history">Geschiedenis van Veerkracht</a></li>
-    <li><a href="villages.html">Dorphenregister</a></li>
-    <li><a href="#present">Groep &amp; Leadership</a></li>
-    <li><a href="#history">Vredesverdragen 1760–1887</a></li>
-    <li><a href="#history">Binnenlandse Oorlog 1986–1992</a></li>
-    <li><a href="#present">Landrechten — De Onopgeloste Kwestie</a></li>
-    <li><a href="#culture">Cultureel Erfgoed</a></li>
-    <li><a href="bibliography.html">Cultureel Erfgoed &amp; Media</a></li>
-    <li><a href="bibliography.html">Bulletins & Bronnen</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
-  </ul>
-</div>
+    <div class="sidebar-box">
+      <h3>Snelle Navigatie</h3>
+      <ul class="sidebar-links">
+        <li><a href="#history">Geschiedenis van Veerkracht</a></li>
+        <li><a href="villages.html">Dorphenregister</a></li>
+        <li><a href="#present">Groep &amp; Leadership</a></li>
+        <li><a href="#history">Vredesverdragen 1760–1887</a></li>
+        <li><a href="#history">Binnenlandse Oorlog 1986–1992</a></li>
+        <li><a href="#present">Landrechten — De Onopgeloste Kwestie</a></li>
+        <li><a href="#culture">Cultureel Erfgoed</a></li>
+        <li><a href="bibliography.html">Cultureel Erfgoed &amp; Media</a></li>
+        <li><a href="bibliography.html">Bulletins & Bronnen</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+      </ul>
+    </div>
 
-<div class="sidebar-box">
-  <h3>Evenementen</h3>
-  <p style="font-size:0.83rem;color:var(--text-mid);">Gemeenschapsevenementen, culturele ceremonies en pleitbezorgingsvergaderingen worden hier vermeld. Kom regelmatig terug voor updates.</p>
-</div>
-```
+    <div class="sidebar-box">
+      <h3>Evenementen</h3>
+      <p style="font-size:0.83rem;color:var(--text-mid);">Gemeenschapsevenementen, culturele ceremonies en pleitbezorgingsvergaderingen worden hier vermeld. Kom regelmatig terug voor updates.</p>
+    </div>
 
   </aside>
 </div><!-- /main-wrap -->
 
 <!-- ─── Pull Quote ─────────────────────────────────────────────────────────── -->
-
 <div class="pull-quote">
   <blockquote>
     De Marrons van Suriname zijn tegelijk de meest cultureel, politiek en economisch onafhankelijke van alle Marronvolken in de Amerika's — en ze staan, sinds de jaren 1970 en 80, het zwaarst onder druk.
@@ -1398,133 +1375,128 @@ footer {
 </div>
 
 <!-- ─── History Timeline ──────────────────────────────────────────────────── -->
-
 <section class="timeline-section" id="history">
   <div class="timeline-inner">
     <h2 class="section-heading">Een Geschiedenis van Verzet & Overleving</h2>
     <p style="color:var(--text-mid);max-width:780px;margin-bottom:0.5rem;">Van gedwongen aankomst op slavenschepen tot soevereine gemeenschappen, burgeroorlog en de zalen van internationale rechtbanken — het Marron-verhaal is er een van ongebroken verzet door vier eeuwen.</p>
 
-```
-<div class="timeline">
+    <div class="timeline">
 
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1600s</strong><span>Origins</span></div>
-    <div class="tl-dot major"></div>
-    <div class="tl-body major-event">
-      <span class="tl-tag resistance">Resistance</span>
-      <h4>Ontsnapping van de Plantages</h4>
-      <p>Tussen het midden van de 17e en het einde van de 18e eeuw ontvluchtten grote aantallen tot slaaf gemaakte Afrikanen — velen net aangekomen uit West- en Centraal-Afrika — de Nederlandse kustplantages in Suriname. Ze vluchtten het bebossde binnenland in, hergroepeerden zich in kleine benden en begonnen een levensvatbaar bestaan op te bouwen. De koloniale samenleving ervoer dit als een existentiële bedreiging: het was een dagelijkse uitdaging voor het slavensysteem waarop de gehele koloniale economie was gebaseerd.</p>
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1600s</strong><span>Origins</span></div>
+        <div class="tl-dot major"></div>
+        <div class="tl-body major-event">
+          <span class="tl-tag resistance">Resistance</span>
+          <h4>Ontsnapping van de Plantages</h4>
+          <p>Tussen het midden van de 17e en het einde van de 18e eeuw ontvluchtten grote aantallen tot slaaf gemaakte Afrikanen — velen net aangekomen uit West- en Centraal-Afrika — de Nederlandse kustplantages in Suriname. Ze vluchtten het bebossde binnenland in, hergroepeerden zich in kleine benden en begonnen een levensvatbaar bestaan op te bouwen. De koloniale samenleving ervoer dit als een existentiële bedreiging: het was een dagelijkse uitdaging voor het slavensysteem waarop de gehele koloniale economie was gebaseerd.</p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1700s</strong><span>Warfare</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag resistance">Resistance</span>
+          <h4>Een Eeuw van Guerrillaoorlog</h4>
+          <p>Marron-strijders gebruikten het moerassige woud, houten palissaden en valkuilen om koloniale legers te neutraliseren. Ze vielen ook plantages aan — verbrandden gewassen, namen vee en gereedschap, en nodigden andere tot slaaf gemaakten uit om zich bij hun gemeenschappen aan te sluiten. De kolonisten reserveerden brutale straffen voor hergevangen mensen, maar konden de Marron-nederzettingen niet elimineren. De kosten in geld en mensenlevens werden voor de Nederlanders ondraaglijk.</p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1760</strong><span>Peace</span></div>
+        <div class="tl-dot major"></div>
+        <div class="tl-body major-event">
+          <span class="tl-tag resistance">Treaty</span>
+          <h4>Ndyuka Vredesverdrag — 10 Oktober</h4>
+          <p>De Ndyuka werden de eerste Marrongroep die een formeel vredesverdrag met de Nederlandse koloniale autoriteit won, en territoriale autonomie in het binnenland verwierf. Het verdrag werd mede opgesteld door een Marron-onderhandelaar die toegang had tot de tekst van de eerdere Jamaicaanse vredesverdragen van 1739–1740. De Saramaka volgden in 1762 en de Matawai in 1767. De Marrons hadden hun vrijheid gewonnen een volle eeuw voordat de slavernij officieel werd afgeschaft in Suriname.</p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1863</strong><span>Abolition</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag">Milestone</span>
+          <h4>Afschaffing van de Slavernij in Suriname</h4>
+          <p>Suriname schafte de slavernij formeel af op 1 juli 1863. De Marrons waren al meer dan een eeuw vrij. Degenen die eerder tot slaaf waren gemaakt op de plantages waren verplicht nog tien jaar als contractarbeiders door te werken. De Marrons hadden daarentegen gedurende de slavenperiode autonome gemeenschappen, bestuursstructuren en culturele praktijken geheel op eigen voorwaarden gehandhaafd.</p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1887</strong><span>Final Treaty</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag">Treaty</span>
+          <h4>Kwinti Tekenen het Laatste Vredesverdrag</h4>
+          <p>De Kwinti, de kleinste van de zes Marrongroepen, tekenden het definitieve vredesverdrag met de Surinaamse autoriteiten in 1887 — meer dan 125 jaar na het eerste Ndyuka-verdrag. Alle zes grote Marrongroepen hadden nu formele erkenning van hun aanwezigheid in het binnenland gekregen.</p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1960s</strong><span>Displacement</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag crisis">Crisis</span>
+          <h4>Brokopondodam — Gedwongen Hervestiging van de Saramaka</h4>
+          <p>De aanleg van de Afobakadam om het Brokopondo-stuwmeer te creëren — gebouwd om een Amerikaanse aluminiumsmelterij van stroom te voorzien — overstroomde ongeveer de helft van het traditionele Saramaka-grondgebied en dwong duizenden Saramaka naar nieuwe dorpen gebouwd door de koloniale overheid en Alcoa. Gemeenschappen werden ontworteld met volstrekt ontoereikende compensatie en inspraak.</p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1975</strong><span>Independence</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag modern">Modern Era</span>
+          <h4>Surinaamse Onafhankelijkheid — Verdragen Ingetrokken</h4>
+          <p>Nadat Suriname onafhankelijkheid had verkregen van Nederland, werden de oude vredesverdragen met de Marrongroepen ingetrokken. De juridische bescherming die die verdragen hadden geboden, was weg. Tegen de jaren 1980 waren Marrons begonnen te vechten voor nieuwe erkenning van hun landrechten — deze keer via nationale politiek en internationale juridische instanties in plaats van het woud.</p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1986–1992</strong><span>Civil War</span></div>
+        <div class="tl-dot major"></div>
+        <div class="tl-body major-event">
+          <span class="tl-tag crisis">Civil War</span>
+          <h4>De Binnenlandse Oorlog — Jungle Commando vs. het Leger</h4>
+          <p>Het Surinaams Bevrijdingsleger — bekend als het Jungle Commando — werd grotendeels gevormd door Ndyuka en Saramaka mannen onder Ronnie Brunswijk om militair dictator Dési Bouterse te weerstaan. De deelname van Marrons was uiteindelijk gedreven door langdurige overheidshervestigingsbeleid dat hun soevereiniteit bedreigde. In november 1986 vermoordde het leger minstens 40 ongewapende Ndyuka burgers — voornamelijk vrouwen en kinderen — in het dorp Moiwana. Duizenden Marrons vluchtten als vluchtelingen naar Frans-Guyana. De oorlog eindigde in 1992.</p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date"><strong>2005</strong><span>Justice</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag modern">IACtHR</span>
+          <h4>Moiwana-bloedbad: Suriname Schuldig Bevonden</h4>
+          <p>Het Inter-Amerikaans Hof voor de Rechten van de Mens bevond de Surinaamse overheid schuldig aan mensenrechtenschendingen bij het Moiwana-bloedbad. Het Hof gelastte de staat reparaties te betalen aan overlevenden, de misdaden te onderzoeken en een openbare ceremonie te houden waarbij de staat zijn verantwoordelijkheid erkent en zijn excuses aanbiedt aan het Ndyuka-volk.</p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date"><strong>2007</strong><span>Landrechten</span></div>
+        <div class="tl-dot major"></div>
+        <div class="tl-body major-event">
+          <span class="tl-tag modern">IACtHR</span>
+          <h4>Saramaka t. Suriname — Baanbrekende Uitspraak over Territoriale Rechten</h4>
+          <p>De Vereniging van Saramaka Gezagdragers, die 12 Saramaka clans en meer dan 60 dorpen vertegenwoordigt, had in 2000 een verzoekschrift ingediend bij het IACtHR, waarbij Chinese houtbedrijven die hun grondgebied vernietigden werden aangehaald. De uitspraak van het Hof uit 2007 bepaalde dat de Saramaka een stamvolk vormen met rechten over hun van oudsher bewoonde landen — een baanbrekende beslissing voor Marron- en inheemse volken wereldwijd. De Saramaka ontvingen compensatie en zeggenschap over een fonds voor hun eigen ontwikkeling. Volledige uitvoering door de Surinaamse overheid blijft betwist.</p>
+        </div>
+      </div>
+
+      <div class="tl-entry">
+        <div class="tl-date"><strong>2020</strong><span>Today</span></div>
+        <div class="tl-dot major"></div>
+        <div class="tl-body major-event">
+          <span class="tl-tag modern">Politiek</span>
+          <h4>Ronnie Brunswijk: Eerste Marron Vice-President van Suriname</h4>
+          <p>Op 16 juli 2020 werd Ndyuka Marron Ronnie Brunswijk — voormalig Jungle Commando-leider — bij acclamatie ingehuldigd als Vice-President van Suriname, de eerste Marron die dit ambt bekleedde. De weg van bosguerrillastrever naar staatshoofd is zelf een maatstaf voor hoeveel — en hoeweinig — er is veranderd in de relatie tussen de Surinaamse staat en zijn Marron-gemeenschappen.</p>
+        </div>
+      </div>
+
     </div>
-  </div>
-
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1700s</strong><span>Warfare</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag resistance">Resistance</span>
-      <h4>Een Eeuw van Guerrillaoorlog</h4>
-      <p>Marron-strijders gebruikten het moerassige woud, houten palissaden en valkuilen om koloniale legers te neutraliseren. Ze vielen ook plantages aan — verbrandden gewassen, namen vee en gereedschap, en nodigden andere tot slaaf gemaakten uit om zich bij hun gemeenschappen aan te sluiten. De kolonisten reserveerden brutale straffen voor hergevangen mensen, maar konden de Marron-nederzettingen niet elimineren. De kosten in geld en mensenlevens werden voor de Nederlanders ondraaglijk.</p>
-    </div>
-  </div>
-
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1760</strong><span>Peace</span></div>
-    <div class="tl-dot major"></div>
-    <div class="tl-body major-event">
-      <span class="tl-tag resistance">Treaty</span>
-      <h4>Ndyuka Vredesverdrag — 10 Oktober</h4>
-      <p>De Ndyuka werden de eerste Marrongroep die een formeel vredesverdrag met de Nederlandse koloniale autoriteit won, en territoriale autonomie in het binnenland verwierf. Het verdrag werd mede opgesteld door een Marron-onderhandelaar die toegang had tot de tekst van de eerdere Jamaicaanse vredesverdragen van 1739–1740. De Saramaka volgden in 1762 en de Matawai in 1767. De Marrons hadden hun vrijheid gewonnen een volle eeuw voordat de slavernij officieel werd afgeschaft in Suriname.</p>
-    </div>
-  </div>
-
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1863</strong><span>Abolition</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag">Milestone</span>
-      <h4>Afschaffing van de Slavernij in Suriname</h4>
-      <p>Suriname schafte de slavernij formeel af op 1 juli 1863. De Marrons waren al meer dan een eeuw vrij. Degenen die eerder tot slaaf waren gemaakt op de plantages waren verplicht nog tien jaar als contractarbeiders door te werken. De Marrons hadden daarentegen gedurende de slavenperiode autonome gemeenschappen, bestuursstructuren en culturele praktijken geheel op eigen voorwaarden gehandhaafd.</p>
-    </div>
-  </div>
-
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1887</strong><span>Final Treaty</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag">Treaty</span>
-      <h4>Kwinti Tekenen het Laatste Vredesverdrag</h4>
-      <p>De Kwinti, de kleinste van de zes Marrongroepen, tekenden het definitieve vredesverdrag met de Surinaamse autoriteiten in 1887 — meer dan 125 jaar na het eerste Ndyuka-verdrag. Alle zes grote Marrongroepen hadden nu formele erkenning van hun aanwezigheid in het binnenland gekregen.</p>
-    </div>
-  </div>
-
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1960s</strong><span>Displacement</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag crisis">Crisis</span>
-      <h4>Brokopondodam — Gedwongen Hervestiging van de Saramaka</h4>
-      <p>De aanleg van de Afobakadam om het Brokopondo-stuwmeer te creëren — gebouwd om een Amerikaanse aluminiumsmelterij van stroom te voorzien — overstroomde ongeveer de helft van het traditionele Saramaka-grondgebied en dwong duizenden Saramaka naar nieuwe dorpen gebouwd door de koloniale overheid en Alcoa. Gemeenschappen werden ontworteld met volstrekt ontoereikende compensatie en inspraak.</p>
-    </div>
-  </div>
-
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1975</strong><span>Independence</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag modern">Modern Era</span>
-      <h4>Surinaamse Onafhankelijkheid — Verdragen Ingetrokken</h4>
-      <p>Nadat Suriname onafhankelijkheid had verkregen van Nederland, werden de oude vredesverdragen met de Marrongroepen ingetrokken. De juridische bescherming die die verdragen hadden geboden, was weg. Tegen de jaren 1980 waren Marrons begonnen te vechten voor nieuwe erkenning van hun landrechten — deze keer via nationale politiek en internationale juridische instanties in plaats van het woud.</p>
-    </div>
-  </div>
-
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1986–1992</strong><span>Civil War</span></div>
-    <div class="tl-dot major"></div>
-    <div class="tl-body major-event">
-      <span class="tl-tag crisis">Civil War</span>
-      <h4>De Binnenlandse Oorlog — Jungle Commando vs. het Leger</h4>
-      <p>Het Surinaams Bevrijdingsleger — bekend als het Jungle Commando — werd grotendeels gevormd door Ndyuka en Saramaka mannen onder Ronnie Brunswijk om militair dictator Dési Bouterse te weerstaan. De deelname van Marrons was uiteindelijk gedreven door langdurige overheidshervestigingsbeleid dat hun soevereiniteit bedreigde. In november 1986 vermoordde het leger minstens 40 ongewapende Ndyuka burgers — voornamelijk vrouwen en kinderen — in het dorp Moiwana. Duizenden Marrons vluchtten als vluchtelingen naar Frans-Guyana. De oorlog eindigde in 1992.</p>
-    </div>
-  </div>
-
-  <div class="tl-entry">
-    <div class="tl-date"><strong>2005</strong><span>Justice</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag modern">IACtHR</span>
-      <h4>Moiwana-bloedbad: Suriname Schuldig Bevonden</h4>
-      <p>Het Inter-Amerikaans Hof voor de Rechten van de Mens bevond de Surinaamse overheid schuldig aan mensenrechtenschendingen bij het Moiwana-bloedbad. Het Hof gelastte de staat reparaties te betalen aan overlevenden, de misdaden te onderzoeken en een openbare ceremonie te houden waarbij de staat zijn verantwoordelijkheid erkent en zijn excuses aanbiedt aan het Ndyuka-volk.</p>
-    </div>
-  </div>
-
-  <div class="tl-entry">
-    <div class="tl-date"><strong>2007</strong><span>Landrechten</span></div>
-    <div class="tl-dot major"></div>
-    <div class="tl-body major-event">
-      <span class="tl-tag modern">IACtHR</span>
-      <h4>Saramaka t. Suriname — Baanbrekende Uitspraak over Territoriale Rechten</h4>
-      <p>De Vereniging van Saramaka Gezagdragers, die 12 Saramaka clans en meer dan 60 dorpen vertegenwoordigt, had in 2000 een verzoekschrift ingediend bij het IACtHR, waarbij Chinese houtbedrijven die hun grondgebied vernietigden werden aangehaald. De uitspraak van het Hof uit 2007 bepaalde dat de Saramaka een stamvolk vormen met rechten over hun van oudsher bewoonde landen — een baanbrekende beslissing voor Marron- en inheemse volken wereldwijd. De Saramaka ontvingen compensatie en zeggenschap over een fonds voor hun eigen ontwikkeling. Volledige uitvoering door de Surinaamse overheid blijft betwist.</p>
-    </div>
-  </div>
-
-  <div class="tl-entry">
-    <div class="tl-date"><strong>2020</strong><span>Today</span></div>
-    <div class="tl-dot major"></div>
-    <div class="tl-body major-event">
-      <span class="tl-tag modern">Politiek</span>
-      <h4>Ronnie Brunswijk: Eerste Marron Vice-President van Suriname</h4>
-      <p>Op 16 juli 2020 werd Ndyuka Marron Ronnie Brunswijk — voormalig Jungle Commando-leider — bij acclamatie ingehuldigd als Vice-President van Suriname, de eerste Marron die dit ambt bekleedde. De weg van bosguerrillastrever naar staatshoofd is zelf een maatstaf voor hoeveel — en hoeweinig — er is veranderd in de relatie tussen de Surinaamse staat en zijn Marron-gemeenschappen.</p>
-    </div>
-  </div>
-
-</div>
-```
-
   </div>
 </section>
 
 <!-- ─── Pull Quote ────────────────────────────────────────────────────────── -->
-
 <div class="pull-quote">
   <blockquote>
     De Marrons behoorden tot de eerste mensen op dit halfrond die hun onafhankelijkheid verwierven. Ze werden een van de grootste en meest geconcentreerde groepen van nakomelingen van gevluchte tot slaaf gemaakten ter wereld — en hun strijd voor soevereiniteit gaat door tot op de dag van vandaag.
@@ -1533,7 +1505,6 @@ footer {
 </div>
 
 <!-- ─── History of Resilience Timeline ───────────────────────────────────── -->
-
 <section class="timeline-section" id="history">
   <div class="timeline-inner">
     <h2 class="section-heading">Een Geschiedenis van Verzet & Overleving</h2>
@@ -1541,311 +1512,293 @@ footer {
       The history of the Surinamese Maroons is not a relic of the past. It is a continuous story of people who refused enslavement, built free societies against overwhelming force, survived colonial warfare and a modern civil war, and continue today to fight for the recognition of rights their ancestors won three centuries ago. Each era demanded — and received — the same determined response.
     </p>
 
-```
-<div class="timeline">
+    <div class="timeline">
 
-  <!-- 17th century: origins -->
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1650s–1700s</strong><span>Origins</span></div>
-    <div class="tl-dot major"></div>
-    <div class="tl-body major-event">
-      <span class="tl-tag resistance">Escape &amp; Foundation</span>
-      <h4>Flight from the Plantations</h4>
-      <p>Enslaved Africans — brought to Suriname from the Gold Coast, West Central Africa, the Windward Coast, and the Bight of Benin — began escaping Dutch colonial plantations from the mid-17th century. Individually, in small groups, and through collective rebellions, they fled into the dense interior rainforest. The mere existence of Maroon villages in the forest was living proof to enslaved people on the plantations that an alternative to slavery was possible.</p>
-    </div>
-  </div>
+      <!-- 17th century: origins -->
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1650s–1700s</strong><span>Origins</span></div>
+        <div class="tl-dot major"></div>
+        <div class="tl-body major-event">
+          <span class="tl-tag resistance">Escape &amp; Foundation</span>
+          <h4>Flight from the Plantations</h4>
+          <p>Enslaved Africans — brought to Suriname from the Gold Coast, West Central Africa, the Windward Coast, and the Bight of Benin — began escaping Dutch colonial plantations from the mid-17th century. Individually, in small groups, and through collective rebellions, they fled into the dense interior rainforest. The mere existence of Maroon villages in the forest was living proof to enslaved people on the plantations that an alternative to slavery was possible.</p>
+        </div>
+      </div>
 
-  <!-- Guerrilla warfare -->
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1700s–1750s</strong><span>Resistance</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag resistance">Guerrilla War</span>
-      <h4>Half a Century of Armed Resistance</h4>
-      <p>The Dutch mounted repeated military expeditions into the interior to recapture escaped slaves and destroy Maroon villages — one in 1730 included 50 citizens, 200 enslaved workers, and 15 Indigenous auxiliaries; another in 1743 required 60 canoes. The Maroons, protected by swamps and dense forest, fortified their settlements with wooden palisades and pitfalls, and became expert at guerrilla tactics. Most expeditions were fruitless and enormously costly — each exceeding 100,000 guilders. By the late 1740s the colony was financially exhausted and sued for peace.</p>
-    </div>
-  </div>
+      <!-- Guerrilla warfare -->
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1700s–1750s</strong><span>Resistance</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag resistance">Guerrilla War</span>
+          <h4>Half a Century of Armed Resistance</h4>
+          <p>The Dutch mounted repeated military expeditions into the interior to recapture escaped slaves and destroy Maroon villages — one in 1730 included 50 citizens, 200 enslaved workers, and 15 Indigenous auxiliaries; another in 1743 required 60 canoes. The Maroons, protected by swamps and dense forest, fortified their settlements with wooden palisades and pitfalls, and became expert at guerrilla tactics. Most expeditions were fruitless and enormously costly — each exceeding 100,000 guilders. By the late 1740s the colony was financially exhausted and sued for peace.</p>
+        </div>
+      </div>
 
-  <!-- Peace treaties -->
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1760</strong><span>Ndyuka Treaty</span></div>
-    <div class="tl-dot major"></div>
-    <div class="tl-body major-event">
-      <span class="tl-tag resistance">Vredesverdrag</span>
-      <h4>10 October 1760 — The First Peace Treaty</h4>
-      <p>On 10 October 1760, the Ndyuka became the first Maroon group to sign a formal peace treaty with the Dutch colonial authority — drafted in part with assistance from Adyáko Benti Basiton, a Maroon negotiator who had access to the Jamaican peace treaties of 1739–1740. The treaty recognised Ndyuka freedom and territorial rights along the upper Tapanahoni River basin, the right to bear arms, and self-governance under a granman. This date is now the national Day of the Maroons in Suriname, observed since 1974. The Saramaka followed in 1762, the Matawai in 1767, and the Kwinti — last — in 1887.</p>
-    </div>
-  </div>
+      <!-- Peace treaties -->
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1760</strong><span>Ndyuka Treaty</span></div>
+        <div class="tl-dot major"></div>
+        <div class="tl-body major-event">
+          <span class="tl-tag resistance">Vredesverdrag</span>
+          <h4>10 October 1760 — The First Peace Treaty</h4>
+          <p>On 10 October 1760, the Ndyuka became the first Maroon group to sign a formal peace treaty with the Dutch colonial authority — drafted in part with assistance from Adyáko Benti Basiton, a Maroon negotiator who had access to the Jamaican peace treaties of 1739–1740. The treaty recognised Ndyuka freedom and territorial rights along the upper Tapanahoni River basin, the right to bear arms, and self-governance under a granman. This date is now the national Day of the Maroons in Suriname, observed since 1974. The Saramaka followed in 1762, the Matawai in 1767, and the Kwinti — last — in 1887.</p>
+        </div>
+      </div>
 
-  <!-- Post-treaty era -->
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1760s–1863</strong><span>100 Years Free</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag">Autonomy</span>
-      <h4>A Century of Freedom Before Abolition</h4>
-      <p>The Maroons had won their freedom nearly a century before slavery was finally abolished throughout Suriname in 1863. In that time, they built culturally rich, politically autonomous communities along the interior rivers. The six groups developed distinct languages, art traditions, governance systems, and spiritual practices. Economically, they became indispensable as boatmen, river guides, and cargo carriers for colonial and, later, foreign companies — effectively controlling river transport in both Suriname and French Guiana for decades.</p>
-    </div>
-  </div>
+      <!-- Post-treaty era -->
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1760s–1863</strong><span>100 Years Free</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag">Autonomy</span>
+          <h4>A Century of Freedom Before Abolition</h4>
+          <p>The Maroons had won their freedom nearly a century before slavery was finally abolished throughout Suriname in 1863. In that time, they built culturally rich, politically autonomous communities along the interior rivers. The six groups developed distinct languages, art traditions, governance systems, and spiritual practices. Economically, they became indispensable as boatmen, river guides, and cargo carriers for colonial and, later, foreign companies — effectively controlling river transport in both Suriname and French Guiana for decades.</p>
+        </div>
+      </div>
 
-  <!-- Colonial economy -->
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1880s–1930s</strong><span>Gold Rush Era</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag">Economy</span>
-      <h4>River Masters of the Interior</h4>
-      <p>When rich gold deposits were discovered in the hinterland in the late 1880s, Ndyuka and Saramaka men abandoned the lumber trade to monopolise river transport, paddling dugout canoes loaded with miners and equipment through rapids and shallow waterways that outsiders could not navigate. By 1900–1925 this had become a peak of Maroon economic power. When the balata rubber company closed in 1931, roughly one-third of its more than 1,000 laid-off workers were Maroon — indicating how deeply Maroon labour had become embedded in the colonial economy while communities maintained their interior villages.</p>
-    </div>
-  </div>
+      <!-- Colonial economy -->
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1880s–1930s</strong><span>Gold Rush Era</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag">Economy</span>
+          <h4>River Masters of the Interior</h4>
+          <p>When rich gold deposits were discovered in the hinterland in the late 1880s, Ndyuka and Saramaka men abandoned the lumber trade to monopolise river transport, paddling dugout canoes loaded with miners and equipment through rapids and shallow waterways that outsiders could not navigate. By 1900–1925 this had become a peak of Maroon economic power. When the balata rubber company closed in 1931, roughly one-third of its more than 1,000 laid-off workers were Maroon — indicating how deeply Maroon labour had become embedded in the colonial economy while communities maintained their interior villages.</p>
+        </div>
+      </div>
 
-  <!-- Independence -->
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1975</strong><span>Independence</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag modern">Post-Colonial</span>
-      <h4>Independence — Old Treaties Abrogated</h4>
-      <p>When Suriname gained independence from the Netherlands in 1975, the colonial-era peace treaties that had guaranteed Maroon territorial autonomy, self-governance, and cultural freedom were effectively abrogated. The new state, dominated by urban Creole political elites, pursued policies to resettle Maroon communities and integrate them into national life — directly threatening the sovereignty that their ancestors had fought and died to secure. Resentment deepened through the early 1980s under the military dictatorship of Dési Bouterse.</p>
-    </div>
-  </div>
+      <!-- Independence -->
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1975</strong><span>Independence</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag modern">Post-Colonial</span>
+          <h4>Independence — Old Treaties Abrogated</h4>
+          <p>When Suriname gained independence from the Netherlands in 1975, the colonial-era peace treaties that had guaranteed Maroon territorial autonomy, self-governance, and cultural freedom were effectively abrogated. The new state, dominated by urban Creole political elites, pursued policies to resettle Maroon communities and integrate them into national life — directly threatening the sovereignty that their ancestors had fought and died to secure. Resentment deepened through the early 1980s under the military dictatorship of Dési Bouterse.</p>
+        </div>
+      </div>
 
-  <!-- Interior War -->
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1986–1992</strong><span>Interior War</span></div>
-    <div class="tl-dot major"></div>
-    <div class="tl-body major-event">
-      <span class="tl-tag crisis">Civil War</span>
-      <h4>The Surinamese Interior War — History Repeating</h4>
-      <p>On 22 July 1986, Ronnie Brunswijk — a Ndyuka Maroon and former bodyguard of Bouterse — launched the Jungle Commando rebellion, demanding democratic rights, civil liberties, and economic development for the marginalised Maroon population. The military response was devastating: on 29 November 1986, soldiers attacked the Ndyuka village of Moiwana, massacring more than 40 people — mostly women and children — and burning the village to the ground. An estimated 7,000–10,000 Maroons fled as refugees to French Guiana. Villages across eastern Suriname were razed; Maroons in Paramaribo were arrested and murdered in night raids. A peace treaty was finally signed on 8 August 1992.</p>
-    </div>
-  </div>
+      <!-- Interior War -->
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1986–1992</strong><span>Interior War</span></div>
+        <div class="tl-dot major"></div>
+        <div class="tl-body major-event">
+          <span class="tl-tag crisis">Civil War</span>
+          <h4>The Surinamese Interior War — History Repeating</h4>
+          <p>On 22 July 1986, Ronnie Brunswijk — a Ndyuka Maroon and former bodyguard of Bouterse — launched the Jungle Commando rebellion, demanding democratic rights, civil liberties, and economic development for the marginalised Maroon population. The military response was devastating: on 29 November 1986, soldiers attacked the Ndyuka village of Moiwana, massacring more than 40 people — mostly women and children — and burning the village to the ground. An estimated 7,000–10,000 Maroons fled as refugees to French Guiana. Villages across eastern Suriname were razed; Maroons in Paramaribo were arrested and murdered in night raids. A peace treaty was finally signed on 8 August 1992.</p>
+        </div>
+      </div>
 
-  <!-- IACHR rulings -->
-  <div class="tl-entry">
-    <div class="tl-date"><strong>2005–2007</strong><span>Justice</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag modern">Human Rights</span>
-      <h4>Inter-American Court Rulings: Accountability &amp; Land Rights</h4>
-      <p>In June 2005, the Inter-American Court of Human Rights found Suriname guilty of human rights violations for the Moiwana massacre, ordering reparations to survivors and a public state apology to the Ndyuka people. In 2007, a landmark ruling in <em>Saramaka People v. Suriname</em> determined that the Saramaka constitute a tribal people with legally protected territorial rights over lands they have historically occupied — representing a landmark decision for Maroon and Indigenous peoples worldwide. The Surinamese government has been slow to implement both rulings fully.</p>
-    </div>
-  </div>
+      <!-- IACHR rulings -->
+      <div class="tl-entry">
+        <div class="tl-date"><strong>2005–2007</strong><span>Justice</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag modern">Human Rights</span>
+          <h4>Inter-American Court Rulings: Accountability &amp; Land Rights</h4>
+          <p>In June 2005, the Inter-American Court of Human Rights found Suriname guilty of human rights violations for the Moiwana massacre, ordering reparations to survivors and a public state apology to the Ndyuka people. In 2007, a landmark ruling in <em>Saramaka People v. Suriname</em> determined that the Saramaka constitute a tribal people with legally protected territorial rights over lands they have historically occupied — representing a landmark decision for Maroon and Indigenous peoples worldwide. The Surinamese government has been slow to implement both rulings fully.</p>
+        </div>
+      </div>
 
-  <!-- Timber and mining -->
-  <div class="tl-entry">
-    <div class="tl-date"><strong>1990s–2010s</strong><span>Resource Threat</span></div>
-    <div class="tl-dot"></div>
-    <div class="tl-body">
-      <span class="tl-tag crisis">Ongoing Threat</span>
-      <h4>Logging, Mining &amp; Land Concessions</h4>
-      <p>After the civil war, the Surinamese government granted large timber and mining concessions to foreign multinationals — Chinese, Indonesian, Malaysian, and others — in traditional Maroon territory, without consulting Maroon authorities. Chinese timber companies, newly active after a domestic logging ban, began operating directly on Saramaka lands. Meanwhile, a gold rush drew large numbers of Brazilian <em>garimpeiros</em> into the interior. A majority of Ndyuka men and some Ndyuka women became involved in small-scale gold mining — creating income but also environmental damage and social disruption within their own communities.</p>
-    </div>
-  </div>
+      <!-- Timber and mining -->
+      <div class="tl-entry">
+        <div class="tl-date"><strong>1990s–2010s</strong><span>Resource Threat</span></div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <span class="tl-tag crisis">Ongoing Threat</span>
+          <h4>Logging, Mining &amp; Land Concessions</h4>
+          <p>After the civil war, the Surinamese government granted large timber and mining concessions to foreign multinationals — Chinese, Indonesian, Malaysian, and others — in traditional Maroon territory, without consulting Maroon authorities. Chinese timber companies, newly active after a domestic logging ban, began operating directly on Saramaka lands. Meanwhile, a gold rush drew large numbers of Brazilian <em>garimpeiros</em> into the interior. A majority of Ndyuka men and some Ndyuka women became involved in small-scale gold mining — creating income but also environmental damage and social disruption within their own communities.</p>
+        </div>
+      </div>
 
-  <!-- Present -->
-  <div class="tl-entry">
-    <div class="tl-date"><strong>2020–Today</strong><span>Present</span></div>
-    <div class="tl-dot major"></div>
-    <div class="tl-body major-event">
-      <span class="tl-tag modern">Today</span>
-      <h4>A Maroon Vice President — and Unfinished Business</h4>
-      <p>On 16 July 2020, Ronnie Brunswijk — once a rebel commander with a bounty on his head — was inaugurated as Vice President of Suriname, the first Maroon to hold that office. His Abop Party had won the 2020 elections in coalition. Yet unresolved land rights claims persist. According to the 2012 census, 117,567 people — 21.7% of Suriname's population — identify as Maroon, making them the country's second largest ethnic group. Many now live in Paramaribo and in the Netherlands. The fight for full territorial recognition, protection from mining and logging, and equality of access to education and healthcare continues.</p>
-    </div>
-  </div>
+      <!-- Present -->
+      <div class="tl-entry">
+        <div class="tl-date"><strong>2020–Today</strong><span>Present</span></div>
+        <div class="tl-dot major"></div>
+        <div class="tl-body major-event">
+          <span class="tl-tag modern">Today</span>
+          <h4>A Maroon Vice President — and Unfinished Business</h4>
+          <p>On 16 July 2020, Ronnie Brunswijk — once a rebel commander with a bounty on his head — was inaugurated as Vice President of Suriname, the first Maroon to hold that office. His Abop Party had won the 2020 elections in coalition. Yet unresolved land rights claims persist. According to the 2012 census, 117,567 people — 21.7% of Suriname's population — identify as Maroon, making them the country's second largest ethnic group. Many now live in Paramaribo and in the Netherlands. The fight for full territorial recognition, protection from mining and logging, and equality of access to education and healthcare continues.</p>
+        </div>
+      </div>
 
-</div><!-- /timeline -->
-```
-
+    </div><!-- /timeline -->
   </div>
 </section>
 
 <!-- ─── Present Day Challenges ────────────────────────────────────────────── -->
-
 <section class="present-section">
   <div class="present-inner">
     <h2 class="section-heading">The Struggle Continues Today</h2>
     <div class="present-grid">
 
-```
-  <div class="present-card">
-    <h4>Land Rights &amp; Territorial Sovereignty</h4>
-    <p>Despite the 2007 IACtHR ruling affirming Saramaka territorial rights, Suriname has yet to pass comprehensive legislation recognising Maroon and Indigenous land rights. Foreign concessions for timber and gold extraction continue to be granted on traditional Maroon lands. Communities have been pushing for legal reform since 1976, when the first Indigenous land rights march walked 150 kilometres from Albina to Paramaribo with the slogan: <em>"Land rights are human rights."</em></p>
-  </div>
+      <div class="present-card">
+        <h4>Land Rights &amp; Territorial Sovereignty</h4>
+        <p>Despite the 2007 IACtHR ruling affirming Saramaka territorial rights, Suriname has yet to pass comprehensive legislation recognising Maroon and Indigenous land rights. Foreign concessions for timber and gold extraction continue to be granted on traditional Maroon lands. Communities have been pushing for legal reform since 1976, when the first Indigenous land rights march walked 150 kilometres from Albina to Paramaribo with the slogan: <em>"Land rights are human rights."</em></p>
+      </div>
 
-  <div class="present-card">
-    <h4>Gold Mining — Income and Risk</h4>
-    <p>The Surinamese interior holds some of the world's most gold-rich territory. A majority of Ndyuka men are involved in small-scale gold mining, alongside Brazilian <em>garimpeiros</em> who make up three-quarters of the mining workforce. While gold provides income, it also brings environmental degradation, mercury contamination of rivers, and social disruption to village life — a tension between economic survival and cultural and environmental integrity that communities navigate daily.</p>
-  </div>
+      <div class="present-card">
+        <h4>Gold Mining — Income and Risk</h4>
+        <p>The Surinamese interior holds some of the world's most gold-rich territory. A majority of Ndyuka men are involved in small-scale gold mining, alongside Brazilian <em>garimpeiros</em> who make up three-quarters of the mining workforce. While gold provides income, it also brings environmental degradation, mercury contamination of rivers, and social disruption to village life — a tension between economic survival and cultural and environmental integrity that communities navigate daily.</p>
+      </div>
 
-  <div class="present-card">
-    <h4>Population, Diaspora &amp; Identity</h4>
-    <p>The 2012 census recorded 117,567 Maroons in Suriname — 21.7% of the total population and the second largest ethnic group. Since the 1970s and especially after the civil war, growing numbers have relocated to Paramaribo and to the Netherlands, where more than 11,000 Maroons now live. The Maroon diaspora actively maintains cultural identity through the Winti religion, language, life-cycle ceremonies, and celebration of the Day of the Maroons on October 10th each year.</p>
-  </div>
+      <div class="present-card">
+        <h4>Population, Diaspora &amp; Identity</h4>
+        <p>The 2012 census recorded 117,567 Maroons in Suriname — 21.7% of the total population and the second largest ethnic group. Since the 1970s and especially after the civil war, growing numbers have relocated to Paramaribo and to the Netherlands, where more than 11,000 Maroons now live. The Maroon diaspora actively maintains cultural identity through the Winti religion, language, life-cycle ceremonies, and celebration of the Day of the Maroons on October 10th each year.</p>
+      </div>
 
-  <div class="present-card">
-    <h4>Education, Healthcare &amp; Infrastructure</h4>
-    <p>Interior villages remain geographically isolated — accessible primarily by river and canoe. State elementary schools reached most villages only in the 1960s, and during the 1986–1992 civil war, schools ceased functioning entirely and have been only partially rebuilt since. Limited schooling, geographic isolation, and discrimination in urban labour markets have historically placed Maroons among the most economically marginalised groups in Suriname, a situation advocacy organisations continue to press the government to address.</p>
-  </div>
+      <div class="present-card">
+        <h4>Education, Healthcare &amp; Infrastructure</h4>
+        <p>Interior villages remain geographically isolated — accessible primarily by river and canoe. State elementary schools reached most villages only in the 1960s, and during the 1986–1992 civil war, schools ceased functioning entirely and have been only partially rebuilt since. Limited schooling, geographic isolation, and discrimination in urban labour markets have historically placed Maroons among the most economically marginalised groups in Suriname, a situation advocacy organisations continue to press the government to address.</p>
+      </div>
 
-</div>
-```
-
+    </div>
   </div>
 </section>
 
 <!-- ─── Culture Band ───────────────────────────────────────────────────────── -->
-
 <section class="culture-band">
   <div class="culture-inner">
     <h2 class="section-heading">Cultural Heritage</h2>
     <div class="culture-grid">
 
-```
-  <div class="culture-item">
-    <h4>Woodcarving</h4>
-    <p>Maroon men are renowned for intricate woodcarving — canoe paddles, stools, combs, food-preparation objects, and architectural elements. Each piece carries symbolic meaning rooted in West African aesthetics and adapted to forest life over centuries. There is a strong performance and oratorical tradition alongside the visual arts.</p>
-  </div>
+      <div class="culture-item">
+        <h4>Woodcarving</h4>
+        <p>Maroon men are renowned for intricate woodcarving — canoe paddles, stools, combs, food-preparation objects, and architectural elements. Each piece carries symbolic meaning rooted in West African aesthetics and adapted to forest life over centuries. There is a strong performance and oratorical tradition alongside the visual arts.</p>
+      </div>
 
-  <div class="culture-item">
-    <h4>Textile Art</h4>
-    <p>Women produce distinctive strip-woven cloths and embroidered garments using vibrant geometric patterns. These textiles are among the most sophisticated in the African diaspora, serving social, spiritual, and aesthetic functions. Life-cycle rituals mark key transitions: the <em>gi pangi</em> ceremony offers a girl a piece of fabric; the <em>gi kamisa</em> presents a boy with adult clothing.</p>
-  </div>
+      <div class="culture-item">
+        <h4>Textile Art</h4>
+        <p>Women produce distinctive strip-woven cloths and embroidered garments using vibrant geometric patterns. These textiles are among the most sophisticated in the African diaspora, serving social, spiritual, and aesthetic functions. Life-cycle rituals mark key transitions: the <em>gi pangi</em> ceremony offers a girl a piece of fabric; the <em>gi kamisa</em> presents a boy with adult clothing.</p>
+      </div>
 
-  <div class="culture-item">
-    <h4>Winti — Traditional Religion</h4>
-    <p>The traditional Surinamese Maroon religion is called <em>Winti</em> — a syncretisation of African religious beliefs and practices, brought primarily by Akan and Fon enslaved peoples. Ancestor veneration is central. Winti has no written sources and no central authority. It was prohibited by law for nearly a century. Since the 1970s it has gained renewed momentum among Maroons in Suriname and the Netherlands.</p>
-  </div>
+      <div class="culture-item">
+        <h4>Winti — Traditional Religion</h4>
+        <p>The traditional Surinamese Maroon religion is called <em>Winti</em> — a syncretisation of African religious beliefs and practices, brought primarily by Akan and Fon enslaved peoples. Ancestor veneration is central. Winti has no written sources and no central authority. It was prohibited by law for nearly a century. Since the 1970s it has gained renewed momentum among Maroons in Suriname and the Netherlands.</p>
+      </div>
 
-  <div class="culture-item">
-    <h4>Governance &amp; Leadership</h4>
-    <p>Each Maroon group (except the Kwinti) is led by a <em>granman</em> (paramount chief), supported by <em>kapiteins</em> (village captains) and <em>basias</em> (heralds and monitors). This governance structure blends African communal models with practices developed over three centuries of autonomous forest life. Society is matrilineal — descent and inheritance pass through the female line.</p>
-  </div>
+      <div class="culture-item">
+        <h4>Governance &amp; Leadership</h4>
+        <p>Each Maroon group (except the Kwinti) is led by a <em>granman</em> (paramount chief), supported by <em>kapiteins</em> (village captains) and <em>basias</em> (heralds and monitors). This governance structure blends African communal models with practices developed over three centuries of autonomous forest life. Society is matrilineal — descent and inheritance pass through the female line.</p>
+      </div>
 
-  <div class="culture-item">
-    <h4>Taal</h4>
-    <p>Each Maroon group has its own creole language rooted in West and Central African languages, English, Portuguese, and Dutch. Ndyuka is spoken by the Ndyuka, Aluku, and Paramaka; Saramaccan by the Saramaka and Matawai. These languages remain central to community identity, oral history, and daily life across villages.</p>
-  </div>
+      <div class="culture-item">
+        <h4>Taal</h4>
+        <p>Each Maroon group has its own creole language rooted in West and Central African languages, English, Portuguese, and Dutch. Ndyuka is spoken by the Ndyuka, Aluku, and Paramaka; Saramaccan by the Saramaka and Matawai. These languages remain central to community identity, oral history, and daily life across villages.</p>
+      </div>
 
-  <div class="culture-item">
-    <h4>Music, Dance &amp; Oral Tradition</h4>
-    <p>Drumming, singing, and dance are central to ceremonies, funerals, and community gatherings. Specific rhythmic patterns carry spiritual significance, communicating with ancestors and deities. The Saramaka and other groups maintain a rich oral tradition, preserving their history of resistance and the stories of their formative years through generations of storytelling.</p>
-  </div>
+      <div class="culture-item">
+        <h4>Music, Dance &amp; Oral Tradition</h4>
+        <p>Drumming, singing, and dance are central to ceremonies, funerals, and community gatherings. Specific rhythmic patterns carry spiritual significance, communicating with ancestors and deities. The Saramaka and other groups maintain a rich oral tradition, preserving their history of resistance and the stories of their formative years through generations of storytelling.</p>
+      </div>
 
-</div>
-```
-
+    </div>
   </div>
 </section>
 
 <!-- ─── Present Day ────────────────────────────────────────────────────────── -->
-
 <section class="present-section" id="present">
   <div class="present-inner">
     <h2 class="section-heading">The Struggle Continues — Present Day</h2>
     <p style="max-width:780px;color:rgba(247,240,227,0.85);margin-bottom:1.5rem;">The geographical isolation and cultural distinctiveness that preserved Maroon societies for centuries have, ironically, become major vulnerabilities in the post-independence period. The same rainforest that protected the Maroons now holds an estimated 90 percent of Suriname's natural resources — and that has made their land a target.</p>
     <div class="present-grid">
 
-```
-  <div class="present-card">
-    <h4>Land Rights — Still Unresolved</h4>
-    <p>Despite the 2007 IACtHR landmark ruling, Maroon ancestral lands are still not formally recognised by the Surinamese state. Logging concessions granted to Chinese, Malaysian, Indonesian, and other foreign companies have brought roads, clear-cutting, and destruction directly into Maroon village territories — sometimes with compensation as low as the equivalent of US$6.50 for the destruction of an entire farm. Advocacy has continued through national commissions (1992, 1996, 2000, 2006, 2013) and international courts, but the fundamental legal question of land ownership remains unresolved.</p>
-  </div>
+      <div class="present-card">
+        <h4>Land Rights — Still Unresolved</h4>
+        <p>Despite the 2007 IACtHR landmark ruling, Maroon ancestral lands are still not formally recognised by the Surinamese state. Logging concessions granted to Chinese, Malaysian, Indonesian, and other foreign companies have brought roads, clear-cutting, and destruction directly into Maroon village territories — sometimes with compensation as low as the equivalent of US$6.50 for the destruction of an entire farm. Advocacy has continued through national commissions (1992, 1996, 2000, 2006, 2013) and international courts, but the fundamental legal question of land ownership remains unresolved.</p>
+      </div>
 
-  <div class="present-card">
-    <h4>Goudwinning — Kans en Bedreiging</h4>
-    <p>Sinds het midden van de jaren 1980 heeft een goudrush in het Surinaamse regenwoud tienduizenden mijnwerkers aangetrokken. De meerderheid zijn Braziliaanse garimpeiros, maar ruwweg een kwart zijn Surinamers — overwegend Marrons. Een meerderheid van Ndyuka-mannen is nu betrokken bij kleinschalige goudwinning. Het inkomen is noodzakelijk; de gevolgen zijn ernstig. Kwikverontreiniging, ontbossing en de komst van mijnkampen hebben rivierecosystemen en het gemeenschapsleven getransformeerd. De Marrons bevinden zich tegelijkertijd in een positie waarbij ze zowel profiteren van als worden benadeeld door de winning van hulpbronnen uit hun eigen voorouderlijk grondgebied.</p>
-  </div>
+      <div class="present-card">
+        <h4>Goudwinning — Kans en Bedreiging</h4>
+        <p>Sinds het midden van de jaren 1980 heeft een goudrush in het Surinaamse regenwoud tienduizenden mijnwerkers aangetrokken. De meerderheid zijn Braziliaanse garimpeiros, maar ruwweg een kwart zijn Surinamers — overwegend Marrons. Een meerderheid van Ndyuka-mannen is nu betrokken bij kleinschalige goudwinning. Het inkomen is noodzakelijk; de gevolgen zijn ernstig. Kwikverontreiniging, ontbossing en de komst van mijnkampen hebben rivierecosystemen en het gemeenschapsleven getransformeerd. De Marrons bevinden zich tegelijkertijd in een positie waarbij ze zowel profiteren van als worden benadeeld door de winning van hulpbronnen uit hun eigen voorouderlijk grondgebied.</p>
+      </div>
 
-  <div class="present-card">
-    <h4>Stedelijke Migratie & Diaspora</h4>
-    <p>Veel Marrons zijn verhuisd naar Paramaribo, de hoofdstad, en naar Nederland op zoek naar economische kansen en toegang tot onderwijs en gezondheidszorg. Volgens de volkstelling van 2012 identificeerden 117.567 mensen zich als Marron in Suriname — 21,7 procent van de totale bevolking, waarmee ze de tweede grootste etnische groep vormen. In Nederland onderhouden meer dan elfduizend Marrons actieve gemeenschappen. Stedelijke migratie brengt fragmentatie van het traditionele dorpsleven en culturele erosie, maar ook een diaspora die steeds assertiever is over het bewaren en bevorderen van de Marron-identiteit.</p>
-  </div>
+      <div class="present-card">
+        <h4>Stedelijke Migratie & Diaspora</h4>
+        <p>Veel Marrons zijn verhuisd naar Paramaribo, de hoofdstad, en naar Nederland op zoek naar economische kansen en toegang tot onderwijs en gezondheidszorg. Volgens de volkstelling van 2012 identificeerden 117.567 mensen zich als Marron in Suriname — 21,7 procent van de totale bevolking, waarmee ze de tweede grootste etnische groep vormen. In Nederland onderhouden meer dan elfduizend Marrons actieve gemeenschappen. Stedelijke migratie brengt fragmentatie van het traditionele dorpsleven en culturele erosie, maar ook een diaspora die steeds assertiever is over het bewaren en bevorderen van de Marron-identiteit.</p>
+      </div>
 
-  <div class="present-card">
-    <h4>Politieke Vertegenwoordiging</h4>
-    <p>Drie Marron-politieke partijen namen deel aan de verkiezingen van 2005, wat resulteerde in acht Marron-leden van de Nationale Assemblee en drie kabinetposities als onderdeel van de regerende coalitie. In 2020 werd Ronnie Brunswijk Vice-President — het hoogste ambt dat enige Marron ooit heeft bekleed. Maar politieke vertegenwoordiging op nationaal niveau heeft zich niet vertaald in oplossing van de fundamentele kwesties van landrechten, toegang tot gezondheidszorg of onderwijsinfrastructuur in afgelegen dorpen. De kloof tussen politieke vertegenwoordiging en gemeenschapswelzijn blijft groot.</p>
-  </div>
+      <div class="present-card">
+        <h4>Politieke Vertegenwoordiging</h4>
+        <p>Drie Marron-politieke partijen namen deel aan de verkiezingen van 2005, wat resulteerde in acht Marron-leden van de Nationale Assemblee en drie kabinetposities als onderdeel van de regerende coalitie. In 2020 werd Ronnie Brunswijk Vice-President — het hoogste ambt dat enige Marron ooit heeft bekleed. Maar politieke vertegenwoordiging op nationaal niveau heeft zich niet vertaald in oplossing van de fundamentele kwesties van landrechten, toegang tot gezondheidszorg of onderwijsinfrastructuur in afgelegen dorpen. De kloof tussen politieke vertegenwoordiging en gemeenschapswelzijn blijft groot.</p>
+      </div>
 
-  <div class="present-card">
-    <h4>Culturele Heropleving</h4>
-    <p>Er is een aanzienlijke heropleving van interesse in Marron-cultuur, zowel binnen Suriname als onder de diaspora. Winti, de traditionele religie die bijna een eeuw lang verboden was, heeft momentum gekregen sinds de jaren 1970 en is steeds populairder in diaspora-gemeenschappen. 10 oktober — de nationale Dag van de Marrons, een officiële feestdag sinds 1974 — wordt gevierd met ceremonies, traditionele kleding, muziek, dans en culturele tentoonstellingen in heel Suriname en in Nederland. Inspanningen om mondelinge tradities, houtsnijwerk, textielkunst en taal te documenteren zijn aan de gang, gedreven door zowel Marron-gemeenschappen als academische onderzoekers.</p>
-  </div>
+      <div class="present-card">
+        <h4>Culturele Heropleving</h4>
+        <p>Er is een aanzienlijke heropleving van interesse in Marron-cultuur, zowel binnen Suriname als onder de diaspora. Winti, de traditionele religie die bijna een eeuw lang verboden was, heeft momentum gekregen sinds de jaren 1970 en is steeds populairder in diaspora-gemeenschappen. 10 oktober — de nationale Dag van de Marrons, een officiële feestdag sinds 1974 — wordt gevierd met ceremonies, traditionele kleding, muziek, dans en culturele tentoonstellingen in heel Suriname en in Nederland. Inspanningen om mondelinge tradities, houtsnijwerk, textielkunst en taal te documenteren zijn aan de gang, gedreven door zowel Marron-gemeenschappen als academische onderzoekers.</p>
+      </div>
 
-  <div class="present-card">
-    <h4>Belangrijke Feiten</h4>
-    <p style="margin-bottom:0.5rem;">Een samenvatting van de huidige situatie:</p>
-    <ul style="list-style:none;font-size:0.84rem;line-height:2;">
-      <li>◆ &nbsp;Zes groepen: Ndyuka, Saramaka, Matawai, Paramaka, Aluku, Kwinti</li>
-      <li>◆ &nbsp;21,7% van de bevolking van Suriname — 2e grootste etnische groep (Volkstelling 2012)</li>
-      <li>◆ &nbsp;Eerste vredesverdrag: 10 oktober 1760 (Ndyuka)</li>
-      <li>◆ &nbsp;Laatste vredesverdrag: 1887 (Kwinti)</li>
-      <li>◆ &nbsp;Winti traditionele religie; matrilineaire afstamming</li>
-      <li>◆ &nbsp;IACtHR Saramaka territoriale rechten uitspraak: 2007</li>
-      <li>◆ &nbsp;Dag van de Marrons: 10 oktober (nationale feestdag sinds 1974)</li>
-      <li>◆ &nbsp;Ronnie Brunswijk: eerste Marron Vice-President, ingehuldigd 2020</li>
-      <li>◆ &nbsp;11.000+ Marrons in Nederland</li>
-      <li>◆ &nbsp;Landrechten blijven juridisch niet erkend door de Surinaamse staat</li>
-    </ul>
-  </div>
+      <div class="present-card">
+        <h4>Belangrijke Feiten</h4>
+        <p style="margin-bottom:0.5rem;">Een samenvatting van de huidige situatie:</p>
+        <ul style="list-style:none;font-size:0.84rem;line-height:2;">
+          <li>◆ &nbsp;Zes groepen: Ndyuka, Saramaka, Matawai, Paramaka, Aluku, Kwinti</li>
+          <li>◆ &nbsp;21,7% van de bevolking van Suriname — 2e grootste etnische groep (Volkstelling 2012)</li>
+          <li>◆ &nbsp;Eerste vredesverdrag: 10 oktober 1760 (Ndyuka)</li>
+          <li>◆ &nbsp;Laatste vredesverdrag: 1887 (Kwinti)</li>
+          <li>◆ &nbsp;Winti traditionele religie; matrilineaire afstamming</li>
+          <li>◆ &nbsp;IACtHR Saramaka territoriale rechten uitspraak: 2007</li>
+          <li>◆ &nbsp;Dag van de Marrons: 10 oktober (nationale feestdag sinds 1974)</li>
+          <li>◆ &nbsp;Ronnie Brunswijk: eerste Marron Vice-President, ingehuldigd 2020</li>
+          <li>◆ &nbsp;11.000+ Marrons in Nederland</li>
+          <li>◆ &nbsp;Landrechten blijven juridisch niet erkend door de Surinaamse staat</li>
+        </ul>
+      </div>
 
-</div>
-```
-
+    </div>
   </div>
 </section>
 
 <!-- ─── Footer ────────────────────────────────────────────────────────────── -->
-
 <footer id="contact">
   <div class="footer-inner">
 
-```
-<div class="footer-col">
-  <h4>Maroon Villages in Suriname</h4>
-  <p>This project documents the Maroon communities of Suriname — their villages, cultural heritage, governance structures, and the ongoing struggle for land rights and self-determination.</p>
-  <p style="margin-top:0.8rem;">
-    <a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" style="color:var(--gold);">View on GitHub</a>
-  </p>
-</div>
+    <div class="footer-col">
+      <h4>Maroon Villages in Suriname</h4>
+      <p>This project documents the Maroon communities of Suriname — their villages, cultural heritage, governance structures, and the ongoing struggle for land rights and self-determination.</p>
+      <p style="margin-top:0.8rem;">
+        <a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" style="color:var(--gold);">View on GitHub</a>
+      </p>
+    </div>
 
-<div class="footer-col">
-  <h4>Dorpen</h4>
-  <ul>
-    <li><a href="groups/ndyuka.html">Ndyuka Villages</a></li>
-    <li><a href="groups/saramaka.html">Saramaka Villages</a></li>
-    <li><a href="groups/matawai.html">Matawai Villages</a></li>
-    <li><a href="groups/paramaka.html">Paramaka Villages</a></li>
-    <li><a href="groups/aluku.html">Aluku Villages</a></li>
-    <li><a href="groups/kwinti.html">Kwinti Villages</a></li>
-    <li><a href="villages.html">Dorphenregister</a></li>
-  </ul>
-</div>
+    <div class="footer-col">
+      <h4>Dorpen</h4>
+      <ul>
+        <li><a href="groups/ndyuka.html">Ndyuka Villages</a></li>
+        <li><a href="groups/saramaka.html">Saramaka Villages</a></li>
+        <li><a href="groups/matawai.html">Matawai Villages</a></li>
+        <li><a href="groups/paramaka.html">Paramaka Villages</a></li>
+        <li><a href="groups/aluku.html">Aluku Villages</a></li>
+        <li><a href="groups/kwinti.html">Kwinti Villages</a></li>
+        <li><a href="villages.html">Dorphenregister</a></li>
+      </ul>
+    </div>
 
-<div class="footer-col">
-  <h4>Geschiedenis & Rechten</h4>
-  <ul>
-    <li><a href="#history">Geschiedenis van Veerkracht</a></li>
-    <li><a href="#history">Vredesverdragen 1760–1887</a></li>
-    <li><a href="#history">Binnenlandse Oorlog 1986–1992</a></li>
-    <li><a href="moiwana.html">Moiwana Bloedbad 1986</a></li>
-    <li><a href="bibliography.html">IACtHR Rulings</a></li>
-    <li><a href="#present">Land Rights Today</a></li>
-    <li><a href="bibliography.html">Advocacy &amp; Organisations</a></li>
-  </ul>
-</div>
+    <div class="footer-col">
+      <h4>Geschiedenis & Rechten</h4>
+      <ul>
+        <li><a href="#history">Geschiedenis van Veerkracht</a></li>
+        <li><a href="#history">Vredesverdragen 1760–1887</a></li>
+        <li><a href="#history">Binnenlandse Oorlog 1986–1992</a></li>
+        <li><a href="moiwana.html">Moiwana Bloedbad 1986</a></li>
+        <li><a href="bibliography.html">IACtHR Rulings</a></li>
+        <li><a href="#present">Land Rights Today</a></li>
+        <li><a href="bibliography.html">Advocacy &amp; Organisations</a></li>
+      </ul>
+    </div>
 
-<div class="footer-col">
-  <h4>Over & Contact</h4>
-  <ul>
-    <li><a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" target="_blank" rel="noopener">Over Dit Project ↗</a></li>
-    <li><a href="#history">Geschiedenis</a></li>
-    <li><a href="RESEARCH_NOTES.md">Onderzoeksnotities</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="villages.html">Dorphenregister</a></li>
-  </ul>
-</div>
-```
+    <div class="footer-col">
+      <h4>Over & Contact</h4>
+      <ul>
+        <li><a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" target="_blank" rel="noopener">Over Dit Project ↗</a></li>
+        <li><a href="#history">Geschiedenis</a></li>
+        <li><a href="RESEARCH_NOTES.md">Onderzoeksnotities</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="villages.html">Dorphenregister</a></li>
+      </ul>
+    </div>
 
   </div>
   <div class="footer-bottom">
@@ -1854,7 +1807,6 @@ footer {
 </footer>
 
 <!-- ─── Slider + Map JS ──────────────────────────────────────────────────────── -->
-
 <script>
   /* ── Hero slider ── */
   const slides = document.querySelectorAll('.slide');
@@ -1998,7 +1950,6 @@ function initOverviewMap() {
   });
 }
 </script>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPjB3EhOZYZPhBn9SVezWRUrBdXZUvB4&callback=initOverviewMap" async defer></script>
 
 </body>

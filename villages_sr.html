@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -430,28 +430,38 @@
     .lang-btn:hover { background:rgba(255,255,255,0.1);color:var(--gold); }
     .lang-btn.active { background:var(--ochre);color:white;border-color:var(--ochre); }
   </style>
+
+  <style>
+    .lang-toggle { display:flex;gap:4px;align-items:center;margin-left:auto; }
+    .lang-btn { font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;
+      letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:2px;
+      border:1px solid rgba(247,240,227,0.3);background:transparent;
+      color:rgba(247,240,227,0.6);cursor:pointer;transition:all 0.2s;text-decoration:none; }
+    .lang-btn:hover { background:rgba(255,255,255,0.1);color:var(--gold); }
+    .lang-btn.active { background:var(--ochre);color:white;border-color:var(--ochre); }
+  </style>
 </head>
 <body>
 
 <div class="top-bar">
   <span>Maroon Villages of Suriname &amp; French Guiana — Reference &amp; Heritage</span>
-  <span><a href="index.html">← Back to Home</a></span>
+  <span><a href="index_sr.html">← Back to Home</a></span>
 </div>
 
 <nav>
-  <a class="nav-logo" href="index.html">Maroon Villages</a>
+  <a class="nav-logo" href="index_sr.html">Maroon Villages</a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="villages.html" class="active">Villages</a>
-    <a href="groups/ndyuka.html">Groups</a>
-    <a href="moiwana.html">Moiwana</a>
-    <a href="bibliography.html">Bibliography</a>
+    <a href="index_sr.html">Home</a>
+    <a href="villages_sr.html" class="active">Villages</a>
+    <a href="groups/ndyuka_sr.html">Groups</a>
+    <a href="moiwana_sr.html">Moiwana</a>
+    <a href="bibliography_sr.html">Bibliography</a>
   </div>
 </nav>
 
 <div class="page-hero">
-  <h1>Village Directory</h1>
-  <p>278 documented Maroon settlements across Suriname and French Guiana — drawn from Planbureau records, Medische Zending data, academic sources, and field-verified GPS coordinates.</p>
+  <h1>Kondre Lisi</h1>
+  <p>278 dokumenteri Marron kondre na Sranan nanga Frans Guyana — kon fu Planbureau papira, Medische Zending data, studie bronnen, nanga GPS koordinaat verificatie ini veld.</p>
 </div>
 
 <div class="divider"></div>
@@ -459,23 +469,23 @@
 <div class="stats-strip" id="stats-strip">
   <div class="stat-item">
     <span class="stat-num" id="s-total">278</span>
-    <span class="stat-label">Villages</span>
+    <span class="stat-label">Kondre</span>
   </div>
   <div class="stat-item">
     <span class="stat-num" id="s-high">68</span>
-    <span class="stat-label">GPS Verified</span>
+    <span class="stat-label">GPS Ferificeri</span>
   </div>
   <div class="stat-item">
     <span class="stat-num">6</span>
-    <span class="stat-label">Maroon Groups</span>
+    <span class="stat-label">Marron Grupu</span>
   </div>
   <div class="stat-item">
     <span class="stat-num">2</span>
-    <span class="stat-label">Countries</span>
+    <span class="stat-label">Kondre</span>
   </div>
   <div class="stat-item">
     <span class="stat-num" id="s-mz">45</span>
-    <span class="stat-label">MZ Health Posts</span>
+    <span class="stat-label">MZ Gesonheid Posti</span>
   </div>
 </div>
 
@@ -484,13 +494,13 @@
   <!-- Controls -->
   <div class="controls">
     <div class="control-group">
-      <label for="search">Search</label>
-      <input type="search" id="search" placeholder="Village name…" />
+      <label for="search">Suku</label>
+      <input type="search" id="search" placeholder="Kondre nen…" />
     </div>
     <div class="control-group">
-      <label for="filter-group">Group</label>
+      <label for="filter-group">Grupu</label>
       <select id="filter-group">
-        <option value="">All groups</option>
+        <option value="">Ala grupu</option>
         <option value="Ndyuka">Ndyuka</option>
         <option value="Saramaka">Saramaka</option>
         <option value="Matawai">Matawai</option>
@@ -500,7 +510,7 @@
       </select>
     </div>
     <div class="control-group">
-      <label for="filter-country">Country</label>
+      <label for="filter-country">Kondre</label>
       <select id="filter-country">
         <option value="">All</option>
         <option value="Suriname">Suriname</option>
@@ -508,31 +518,31 @@
       </select>
     </div>
     <div class="control-group">
-      <label for="filter-conf">Coordinates</label>
+      <label for="filter-conf">Koordinaat</label>
       <select id="filter-conf">
         <option value="">All</option>
-        <option value="high">GPS verified</option>
-        <option value="medium">Medium confidence</option>
-        <option value="low">Approximate only</option>
+        <option value="high">GPS ferificeri</option>
+        <option value="medium">Middel-seker</option>
+        <option value="low">Bigi-bigi olo</option>
       </select>
     </div>
     <div class="control-group">
-      <label for="filter-mz">MZ Clinic</label>
+      <label for="filter-mz">MZ Kliniek</label>
       <select id="filter-mz">
         <option value="">All</option>
-        <option value="yes">Has MZ clinic</option>
-        <option value="no">No MZ clinic</option>
+        <option value="yes">Abi MZ kliniek</option>
+        <option value="no">No abi MZ kliniek</option>
       </select>
     </div>
-    <button class="btn-reset" id="btn-reset">Reset</button>
-    <span class="results-count"><span id="result-num">278</span> villages shown</span>
+    <button class="btn-reset" id="btn-reset">Kiri</button>
+    <span class="results-count"><span id="result-num">278</span> kondre e sori</span>
   </div>
 
   <!-- View toggle -->
   <div class="view-toggle">
-    <button class="view-btn active" id="btn-table" onclick="setView('table')">Table</button>
-    <button class="view-btn" id="btn-map" onclick="setView('map')">Map</button>
-    <span class="coord-note">Map shows only villages with coordinates (high or medium confidence)</span>
+    <button class="view-btn active" id="btn-table" onclick="setView('table')">Tapu</button>
+    <button class="view-btn" id="btn-map" onclick="setView('map')">Mapa</button>
+    <span class="coord-note">Mapa e sori enkeli kondre nanga koordinaat (GPS ferificeri nanga middel-seker)</span>
   </div>
 
   <!-- Map view -->
@@ -543,19 +553,19 @@
     <table id="village-table">
       <thead>
         <tr>
-          <th onclick="sortBy('name')" data-col="name">Village <span class="sort-icon">↕</span></th>
-          <th onclick="sortBy('group_filter')" data-col="group_filter">Group <span class="sort-icon">↕</span></th>
-          <th onclick="sortBy('country')" data-col="country">Country <span class="sort-icon">↕</span></th>
-          <th onclick="sortBy('river')" data-col="river">River / Area <span class="sort-icon">↕</span></th>
+          <th onclick="sortBy('name')" data-col="name">Kondre <span class="sort-icon">↕</span></th>
+          <th onclick="sortBy('group_filter')" data-col="group_filter">Grupu <span class="sort-icon">↕</span></th>
+          <th onclick="sortBy('country')" data-col="country">Kondre <span class="sort-icon">↕</span></th>
+          <th onclick="sortBy('river')" data-col="river">Liba / Presi <span class="sort-icon">↕</span></th>
           <th onclick="sortBy('resort')" data-col="resort">Resort <span class="sort-icon">↕</span></th>
-          <th onclick="sortBy('confidence')" data-col="confidence">Coords <span class="sort-icon">↕</span></th>
+          <th onclick="sortBy('confidence')" data-col="confidence">Koordinaat <span class="sort-icon">↕</span></th>
           <th>MZ</th>
-          <th>Notes</th>
+          <th>Notisi</th>
         </tr>
       </thead>
       <tbody id="table-body"></tbody>
     </table>
-    <div class="no-results" id="no-results" style="display:none">No villages match the current filters.</div>
+    <div class="no-results" id="no-results" style="display:none">No wan kondre e meki nanga a filter tide.</div>
   </div>
 
 </div>
@@ -563,7 +573,7 @@
 <footer>
   <p>Data compiled from Planbureau Suriname (2013), Medische Zending, Wikipedia, and field GPS (Google Earth). 
   Coordinate confidence: <strong style="color:var(--gold)">high</strong> = GPS verified · <strong style="color:var(--ochre)">medium</strong> = estimated · <strong style="color:#aaa">low</strong> = approximate location only.</p>
-  <p style="margin-top:8px"><a href="index.html">← Home</a> &nbsp;·&nbsp; <a href="bibliography.html">Bibliography</a> &nbsp;·&nbsp; <a href="RESEARCH_NOTES.md">Research Notes</a></p>
+  <p style="margin-top:8px"><a href="index_sr.html">← Home</a> &nbsp;·&nbsp; <a href="bibliography_sr.html">Bibliography</a> &nbsp;·&nbsp; <a href="RESEARCH_NOTES.md">Research Notes</a></p>
 </footer>
 
 <!-- Village data -->

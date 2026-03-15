@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -114,17 +114,27 @@
     .lang-btn:hover { background:rgba(255,255,255,0.1);color:var(--gold); }
     .lang-btn.active { background:var(--ochre);color:white;border-color:var(--ochre); }
   </style>
+
+  <style>
+    .lang-toggle { display:flex;gap:4px;align-items:center;margin-left:auto; }
+    .lang-btn { font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;
+      letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:2px;
+      border:1px solid rgba(247,240,227,0.3);background:transparent;
+      color:rgba(247,240,227,0.6);cursor:pointer;transition:all 0.2s;text-decoration:none; }
+    .lang-btn:hover { background:rgba(255,255,255,0.1);color:var(--gold); }
+    .lang-btn.active { background:var(--ochre);color:white;border-color:var(--ochre); }
+  </style>
 </head>
 <body>
 
 <div class="top-bar">
   <span>Maroon Villages in Suriname — Reference &amp; Heritage Site</span>
-  <span><a href="index.html">← Home</a></span>
+  <span><a href="index_sr.html">← Home</a></span>
 </div>
 
 <header>
   <div class="header-inner">
-    <a class="logo-wrap" href="index.html">
+    <a class="logo-wrap" href="index_sr.html">
       <svg class="logo-icon" viewBox="0 0 44 44" fill="none">
         <circle cx="22" cy="22" r="21" stroke="#c8822a" stroke-width="1.5"/>
         <circle cx="22" cy="22" r="13" stroke="#c8822a" stroke-width="1" stroke-dasharray="3 2"/>
@@ -135,20 +145,26 @@
       </svg>
       <div class="logo-text"><strong>Maroon Villages</strong><span>in Suriname</span></div>
     </a>
-    <div class="breadcrumb"><a href="index.html">Home</a> / Bibliography &amp; Sources</div>
+    <div class="breadcrumb"><a href="index_sr.html">Home</a> / Bibliography &amp; Sources</div>
   </div>
 
     <div class="lang-toggle">
-      <a href="bibliography.html" class="lang-btn active">EN</a>
+      <a href="bibliography_sr.html" class="lang-btn active">EN</a>
       <a href="bibliography_nl.html" class="lang-btn">NL</a>
       <a href="bibliography_sr.html" class="lang-btn">SR</a>
+    </div>
+
+    <div class="lang-toggle">
+      <a href="bibliography_sr.html" class="lang-btn">EN</a>
+      <a href="bibliography_nl.html" class="lang-btn">NL</a>
+      <a href="bibliography_sr.html" class="lang-btn active">SR</a>
     </div>
 </header>
 
 <div class="page-hero">
   <div class="page-hero-inner">
     <div class="label">Reference</div>
-    <h1>Bibliography & Sources</h1>
+    <h1>Bibliografie & Bronnen</h1>
     <p>This page lists the primary academic works, legal documents, institutional reports, encyclopaedic sources, and online references used throughout this site. It is a working document — additions and corrections are welcome.</p>
   </div>
 </div>
@@ -163,7 +179,7 @@
 
 <!-- ══ FOUNDATIONAL ACADEMIC WORKS ══ -->
 <div class="bib-category">
-  <h2 class="cat-heading">Foundational Academic Works</h2>
+  <h2 class="cat-heading">Bigi Studie-Wroko</h2>
   <p class="cat-note">The core scholarly literature on Surinamese Maroons. These works should be consulted for anything requiring depth beyond this site's summaries.</p>
 
   <div class="bib-entry">
@@ -470,16 +486,16 @@
   <div class="sidebar-box">
     <h3>Site Navigation</h3>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="villages.html">Village Directory (278)</a></li>
+      <li><a href="index_sr.html">Home</a></li>
+      <li><a href="villages_sr.html">Village Directory (278)</a></li>
       <li><a href="index.html#history">History Timeline</a></li>
-      <li><a href="moiwana.html">Moiwana 1986</a></li>
-      <li><a href="groups/ndyuka.html">Ndyuka Profile</a></li>
-      <li><a href="groups/saramaka.html">Saramaka Profile</a></li>
-      <li><a href="groups/matawai.html">Matawai Profile</a></li>
-      <li><a href="groups/paramaka.html">Paramaka Profile</a></li>
-      <li><a href="groups/aluku.html">Aluku Profile</a></li>
-      <li><a href="groups/kwinti.html">Kwinti Profile</a></li>
+      <li><a href="moiwana_sr.html">Moiwana 1986</a></li>
+      <li><a href="groups/ndyuka_sr.html">Ndyuka Profile</a></li>
+      <li><a href="groups/saramaka_sr.html">Saramaka Profile</a></li>
+      <li><a href="groups/matawai_sr.html">Matawai Profile</a></li>
+      <li><a href="groups/paramaka_sr.html">Paramaka Profile</a></li>
+      <li><a href="groups/aluku_sr.html">Aluku Profile</a></li>
+      <li><a href="groups/kwinti_sr.html">Kwinti Profile</a></li>
     </ul>
   </div>
 
@@ -493,7 +509,7 @@
 
 <footer>
   <div class="footer-inner">
-    <p>&copy; 2025 Maroon Villages in Suriname &nbsp;|&nbsp; <a href="index.html">Home</a></p>
+    <p>&copy; 2025 Maroon Villages in Suriname &nbsp;|&nbsp; <a href="index_sr.html">Home</a></p>
     <p>v1.2 &nbsp;|&nbsp; Bibliography page</p>
   </div>
   <div class="footer-bottom">This site is a reference and heritage resource. All content is sourced and attributed.</div>
