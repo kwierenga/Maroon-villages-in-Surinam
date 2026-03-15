@@ -103,17 +103,19 @@ nav { margin-left: auto; }
   display: flex;
   list-style: none;
   gap: 0;
+  white-space: nowrap;
 }
 .nav-list > li { position: relative; }
 .nav-list > li > a {
   display: block;
-  padding: 1.2rem 1rem;
+  padding: 1.2rem 0.75rem;
   font-family: 'Raleway', sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--cream);
+  white-space: nowrap;
   transition: background 0.2s, color 0.2s;
 }
 .nav-list > li > a:hover,
@@ -929,7 +931,7 @@ footer {
 
 <header>
   <div class="header-inner">
-    <a class="logo-wrap" href="#">
+    <a class="logo-wrap" href="index.html">
       <!-- SVG logo: stylised adinkra-inspired motif -->
       <svg class="logo-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="26" cy="26" r="25" stroke="#c8822a" stroke-width="2"/>
@@ -949,14 +951,6 @@ footer {
 <nav>
   <ul class="nav-list">
     <li>
-      <a href="#">What's New?</a>
-      <ul class="dropdown">
-        <li><a href="#">Latest News</a></li>
-        <li><a href="#">Upcoming Events</a></li>
-        <li><a href="#">Announcements</a></li>
-      </ul>
-    </li>
-    <li>
       <a href="villages.html">Villages</a>
       <ul class="dropdown">
         <li><a href="villages.html">Village Directory (278)</a></li>
@@ -969,60 +963,40 @@ footer {
       </ul>
     </li>
     <li>
-      <a href="#">Culture</a>
-      <ul class="dropdown">
-        <li><a href="#">History &amp; Origins</a></li>
-        <li><a href="#">Textile Art</a></li>
-        <li><a href="#">Woodcarving</a></li>
-        <li><a href="#">Music &amp; Dance</a></li>
-        <li><a href="#">Language</a></li>
-        <li><a href="#">Governance</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#">Resources</a>
-      <ul class="dropdown">
-        <li><a href="bibliography.html">Bibliography &amp; Sources</a></li>
-        <li><a href="#">Photo Gallery</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Publications</a></li>
-        <li><a href="#">Maps</a></li>
-        <li><a href="#">Research &amp; Reports</a></li>
-        <li><a href="#">Village Data (CSV)</a></li>
-      </ul>
-    </li>
-    <li>
       <a href="#history">History</a>
       <ul class="dropdown">
-        <li><a href="#history">A History of Resilience</a></li>
         <li><a href="#history">Origins &amp; Escape</a></li>
-        <li><a href="#history">The Wars of Freedom</a></li>
+        <li><a href="#history">Wars of Freedom</a></li>
         <li><a href="#history">Peace Treaties 1760–1887</a></li>
         <li><a href="#history">Interior War 1986–1992</a></li>
-        <li><a href="moiwana.html">The Moiwana Massacre 1986</a></li>
-        <li><a href="#present">Present Day</a></li>
+        <li><a href="moiwana.html">Moiwana Massacre 1986</a></li>
       </ul>
     </li>
     <li>
       <a href="#present">Present Day</a>
       <ul class="dropdown">
-        <li><a href="#present">Overview</a></li>
         <li><a href="#present">Land Rights Today</a></li>
         <li><a href="#present">Gold Mining</a></li>
         <li><a href="#present">Urban Migration</a></li>
         <li><a href="#present">Diaspora in Netherlands</a></li>
-        <li><a href="#present">Cultural Revival</a></li>
       </ul>
     </li>
     <li>
-      <a href="#">About</a>
+      <a href="#culture">Culture</a>
       <ul class="dropdown">
-        <li><a href="#">About This Project</a></li>
-        <li><a href="#">Vision &amp; Mission</a></li>
-        <li><a href="#">Peace Treaties</a></li>
-        <li><a href="#">Land Rights</a></li>
+        <li><a href="#culture">Textile Art</a></li>
+        <li><a href="#culture">Woodcarving</a></li>
+        <li><a href="#culture">Music &amp; Dance</a></li>
+        <li><a href="#culture">Language</a></li>
+        <li><a href="#culture">Governance</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="bibliography.html">Resources</a>
+      <ul class="dropdown">
         <li><a href="bibliography.html">Bibliography &amp; Sources</a></li>
-        <li><a href="#">FAQs</a></li>
+        <li><a href="RESEARCH_NOTES.md">Research Notes</a></li>
+        <li><a href="maroon_villages.csv">Village Data (CSV)</a></li>
       </ul>
     </li>
     <li>
@@ -1091,14 +1065,14 @@ footer {
         <span>From escape to sovereignty</span>
       </div>
     </a>
-    <a class="ql-item" href="#">
+    <a class="ql-item" href="#culture">
       <span class="ql-icon">🎨</span>
       <div class="ql-text">
-        <strong>Cultural Gallery</strong>
+        <strong>Cultural Heritage</strong>
         <span>Art, textile, and woodcarving</span>
       </div>
     </a>
-    <a class="ql-item" href="#">
+    <a class="ql-item" href="#present">
       <span class="ql-icon">⚖️</span>
       <div class="ql-text">
         <strong>Land Rights</strong>
@@ -1119,7 +1093,7 @@ footer {
       <div class="legend-item"><div class="legend-swatch" style="background:#1a5c7a"></div>Ndyuka — Tapanahoni &amp; Marowijne</div>
       <div class="legend-item"><div class="legend-swatch" style="background:#5a3a1a"></div>Saramaka — Upper Suriname River</div>
       <div class="legend-item"><div class="legend-swatch" style="background:#3a5a1a"></div>Matawai — Saramacca River</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:#1a4a5a"></div>Paramaka — Lower Marowijne</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#1a4a5a"></div>Paramaka — Cottica &amp; Marowijne</div>
       <div class="legend-item"><div class="legend-swatch" style="background:#5a1a0a"></div>Aluku — Lawa River / French Guiana</div>
       <div class="legend-item"><div class="legend-swatch" style="background:#2a4a1a"></div>Kwinti — Coppename River</div>
     </div>
@@ -1155,7 +1129,7 @@ footer {
         <span class="news-tag">Land Rights</span>
         <h3>Saramaka Territorial Rights: 2007 IACtHR Ruling &amp; Implementation</h3>
         <p>The Inter-American Court of Human Rights ruled in 2007 that the Saramaka constitute a tribal people with rights over their traditional territory — a landmark decision for Maroon and Indigenous peoples worldwide. Implementation by the Surinamese government remains incomplete.</p>
-        <a class="read-more" href="#">Read More »</a>
+        <a class="read-more" href="groups/saramaka.html">Read More »</a>
       </div>
     </article>
 
@@ -1165,7 +1139,7 @@ footer {
         <span class="news-tag">Culture</span>
         <h3>Maroon Culture Recognised as Intangible Heritage</h3>
         <p>The rich cultural practices of the six Maroon groups — woodcarving, textile art, Winti religion, music, and oral tradition — are increasingly recognised internationally as irreplaceable elements of the African diaspora's cultural heritage.</p>
-        <a class="read-more" href="#">Read More »</a>
+        <a class="read-more" href="#culture">Read More »</a>
       </div>
     </article>
 
@@ -1175,7 +1149,7 @@ footer {
         <span class="news-tag">Politics</span>
         <h3>Ronnie Brunswijk: First Maroon Vice President of Suriname</h3>
         <p>On 16 July 2020, Ndyuka Maroon Ronnie Brunswijk — formerly the leader of the Jungle Commando during the 1986–1992 Interior War — was inaugurated as Vice President of Suriname, the first Maroon to hold that office.</p>
-        <a class="read-more" href="#">Read More »</a>
+        <a class="read-more" href="groups/ndyuka.html">Read More »</a>
       </div>
     </article>
 
@@ -1185,7 +1159,7 @@ footer {
         <span class="news-tag">Heritage</span>
         <h3>Day of the Maroons — 10 October</h3>
         <p>Since 1974, October 10th has been a national holiday in Suriname commemorating the first peace treaty, signed in 1760 between the Ndyuka and the Dutch colonial authority. Ceremonies, cultural performances, and community gatherings mark the occasion each year.</p>
-        <a class="read-more" href="#">Read More »</a>
+        <a class="read-more" href="#history">Read More »</a>
       </div>
     </article>
 
@@ -1353,13 +1327,13 @@ footer {
   <h3>Bulletins &amp; Resources</h3>
   <ul class="bulletin-list">
     <li><a href="villages.html">Village Directory (278 villages)</a></li>
-    <li><a href="#">Peace Treaties 1760–1887 (Text)</a></li>
-    <li><a href="#">IACtHR Saramaka Judgement 2007</a></li>
-    <li><a href="#">Moiwana Massacre — IACHR 2005</a></li>
-    <li><a href="#">Maroon Land Rights: Draft Legislation</a></li>
-    <li><a href="#">Cultural Heritage Guide</a></li>
-    <li><a href="#">Winti — Overview of the Religion</a></li>
-    <li><a href="#">All Resources</a></li>
+    <li><a href="#history">Peace Treaties 1760–1887</a></li>
+    <li><a href="https://www.corteidh.or.cr/docs/casos/articulos/seriec_172_ing.pdf" target="_blank" rel="noopener">IACtHR Saramaka Judgement 2007 ↗</a></li>
+    <li><a href="moiwana.html">Moiwana Massacre — IACtHR 2005</a></li>
+    <li><a href="#present">Maroon Land Rights</a></li>
+    <li><a href="#culture">Cultural Heritage</a></li>
+    <li><a href="#culture">Winti Religion</a></li>
+    <li><a href="bibliography.html">All Resources</a></li>
   </ul>
 </div>
 
@@ -1368,15 +1342,15 @@ footer {
   <ul class="sidebar-links">
     <li><a href="#history">History of Resilience</a></li>
     <li><a href="villages.html">Village Directory</a></li>
-    <li><a href="#">Granman &amp; Leadership</a></li>
-    <li><a href="#">Peace Treaties (1760–1887)</a></li>
-    <li><a href="#">Interior War (1986–1992)</a></li>
-    <li><a href="#">Land Rights Advocacy</a></li>
-    <li><a href="#">Cultural Practices</a></li>
-    <li><a href="#">Photo Gallery</a></li>
-    <li><a href="#">Research &amp; Publications</a></li>
+    <li><a href="#present">Granman &amp; Leadership</a></li>
+    <li><a href="#history">Peace Treaties (1760–1887)</a></li>
+    <li><a href="#history">Interior War (1986–1992)</a></li>
+    <li><a href="#present">Land Rights Advocacy</a></li>
+    <li><a href="#culture">Cultural Practices</a></li>
+    <li><a href="bibliography.html">Photo &amp; Media Sources</a></li>
+    <li><a href="bibliography.html">Research &amp; Publications</a></li>
     <li><a href="#contact">Contact Us</a></li>
-    <li><a href="#">Site Map</a></li>
+    <li><a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
   </ul>
 </div>
 
@@ -1813,12 +1787,12 @@ footer {
 <div class="footer-col">
   <h4>Villages</h4>
   <ul>
-    <li><a href="#">Ndyuka Villages</a></li>
-    <li><a href="#">Saramaka Villages</a></li>
-    <li><a href="#">Matawai Villages</a></li>
-    <li><a href="#">Paramaka Villages</a></li>
-    <li><a href="#">Aluku Villages</a></li>
-    <li><a href="#">Kwinti Villages</a></li>
+    <li><a href="groups/ndyuka.html">Ndyuka Villages</a></li>
+    <li><a href="groups/saramaka.html">Saramaka Villages</a></li>
+    <li><a href="groups/matawai.html">Matawai Villages</a></li>
+    <li><a href="groups/paramaka.html">Paramaka Villages</a></li>
+    <li><a href="groups/aluku.html">Aluku Villages</a></li>
+    <li><a href="groups/kwinti.html">Kwinti Villages</a></li>
     <li><a href="villages.html">Village Directory</a></li>
   </ul>
 </div>
@@ -1827,23 +1801,23 @@ footer {
   <h4>History &amp; Rights</h4>
   <ul>
     <li><a href="#history">History of Resilience</a></li>
-    <li><a href="#">Peace Treaties 1760–1887</a></li>
-    <li><a href="#">Interior War 1986–1992</a></li>
+    <li><a href="#history">Peace Treaties 1760–1887</a></li>
+    <li><a href="#history">Interior War 1986–1992</a></li>
     <li><a href="moiwana.html">Moiwana Massacre 1986</a></li>
-    <li><a href="#">IACtHR Rulings</a></li>
-    <li><a href="#">Land Rights Today</a></li>
-    <li><a href="#">Advocacy &amp; Organisations</a></li>
+    <li><a href="bibliography.html">IACtHR Rulings</a></li>
+    <li><a href="#present">Land Rights Today</a></li>
+    <li><a href="bibliography.html">Advocacy &amp; Organisations</a></li>
   </ul>
 </div>
 
 <div class="footer-col">
   <h4>About &amp; Contact</h4>
   <ul>
-    <li><a href="#">About This Project</a></li>
-    <li><a href="#">History</a></li>
-    <li><a href="#">FAQs</a></li>
-    <li><a href="#">Contact Form</a></li>
-    <li><a href="#">Site Map</a></li>
+    <li><a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" target="_blank" rel="noopener">About This Project ↗</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="RESEARCH_NOTES.md">Research Notes</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="villages.html">Village Directory</a></li>
   </ul>
 </div>
 ```
@@ -1899,44 +1873,69 @@ const groups = [
   {
     name: 'Ndyuka (Aukan)', color: '#1a5c7a', url: 'groups/ndyuka.html',
     desc: 'Eastern Branch · Tapanahoni, Marowijne &amp; Cottica rivers<br>Peace treaty: 10 Oct 1760 · ~115,500 people',
-    labelAt: [4.05, -54.85],
-    /* Tapanahoni River north to confluence with Lawa, then north along Marowijne */
-    river: [[3.90,-55.19],[3.95,-55.10],[4.00,-54.98],[4.05,-54.92],[4.08,-54.80],[4.08,-54.62],[4.10,-54.47],[4.21,-54.35],[4.35,-54.22],[4.50,-54.10],[4.70,-54.06],[5.00,-54.05],[5.20,-54.04],[5.49,-54.07]]
+    labelAt: [4.35, -54.72],
+    /* Tapanahoni River: Diitabiki (3.90,-55.19) north to Stoelmanseiland, then Marowijne north to Albina */
+    river: [
+      [3.90,-55.19],[3.95,-55.10],[4.00,-54.98],[4.05,-54.92],
+      [4.08,-54.80],[4.08,-54.62],[4.10,-54.47],[4.21,-54.35],
+      [4.35,-54.22],[4.50,-54.10],[4.65,-54.07],[4.87,-54.07],
+      [5.10,-54.05],[5.30,-54.04],[5.49,-54.07]
+    ]
   },
   {
     name: 'Saramaka (Saamaka)', color: '#8B5A2B', url: 'groups/saramaka.html',
     desc: 'Central Branch · Upper Suriname River, Gaánlío &amp; Pikílío<br>Peace treaty: 19 Sep 1762 · ~115,500 people',
-    labelAt: [4.10, -55.70],
-    /* Upper Suriname River from Kajana south to Pokigron north, plus Pikin Rio branch */
-    river: [[3.90,-55.57],[3.96,-55.57],[4.10,-55.58],[4.25,-55.60],[4.39,-55.68],[4.50,-55.73],[4.65,-55.72],[4.75,-55.65],[4.87,-55.09]]
+    labelAt: [4.20, -55.75],
+    /* Upper Suriname River: Kajana south, through Brokopondo reservoir north edge, to Pokigron */
+    river: [
+      [3.90,-55.57],[3.96,-55.55],[4.05,-55.55],[4.15,-55.56],
+      [4.25,-55.58],[4.38,-55.66],[4.50,-55.72],[4.60,-55.72],
+      [4.72,-55.68],[4.80,-55.60],[4.87,-55.09]
+    ]
   },
   {
     name: 'Matawai', color: '#3a5a1a', url: 'groups/matawai.html',
     desc: 'Central Branch · Upper Saramacca River<br>Peace treaty: 1767 · ~8,500 people',
-    labelAt: [4.35, -56.35],
-    /* Saramacca River from Poesoegroenoe north to Kwakoegron */
-    river: [[4.39,-56.34],[4.36,-56.36],[4.30,-56.40],[4.20,-56.43],[4.10,-56.44],[5.00,-56.08],[5.16,-56.07]]
+    labelAt: [4.42, -56.45],
+    /* Saramacca River: Poesoegroenoe (4.39,-56.34) north-west to Kwakoegron (5.16,-56.07) */
+    river: [
+      [4.39,-56.34],[4.38,-56.38],[4.35,-56.44],[4.32,-56.52],
+      [4.28,-56.58],[4.30,-56.65],[4.38,-56.68],[4.48,-56.65],
+      [4.58,-56.55],[4.68,-56.42],[4.78,-56.30],[4.88,-56.22],
+      [4.98,-56.12],[5.08,-56.08],[5.16,-56.07]
+    ]
   },
   {
     name: 'Paramaka (Paamaka)', color: '#1a4a5a', url: 'groups/paramaka.html',
-    desc: 'Eastern Branch · Lower Marowijne &amp; Lawa rivers<br>Peace treaty: ~1872 · ~11,000 people',
-    labelAt: [4.25, -54.45],
-    /* Marowijne/Lawa from Langatabiki south to Stoelmanseiland */
-    river: [[4.40,-54.46],[4.30,-54.42],[4.21,-54.35],[4.10,-54.47],[4.08,-54.62],[4.08,-54.80],[4.05,-54.92],[4.00,-54.98],[3.95,-55.10],[3.90,-55.19]]
+    desc: 'Eastern Branch · Lower Marowijne &amp; Cottica rivers<br>Peace treaty: ~1872 · ~11,000 people',
+    labelAt: [4.60, -54.40],
+    /* Marowijne/Cottica: Langatabiki (4.40,-54.46) north along Cottica to coast */
+    river: [
+      [4.40,-54.46],[4.48,-54.43],[4.58,-54.38],[4.68,-54.32],
+      [4.80,-54.22],[4.92,-54.16],[5.00,-54.10],[5.15,-53.98],
+      [5.30,-53.92],[5.45,-53.88]
+    ]
   },
   {
     name: 'Aluku (Boni)', color: '#8B2500', url: 'groups/aluku.html',
     desc: 'Eastern Branch · Lawa River (French Guiana)<br>Wars ended: 1793 · French citizens · ~11,600 people',
-    labelAt: [3.50, -54.10],
-    /* Lawa River from Stoelmanseiland south to Maripasoula area */
-    river: [[4.08,-54.62],[3.90,-54.55],[3.70,-54.38],[3.54,-54.04],[3.40,-53.95],[3.20,-53.82]]
+    labelAt: [3.55, -54.15],
+    /* Lawa River: Stoelmanseiland area south through Papaïchton to Maripasoula */
+    river: [
+      [4.08,-54.62],[4.00,-54.58],[3.90,-54.53],[3.80,-54.48],
+      [3.70,-54.40],[3.62,-54.22],[3.54,-54.04],[3.45,-53.98],
+      [3.38,-53.94],[3.22,-53.85]
+    ]
   },
   {
     name: 'Kwinti', color: '#2a4a1a', url: 'groups/kwinti.html',
     desc: 'Central Branch · Coppename River<br>Peace treaty: 1887 · ~1,200 people · No granman',
-    labelAt: [5.16, -56.20],
-    /* Coppename River at Witagron / Kaaimanston */
-    river: [[5.16,-56.07],[5.14,-56.09],[5.10,-56.15],[5.00,-56.30],[4.85,-56.50]]
+    labelAt: [4.90, -56.42],
+    /* Coppename River: Witagron / Kaaimanston area north */
+    river: [
+      [4.85,-56.50],[4.90,-56.42],[4.98,-56.32],[5.05,-56.22],
+      [5.10,-56.15],[5.14,-56.10],[5.18,-56.05]
+    ]
   }
 ];
 
