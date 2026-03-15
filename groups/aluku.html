@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aluku — Maroon Villages in Suriname</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root {
       --forest:#1a3a2a;--canopy:#2d5e3f;--earth:#7a3f1e;--ochre:#c8822a;--gold:#e8b04a;
@@ -122,7 +121,7 @@
       <div class="hero-badge">Eastern Branch · Lawa River / French Guiana</div>
       <h1>Aluku</h1>
       <p class="aka">Also known as: Boni · Aluku Nenge · Opu Nenge</p>
-      <p>The Aluku — also known as the Boni — fought the longest resistance war of any Maroon group against the Dutch colonial authority. Their wars ended only in 1793 when an alliance of Dutch troops and Ndyuka volunteers finally defeated them. Their core territory shifted to the Lawa River on the Suriname–French Guiana border, and today the majority of Aluku live in French Guiana as French citizens — the only Maroon group to hold EU citizenship.</p>
+      <p>The Aluku — also known as the Boni — fought the longest resistance war of any Maroon group against the Dutch colonial authority. Their wars ended only in 1793 when an alliance of Dutch troops and Ndyuka volunteers finally defeated them. Their core territory shifted to the Lawa River on the Suriname-French Guiana border, and today the majority of Aluku live in French Guiana as French citizens — the only Maroon group to hold EU citizenship.</p>
     </div>
     <div class="hero-stats"><div class="stat-box"><strong>~11,600</strong><span>Population (2018 est.)</span></div><div class="stat-box"><strong>1793</strong><span>Wars ended</span></div><div class="stat-box"><strong>Ndyuka</strong><span>Language</span></div><div class="stat-box"><strong>Eastern</strong><span>Branch</span></div></div>
   </div>
@@ -131,9 +130,9 @@
 <div style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem 0;">
     <div class="map-section">
       <h2 class="section-heading accent-head">Geographic Territory</h2>
-      <div class="map-label">Primary territory — Lawa River, Suriname–French Guiana border</div>
-      <div id="group-map"></div>
-      <p class="map-caption">Map shows the Aluku territory centred on the Lawa River, which forms the Suriname–French Guiana border. Most Aluku communities today are on the French Guiana side of the river, where Aluku people hold French citizenship.</p>
+      <div class="map-label">Primary territory — Lawa River, Suriname-French Guiana border</div>
+      <div id="group-map" style="width:100%;height:420px;min-height:420px;display:block;"></div>
+      <p class="map-caption">Map shows the Aluku territory centred on the Lawa River, which forms the Suriname-French Guiana border. Most Aluku communities today are on the French Guiana side of the river, where Aluku people hold French citizenship.</p>
     </div>
 </div>
 
@@ -186,35 +185,90 @@
   </div>
   <div class="footer-bottom">v1.1 &nbsp;|&nbsp; Aluku Group Profile</div>
 </footer>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-const map = L.map('group-map').setView([3.75, -54.15], 8);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 14
-  }).addTo(map);
-  L.polygon([[4.0, -53.8], [3.7, -53.6], [3.3, -53.8], [3.1, -54.2], [3.3, -54.7], [3.6, -54.8], [4.0, -54.5]], {color:'#5a1a0a',weight:2,fillColor:'#5a1a0a',fillOpacity:0.15}).addTo(map)
-    .bindTooltip('Aluku Traditional Territory', {sticky:true});
 
-L.marker([3.75, -54.15], {icon: L.divIcon({
-html: `<div style="background:#5a1a0a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">🔥</div>`,
-iconSize:[28,28],iconAnchor:[14,14],className:’’
-}))).addTo(map).bindPopup(’<strong>Lawa River — Aluku Heartland</strong><br>Core Aluku territory on the Lawa River (upper Marowijne) forming the Suriname–French Guiana border. Most Aluku villages are on the French Guiana side.’);
-L.marker([3.5, -53.9], {icon: L.divIcon({
-html: `<div style="background:#5a1a0a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">🏴🇫🇷</div>`,
-iconSize:[28,28],iconAnchor:[14,14],className:’’
-}))).addTo(map).bindPopup(’<strong>French Guiana Territory</strong><br>The majority of Aluku today live in French Guiana as French citizens — the only Maroon group with EU citizenship. French immigration policy and economic pressures have shaped their recent history as much as Surinamese politics.’);
-L.marker([3.9, -54.0], {icon: L.divIcon({
-html: `<div style="background:#5a1a0a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">⚔</div>`,
-iconSize:[28,28],iconAnchor:[14,14],className:’’
-}))).addTo(map).bindPopup(’<strong>War Memorial Zone</strong><br>The Aluku fought Dutch forces and Ndyuka allies across this territory for decades, finally being defeated in 1793 — over 30 years after the Ndyuka peace treaty. Their resistance leader Boni became a national symbol of courage in Suriname.’);
-// Force recalculation at multiple intervals to handle layout shifts
-setTimeout(function() { map.invalidateSize(); }, 100);
-setTimeout(function() { map.invalidateSize(); }, 500);
-setTimeout(function() { map.invalidateSize(); }, 1000);
-});
+<!-- Remove Leaflet -->
+
+<!-- Google Maps replaces it -->
+
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('group-map'), {
+    center: {lat: 3.7, lng: -54.1},
+    zoom: 9,
+    mapTypeId: 'terrain',
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      mapTypeIds: ['terrain', 'roadmap', 'satellite', 'hybrid']
+    },
+    streetViewControl: false,
+    fullscreenControl: true
+  });
+
+  // River corridor polyline
+  var path = new google.maps.Polyline({
+    path: [{lat: 4.08, lng: -54.62}, {lat: 3.9, lng: -54.53}, {lat: 3.7, lng: -54.4}, {lat: 3.54, lng: -54.04}, {lat: 3.22, lng: -53.85}],
+    geodesic: true,
+    strokeColor: '#7a1800',
+    strokeOpacity: 0.85,
+    strokeWeight: 4
+  });
+  path.setMap(map);
+
+  // Markers
+  var infoWindow = new google.maps.InfoWindow();
+  var marker0 = new google.maps.Marker({
+    position: {lat: 3.809529, lng: -54.150319},
+    map: map,
+    title: 'Papaichton',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#7a1800',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker0.addListener('click', function() {
+    infoWindow.setContent('<strong>Papaichton</strong><br><span style="font-size:0.85rem">Aluku granman seat. Commune seat in French Guiana. Founded 1895.</span>');
+    infoWindow.open(map, marker0);
+  });  var marker1 = new google.maps.Marker({
+    position: {lat: 3.642495, lng: -54.034582},
+    map: map,
+    title: 'Maripasoula',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#7a1800',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker1.addListener('click', function() {
+    infoWindow.setContent('<strong>Maripasoula</strong><br><span style="font-size:0.85rem">Largest commune in France by area. Administrative hub with airport.</span>');
+    infoWindow.open(map, marker1);
+  });  var marker2 = new google.maps.Marker({
+    position: {lat: 3.852908, lng: -54.227476},
+    map: map,
+    title: 'Cottica Lawa',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#7a1800',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker2.addListener('click', function() {
+    infoWindow.setContent('<strong>Cottica Lawa</strong><br><span style="font-size:0.85rem">Only Aluku village in Suriname. Clinic and school present.</span>');
+    infoWindow.open(map, marker2);
+  });
+}
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPjB3EhOZYZPhBn9SVezWRUrBdXZUvB4&callback=initMap" async defer></script>
 
 </body>
 </html>
