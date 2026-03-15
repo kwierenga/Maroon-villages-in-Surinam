@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matawai — Maroon Villages in Suriname</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root {
       --forest:#1a3a2a;--canopy:#2d5e3f;--earth:#7a3f1e;--ochre:#c8822a;--gold:#e8b04a;
@@ -132,7 +131,7 @@
     <div class="map-section">
       <h2 class="section-heading accent-head">Geographic Territory</h2>
       <div class="map-label">Primary territory — Saramacca River tributaries, central Suriname</div>
-      <div id="group-map"></div>
+      <div id="group-map" style="width:100%;height:420px;min-height:420px;display:block;"></div>
       <p class="map-caption">Map shows the Matawai homeland along tributaries of the Saramacca River in central Suriname. The Matawai occupy a relatively small territory in the interior.</p>
     </div>
 </div>
@@ -185,31 +184,90 @@
   </div>
   <div class="footer-bottom">v1.1 &nbsp;|&nbsp; Matawai Group Profile</div>
 </footer>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-const map = L.map('group-map').setView([4.05, -56.45], 9);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 14
-  }).addTo(map);
-  L.polygon([[4.4, -56.7], [4.2, -56.4], [3.9, -56.3], [3.7, -56.6], [3.8, -57.0], [4.1, -57.1], [4.4, -56.9]], {color:'#3a5a1a',weight:2,fillColor:'#3a5a1a',fillOpacity:0.15}).addTo(map)
-    .bindTooltip('Matawai Traditional Territory', {sticky:true});
 
-L.marker([4.05, -56.45], {icon: L.divIcon({
-html: `<div style="background:#3a5a1a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">🏡</div>`,
-iconSize:[28,28],iconAnchor:[14,14],className:’’
-}))).addTo(map).bindPopup(’<strong>Saramacca River Tributaries</strong><br>Core Matawai territory in central Suriname. Villages are distributed along small river tributaries branching from the Saramacca River.’);
-L.marker([4.0, -56.2], {icon: L.divIcon({
-html: `<div style="background:#3a5a1a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">⛪</div>`,
-iconSize:[28,28],iconAnchor:[14,14],className:’’
-}))).addTo(map).bindPopup(’<strong>Missionary Presence</strong><br>Protestant missionaries arrived in Matawai territory in the 18th century. The Matawai are the most Christianised of the six Maroon groups, a distinction that has shaped their cultural and social development.’);
-// Force recalculation at multiple intervals to handle layout shifts
-setTimeout(function() { map.invalidateSize(); }, 100);
-setTimeout(function() { map.invalidateSize(); }, 500);
-setTimeout(function() { map.invalidateSize(); }, 1000);
-});
+<!-- Remove Leaflet -->
+
+<!-- Google Maps replaces it -->
+
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('group-map'), {
+    center: {lat: 4.5, lng: -56.4},
+    zoom: 9,
+    mapTypeId: 'terrain',
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      mapTypeIds: ['terrain', 'roadmap', 'satellite', 'hybrid']
+    },
+    streetViewControl: false,
+    fullscreenControl: true
+  });
+
+  // River corridor polyline
+  var path = new google.maps.Polyline({
+    path: [{lat: 4.39, lng: -56.34}, {lat: 4.35, lng: -56.44}, {lat: 4.28, lng: -56.58}, {lat: 4.38, lng: -56.68}, {lat: 4.58, lng: -56.55}, {lat: 4.78, lng: -56.3}, {lat: 4.98, lng: -56.12}, {lat: 5.16, lng: -56.07}],
+    geodesic: true,
+    strokeColor: '#2a4a0e',
+    strokeOpacity: 0.85,
+    strokeWeight: 4
+  });
+  path.setMap(map);
+
+  // Markers
+  var infoWindow = new google.maps.InfoWindow();
+  var marker0 = new google.maps.Marker({
+    position: {lat: -4.39, lng: -56.34},
+    map: map,
+    title: 'Poesoegroenoe',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#2a4a0e',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker0.addListener('click', function() {
+    infoWindow.setContent('<strong>Poesoegroenoe</strong><br><span style="font-size:0.85rem">Matawai granman seat. Medical post and airstrip. Road opened 2017.</span>');
+    infoWindow.open(map, marker0);
+  });  var marker1 = new google.maps.Marker({
+    position: {lat: -5.2, lng: -55.9},
+    map: map,
+    title: 'Kwakoegron',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#2a4a0e',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker1.addListener('click', function() {
+    infoWindow.setContent('<strong>Kwakoegron</strong><br><span style="font-size:0.85rem">Matawai village on lower Saramacca River. Resort centre.</span>');
+    infoWindow.open(map, marker1);
+  });  var marker2 = new google.maps.Marker({
+    position: {lat: -4.35, lng: -56.37},
+    map: map,
+    title: 'Nieuw Jacobkondre',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#2a4a0e',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker2.addListener('click', function() {
+    infoWindow.setContent('<strong>Nieuw Jacobkondre</strong><br><span style="font-size:0.85rem">Main administrative village of Boven Saramacca resort.</span>');
+    infoWindow.open(map, marker2);
+  });
+}
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPjB3EhOZYZPhBn9SVezWRUrBdXZUvB4&callback=initMap" async defer></script>
 
 </body>
 </html>
