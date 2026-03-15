@@ -504,96 +504,56 @@ footer {
 <!-- Google Maps replaces it -->
 
 <script>
+function addMarker(map,iw,lat,lng,name,note,color) {
+  var m = new google.maps.Marker({
+    position:{lat:lat,lng:lng},map:map,title:name,
+    icon:{path:google.maps.SymbolPath.CIRCLE,scale:7,
+      fillColor:color,fillOpacity:0.9,strokeColor:'#fff',strokeWeight:2}
+  });
+  m.addListener('click',function(){
+    iw.setContent('<strong>'+name+'</strong><br><span style="font-size:0.8rem">'+note+'</span>');
+    iw.open(map,m);
+  });
+}
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('group-map'), {
-    center: {lat: 4.35, lng: -54.95},
-    zoom: 8,
-    mapTypeId: 'terrain',
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-      mapTypeIds: ['terrain', 'roadmap', 'satellite', 'hybrid']
-    },
-    streetViewControl: false,
-    fullscreenControl: true
+  var map = new google.maps.Map(document.getElementById('group-map'),{
+    center:{lat:4.35,lng:-54.6},zoom:8,mapTypeId:'terrain',
+    mapTypeControl:true,
+    mapTypeControlOptions:{mapTypeIds:['terrain','roadmap','satellite','hybrid']},
+    streetViewControl:false,fullscreenControl:true
   });
-
-  // River corridor polyline
-  var path = new google.maps.Polyline({
-    path: [{lat: 3.9, lng: -55.19}, {lat: 4.0, lng: -54.98}, {lat: 4.08, lng: -54.8}, {lat: 4.08, lng: -54.62}, {lat: 4.21, lng: -54.35}, {lat: 4.5, lng: -54.1}, {lat: 4.87, lng: -54.07}, {lat: 5.1, lng: -54.05}, {lat: 5.49, lng: -54.07}],
-    geodesic: true,
-    strokeColor: '#0d3d52',
-    strokeOpacity: 0.85,
-    strokeWeight: 4
+  var iw = new google.maps.InfoWindow();
+  var paths = [[{lat:3.5,lng:-54.06},{lat:3.92,lng:-54.9},{lat:5.96,lng:-54.39},{lat:5.71,lng:-53.98},{lat:4.37,lng:-53.93}],[{lat:5.22,lng:-55.18},{lat:5.18,lng:-54.88},{lat:4.96,lng:-54.92},{lat:4.96,lng:-55.22},{lat:5.08,lng:-55.4},{lat:5.22,lng:-55.4}]];
+  paths.forEach(function(path){
+    new google.maps.Polygon({
+      paths:path,strokeColor:'#1a5c7a',strokeOpacity:0.9,strokeWeight:2,
+      fillColor:'#1a5c7a',fillOpacity:0.18,map:map
+    }).addListener('click',function(e){
+      iw.setContent('<em style="font-size:0.8rem;color:#7a3f1e">GPS-anchored territory polygon. Click a village marker for details.</em>');
+      iw.setPosition(e.latLng);iw.open(map);
+    });
   });
-  path.setMap(map);
-
-  // Markers
-  var infoWindow = new google.maps.InfoWindow();
-  var marker0 = new google.maps.Marker({
-    position: {lat: 4.125925, lng: -54.626822},
-    map: map,
-    title: 'Diitabiki',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#0d3d52',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker0.addListener('click', function() {
-    infoWindow.setContent('<strong>Diitabiki</strong><br><span style="font-size:0.85rem">Ndyuka granman seat since 1950. Location of the oracle. On the Tapanahoni River.</span>');
-    infoWindow.open(map, marker0);
-  });  var marker1 = new google.maps.Marker({
-    position: {lat: 5.49, lng: -54.07},
-    map: map,
-    title: 'Albina',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#0d3d52',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker1.addListener('click', function() {
-    infoWindow.setContent('<strong>Albina</strong><br><span style="font-size:0.85rem">Gateway town on the Marowijne River. Large Ndyuka urban population.</span>');
-    infoWindow.open(map, marker1);
-  });  var marker2 = new google.maps.Marker({
-    position: {lat: 5.43, lng: -54.04},
-    map: map,
-    title: 'Moiwana',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#0d3d52',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker2.addListener('click', function() {
-    infoWindow.setContent('<strong>Moiwana</strong><br><span style="font-size:0.85rem">Site of the 29 November 1986 massacre of at least 38 unarmed Ndyuka civilians.</span>');
-    infoWindow.open(map, marker2);
-  });  var marker3 = new google.maps.Marker({
-    position: {lat: 4.08, lng: -54.62},
-    map: map,
-    title: 'Stoelmanseiland',
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 8,
-      fillColor: '#0d3d52',
-      fillOpacity: 0.9,
-      strokeColor: '#ffffff',
-      strokeWeight: 2
-    }
-  });
-  marker3.addListener('click', function() {
-    infoWindow.setContent('<strong>Stoelmanseiland</strong><br><span style="font-size:0.85rem">Island at Tapanahoni-Lawa confluence. Hospital and airstrip.</span>');
-    infoWindow.open(map, marker3);
-  });
+  addMarker(map,iw,4.125925,-54.626822,'Diitabiki','Residence of the Ndyuka granman since 1950; location of the oracle; airstrip: Drietabbetje (regular ','#1a5c7a');
+  addMarker(map,iw,-5.43,-54.04,'Moiwana','Site of 1986 massacre; historic Ndyuka village; monument established 2007. Near Albina on E-W road','#1a5c7a');
+  addMarker(map,iw,4.352817,-54.4206,'Stoelmanseiland','Island village at Tapanahoni-Lawa confluence; Jungle Commando HQ 1986-92; hospital (Johannes King); ','#1a5c7a');
+  addMarker(map,iw,4.274247,-54.381747,'Grand-Santi','Commune; formed from scission of Papaïchton 1993; largely Ndyuka and mixed bushinengue; GPS verified','#1a5c7a');
+  addMarker(map,iw,4.127435,-54.650269,'Moitaki','Ndyuka village near Gran Olo rapids; birthplace of gaanman Gazon Matodya; home of Misidyan lo (matri','#1a5c7a');
+  addMarker(map,iw,-4.08,-54.98,'Poeloegoedoe','Ndyuka village near confluence of Tapanahoni and Lawa rivers; strategic position; historically garri','#1a5c7a');
+  addMarker(map,iw,5.06,-55.02,'Nieuw-Koffiekamp','Transmigration Ndyuka village founded 1964 after flooding of Koffiekamp by Brokopondo Reservoir; ori','#1a5c7a');
+  addMarker(map,iw,5.04,-55.03,'Lebidotie','Ndyuka transmigration village; pop. ~1000; relocated when Brokopondo Reservoir created 1964; two nea','#1a5c7a');
+  addMarker(map,iw,3.67719,-54.087897,'Benzdorp','Ndyuka village; Tapanahony resort; Planbureau 2013; airstrip: Benzdorp (regular scheduled); GPS veri','#1a5c7a');
+  addMarker(map,iw,4.158046,-55.426167,'Malobi','Ndyuka village; Tapanahony resort; Planbureau 2013; GPS verified by Google Earth','#1a5c7a');
+  addMarker(map,iw,5.785,-54.371,'Pikien Santi','Ndyuka village on Cottica River; Wanhatti resort; inhabited by Pinasi and Piika lo; settled early 19','#1a5c7a');
+  addMarker(map,iw,4.115104,-54.676016,'Pikienkondre','Ndyuka village; GPS verified by Google Earth','#1a5c7a');
+  addMarker(map,iw,4.060486,-54.786795,'Godo Ole','Ndyuka village; GPS verified by Google Earth','#1a5c7a');
+  addMarker(map,iw,4.189228,-54.581912,'Saye','Ndyuka village; GPS verified by Google Earth','#1a5c7a');
+  addMarker(map,iw,4.217935,-54.545434,'Asognekondre','Ndyuka village; GPS verified by Google Earth','#1a5c7a');
+  addMarker(map,iw,4.230514,-54.391396,'Tjubuka Pang','Ndyuka village; GPS verified by Google Earth','#1a5c7a');
+  addMarker(map,iw,4.341854,-54.386099,'Sikisani','Ndyuka village; GPS verified by Google Earth','#1a5c7a');
+  addMarker(map,iw,4.182932,-54.385317,'Kofi Kamiza','Ndyuka village; GPS verified by Google Earth','#1a5c7a');
+  addMarker(map,iw,5.501309,-54.06108,'Albina','Ndyuka / mixed village; GPS verified by Google Earth','#1a5c7a');
+  addMarker(map,iw,5.535943,-54.03166,'Bamboesi','Ndyuka village; GPS verified by Google Earth','#1a5c7a');
+  addMarker(map,iw,5.83,-55.17,'Paramaribo','Capital of Suriname. Large Ndyuka urban population.','#e8b04a');
 }
 </script>
 
