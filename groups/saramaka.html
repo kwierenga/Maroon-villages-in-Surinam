@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saramaka (Saamaka) — Maroon Villages in Suriname</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root {
       --forest:#1a3a2a;--canopy:#2d5e3f;--earth:#7a3f1e;--ochre:#c8822a;--gold:#e8b04a;
@@ -187,34 +185,106 @@
   </div>
   <div class="footer-bottom">v1.1 &nbsp;|&nbsp; Saramaka (Saamaka) Group Profile</div>
 </footer>
-<script>
-requestAnimationFrame(function() {
-var map = L.map('group-map').setView([3.6, -56.1], 8);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 14
-  }).addTo(map);
-  L.polygon([[3.9, -56.8], [3.6, -56.5], [3.2, -56.2], [2.8, -56.3], [2.6, -56.7], [2.8, -57.2], [3.3, -57.4], [3.8, -57.1]], {color:'#5a3a1a',weight:2,fillColor:'#5a3a1a',fillOpacity:0.15}).addTo(map)
-    .bindTooltip('Saramaka (Saamaka) Traditional Territory', {sticky:true});
 
-L.marker([3.5, -55.9], {icon: L.divIcon({
-html: `<div style="background:#5a3a1a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">&#9753;</div>`,
-iconSize:[28,28],iconAnchor:[14,14],className:’’
-}))).addTo(map).bindPopup(’<strong>Upper Suriname River Villages</strong><br>Core Saramaka territory along the upper Suriname River. Over 60 Saramaka villages lie in this area, governed by a network of kapiteins under the granman.’);
-L.marker([4.7, -55.1], {icon: L.divIcon({
-html: `<div style="background:#5a3a1a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">&#9670;</div>`,
-iconSize:[28,28],iconAnchor:[14,14],className:’’
-}))).addTo(map).bindPopup(’<strong>Brokopondo Reservoir</strong><br>Lake van Blommestein - created in 1964 by the Afobaka Dam. Flooded approximately half of traditional Saramaka territory and forced relocation of thousands of Saramaka people. Compensation was wholly inadequate.’);
-L.marker([3.2, -56.5], {icon: L.divIcon({
-html: `<div style="background:#5a3a1a;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3)">&#9753;</div>`,
-iconSize:[28,28],iconAnchor:[14,14],className:’’
-}))).addTo(map).bindPopup(’<strong>Gaanlio / Pikilio Tributaries</strong><br>Upper Suriname River tributaries forming the deep interior Saramaka heartland - the most culturally and spiritually significant area for the Saamaka people.’);
-// Force recalculation at multiple intervals to handle layout shifts
-setTimeout(function() { map.invalidateSize(); }, 100);
-setTimeout(function() { map.invalidateSize(); }, 500);
-setTimeout(function() { map.invalidateSize(); }, 1500);
-});
+<!-- Remove Leaflet -->
+
+<!-- Google Maps replaces it -->
+
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('group-map'), {
+    center: {lat: 4.2, lng: -55.65},
+    zoom: 8,
+    mapTypeId: 'terrain',
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      mapTypeIds: ['terrain', 'roadmap', 'satellite', 'hybrid']
+    },
+    streetViewControl: false,
+    fullscreenControl: true
+  });
+
+  // River corridor polyline
+  var path = new google.maps.Polyline({
+    path: [{lat: 3.9, lng: -55.57}, {lat: 4.05, lng: -55.55}, {lat: 4.25, lng: -55.58}, {lat: 4.38, lng: -55.66}, {lat: 4.6, lng: -55.72}, {lat: 4.8, lng: -55.6}, {lat: 4.87, lng: -55.09}],
+    geodesic: true,
+    strokeColor: '#4a2e0e',
+    strokeOpacity: 0.85,
+    strokeWeight: 4
+  });
+  path.setMap(map);
+
+  // Markers
+  var infoWindow = new google.maps.InfoWindow();
+  var marker0 = new google.maps.Marker({
+    position: {lat: 3.888591, lng: -55.571976},
+    map: map,
+    title: 'Kajana',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#4a2e0e',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker0.addListener('click', function() {
+    infoWindow.setContent('<strong>Kajana</strong><br><span style="font-size:0.85rem">Saramaka village on Gran Rio. Radio station, first-aid centre, school.</span>');
+    infoWindow.open(map, marker0);
+  });  var marker1 = new google.maps.Marker({
+    position: {lat: 4.254652, lng: -55.443449},
+    map: map,
+    title: 'Pikin Slee',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#4a2e0e',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker1.addListener('click', function() {
+    infoWindow.setContent('<strong>Pikin Slee</strong><br><span style="font-size:0.85rem">Second largest Saramaka village. Home of the Saamaka Maroon Museum.</span>');
+    infoWindow.open(map, marker1);
+  });  var marker2 = new google.maps.Marker({
+    position: {lat: 4.375094, lng: -55.4014},
+    map: map,
+    title: 'Aurora',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#4a2e0e',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker2.addListener('click', function() {
+    infoWindow.setContent('<strong>Aurora</strong><br><span style="font-size:0.85rem">Largest Saramaka village. Accessible by boat from Pokigron.</span>');
+    infoWindow.open(map, marker2);
+  });  var marker3 = new google.maps.Marker({
+    position: {lat: 4.87, lng: -55.09},
+    map: map,
+    title: 'Brokopondo Reservoir',
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: '#4a2e0e',
+      fillOpacity: 0.9,
+      strokeColor: '#ffffff',
+      strokeWeight: 2
+    }
+  });
+  marker3.addListener('click', function() {
+    infoWindow.setContent('<strong>Brokopondo Reservoir</strong><br><span style="font-size:0.85rem">Created 1964. Flooded approximately half of traditional Saramaka territory.</span>');
+    infoWindow.open(map, marker3);
+  });
+}
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPjB3EhOZYZPhBn9SVezWRUrBdXZUvB4&callback=initMap" async defer></script>
 
 </body>
 </html>
