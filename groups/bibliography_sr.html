@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bibliography &amp; Sources — Maroon Villages in Suriname</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --forest:#1a3a2a;--canopy:#2d5e3f;--earth:#7a3f1e;--ochre:#c8822a;--gold:#e8b04a;
+      --river:#3a6b5e;--cream:#f7f0e3;--cream-dark:#ede3d0;--text-dark:#1e1a14;--text-mid:#3d3228;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Lora',Georgia,serif;background:var(--cream);color:var(--text-dark);line-height:1.75;}
+    a{color:var(--earth);text-decoration:none;}
+    a:hover{color:var(--ochre);text-decoration:underline;}
+
+    .top-bar{background:var(--earth);color:var(--cream);font-family:'Raleway',sans-serif;font-size:.78rem;letter-spacing:.04em;padding:6px 2rem;display:flex;justify-content:space-between;}
+    .top-bar a{color:var(--gold);}  .top-bar a:hover{color:#fff;}
+    header{background:var(--forest);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.35);}
+    .header-inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;gap:2rem;}
+    .logo-wrap{display:flex;align-items:center;gap:1rem;padding:.9rem 0;}
+    .logo-icon{width:44px;height:44px;flex-shrink:0;}
+    .logo-text strong{display:block;font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);}
+    .logo-text span{font-family:'Raleway',sans-serif;font-size:.65rem;color:var(--cream);letter-spacing:.1em;text-transform:uppercase;}
+    .breadcrumb{margin-left:auto;font-family:'Raleway',sans-serif;font-size:.78rem;color:rgba(247,240,227,.6);}
+    .breadcrumb a{color:var(--gold);}  .breadcrumb a:hover{color:#fff;}
+
+    .page-hero{background:var(--forest);color:var(--cream);padding:2.5rem 0;}
+    .page-hero-inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
+    .page-hero .label{font-family:'Raleway',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+    .page-hero .label::before{content:'';display:block;width:24px;height:2px;background:var(--gold);}
+    .page-hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;line-height:1.1;margin-bottom:.7rem;}
+    .page-hero p{color:rgba(247,240,227,.82);max-width:680px;font-size:.95rem;}
+
+    .pattern-bar{height:8px;background:repeating-linear-gradient(90deg,var(--ochre) 0,var(--ochre) 10px,var(--earth) 10px,var(--earth) 20px,var(--forest) 20px,var(--forest) 30px,var(--gold) 30px,var(--gold) 40px,var(--forest) 40px,var(--forest) 50px);}
+
+    .page-body{max-width:1100px;margin:0 auto;padding:3rem 1.5rem;display:grid;grid-template-columns:1fr 260px;gap:3rem;align-items:start;}
+    main{}
+
+    /* Category heading */
+    .bib-category{margin-bottom:2.5rem;}
+    .cat-heading{
+      font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--forest);
+      border-bottom:3px solid var(--ochre);padding-bottom:.4rem;margin-bottom:1.2rem;
+    }
+    .cat-note{font-size:.85rem;color:var(--text-mid);font-style:italic;margin-bottom:1rem;}
+
+    /* Individual entry */
+    .bib-entry{
+      border-left:3px solid var(--cream-dark);
+      padding:.7rem 1rem;
+      margin-bottom:.9rem;
+      background:#fff;
+      box-shadow:0 1px 4px rgba(0,0,0,.05);
+      transition:border-color .15s;
+    }
+    .bib-entry:hover{border-left-color:var(--ochre);}
+    .bib-entry .ref{
+      font-size:.9rem;color:var(--text-dark);line-height:1.6;
+    }
+    .bib-entry .ref em{font-style:italic;}
+    .bib-entry .tag{
+      display:inline-block;margin-top:.35rem;
+      font-family:'Raleway',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      background:var(--cream-dark);color:var(--text-mid);padding:1px 7px;border-radius:2px;margin-right:.4rem;
+    }
+    .bib-entry .tag.primary{background:var(--forest);color:var(--cream);}
+    .bib-entry .tag.legal{background:var(--river);color:var(--cream);}
+    .bib-entry .tag.online{background:var(--ochre);color:#fff;}
+    .bib-entry .ext-link{
+      display:inline-block;margin-top:.3rem;
+      font-family:'Raleway',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.05em;
+      color:var(--earth);
+    }
+    .bib-entry .ext-link:hover{color:var(--ochre);}
+
+    /* About this page box */
+    .about-sources{
+      background:var(--cream-dark);border-left:4px solid var(--forest);
+      padding:1.2rem 1.4rem;margin-bottom:2rem;
+      font-size:.88rem;color:var(--text-mid);
+    }
+    .about-sources strong{color:var(--forest);}
+
+    /* Sidebar */
+    .sidebar-box{background:#fff;border-top:4px solid var(--forest);padding:1.4rem;margin-bottom:1.6rem;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    .sidebar-box h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--forest);margin-bottom:.9rem;padding-bottom:.4rem;border-bottom:2px solid var(--cream-dark);}
+    .nav-links{list-style:none;}
+    .nav-links li{border-bottom:1px solid var(--cream-dark);}
+    .nav-links li a{display:block;padding:.5rem .3rem;font-family:'Raleway',sans-serif;font-size:.82rem;color:var(--text-mid);transition:color .15s,padding-left .15s;}
+    .nav-links li a::before{content:'› ';color:var(--ochre);}
+    .nav-links li a:hover{color:var(--earth);padding-left:.4rem;}
+    .count-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.3rem;}
+    .count-item{font-size:.78rem;color:var(--text-mid);text-align:center;padding:.5rem;background:var(--cream-dark);}
+    .count-item strong{display:block;font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--forest);}
+
+    footer{background:var(--text-dark);color:var(--cream);padding:2rem 0 0;}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:0 1.5rem 1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-inner p{font-size:.82rem;color:rgba(247,240,227,.6);}
+    .footer-inner a{color:var(--gold);}
+    .footer-bottom{background:rgba(0,0,0,.3);text-align:center;padding:.8rem;font-family:'Raleway',sans-serif;font-size:.72rem;color:rgba(247,240,227,.4);letter-spacing:.05em;}
+
+    @media(max-width:800px){.page-body{grid-template-columns:1fr;}.page-hero h1{font-size:1.6rem;}}
+  </style>
+
+  <style>
+    .lang-toggle { display:flex;gap:4px;align-items:center;margin-left:auto; }
+    .lang-btn { font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;
+      letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:2px;
+      border:1px solid rgba(247,240,227,0.3);background:transparent;
+      color:rgba(247,240,227,0.6);cursor:pointer;transition:all 0.2s;text-decoration:none; }
+    .lang-btn:hover { background:rgba(255,255,255,0.1);color:var(--gold); }
+    .lang-btn.active { background:var(--ochre);color:white;border-color:var(--ochre); }
+  </style>
+
+  <style>
+    .lang-toggle { display:flex;gap:4px;align-items:center;margin-left:auto; }
+    .lang-btn { font-family:'Raleway',sans-serif;font-size:0.68rem;font-weight:700;
+      letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:2px;
+      border:1px solid rgba(247,240,227,0.3);background:transparent;
+      color:rgba(247,240,227,0.6);cursor:pointer;transition:all 0.2s;text-decoration:none; }
+    .lang-btn:hover { background:rgba(255,255,255,0.1);color:var(--gold); }
+    .lang-btn.active { background:var(--ochre);color:white;border-color:var(--ochre); }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>Maroon Villages in Suriname — Reference &amp; Heritage Site</span>
+  <span><a href="index_sr.html">← Home</a></span>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a class="logo-wrap" href="index_sr.html">
+      <svg class="logo-icon" viewBox="0 0 44 44" fill="none">
+        <circle cx="22" cy="22" r="21" stroke="#c8822a" stroke-width="1.5"/>
+        <circle cx="22" cy="22" r="13" stroke="#c8822a" stroke-width="1" stroke-dasharray="3 2"/>
+        <path d="M22 5 L22 39 M5 22 L39 22" stroke="#e8b04a" stroke-width="1.2"/>
+        <path d="M22 9 Q28 15 22 22 Q16 15 22 9Z" fill="#c8822a" opacity="0.8"/>
+        <path d="M22 35 Q16 29 22 22 Q28 29 22 35Z" fill="#c8822a" opacity="0.8"/>
+        <circle cx="22" cy="22" r="3.5" fill="#e8b04a"/>
+      </svg>
+      <div class="logo-text"><strong>Maroon Villages</strong><span>in Suriname</span></div>
+    </a>
+    <div class="breadcrumb"><a href="index_sr.html">Home</a> / Bibliography &amp; Sources</div>
+  </div>
+
+    <div class="lang-toggle">
+      <a href="bibliography_sr.html" class="lang-btn active">EN</a>
+      <a href="bibliography_nl.html" class="lang-btn">NL</a>
+      <a href="bibliography_sr.html" class="lang-btn">SR</a>
+    </div>
+
+    <div class="lang-toggle">
+      <a href="bibliography_sr.html" class="lang-btn">EN</a>
+      <a href="bibliography_nl.html" class="lang-btn">NL</a>
+      <a href="bibliography_sr.html" class="lang-btn active">SR</a>
+    </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="label">Reference</div>
+    <h1>Bibliografie & Bronnen</h1>
+    <p>This page lists the primary academic works, legal documents, institutional reports, encyclopaedic sources, and online references used throughout this site. It is a working document — additions and corrections are welcome.</p>
+  </div>
+</div>
+<div class="pattern-bar"></div>
+
+<div class="page-body">
+<main>
+
+<div class="about-sources">
+  <strong>A note on sources.</strong> The history and present situation of Surinamese Maroons have been documented by a relatively small number of dedicated scholars — above all Richard Price and Sally Price, whose decades of fieldwork with the Saramaka and their broader comparative work underpin much of what is known in English. Dutch-language scholarship (Thoden van Velzen, Kobben, van Wetering) is comparably significant but less accessible to an English-language audience. For current events and land rights, the Minority Rights Group and Cultural Survival maintain the most consistently updated secondary sources. Legal primary sources — IACtHR judgements in particular — are publicly available and authoritative on specific events. Wikipedia is used throughout this site as a pointer to sources, not as a primary source itself.
+</div>
+
+<!-- ══ FOUNDATIONAL ACADEMIC WORKS ══ -->
+<div class="bib-category">
+  <h2 class="cat-heading">Bigi Studie-Wroko</h2>
+  <p class="cat-note">The core scholarly literature on Surinamese Maroons. These works should be consulted for anything requiring depth beyond this site's summaries.</p>
+
+  <div class="bib-entry">
+    <p class="ref">Price, Richard. <em>First-Time: The Historical Vision of an Afro-American People.</em> Baltimore: Johns Hopkins University Press, 1983. 2nd ed. Chicago: University of Chicago Press, 2002.</p>
+    <span class="tag primary">Primary Reference</span><span class="tag">Saramaka</span><span class="tag">History</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">The definitive account of Saramaka historical consciousness and oral tradition regarding their 18th-century escape from slavery. Draws on decades of fieldwork and oral history.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Price, Richard. <em>Alabi's World.</em> Baltimore: Johns Hopkins University Press, 1990.</p>
+    <span class="tag primary">Primary Reference</span><span class="tag">Saramaka</span><span class="tag">History</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Detailed reconstruction of 18th-century Saramaka life through the eyes of Alabi, a leader who converted to Moravian Christianity. Integrates oral sources, colonial archives, and missionary records.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Price, Richard, and Sally Price. <em>Maroon Arts: Cultural Vitality in the African Diaspora.</em> Boston: Beacon Press, 1999.</p>
+    <span class="tag primary">Primary Reference</span><span class="tag">Culture</span><span class="tag">Art</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Comprehensive survey of Maroon visual and performing arts across all six groups, set in historical and cultural context. Essential for the heritage dimension of this site.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Price, Richard, ed. <em>Maroon Societies: Rebel Slave Communities in the Americas.</em> 3rd ed. Baltimore: Johns Hopkins University Press, 1996.</p>
+    <span class="tag primary">Primary Reference</span><span class="tag">Comparative</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Foundational comparative anthology covering Maroon communities throughout the Americas, with substantial Suriname content.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Price, Richard. <em>The Guiana Maroons: A Historical and Bibliographical Introduction.</em> Baltimore: Johns Hopkins University Press, 1976.</p>
+    <span class="tag primary">Primary Reference</span><span class="tag">All Groups</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Systematic overview and bibliography across all six groups. The tribal distribution map (p.5) remains a key reference for territorial geography.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Thoden van Velzen, H.U.E., and W. van Wetering. <em>The Great Father and the Danger: Religious Cults, Material Forces, and Collective Fantasies in the World of the Surinamese Maroons.</em> Dordrecht: Foris, 1988.</p>
+    <span class="tag">Ndyuka</span><span class="tag">Religion</span><span class="tag">Dutch</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Major Dutch ethnographic study of Ndyuka religion, oracle tradition, and the role of spiritual belief in Maroon social organisation.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Köbben, A.J.F. "Unity and Disunity: Cottica Djuka Society as a Kinship System." <em>Bijdragen tot de Taal-, Land- en Volkenkunde</em> 123, no. 1 (1967): 10–52.</p>
+    <span class="tag">Ndyuka</span><span class="tag">Kinship</span><span class="tag">Dutch</span>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Hurault, Jean. <em>Africains de Guyane: La vie matérielle et l'art des Noirs réfugiés de Guyane.</em> Paris-La Haye: Mouton, 1970.</p>
+    <span class="tag">Aluku</span><span class="tag">French Guiana</span><span class="tag">French</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Standard reference for Aluku (Boni) material culture and social life in French Guiana.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Bilby, Kenneth M. "The Remaking of the Aluku: Culture, Politics, and Maroon Ethnicity in French South America." PhD dissertation, Johns Hopkins University, 1990. Ann Arbor: University Microfilms.</p>
+    <span class="tag primary">Primary Reference</span><span class="tag">Aluku</span><span class="tag">French Guiana</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">The most thorough English-language study of the Aluku (Boni). Covers history, culture, the transition to French citizenship, and the impact of commune formation on traditional life.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Herskovits, Melville J., and Frances S. Herskovits. <em>Rebel Destiny: Among the Bush Negroes of Dutch Guiana.</em> New York: McGraw-Hill, 1934.</p>
+    <span class="tag">Historical</span><span class="tag">All Groups</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">First major American ethnographic account of Surinamese Maroons, based on fieldwork in 1928–29. Historical baseline; some terminology now outdated.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Pakosie, André R.M. <em>Maroon Heritage in Suriname.</em> Paramaribo: [self-published / Volksboekwinkel], 1976.</p>
+    <span class="tag">Heritage</span><span class="tag">All Groups</span>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Schalkwijk, J. Marten W. "The Early History and Geography of the Pamaka Tribe in Suriname." <em>NIKOS Working Paper.</em> Paramaribo: NIKOS, 2021.</p>
+    <span class="tag">Paramaka</span><span class="tag">History</span>
+    <a class="ext-link" href="https://www.nikos.sr/wp-content/uploads/2021/02/The-early-history-and-geography-of-the-Pamaka-tribe-in-Suriname.pdf" target="_blank" rel="noopener">PDF available online →</a>
+  </div>
+</div>
+
+<!-- ══ LEGAL AND HUMAN RIGHTS DOCUMENTS ══ -->
+<div class="bib-category">
+  <h2 class="cat-heading">Legal &amp; Human Rights Documents</h2>
+  <p class="cat-note">Primary legal sources. These documents are publicly available and authoritative on specific events and rights.</p>
+
+  <div class="bib-entry">
+    <p class="ref">Inter-American Court of Human Rights. <em>Case of the Saramaka People v. Suriname.</em> Judgment of November 28, 2007. Series C No. 172.</p>
+    <span class="tag legal">IACtHR</span><span class="tag primary">Primary Source</span><span class="tag">Land Rights</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Landmark ruling determining that the Saramaka constitute a tribal people with collective rights over their ancestral territory. Sets precedent for all Maroon and Indigenous peoples in the Americas. Lists the 12 Saramaka clans and their villages by name.</p>
+    <a class="ext-link" href="https://www.corteidh.or.cr/docs/casos/articulos/seriec_172_ing.pdf" target="_blank" rel="noopener">Full judgment (PDF) →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Inter-American Court of Human Rights. <em>Case of the Moiwana Community v. Suriname.</em> Judgment of June 15, 2005. Series C No. 124.</p>
+    <span class="tag legal">IACtHR</span><span class="tag primary">Primary Source</span><span class="tag">Moiwana</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Found Suriname guilty of human rights violations in the 1986 Moiwana massacre. Ordered reparations to survivors, criminal investigation, and a public ceremony of state apology.</p>
+    <a class="ext-link" href="https://www.corteidh.or.cr/docs/casos/articulos/seriec_124_ing.pdf" target="_blank" rel="noopener">Full judgment (PDF) →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Peace Treaty between the Dutch Colonial Authority and the Ndyuka Maroons. October 10, 1760.</p>
+    <span class="tag legal">Treaty</span><span class="tag primary">Primary Source</span><span class="tag">Ndyuka</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">The first Maroon peace treaty. Granted the Ndyuka territorial autonomy in the upper Tapanahoni basin. The date, 10 October, is now the national Day of the Maroons in Suriname. Full text reproduced in Price (1983).</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Peace Treaty between the Dutch Colonial Authority and the Saramaka Maroons. September 19, 1762.</p>
+    <span class="tag legal">Treaty</span><span class="tag primary">Primary Source</span><span class="tag">Saramaka</span>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Minority Rights Group International. "Maroons in Suriname." <em>World Directory of Minorities and Indigenous Peoples.</em> London: MRG, 2024.</p>
+    <span class="tag primary">Primary Reference</span><span class="tag online">Online</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Current overview of all six groups including demographics (2012 Census: 117,567 Maroons, 21.7% of population), land rights status, gold mining, and civil war legacy.</p>
+    <a class="ext-link" href="https://minorityrights.org/communities/maroons/" target="_blank" rel="noopener">View online →</a>
+  </div>
+</div>
+
+<!-- ══ JOURNALISM AND ADVOCACY ══ -->
+<div class="bib-category">
+  <h2 class="cat-heading">Journalism &amp; Advocacy Sources</h2>
+
+  <div class="bib-entry">
+    <p class="ref">Price, Richard, and Sally Price. "Maroons under Assault in Suriname and French Guiana." <em>Cultural Survival Quarterly</em> 24, no. 4 (2000).</p>
+    <span class="tag primary">Primary Reference</span><span class="tag online">Online</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Detailed account of the threats facing all six Maroon groups from logging, mining, state neglect, and the Interior War's legacy. Still relevant to present-day conditions.</p>
+    <a class="ext-link" href="https://www.culturalsurvival.org/publications/cultural-survival-quarterly/maroons-under-assault-suriname-and-french-guiana" target="_blank" rel="noopener">View online →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Bilby, Kenneth M. "The Aluku and the Communes in French Guiana." <em>Cultural Survival Quarterly</em> 10, no. 2 (1986).</p>
+    <span class="tag">Aluku</span><span class="tag">French Guiana</span><span class="tag online">Online</span>
+    <a class="ext-link" href="https://www.culturalsurvival.org/publications/cultural-survival-quarterly/aluku-and-communes-french-guiana" target="_blank" rel="noopener">View online →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Price, Richard. "The Killings in Suriname." <em>Cultural Anthropology</em> 10, no. 4 (November 1995): 474–492.</p>
+    <span class="tag">Interior War</span><span class="tag">Moiwana</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Eyewitness accounts and analysis of the 1986 Moiwana massacre and broader Interior War violence against Ndyuka communities. Primary source for the Moiwana page.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Apapoe, Ine. "Maroons and Indigenous People in Suriname: The Struggle for Land Rights." <em>Global Americans.</em> December 2020.</p>
+    <span class="tag">Land Rights</span><span class="tag online">Online</span>
+    <a class="ext-link" href="https://globalamericans.org/maroons-and-indigenous-people-in-suriname-the-struggle-for-land-rights/" target="_blank" rel="noopener">View online →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Cultural Survival. "The Suriname Maroon Crisis." <em>Cultural Survival Quarterly</em> 11, no. 3 (1987).</p>
+    <span class="tag">Interior War</span><span class="tag online">Online</span>
+    <a class="ext-link" href="https://www.culturalsurvival.org/publications/cultural-survival-quarterly/suriname-maroon-crisis" target="_blank" rel="noopener">View online →</a>
+  </div>
+</div>
+
+<!-- ══ INSTITUTIONAL AND GOVERNMENT SOURCES ══ -->
+<div class="bib-category">
+  <h2 class="cat-heading">Institutional &amp; Government Sources</h2>
+
+  <div class="bib-entry">
+    <p class="ref">Planning Office Suriname. <em>Districts 2009–2013, Table 3.1: Village Populations by Resort.</em> Paramaribo: Planbureau Suriname, 2013. [Dutch]</p>
+    <span class="tag primary">Primary Source</span><span class="tag">Village Data</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Government planning document listing all villages and populations by resort district. Primary source for comprehensive village data — Incorporated into village directory — Tables 3.1–3.4 processed.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">General Statistics Bureau of Suriname. <em>Census 2012: Volume 1.</em> Paramaribo: Algemeen Bureau voor de Statistiek, 2013.</p>
+    <span class="tag primary">Primary Source</span><span class="tag">Demographics</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">National census recording 117,567 self-identified Maroons, constituting 21.7% of the national population. First census showing Maroons as the second-largest ethnic group (previously Creoles held this position).</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Amazon Conservation Team (ACT-Guianas). "Tareno and Matawai Communities Advancing Development Plans." Press release, December 2025.</p>
+    <span class="tag">Matawai</span><span class="tag online">Online</span>
+    <a class="ext-link" href="https://www.amazonteam.org/tareno-matawai-development-plans-suriname/" target="_blank" rel="noopener">View online →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">UNDP/GEF. <em>Final Evaluation: Building Support to the Suriname Central Suriname Nature Reserve.</em> New York: UNDP, 2008.</p>
+    <span class="tag">Kwinti</span><span class="tag">CSNR</span>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Medische Zending Suriname. Village health post network [Google Maps layer]. Paramaribo: Medische Zending.</p>
+    <span class="tag">Village Data</span><span class="tag online">Online</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Medical mission post locations cover most Upper Suriname River and interior villages with GPS coordinates. Incorporated into this site — 45 MZ clinic locations confirmed in village directory.</p>
+    <a class="ext-link" href="https://www.google.com/maps/d/viewer?mid=1C8qfmd6C6Kdo-rubY7RncptYfOc" target="_blank" rel="noopener">View map →</a>
+  </div>
+</div>
+
+<!-- ══ ENCYCLOPAEDIC AND WEB SOURCES ══ -->
+<div class="bib-category">
+  <h2 class="cat-heading">Encyclopaedic &amp; Web Sources</h2>
+  <p class="cat-note">Used as secondary references and pointers to primary literature. Wikipedia articles are cited where they compile reliable sourced information; they are not treated as primary sources.</p>
+
+  <div class="bib-entry">
+    <p class="ref">Thoden van Velzen, H.U.E. "Ndyuka." In <em>Encyclopedia of World Cultures Supplement.</em> New York: Macmillan, 2002. Via Encyclopedia.com.</p>
+    <span class="tag">Ndyuka</span>
+    <a class="ext-link" href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/ndyuka" target="_blank" rel="noopener">View online →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Price, Richard, and Sally Price. "Saramaka." In <em>Encyclopedia of World Cultures.</em> Via Encyclopedia.com.</p>
+    <span class="tag">Saramaka</span>
+    <a class="ext-link" href="https://www.encyclopedia.com/humanities/encyclopedias-almanacs-transcripts-and-maps/saramaka" target="_blank" rel="noopener">View online →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Wikipedia. "Surinamese Maroons." Last modified December 2025.</p>
+    <span class="tag online">Online</span>
+    <a class="ext-link" href="https://en.wikipedia.org/wiki/Surinamese_Maroons" target="_blank" rel="noopener">View article →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Wikipedia. "Upper Suriname River." Last modified January 2026.</p>
+    <span class="tag online">Online</span><span class="tag">Village Data</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Contains the most comprehensive publicly available named list of Saramaka villages along the Upper Suriname River, with accompanying village location map.</p>
+    <a class="ext-link" href="https://en.wikipedia.org/wiki/Upper_Suriname_River" target="_blank" rel="noopener">View article →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Refworld / Minority Rights Group. "World Directory of Minorities and Indigenous Peoples — Suriname: Maroons." Geneva: UNHCR, 2008.</p>
+    <span class="tag online">Online</span>
+    <a class="ext-link" href="https://www.refworld.org/docid/49749ca42.html" target="_blank" rel="noopener">View online →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Milwaukee Public Museum. "Ndyuka Collection." Research Collections / Anthropology.</p>
+    <span class="tag">Ndyuka</span><span class="tag online">Online</span>
+    <a class="ext-link" href="https://www.mpm.edu/research-collections/anthropology/online-collections-research/ndyuka" target="_blank" rel="noopener">View online →</a>
+  </div>
+</div>
+
+<!-- ══ ACADEMIC JOURNAL ARTICLES ══ -->
+<div class="bib-category">
+  <h2 class="cat-heading">Journal Articles</h2>
+
+  <div class="bib-entry">
+    <p class="ref">Adjako, Richenel, et al. "Maroon Women in Suriname and French Guiana: Rice, Slavery, Memory." <em>Economic Botany</em> 77 (2023). DOI: 10.1080/0144039X.2023.2228771.</p>
+    <span class="tag">History</span><span class="tag">Women</span><span class="tag">Agriculture</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Documents the role of women in establishing Maroon food systems through oral history and ethnobotany. Names several individual Saramaka and Ndyuka villages and their rice heritage traditions.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Fleury, Marie, and Olga Renault-Lescure. "Gaan Mawina: Le Marouini au cœur de l'histoire des Noirs marrons Boni/Aluku et des Amérindiens Wayana." <em>Ethnoécologie</em> 12 (2018). DOI: 10.4000/ethnoecologie.3534.</p>
+    <span class="tag">Aluku</span><span class="tag">History</span><span class="tag">French</span>
+    <a class="ext-link" href="https://journals.openedition.org/ethnoecologie/3534" target="_blank" rel="noopener">View online (open access) →</a>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Thoden van Velzen, H.U.E. "Revenants That Cannot Be Shaken: Collective Fantasies in a Maroon Society." <em>American Anthropologist</em> 97, no. 4 (1995): 722–732.</p>
+    <span class="tag">Ndyuka</span><span class="tag">Religion</span>
+  </div>
+</div>
+
+<!-- ══ SOURCES TO BE INCORPORATED ══ -->
+<div class="bib-category">
+  <h2 class="cat-heading">Priority Sources Not Yet Incorporated</h2>
+  <p class="cat-note">These are known key references that should be integrated as the site develops.</p>
+
+  <div class="bib-entry">
+    <p class="ref">Price, Richard, and Sally Price. <em>Two Evenings in Saramaka.</em> Chicago: University of Chicago Press, 1991.</p>
+    <span class="tag">Saramaka</span><span class="tag">Culture</span>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Price, Richard. <em>Rainforest Warriors: Human Rights on Trial.</em> Philadelphia: University of Pennsylvania Press, 2011.</p>
+    <span class="tag primary">Primary Reference</span><span class="tag">Land Rights</span><span class="tag">IACtHR</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Full account of the Saramaka land rights case before the IACtHR, written by the anthropologist who served as expert witness. Key source for the land rights section.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Hoogbergen, Wim. <em>The Boni Maroon Wars in Suriname.</em> Leiden: Brill, 1990.</p>
+    <span class="tag">Aluku</span><span class="tag">History</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Definitive account of the Aluku (Boni) resistance wars of the 18th century.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Lenoir, J.D. "The Paramacca Maroons: A Study in Religious Acculturation." PhD dissertation, New School for Social Research, New York, 1974.</p>
+    <span class="tag">Paramaka</span><span class="tag">Religion</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">One of the few dedicated studies of the Paramaka. Important for the group page.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">De Beet, Chris, and Miriam Sterman. <em>People in Between: The Matawai Maroons of Suriname.</em> Meppel: Krips Repro, 1981.</p>
+    <span class="tag">Matawai</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">The main dedicated monograph on the Matawai. Currently the Matawai page relies on secondary sources; this should be incorporated.</p>
+  </div>
+
+  <div class="bib-entry">
+    <p class="ref">Memre Moiwana [NGO]. <em>Memre Moiwana: Documenting the 1986 Massacre.</em> Paramaribo: Moiwana '86, various dates.</p>
+    <span class="tag">Moiwana</span><span class="tag">Interior War</span>
+    <p style="font-size:.82rem;color:var(--text-mid);margin-top:.4rem">Publications by the survivor-led NGO that brought the Moiwana case to the IACtHR. Contains primary testimony and documentation.</p>
+  </div>
+</div>
+
+</main>
+
+<!-- Sidebar -->
+<aside>
+  <div class="sidebar-box">
+    <h3>Coverage at a Glance</h3>
+    <div class="count-grid">
+      <div class="count-item"><strong>87</strong>Villages in CSV</div>
+      <div class="count-item"><strong>~250</strong>Est. total</div>
+      <div class="count-item"><strong>6</strong>Group pages</div>
+      <div class="count-item"><strong>2</strong>Countries</div>
+    </div>
+    <p style="font-size:.78rem;color:var(--text-mid);margin-top:.7rem">Village data coverage: ~35–40%. Priority gap: Saramaka (Upper Suriname River) and Ndyuka (Tapanahony).</p>
+  </div>
+
+  <div class="sidebar-box">
+    <h3>Site Navigation</h3>
+    <ul class="nav-links">
+      <li><a href="index_sr.html">Home</a></li>
+      <li><a href="villages_sr.html">Village Directory (318)</a></li>
+      <li><a href="index.html#history">History Timeline</a></li>
+      <li><a href="moiwana_sr.html">Moiwana 1986</a></li>
+      <li><a href="groups/ndyuka_sr.html">Ndyuka Profile</a></li>
+      <li><a href="groups/saramaka_sr.html">Saramaka Profile</a></li>
+      <li><a href="groups/matawai_sr.html">Matawai Profile</a></li>
+      <li><a href="groups/paramaka_sr.html">Paramaka Profile</a></li>
+      <li><a href="groups/aluku_sr.html">Aluku Profile</a></li>
+      <li><a href="groups/kwinti_sr.html">Kwinti Profile</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-box">
+    <h3>Suggest a Source</h3>
+    <p style="font-size:.82rem;color:var(--text-mid)">If you know of academic works, community publications, or primary documents not listed here — particularly in Dutch, French, or Maroon languages — please get in touch.</p>
+  </div>
+</aside>
+
+</div><!-- /page-body -->
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2025 Maroon Villages in Suriname &nbsp;|&nbsp; <a href="index_sr.html">Home</a></p>
+    <p>v1.2 &nbsp;|&nbsp; Bibliography page</p>
+  </div>
+  <div class="footer-bottom">This site is a reference and heritage resource. All content is sourced and attributed.</div>
+</footer>
+
+</body>
+</html>

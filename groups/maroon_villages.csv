@@ -1,0 +1,260 @@
+id,name_primary,name_alt1,name_alt2,name_alt3,group,country,river_area,district_resort,lat,lng,coord_confidence,notes,source,mz_clinic
+1,Diitabiki,Drietabbetje,Dritabiki,Drijtabiki,Ndyuka,Suriname,Tapanahoni River,Tapanahony,4.113889,-54.676111,high,Residence of the Ndyuka granman since 1950; location of the oracle; airstrip: Drietabbetje (regular scheduled),Wikipedia / Wikimili,yes
+2,Futupasi,,,, Ndyuka,Suriname,Tapanahoni River,Tapanahony,3.84,-55.300,medium,Railway crossing for Granholo waterfalls; ferry service point,Wikipedia (Dritabiki article),no
+3,Puketi,,,, Ndyuka,Suriname,Tapanahoni River,Tapanahony,3.82,-55.310,medium,Former hydroelectric power plant; ferry destination from Futupasi,Wikipedia (Dritabiki article),no
+4,Mainsi,,,, Ndyuka,Suriname,Tapanahoni River,Tapanahony,3.89,-55.180,medium,Village close to Diitabiki,Wikipedia (Dritabiki article),no
+5,Fisiti,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,3.76,-55.280,medium,Village on upper Tapanahoni; mentioned in oral history re. Paanza rice ancestor,Maroon Women rice article,no
+6,Gaanboli,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,3.75,-55.400,medium,Boundary point of Ndyuka territory on Tapanahoni,French Guiana Maroons report,no
+7,Cottica Lawa,Cotticadorp,Cottica,,Aluku / Ndyuka,Suriname,Marowijne River border,Tapanahony,3.86,-54.380,high,Village on Marowijne/Lawa border; Aluku history; resettled 1902; only Aluku village in Suriname. Clinic and school present; airstrip: Cottica (irregular charter),Wikipedia (Cottica),yes
+8,Moiwana,,,,Ndyuka,Suriname,Cottica / Marowijne coastal area,Marowijne,5.43,-54.040,high,Site of 1986 massacre; historic Ndyuka village; monument established 2007. Near Albina on E-W road,Wikipedia / dark-tourism.com,no
+9,Stoelmanseiland,Stoelie,,,Ndyuka / Paramaka,Suriname,Marowijne River (confluence Tapanahoni-Lawa),Pamacca,4.37,-54.400,high,Island village at Tapanahoni-Lawa confluence; Jungle Commando HQ 1986-92; hospital (Johannes King); airstrip: Stoelmanseiland (regular scheduled),Wikipedia (Stoelmanseiland),yes
+10,Langatabiki,Langatabbetje,Long Island,,Paramaka,Suriname,Marowijne River,Paramacca,4.9917,-54.4417,high,Granman residence of Paramaka; founded 1879; airstrip; solar power since 2016; clinic; school,Wikipedia (Langatabiki),yes
+11,Snesiekondre,,,,Paramaka,Suriname,Marowijne River,Paramacca,4.35,-54.490,medium,Administrative centre of Paramacca resort; road end village,Wikipedia (Pamacca),no
+12,Lokaloka,Loka,,,Paramaka,Suriname,Marowijne River,Paramacca,4.43,-54.370,high,Island village on Marowijne; ~200 residents; last village of Paramaka upstream; no clinic; dependent on Nason,Wikipedia (Lokaloka),no
+13,Nason,,,,Paramaka,Suriname,Marowijne River,Paramacca,4.41,-54.440,medium,Has clinic; school; serves as service hub for nearby Paramaka villages including Lokaloka,Wikipedia (Pamacca) / Lokaloka article,yes
+14,Gakaba,,,,Paramaka,Suriname,Marowijne River,Paramacca,4.39,-54.420,medium,Has school; one of 13 Paramaka resort villages; airstrip: Gakaba (regular scheduled),Wikipedia (Pamacca),yes
+15,Akaati,Akati,,,Paramaka,Suriname,Marowijne River,Paramacca,4.37,-54.450,low,Small/possibly uninhabited; most residents moved to mainland road,Schalkwijk / Pamaka history paper,no
+16,Pikintabiki,,,,Paramaka,Suriname,Marowijne River,Paramacca,4.36,-54.460,low,Small/possibly uninhabited; most residents moved to mainland,Schalkwijk / Pamaka history paper,no
+17,Providence,,,,Paramaka,French Guiana,Maroni River (FG side),Apatou commune,4.1,-54.350,medium,Single Paramaka village in French Guiana; on west bank of Maroni,Wikipedia (Paramaccan),no
+18,Atjoni,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.83,-55.460,high,Jetty of Atjoni near Pokigron; departure point for river transport,Wikipedia (Upper Suriname River),no
+19,Goddo,Godo,,, Saramaka,Suriname,Upper Suriname River (confluence Gran Rio/Pikin Rio),Boven Suriname,3.81,-56.240,high,Village at source of Upper Suriname River; confluence of Gran Rio and Pikin Rio; Tapawatrasula rapids nearby,Wikipedia (Upper Suriname River),no
+20,Djumu,Djoemoe,,,Saramaka,Suriname,Gran Rio / Upper Suriname source,Boven Suriname,3.78,-56.200,high,Near Goddo; airstrip (Djoemoe Airstrip); source area of Upper Suriname,Wikipedia (Upper Suriname River),yes
+21,Soolan,,,,Saramaka,Suriname,Upper Suriname River / Gran Rio source,Boven Suriname,3.8,-56.220,medium,Near Goddo and Djumu at source of Upper Suriname,Wikipedia (Upper Suriname River),no
+22,Bendekonde,Bendikwai,Bendikondre,,Saramaka,Suriname,Pikin Rio (Upper Suriname tributary),Boven Suriname,3.86,-56.140,medium,Village along Pikin Rio; Paanza rice ancestor shrine; annual harvest ceremony,Rice article / Wikipedia,no
+23,Debike,Debikè,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.2,-55.960,medium,Medical post; village on Upper Suriname,Wikipedia (Upper Suriname River),no
+24,Heikoenoenoe,Heikununu,Heikoenenoe,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.05,-56.050,medium,Medical post; village / rapid on Upper Suriname,Wikipedia (Upper Suriname River),yes
+25,Semoisi,Semoisie,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.1,-56.000,medium,Medical post; village on Upper Suriname,Wikipedia (Upper Suriname River),no
+26,Dangogo,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,3.87,-56.100,medium,Two villages (Dangogo 1 & 2) on Upper Suriname list; gran slee area,Wikipedia (Upper Suriname River),no
+27,Gran Slee,Akwaukondre,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,3.9,-56.060,medium,Village cluster on Upper Suriname; Bofokule and Apiapaati nearby,Wikipedia (Upper Suriname River),no
+28,Pingpe,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.02,-56.040,medium,Village on Upper Suriname; Mambijai and Daume listed nearby,Wikipedia (Upper Suriname River),no
+29,Danpaati,Dan,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.23,-55.900,medium,Village pair (Dan & Danpaati) on Upper Suriname; road access from Afobaka Road junction,Wikipedia (Upper Suriname River),no
+30,Awaradam,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.15,-55.980,medium,Village on Upper Suriname; Sentiadam upstream,Wikipedia (Upper Suriname River),no
+31,Danta Bai,,,,Saramaka,Suriname,Upper Suriname River (near reservoir),Boven Suriname,4.85,-55.480,medium,Village near Brokopondo Reservoir accessible from Afobaka Road,Wikipedia (Upper Suriname River),no
+32,Bakaabooto,Bakaaboto,,,Saramaka,Suriname,Upper Suriname River (near reservoir),Boven Suriname,4.86,-55.470,medium,Village near Brokopondo Reservoir; road access junction,Wikipedia (Upper Suriname River),no
+33,Tumaripa,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.13,-55.990,medium,Village on Upper Suriname River list,Wikipedia (Upper Suriname River),no
+34,Lespansi,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.55,-55.660,medium,Village on Upper Suriname River list,Wikipedia (Upper Suriname River),no
+35,Adawai,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.51,-55.690,medium,Village on Upper Suriname River; Malroseekondre listed nearby,Wikipedia (Upper Suriname River),no
+36,Isadou,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.6,-55.610,medium,Village on Upper Suriname River; listed near Jawjaw,Wikipedia (Upper Suriname River),no
+37,Padalafanti,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.22,-55.940,medium,Village on Upper Suriname River list; Umansanti listed nearby,Wikipedia (Upper Suriname River),no
+38,Gunsi,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.42,-55.720,medium,"Village cluster area (Gunsi, Ferulasi, Tang Luku, Anaula, Kninipaati)",Wikipedia (Upper Suriname River),no
+39,Stonhuku,,,,Saramaka,Suriname,Upper Suriname River (Gran Rio area),Boven Suriname,3.76,-56.110,medium,Village in Gran Rio / upper area on Upper Suriname list,Wikipedia (Upper Suriname River),no
+40,Kumbasula,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,3.84,-56.090,medium,Village on Upper Suriname River list,Wikipedia (Upper Suriname River),no
+41,Langu,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,3.96,-56.060,medium,Village on Upper Suriname River list,Wikipedia (Upper Suriname River),no
+42,Kaajapati,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.5,-55.710,medium,Village on Upper Suriname; Salubanga listed nearby,Wikipedia (Upper Suriname River),no
+43,Pikinpada,,,,Saramaka,Suriname,Upper Suriname River (lower),Boven Suriname,4.78,-55.500,medium,Village near reservoir / lower upper Suriname,Wikipedia (Upper Suriname River),no
+44,Begoon,,,,Saramaka,Suriname,Upper Suriname River (Gran Rio),Boven Suriname,3.72,-56.140,medium,Village in Gran Rio / Pikin Rio area; Ligorio and Moitori listed nearby,Wikipedia (Upper Suriname River),no
+45,Gingiston,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.46,-55.700,medium,"Village group area (Gingiston, Pambo Oko, Biudumatu) on Upper Suriname",Wikipedia (Upper Suriname River),no
+46,Kampu,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,3.83,-56.100,medium,Village on Upper Suriname list,Wikipedia (Upper Suriname River),no
+47,Bendiwata,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,3.95,-56.060,medium,Village on Upper Suriname list; Kuututen listed nearby,Wikipedia (Upper Suriname River),no
+48,Djemongo,Nazaleti,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.37,-55.760,medium,Village pair on Upper Suriname list,Wikipedia (Upper Suriname River),no
+49,Gujaba,Beguba,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.54,-55.660,medium,Village pair on Upper Suriname list,Wikipedia (Upper Suriname River),no
+50,Toni,,,,Saramaka,Suriname,Upper Suriname River (rapid/village),Boven Suriname,4.72,-55.530,low,Rapid named after nearby village on Upper Suriname,Wikipedia (Upper Suriname River),no
+51,Dahome,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.64,-55.590,low,Village / rapid name on Upper Suriname,Wikipedia (Upper Suriname River),no
+52,Santigron,,,,Mixed (Ndyuka/Saramaka/Matawai),Suriname,"Saramacca River (lower, near Paramaribo)",Lelydorp / Wanica,5.677324,-55.340337,high,"Maroon village 30km from Paramaribo on Saramacca River; mixed Ndyuka, Saramaka and Matawai; ~1750 residents; tourist destination",Wikipedia (Santigron),no
+53,Bitagron,Bitagro,,,Kwinti,Suriname,Coppename River,Boven Coppename,4.52,-56.790,high,Kwinti granman residence; historically important; partially destroyed 1987 civil war; rebuilt post-war,Wikipedia (Kwinti) / French source,yes
+54,Papaichton,Papaïchton,Pompidouville,Boniville,Aluku,French Guiana,Lawa River,Papaïchton commune,3.8070,-54.1495,high,Capital/granman seat of Aluku; commune seat; founded 1895; previously called Boniville; renamed Pompidouville 1971,Wikipedia (Papaichton),no
+55,Maripasoula,,,,Aluku / Wayana,French Guiana,Lawa / Maroni River,Maripasoula commune,3.635,-54.036,high,Largest commune in France by area; administrative hub; airport; mainly Aluku and Wayana,Wikipedia (Maripasoula),no
+56,Apatou,,,,Aluku / Ndyuka / mixed,French Guiana,Maroni River (lower),Apatou commune,5.519,-54.341,high,"Founded 1882 as Moutendé; renamed after Captain Apatou; mixed Aluku, Paramaka, Ndyuka, Saramaka; road opened 2010",Wikipedia (Apatou),no
+57,Grand-Santi,Grand Santi,,,Ndyuka / Aluku / mixed,French Guiana,Maroni River,Grand-Santi commune,4.253,-54.395,high,Commune; formed from scission of Papaïchton 1993; largely Ndyuka and mixed bushinengue,Wikipedia / Cultural Survival,no
+58,Kormontibo,,,,Aluku,French Guiana,Lawa River,Papaïchton commune,3.804,-54.141,medium,Traditional Aluku village; one of the villages founded after 1841 settlement on Lawa River,Wikipedia (Aluku),no
+59,Assissi,,,,Aluku,French Guiana,Lawa River,Papaïchton commune,3.480,-54.060,medium,Traditional Aluku village; one of the original Lawa River settlements,Wikipedia (Aluku),no
+60,Loca,Loka,,,Aluku,French Guiana,Lawa River,Papaïchton commune,3.520,-54.055,medium,Hamlet in commune of Papaïchton; traditional Aluku settlement,Wikipedia (Papaichton),no
+61,Tabiki,,,,Aluku,French Guiana,Lawa River,Papaïchton commune,3.510,-54.048,medium,Traditional Aluku village near Papaïchton,Wikipedia (Aluku),no
+62,Nouveau Wakapou,,,,Aluku,French Guiana,Lawa River,Papaïchton commune,3.674389,-54.075806,high,Traditional Aluku village near Papaïchton,Wikipedia (Aluku),no
+63,Agoodé,Boniville (old),,,Aluku,French Guiana,Lawa River,Papaïchton commune,3.8339,-54.1855,high,Traditional Aluku village; once called Boniville; near Papaïchton; capital before Papaïchton,Wikipedia (Aluku),no
+64,Pobiansi,,,,Aluku,French Guiana,Lawa River,Papaïchton commune,3.470,-54.070,medium,One of earliest Aluku villages on Lawa River after 1841 settlement,Wikipedia (Aluku),no
+65,Puumofu,,,,Aluku,French Guiana,Lawa River,Papaïchton commune,3.460,-54.080,medium,One of earliest Aluku villages on Lawa River,Wikipedia (Aluku),no
+66,Ingi Pule Chton,,,,Aluku,French Guiana,Lawa River / Beïman creek,Maripasoula commune,3.550,-54.030,low,Settlement near historical Dikan lo (Ndyuka) area; contemporary Aluku settlement,French Guiana Maroons report,no
+67,Anapaïké,Lawa (old name),,,Aluku / Wayana,French Guiana,Upper Lawa / Maroni headwaters,Maripasoula commune,3.300,-53.950,low,Upper Lawa village; historically first called Cottica then Lawa by Wayana; now Anapaïké,French journal (ethnoecologie),no
+68,Moitaki,Moitaki,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,3.895,-55.205,high,Ndyuka village near Gran Olo rapids; birthplace of gaanman Gazon Matodya; between Yawsa and Puketi; electricity project underway,Wikipedia (Moitaki),no
+69,Yawsa,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,3.88,-55.220,medium,Ndyuka village on Tapanahoni upstream of Moitaki and Gran Olo rapids,Wikipedia (Moitaki),no
+70,Poeloegoedoe,Poeloegoeoe,,,Ndyuka,Suriname,Tapanahoni / Lawa confluence,Tapanahony,4.08,-54.980,high,Ndyuka village near confluence of Tapanahoni and Lawa rivers; named after the Poeloegoedoe Falls,Wikipedia (Poeloegoedoe),no
+71,Asidonhopo,Asidenhopo,,,Saramaka,Suriname,Pikin Rio (Upper Suriname tributary),Boven Suriname,4.00139,-55.46972,high,Current residence of the Saramaka paramount chief (gaanman); on Pikin Rio,Wikipedia (Asidonhopo) / Mapcarta,no
+72,Aurora,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.7,-55.540,high,Largest village of the Saramaka Maroons; health centre in adjacent village Laduani,Wikipedia (Aurora Suriname),no
+73,Nieuw Aurora,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.695,-55.542,high,Extension of Aurora; school achieved 100% graduation rate 2017,Wikipedia (Aurora Suriname),no
+74,Laduani,Ladoani,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.69,-55.545,high,Small village adjacent to Aurora; location of Aurora health centre and Laduani Airstrip; medical post,Wikipedia (Aurora Suriname) / Boven Suriname,yes
+75,Pikin Slee,Pikienslee,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.65,-55.580,high,Second largest Saramaka village (~3000-4000 people); home of Saamaka Maroon Museum; eco-resort Pasensie,Wikipedia (Pikin Slee) / multiple,no
+76,Botopasi,Boto-Pasi,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.655,-55.578,high,Saramaka village ~3.5km south of Pikin Slee; ~740 people (2001); school clinic church,Wikipedia (Pikin Slee / Mapcarta),yes
+77,Kajana,Cajana,Cayana,Kayana,Saramaka,Suriname,Gran Rio (Upper Suriname headwater),Boven Suriname,3.90056,-55.57250,high,Saramaka village on Gran Rio; population ~200; first-aid medical centre; primary school; Radio Thijs,Wikipedia (Kajana),yes
+78,Kwakoegron,Kwakoe,,,Matawai,Suriname,Saramacca River (lower),Kwakoegron,5.2,-55.900,high,Matawai village and resort; population 263 (2012); school clinic holiday resort; MZ poli confirmed; patient base ~260,Wikipedia (Kwakoegron),yes
+79,Poesoegroenoe,Pusugrunu,Psugrunu,Poesoegoenoe,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,4.383,-56.333,high,Residence of Matawai granman; medical post; airstrip; road opened 2017,Wikipedia (Poesoegroenoe),yes
+80,Nieuw Jacobkondre,Njoeng Jacob Kondre,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,4.35,-56.370,high,Main administrative village of Boven Saramacca resort; road access; Njoeng Jacob Kondre Airstrip,Wikipedia (Boven Saramacca),yes
+81,Pakka-Pakka,Pakkapakka,Pakkapakka 1 / 2,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,4.3,-56.400,medium,Matawai village; founded 1860s; two sides: right bank and left bank,Wikipedia (Pakkapakka),no
+82,Stonkoe,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,4.31,-56.390,low,Matawai village near Pakka-Pakka,Wikipedia (Pakkapakka),no
+83,Makajapingo,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,4.32,-56.380,low,Matawai village; Catholic; ~3.2nm from Stonkoe and Tabrikiekondre,Wikipedia (Makajapingo),no
+84,Moetoetoetabriki,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,4.29,-56.410,low,Matawai village; ~7nm from Pakka-Pakka,Wikipedia (Makajapingo),no
+85,Heidoti,,,,Kwinti,Suriname,Saramacca River (upper),Boven Saramacca,4.28,-56.420,low,Kwinti village on Saramacca River; also listed in Joshua Project Kwinti data; near Pakka-Pakka,Wikipedia (Pakkapakka) / Joshua Project,no
+86,Asoenoebo,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,4.305,-56.395,low,Matawai village; ~1nm from Pakka-Pakka,Wikipedia (Pakkapakka),no
+87,Tabrikiekondre,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,4.315,-56.385,low,Matawai village; ~3.2nm from Makajapingo,Wikipedia (Makajapingo),no
+88,Warnakomoponafaja,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,4.318,-56.383,low,Matawai village; ~2nm from Makajapingo,Wikipedia (Makajapingo),no
+89,Ebbatop,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,4.36,-56.360,medium,Matawai village; ecotourism promoted,Wikipedia (Matawai people),no
+90,Saramaka quarter Kourou,,,,Saramaka,French Guiana,Coastal FG — Kourou,Kourou commune,5.167,-52.636,high,Saramaka neighbourhood of Kourou; arrived 1967 to build Guiana Space Centre; ~300 houses,Wikipedia (Saramaka French Guiana),no
+91,Witagron,Bitagron,,,Kwinti,Suriname,Coppename River,Boven Coppename,5.163,-56.074,high,Kwinti village; formerly Bitagron; residence of Kwinti head captain; MZ health centre,Wikipedia (Witagron/Bitagron),yes
+92,Kaaimanston,,,,Kwinti,Suriname,Coppename River,Boven Coppename,5.140,-56.090,high,Kwinti village near Witagron; partially destroyed 1987 Interior War; Donderskamp Airstrip,Wikipedia (Kwinti people),yes
+93,Nieuw-Koffiekamp,Nieuw Koffiekamp,,,Ndyuka,Suriname,Suriname River (lower reservoir area),Sarakreek,5.060,-55.020,high,Transmigration Ndyuka village founded 1964; pop. ~300-500; school; medical centre; MZ poli confirmed; patient base ~437,Wikipedia (Nieuw-Koffiekamp),yes
+94,Lebidotie,Lebidoti,,,Ndyuka,Suriname,Suriname River (lower reservoir),Sarakreek,4.87083,-54.97000,high,Ndyuka transmigration village; pop. ~1000; relocated 1964; MZ poli confirmed; patient base ~1630,Wikipedia (Lebidoti),yes
+95,Nieuw-Lombe,Nieuw Lombe,Nyun-Lombe,Njun Lombe,Saramaka,Suriname,Suriname River (lower reservoir),Klaaskreek,5.070,-55.000,high,Saramaka transmigration village; Klaaskreek resort; MZ poli confirmed; patient base ~905; no running water since 2012; school,Wikipedia (Nieuw-Lombe Dutch),yes
+96,Agaigoni,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,5.050,-55.020,medium,Ndyuka village; same as or adjacent to Malobi; school; electricity; MZ clinic confirmed,Wikipedia (Medische Zending) — MZ map,yes
+97,Apoema,,,,Ndyuka,Suriname,Cottica River area / Marowijne,Marowijne / Wanhatti,5.350,-54.500,medium,Ndyuka village with MZ health post on Cottica or lower Marowijne,Wikipedia (Medische Zending) — MZ map,yes
+98,Balingsoela,,,,Ndyuka / Paramaka,Suriname,Marowijne / Lawa River,Pamacca / Tapanahony border,4.200,-54.600,medium,Eastern Maroon village with MZ health post; patient base ~835,Wikipedia (Medische Zending) — MZ map,yes
+99,Kambaloa,Kambaloea,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,3.800,-55.700,medium,Saramaka village with MZ health post,Wikipedia (Medische Zending) — MZ map,yes
+100,Karmel,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,3.850,-55.650,medium,Saramaka village with MZ health post,Wikipedia (Medische Zending) — MZ map,yes
+101,Phedra,,,,Ndyuka / Paramaka,Suriname,Marowijne / Lawa River area,Pamacca / Marowijne,4.100,-54.650,medium,Eastern Maroon village with MZ health post; patient base ~105,Wikipedia (Medische Zending) — MZ map,yes
+102,Soekoenale,Sukunale,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.600,-55.520,medium,Saramaka village with MZ health post; served by Ladoani clinic,Wikipedia (Medische Zending) / MZ news article,yes
+103,Tapoeripa,,,,Ndyuka / Saramaka,Suriname,Suriname River (reservoir transition zone),Brokopondo / Sarakreek,5.080,-55.040,medium,Interior village with MZ health post,Wikipedia (Medische Zending) — MZ map,yes
+104,Kawemhakan,Anapaikë,,,Wayana (Indigenous),Suriname,Lawa River,Tapanahony,3.140,-54.040,high,Wayana (Amerindian — not Maroon) village; MZ clinic; Lawa Anapaike Airstrip; school,Wikipedia (Kawemhakan),yes
+105,Goejaba,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.610,-55.510,medium,Saramaka village 8km northeast of Pikin Slee; served by Ladoani clinic,Mapcarta (Pikin Slee) / MZ news,yes
+106,Jaw Jaw,Jawjaw,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,4.550,-55.600,medium,Saramaka village; MZ clinic confirmed,Wikipedia (Medische Zending) / MZ news,yes
+107,Brownsweg,,,,Saramaka / mixed,Suriname,Lower Suriname River / Brokopondo road,Brownsweg,5.003,-55.175,high,Town at end of paved Afobaka road; MZ health post; patient base ~4170,Wikipedia (Boven Suriname / Pokigron),yes
+108,Pokigron,,,,Saramaka,Suriname,Upper Suriname River (northern end),Boven Suriname,4.491111,-55.365000,high,Main village at southern end of paved road; gateway to Upper Suriname River villages; MZ health post,Wikipedia (Boven Suriname / Pikin Slee),yes
+109,Commisariskondre,,,,Matawai,Suriname,Saramacca River (lower),Kwakoegron,5.205,-55.905,low,Matawai village; captain of Kwakoegron resort resides here,Planbureau Suriname Table 3 Brokopondo 2013,no
+110,Koinakondre,,,,Ndyuka,Suriname,Suriname River / Sarakreek area,Marchallkreek,5.1,-55.050,low,Ndyuka village in Marchallkreek resort,Planbureau Suriname Table 3 Brokopondo 2013,no
+111,Rama,,,,Ndyuka,Suriname,Suriname River / Sarakreek area,Marchallkreek,5.09,-55.060,low,Ndyuka village in Marchallkreek resort,Planbureau Suriname Table 3 Brokopondo 2013,no
+112,Marchallkreek,,,,Ndyuka,Suriname,Marchallkreek tributary,Marchallkreek,5.08,-55.070,medium,Ndyuka main village of Marchallkreek resort; MZ poli confirmed; patient base ~195,Planbureau Suriname Table 3 Brokopondo 2013,yes
+113,Klaaskreek,,,,Saramaka,Suriname,Suriname River reservoir (lower),Klaaskreek,5.181,-55.076,high,Saramaka transmigration village; MZ health post; patient base ~1700,Planbureau Suriname Table 3 Brokopondo 2013,yes
+115,Mujékiki,Mujekiki,,,Saramaka,Suriname,Suriname River reservoir (lower),Klaaskreek,5.075,-55.010,low,Saramaka transmigration village in Klaaskreek resort,Planbureau Suriname Table 3 Brokopondo 2013,no
+116,Kapasikélé,Kapasikelé,Kapasikelé,,Saramaka,Suriname,Suriname River reservoir (lower),Klaaskreek,5.078,-55.015,low,Saramaka transmigration village in Klaaskreek resort,Planbureau Suriname Table 3 Brokopondo 2013,no
+117,Asigron,,,,Saramaka,Suriname,Suriname River reservoir (lower),Centrum,5.06,-55.030,low,Saramaka transmigration village; Centrum resort Brokopondo,Planbureau Suriname Table 3 Brokopondo 2013,no
+118,Boslanti (Saramaka),Boslanti,,,Saramaka,Suriname,Suriname River reservoir (lower),Centrum,5.05,-55.040,low,Saramaka transmigration village; Centrum resort Brokopondo,Planbureau Suriname Table 3 Brokopondo 2013,no
+119,Drepada,,,,Saramaka,Suriname,Suriname River reservoir (lower),Centrum,5.04,-55.050,low,Saramaka transmigration village; Centrum resort Brokopondo,Planbureau Suriname Table 3 Brokopondo 2013,no
+120,Compagniekreek,,,,Ndyuka,Suriname,Cottica / Commewijne river system,Baling Soela,5.3,-54.700,low,Ndyuka village in Baling Soela resort,Planbureau Suriname Table 3 Brokopondo 2013,no
+121,Wakibasoe 1,Wakibasoe,,,Saramaka,Suriname,Lower Suriname River / Brokopondo area,Brownsweg,5.01,-55.180,low,Saramaka transmigration village; one of three Wakibasoe settlements,Planbureau Suriname Table 3 Brokopondo 2013,no
+122,Wakibasoe 2,Wakibasoe,,,Saramaka,Suriname,Lower Suriname River / Brokopondo area,Brownsweg,5.012,-55.182,low,Saramaka transmigration village; one of three Wakibasoe settlements,Planbureau Suriname Table 3 Brokopondo 2013,no
+123,Wakibasoe 3,Wakibasoe,,,Saramaka,Suriname,Lower Suriname River / Brokopondo area,Brownsweg,5.014,-55.184,low,Saramaka transmigration village; one of three Wakibasoe settlements,Planbureau Suriname Table 3 Brokopondo 2013,no
+124,Ganze,Ganzee,,,Saramaka,Suriname,Lower Suriname River / reservoir,Brownsweg,5.02,-55.170,low,Saramaka village near Brownsweg; original Ganzee submerged 1964,Planbureau Suriname Table 3 Brokopondo 2013,no
+125,Bierhoedoematoe,,,,Saramaka,Suriname,Lower Suriname River / reservoir,Brownsweg,5.018,-55.175,low,Saramaka village near Brownsweg,Planbureau Suriname Table 3 Brokopondo 2013,no
+126,Djankakondre,,,,Saramaka,Suriname,Lower Suriname River / reservoir,Brownsweg,5.022,-55.168,low,Saramaka village near Brownsweg,Planbureau Suriname Table 3 Brokopondo 2013,no
+127,Kadjoe,,,,Saramaka,Suriname,Lower Suriname River / reservoir,Brownsweg,5.016,-55.172,low,Saramaka village near Brownsweg,Planbureau Suriname Table 3 Brokopondo 2013,no
+128,Makambi,,,,Saramaka,Suriname,Lower Suriname River / reservoir,Brownsweg,5.024,-55.166,low,Saramaka village near Brownsweg,Planbureau Suriname Table 3 Brokopondo 2013,no
+129,Koffiekamp,,,,Saramaka,Suriname,Sara Creek (submerged),Brownsweg / Sarakreek,5.03,-55.100,low,Original Saramaka village submerged by Brokopondo Reservoir 1964,Planbureau Suriname Table 3 Brokopondo 2013,no
+130,Baikoetoe,Baikutu,,,Ndyuka,Suriname,Suriname River reservoir (Sarakreek),Sarakreek,5.045,-55.025,low,Ndyuka transmigration village; Sarakreek resort,Planbureau Suriname Table 3 Brokopondo 2013,no
+131,Bakoe,,,,Ndyuka,Suriname,Suriname River reservoir (Sarakreek),Sarakreek,5.048,-55.022,low,Ndyuka transmigration village; Sarakreek resort; near Lebidoti,Planbureau Suriname Table 3 Brokopondo 2013,no
+132,Banavookonde,,,,Ndyuka,Suriname,Suriname River reservoir (Sarakreek),Sarakreek,5.042,-55.028,low,Ndyuka transmigration village; Sarakreek resort,Planbureau Suriname Table 3 Brokopondo 2013,no
+133,Bekiokonde,,,,Ndyuka,Suriname,Suriname River reservoir (Sarakreek),Sarakreek,5.052,-55.018,low,Ndyuka transmigration village; Sarakreek resort,Planbureau Suriname Table 3 Brokopondo 2013,no
+134,Duwatra,,,,Ndyuka,Suriname,Suriname River reservoir (Sarakreek),Sarakreek,5.038,-55.032,low,Ndyuka transmigration village; MZ poli confirmed; patient base ~660,Planbureau Suriname Table 3 Brokopondo 2013,yes
+135,Pisjan,,,,Ndyuka,Suriname,Suriname River reservoir (Sarakreek),Sarakreek,5.055,-55.015,low,Ndyuka transmigration village; Sarakreek resort,Planbureau Suriname Table 3 Brokopondo 2013,no
+136,Afobaka,,,,Saramaka / Ndyuka,Suriname,Suriname River (Afobaka Dam),Brownsweg,4.993,-55.094,high,Town at Afobaka Dam; MZ health centre; gateway to Brokopondo Reservoir,Planbureau Suriname Table 4 Brokopondo 2013 / MZ list,yes
+137,Victoria,,,,Ndyuka / Saramaka,Suriname,Suriname River reservoir area,Victoria,5.02,-55.100,low,Interior village with school; Victoria resort Brokopondo District; MZ clinic confirmed; patient base ~471,Planbureau Suriname Table 4 Brokopondo 2013 / MZ list,yes
+138,Nieuw Ganze,Nieuw Ganzee,,,Saramaka,Suriname,Lower Suriname River / reservoir,Brownsweg,5.008,-55.176,medium,Post-dam Saramaka resettlement village near Brownsweg; large EBG school,Planbureau Suriname Table 4 Brokopondo 2013,no
+139,Abetwakondre,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,3.91667,-54.8000,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+140,Acote,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+141,Ajokajokampu,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+142,Aneewakondre,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+143,Apukakondre,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+144,Apumatapu,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; health post: HP,Planbureau Suriname Table 3.1 Sipaliwini 2013,yes
+145,Asidonkondre,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+146,Atipakondre,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+147,Benanu,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+148,Benzdorp,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; airstrip: Benzdorp (regular scheduled),Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+149,Biakronie,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+150,Dablasiekondre,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+151,Daguhede,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+152,Dakonde,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+153,Godoholo,Godo Holo,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,4.060556,-54.787500,high,Ndyuka village; health post: HP; school: EBGS Godoholo; electricity,Planbureau Suriname Table 3.1 Sipaliwini 2013,yes
+154,Gostu,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; church: JG,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+155,Granbori,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+156,Gransanti,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+157,Jawsa,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; electricity,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+158,Kaminatabiki,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+159,Kisai,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; electricity,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+160,Klementi,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+161,Kofikamisa,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+162,Loabi,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+163,Lobotu,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+164,Malobi,Agaigoni,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+165,Mongoskin,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+166,Mpusu,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+167,Niki,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+168,Njun Fri,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+169,Pikien kondre,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+170,Pikien Saniki,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+171,Pipakondre,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; church: GB/VE,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+172,Poketi,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; electricity; church: Meth; airstrip: Poketie (irregular charter),Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+173,Powi,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+174,Prodo kaba,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; electricity,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+175,Pulugudu,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+176,Saje,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+177,Salinkondre,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+178,Sanbendumi,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+179,Sangamasusa,Sangamangsoesa,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+180,Sannakampu,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+181,Tabiki hede,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; electricity,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+182,Tapontekampu,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+183,Tjon-tjon,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; health post: HP,Planbureau Suriname Table 3.1 Sipaliwini 2013,yes
+184,Vandaki,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+185,Visiti,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+186,Wanfinga,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,,,low,Ndyuka village; Tapanahony resort; Planbureau 2013,Planbureau Suriname Table 3.1 Sipaliwini 2013,no
+187,Abetredjuka,Sebedoekondre,Krikimofo,,Paramaka,Suriname,Marowijne / Lawa River,Pamacca,4.8500,-54.4667,low,Paramaka village; Pamacca resort; Planbureau 2013,Planbureau Suriname Table 3.2 Sipaliwini 2013,no
+189,Atemsa,,,,Paramaka,Suriname,Marowijne / Lawa River,Pamacca,,,low,Paramaka village; Pamacca resort; electricity,Planbureau Suriname Table 3.2 Sipaliwini 2013,no
+190,Bandatabiki,,,,Paramaka,Suriname,Marowijne / Lawa River,Pamacca,,,low,Paramaka village; Pamacca resort; Planbureau 2013,Planbureau Suriname Table 3.2 Sipaliwini 2013,no
+191,Bethel,,,,Paramaka,Suriname,Marowijne / Lawa River,Pamacca,,,low,Paramaka village; church: VE,Planbureau Suriname Table 3.2 Sipaliwini 2013,no
+192,Bonidoro,,,,Paramaka,Suriname,Marowijne / Lawa River,Pamacca,,,low,Paramaka village; Pamacca resort; Planbureau 2013,Planbureau Suriname Table 3.2 Sipaliwini 2013,no
+193,Dutabikimofo,,,,Paramaka,Suriname,Marowijne / Lawa River,Pamacca,,,low,Paramaka village; Pamacca resort; Planbureau 2013,Planbureau Suriname Table 3.2 Sipaliwini 2013,no
+194,Pakiratabiki,,,,Paramaka,Suriname,Marowijne / Lawa River,Pamacca,,,low,Paramaka village; Pamacca resort; Planbureau 2013,Planbureau Suriname Table 3.2 Sipaliwini 2013,no
+195,Pikientabiki,,,,Paramaka,Suriname,Marowijne / Lawa River,Pamacca,,,low,Paramaka village; Pamacca resort; Planbureau 2013,Planbureau Suriname Table 3.2 Sipaliwini 2013,no
+196,Skintabiki,,,,Paramaka,Suriname,Marowijne / Lawa River,Pamacca,,,low,Paramaka village; electricity,Planbureau Suriname Table 3.2 Sipaliwini 2013,no
+197,Njun Aurora,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,,,low,Saramaka village; school: EBGS J.Arabie; electricity; piped water,Planbureau Suriname Table 3.3 Sipaliwini 2013,no
+198,Njun kondre,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,,,low,Saramaka village; electricity,Planbureau Suriname Table 3.3 Sipaliwini 2013,no
+199,Palulubasu,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,,,low,Saramaka village; electricity,Planbureau Suriname Table 3.3 Sipaliwini 2013,no
+200,Pamboko,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,,,low,Saramaka village; school: RKBO Ptr.Voorbraak; electricity; piped water; church: RK,Planbureau Suriname Table 3.3 Sipaliwini 2013,no
+201,Penpen,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,,,low,Saramaka village; Boven Suriname resort; Planbureau 2013,Planbureau Suriname Table 3.3 Sipaliwini 2013,no
+202,Solan,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,,,low,Saramaka village; Boven Suriname resort; Planbureau 2013,Planbureau Suriname Table 3.3 Sipaliwini 2013,no
+203,Stonuku,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,,,low,Saramaka village; Boven Suriname resort; Planbureau 2013,Planbureau Suriname Table 3.3 Sipaliwini 2013,no
+204,Tjali kondre,,,,Saramaka,Suriname,Upper Suriname River,Boven Suriname,,,low,Saramaka village; electricity; piped water; church: VE,Planbureau Suriname Table 3.3 Sipaliwini 2013,no
+205,Baling,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; Boven Saramacca resort; Planbureau 2013,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+206,Bilawatra,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; church: RK,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+207,Kwattahede,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; church: EBG,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+208,Misalibi,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; Boven Saramacca resort; Planbureau 2013,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+209,Padua,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; electricity; church: RK,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+210,Pijeti,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; electricity,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+211,Piniel,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; Boven Saramacca resort; Planbureau 2013,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+212,Sukibaka,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; Boven Saramacca resort; Planbureau 2013,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+213,Tevreden,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; Boven Saramacca resort; Planbureau 2013,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+214,Vertrouwen,,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; Boven Saramacca resort; Planbureau 2013,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+215,Wanhatti,,,,Ndyuka,Suriname,Cottica River,Marowijne — Wanhatti,,,low,Ndyuka resort in Marowijne District — distinct from any Matawai Wanhatti,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+216,Kaimanston,Kaaimanston,,,Kwinti,Suriname,Coppename River,Boven Coppename,5.140,-56.090,medium,Kwinti village; sister village to Witagron,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+217,Boslanti (Matawai),Boslanti,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; school: EBGS Boslanti; electricity; church: EBG — distinct from Saramaka Boslanti,Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+218,Benatti moffo,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo,,,low,Ndyuka village; Marowijne District; Moengo resort,Planbureau Suriname Table 4 Marowijne 2013,no
+219,Krabu olo,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo,,,low,Ndyuka village; Marowijne District; Moengo resort,Planbureau Suriname Table 4 Marowijne 2013,no
+220,Langa oekoe 1,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo,,,low,Ndyuka village; Planbureau lists two settlements; likely opposite banks of same creek,Planbureau Suriname Table 4 Marowijne 2013,no
+221,Langa oekoe 2,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo,,,low,Ndyuka village; Planbureau lists two settlements; likely opposite banks of same creek,Planbureau Suriname Table 4 Marowijne 2013,no
+222,Pelgrimkondre,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo,,,low,Ndyuka village; health post: HP; school: Leonard Leitzel (Wesleyaan),Planbureau Suriname Table 4 Marowijne 2013,yes
+223,Abadukondre,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo,,,low,Ndyuka village; Marowijne District; Moengo resort,Planbureau Suriname Table 4 Marowijne 2013,no
+224,Akalekondre,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo,,,low,Ndyuka village; Marowijne District; Moengo resort,Planbureau Suriname Table 4 Marowijne 2013,no
+225,Akujutukondre,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo,,,low,Ndyuka village; Marowijne District; Moengo resort,Planbureau Suriname Table 4 Marowijne 2013,no
+226,Pikien Santi,Pikin Santi,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo,5.785,-54.371,high,Ndyuka village on Cottica River; attacked by Suriname National Army during Interior War,Wikipedia (Pikin Santi),no
+227,Adjuma kondre,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo Tapoe,,,low,Ndyuka village; Marowijne District; Moengo Tapoe resort,Planbureau Suriname Table 4 Marowijne 2013,no
+228,Ricanau mofo,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo Tapoe,,,low,Ndyuka village; health post: HP; Mapcarta confirms 7km north of Moengo on Cottica River,Planbureau Suriname Table 4 Marowijne 2013,yes
+229,Tukopi,,,,Ndyuka,Suriname,Cottica River,Marowijne — Moengo Tapoe,,,low,Ndyuka village; Marowijne District; Moengo Tapoe resort,Planbureau Suriname Table 4 Marowijne 2013,no
+230,Lanti we,Lantiwei,,,Ndyuka,Suriname,Cottica River,Marowijne — Wanhatti,5.79000,-54.41222,high,Ndyuka village on Cottica River; opposite Pinatjaimi; founded Pinatjaimi from here,Planbureau Suriname Table 4 Marowijne 2013,no
+231,Pina tjari mi,Pinatjaimi,Pinatyaimi,,Ndyuka,Suriname,Cottica River,Marowijne — Wanhatti,,,low,Ndyuka village on Cottica River; opposite village is Lantiwei,Planbureau Suriname Table 4 Marowijne 2013,no
+232,Tamarin,,,,Ndyuka,Suriname,Cottica River,Marowijne — Wanhatti,,,low,Ndyuka village; school: Wanati (EBGS); electricity: DEV; water: DWV,Planbureau Suriname Table 4 Marowijne 2013,no
+233,Akoloikondre,,,,Ndyuka,Suriname,Marowijne River,Marowijne — Albina,,,low,Ndyuka village; Marowijne District; Albina resort,Planbureau Suriname Table 4 Marowijne 2013,no
+234,Konikaikondre,,,,Ndyuka,Suriname,Marowijne River,Marowijne — Albina,,,low,Ndyuka village; electricity: EBS; water: SWM,Planbureau Suriname Table 4 Marowijne 2013,no
+235,Manjabonkondre,,,,Ndyuka,Suriname,Marowijne River,Marowijne — Albina,,,low,Ndyuka village; Marowijne District; Albina resort,Planbureau Suriname Table 4 Marowijne 2013,no
+236,Malokokondre,,,,Ndyuka,Suriname,Marowijne River,Marowijne — Albina,,,low,Ndyuka village; electricity: DEV*,Planbureau Suriname Table 4 Marowijne 2013,no
+237,Bigi Ston,,,,Ndyuka,Suriname,Marowijne River,Marowijne — Albina,5.415000,-54.126389,medium,Ndyuka village; Marowijne District; Albina resort; mixed Ndyuka and Kalina settlement; health post: HP; school: Bigi Ston (OS); electricity: DEV,Planbureau Suriname Table 4 Marowijne 2013,yes
+238,Piere kondre,,,,Ndyuka,Suriname,Marowijne River,Marowijne — Albina,,,low,Ndyuka village; Marowijne District; Albina resort,Planbureau Suriname Table 4 Marowijne 2013,no
+239,Poitekondre,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+240,Abeso Kampu,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; electricity: PART,Planbureau Suriname Table 4 Marowijne 2013,no
+241,Ageni-Dolin Kampu,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+242,Pakosi Kampu,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+243,Saliga Kampu,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+244,Bastionkondre,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+245,Pai kampu,ApaiKampu,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+246,Lemkibontabiki,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+247,Maria kondre,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+248,Mopi kondre,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; health post: HP; school: Mopikondre (OS),Planbureau Suriname Table 4 Marowijne 2013,yes
+249,Pakirakondre,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; health post: HP; school: Pakirakondre (OS); electricity: DEV; water: DWV,Planbureau Suriname Table 4 Marowijne 2013,yes
+250,Sooke Kampu,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+251,Telegi Kampu,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+252,Abenekondre,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+253,Dan Tapu,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; electricity: DEV*,Planbureau Suriname Table 4 Marowijne 2013,no
+254,Kasaba olo,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+255,Me de nanga Lanti,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; Marowijne District; Patamacca resort,Planbureau Suriname Table 4 Marowijne 2013,no
+256,Ofia olo,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; electricity: DEV,Planbureau Suriname Table 4 Marowijne 2013,no
+257,Patamacca,,,,Ndyuka,Suriname,Patamacca Creek / Marowijne,Marowijne — Patamacca,,,low,Ndyuka village; school: Patamacca (OS); electricity: MIJ; water: MIJ,Planbureau Suriname Table 4 Marowijne 2013,no
+258,Bethel (Matawai),Bethel,,,Matawai,Suriname,Saramacca River (upper),Boven Saramacca,,,low,Matawai village; church: RK — distinct from Bethel (Paramaka),Planbureau Suriname Table 3.4 Sipaliwini 2013,no
+259,Sebedoe Kondre,,,,Paramaka,Suriname,Marowijne River,Pamacca,5.15,-54.30,low,Paramaka village near Marowijne; coordinates approximate,Vetted CSV review 2026,no
+260,Drietabbetje Airstrip,,,,Ndyuka,Suriname,Tapanahoni River,Tapanahony,4.117,-54.667,high,Airstrip serving Drietabbetje/Diitabiki (Ndyuka granman seat); regular scheduled service,Vetted CSV review 2026 / Wikipedia (Dritabiki),no
+319,Saint-Jean-du-Maroni,Saint-Jean,,,Ndyuka,French Guiana,Maroni River (lower),Saint-Laurent-du-Maroni commune,5.40556,-54.07778,high,Village mainly inhabited by Ndyuka Maroons; on Maroni River near Saint-Laurent-du-Maroni,Grok / Wikipedia,no
