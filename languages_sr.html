@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tongo Fu Den Sranan Marron Sma</title>
+  <!-- v1.2 — Overview map, bibliography page, Moiwana page added -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── CSS Variables ─────────────────────────────────────────────────── */
+    :root {
+      --forest:     #1a3a2a;   /* deep rainforest green */
+      --canopy:     #2d5e3f;   /* mid jungle green */
+      --earth:      #7a3f1e;   /* rainforest earth / wood */
+      --ochre:      #c8822a;   /* Maroon textile gold/ochre */
+      --gold:       #e8b04a;   /* warm accent gold */
+      --river:      #3a6b5e;   /* river teal-green */
+      --cream:      #f7f0e3;   /* warm parchment */
+      --cream-dark: #ede3d0;
+      --text-dark:  #1e1a14;
+      --text-mid:   #3d3228;
+      --text-light: #f7f0e3;
+      --border:     #c8822a44;
+    }
+
+    /* ─── Reset & Base ───────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── Top Bar ────────────────────────────────────────────────────────── */
+    .top-bar {
+      background: var(--earth);
+      color: var(--cream);
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      padding: 6px 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar a { color: var(--gold); transition: color 0.2s; }
+    .top-bar a:hover { color: #fff; }
+
+    /* ─── Header / Nav ───────────────────────────────────────────────────── */
+    header {
+      background: var(--forest);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.01em;
+    }
+    .logo-text span {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      color: var(--cream);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav { margin-left: auto; }
+    .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 0;
+      white-space: nowrap;
+    }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a {
+      display: block;
+      padding: 1.2rem 0.75rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cream);
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-list > li > a:hover,
+    .nav-list > li:hover > a {
+      background: var(--canopy);
+      color: var(--gold);
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 220px;
+      background: var(--canopy);
+      border-top: 3px solid var(--ochre);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      z-index: 200;
+      list-style: none;
+    }
+    .nav-list > li:hover .dropdown { display: block; }
+    .dropdown li a {
+      display: block;
+      padding: 0.65rem 1.2rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.8rem;
+      color: var(--cream);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.15s, padding-left 0.15s;
+    }
+    .dropdown li a:hover {
+      background: var(--forest);
+      color: var(--gold);
+      padding-left: 1.6rem;
+    }
+
+    /* ─── Hero Slider ────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+      background: var(--forest);
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      display: flex;
+      align-items: flex-end;
+    }
+    .slide.active { opacity: 1; }
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+    .slide.active .slide-bg { transform: scale(1); }
+    /* SVG pattern overlays simulate rainforest / river imagery */
+    .slide-1 .slide-bg { background: linear-gradient(165deg, #0d2b1a 0%, #1a5c35 40%, #2d7a4f 70%, #3a9660 100%); }
+    .slide-2 .slide-bg { background: linear-gradient(135deg, #1a2a40 0%, #1d4a5a 40%, #236b60 70%, #2d8a72 100%); }
+    .slide-3 .slide-bg { background: linear-gradient(155deg, #3a1a0a 0%, #7a3518 40%, #a85a25 70%, #c87830 100%); }
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,20,10,0.75) 0%, rgba(0,0,0,0.1) 60%);
+    }
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem 3rem;
+      color: var(--cream);
+    }
+    .slide-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.15;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      margin-bottom: 0.6rem;
+    }
+    .slide-content p {
+      font-size: 1rem;
+      color: var(--cream-dark);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+      max-width: 560px;
+    }
+    .slide-controls {
+      position: absolute;
+      bottom: 1.2rem;
+      right: 2rem;
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+    .slide-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .slide-dot.active { background: var(--gold); }
+
+    /* ─── Textile Pattern Divider ─────────────────────────────────────────── */
+    .pattern-bar {
+      height: 14px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--ochre) 0px, var(--ochre) 10px,
+        var(--earth) 10px, var(--earth) 20px,
+        var(--forest) 20px, var(--forest) 30px,
+        var(--gold) 30px, var(--gold) 40px,
+        var(--forest) 40px, var(--forest) 50px,
+        var(--earth) 50px, var(--earth) 60px
+      );
+    }
+
+    /* ─── Quick-Links Strip ───────────────────────────────────────────────── */
+    .quick-links {
+      background: var(--canopy);
+      padding: 0;
+    }
+    .quick-links-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .ql-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.1rem 1.5rem;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      color: var(--cream);
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .ql-item:last-child { border-right: none; }
+    .ql-item:hover { background: var(--forest); }
+    .ql-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .ql-text strong {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .ql-text span {
+      font-size: 0.75rem;
+      color: rgba(247,240,227,0.7);
+    }
+
+    /* ─── Main Layout ─────────────────────────────────────────────────────── */
+    .main-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ─── Welcome Section ─────────────────────────────────────────────────── */
+    .welcome-block {
+      background: #fff;
+      border-left: 5px solid var(--ochre);
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .welcome-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+    .welcome-block p { color: var(--text-mid); margin-bottom: 0.8rem; }
+
+    /* ─── Section Heading ─────────────────────────────────────────────────── */
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--forest);
+      border-bottom: 3px solid var(--ochre);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── News Cards ──────────────────────────────────────────────────────── */
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .news-card {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    .news-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .news-img-placeholder {
+      width: 100%; height: 150px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .news-body { padding: 1rem; }
+    .news-tag {
+      display: inline-block;
+      background: var(--ochre);
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      margin-bottom: 0.5rem;
+    }
+    .news-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+    .news-body p { font-size: 0.85rem; color: var(--text-mid); }
+    .read-more {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--earth);
+      letter-spacing: 0.04em;
+    }
+    .read-more:hover { color: var(--ochre); }
+
+    /* ─── Groups Overview ─────────────────────────────────────────────────── */
+    .villages-section { margin-bottom: 2.5rem; }
+
+    /* Shared traits intro block */
+    .shared-traits {
+      background: var(--cream-dark);
+      border-left: 5px solid var(--forest);
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+    .shared-traits h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+    .traits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1.5rem;
+    }
+    .trait-item {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      padding: 0.25rem 0;
+      border-bottom: 1px solid rgba(200,130,42,0.2);
+    }
+    .trait-item::before { content: '◆ '; color: var(--ochre); font-size: 0.6rem; vertical-align: middle; }
+
+    /* Comparison table */
+    .comparison-wrap {
+      overflow-x: auto;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      background: #fff;
+    }
+    .comparison-table thead tr {
+      background: var(--forest);
+      color: var(--cream);
+    }
+    .comparison-table th {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      padding: 0.7rem 0.9rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .comparison-table td {
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid var(--cream-dark);
+      color: var(--text-mid);
+      vertical-align: top;
+    }
+    .comparison-table tbody tr:nth-child(even) td { background: var(--cream); }
+    .comparison-table tbody tr:hover td { background: #fff8ee; }
+    .comparison-table .group-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--forest);
+      white-space: nowrap;
+    }
+    .comparison-table .branch-east { color: var(--river); font-weight: 600; }
+    .comparison-table .branch-central { color: var(--earth); font-weight: 600; }
+    .tbl-link {
+      display: inline-block;
+      background: var(--ochre);
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .tbl-link:hover { background: var(--earth); }
+
+    /* Group cards */
+    .village-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .village-card {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 1.4rem 1.2rem 3.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s, transform 0.15s;
+      display: block;
+      text-decoration: none;
+    }
+    .village-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--gold);
+    }
+    .village-card:hover { background: var(--canopy); transform: translateY(-2px); }
+    .village-card .vc-group {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .village-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: var(--cream);
+    }
+    .village-card p { font-size: 0.8rem; color: rgba(247,240,227,0.78); line-height: 1.6; }
+    .village-card .vc-icon {
+      font-size: 1.8rem;
+      position: absolute;
+      bottom: 0.8rem; right: 0.8rem;
+      opacity: 0.18;
+    }
+    .vc-detail-link {
+      position: absolute;
+      bottom: 0.9rem; left: 1.2rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .vc-detail-link:hover { color: #fff; }
+
+    /* ─── Sidebar ─────────────────────────────────────────────────────────── */
+    .sidebar { }
+    .sidebar-box {
+      background: #fff;
+      border-top: 4px solid var(--forest);
+      padding: 1.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .sidebar-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--cream-dark);
+    }
+    .sidebar-links { list-style: none; }
+    .sidebar-links li {
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .sidebar-links li a {
+      display: block;
+      padding: 0.55rem 0.3rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      transition: color 0.15s, padding-left 0.15s;
+    }
+    .sidebar-links li a::before { content: '›  '; color: var(--ochre); }
+    .sidebar-links li a:hover { color: var(--earth); padding-left: 0.4rem; }
+
+    .bulletin-list { list-style: none; }
+    .bulletin-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+      font-size: 0.85rem;
+    }
+    .bulletin-list li a {
+      color: var(--earth);
+      font-weight: 600;
+    }
+    .bulletin-list li a:hover { color: var(--ochre); }
+
+    /* ─── Culture Band ────────────────────────────────────────────────────── */
+    .culture-band {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 3rem 0;
+    }
+    .culture-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .culture-inner .section-heading {
+      color: var(--gold);
+      border-bottom-color: var(--ochre);
+    }
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .culture-item {
+      border-left: 3px solid var(--ochre);
+      padding-left: 1rem;
+    }
+    .culture-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .culture-item p { font-size: 0.88rem; color: rgba(247,240,227,0.8); }
+
+    /* ─── Vision/Mission Strip ────────────────────────────────────────────── */
+    .mission-strip {
+      background: var(--cream-dark);
+      border-top: 4px solid var(--ochre);
+      border-bottom: 4px solid var(--ochre);
+      padding: 2.5rem 0;
+    }
+    .mission-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .mission-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--earth);
+      margin-bottom: 0.7rem;
+    }
+    .mission-block p { color: var(--text-mid); font-size: 0.92rem; }
+    .mission-block ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    .mission-block ul li {
+      padding: 0.3rem 0;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+    .mission-block ul li::before { content: '◆  '; color: var(--ochre); font-size: 0.55rem; vertical-align: middle; }
+
+    /* ─── Footer ──────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--text-dark);
+      color: var(--cream);
+      padding: 3rem 0 0;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer-col h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(200,130,42,0.3);
+    }
+    .footer-col p { font-size: 0.83rem; color: rgba(247,240,227,0.7); line-height: 1.8; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.4rem; }
+    .footer-col ul li a {
+      font-size: 0.83rem;
+      color: rgba(247,240,227,0.7);
+      transition: color 0.15s;
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      background: rgba(0,0,0,0.3);
+      text-align: center;
+      padding: 1rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(247,240,227,0.45);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── Pull Quote ──────────────────────────────────────────────────────── */
+    .pull-quote {
+      background: var(--earth);
+      color: var(--cream);
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+    .pull-quote blockquote {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--cream);
+    }
+    .pull-quote blockquote::before { content: '\201C'; font-size: 4rem; color: var(--gold); line-height: 0; vertical-align: -1rem; margin-right: 0.2rem; }
+    .pull-quote blockquote::after  { content: '\201D'; font-size: 4rem; color: var(--gold); line-height: 0; vertical-align: -1rem; margin-left: 0.2rem; }
+    .pull-quote cite {
+      display: block;
+      margin-top: 1rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ─── Timeline ────────────────────────────────────────────────────────── */
+    .timeline-section {
+      background: var(--cream);
+      padding: 3rem 0;
+    }
+    .timeline-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .timeline {
+      position: relative;
+      margin-top: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 160px;
+      top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--ochre), var(--forest));
+    }
+    .tl-entry {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .tl-date {
+      text-align: right;
+      padding-right: 2rem;
+      padding-top: 0.15rem;
+    }
+    .tl-date strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--earth);
+      display: block;
+    }
+    .tl-date span {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ochre);
+    }
+    .tl-dot {
+      position: absolute;
+      left: 152px;
+      top: 6px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--ochre);
+      border: 3px solid var(--cream);
+      box-shadow: 0 0 0 2px var(--ochre);
+      z-index: 1;
+    }
+    .tl-dot.major {
+      background: var(--forest);
+      box-shadow: 0 0 0 2px var(--forest);
+      width: 22px; height: 22px;
+      left: 150px;
+    }
+    .tl-body {
+      background: #fff;
+      border-left: 4px solid var(--ochre);
+      padding: 1rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .tl-body.major-event {
+      border-left-color: var(--forest);
+      background: var(--cream-dark);
+    }
+    .tl-body h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--forest);
+      margin-bottom: 0.3rem;
+    }
+    .tl-body.major-event h4 { color: var(--earth); }
+    .tl-body p { font-size: 0.86rem; color: var(--text-mid); }
+    .tl-tag {
+      display: inline-block;
+      background: var(--ochre);
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1px 7px;
+      margin-bottom: 0.35rem;
+    }
+    .tl-tag.resistance { background: var(--forest); }
+    .tl-tag.modern     { background: var(--river); }
+    .tl-tag.crisis     { background: var(--earth); }
+
+    /* ─── Present Day ─────────────────────────────────────────────────────── */
+    .present-section {
+      background: var(--canopy);
+      color: var(--cream);
+      padding: 3rem 0;
+    }
+    .present-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .present-inner .section-heading {
+      color: var(--gold);
+      border-bottom-color: rgba(200,130,42,0.5);
+    }
+    .present-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .present-card {
+      background: rgba(0,0,0,0.2);
+      border-top: 3px solid var(--gold);
+      padding: 1.4rem;
+    }
+    .present-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .present-card p { font-size: 0.87rem; color: rgba(247,240,227,0.85); line-height: 1.7; }
+
+    /* ─── Responsive ──────────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .main-wrap { grid-template-columns: 1fr; }
+      .quick-links-inner { grid-template-columns: 1fr 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      .village-cards { grid-template-columns: 1fr 1fr; }
+      .culture-grid { grid-template-columns: 1fr; }
+      .mission-inner { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .nav-list { display: none; }
+      .slide-content h2 { font-size: 1.6rem; }
+      .hero { height: 360px; }
+      .present-grid { grid-template-columns: 1fr; }
+      .timeline::before { left: 90px; }
+      .tl-entry { grid-template-columns: 90px 1fr; }
+      .tl-dot { left: 82px; }
+      .tl-dot.major { left: 80px; }
+    }
+    @media (max-width: 560px) {
+      .quick-links-inner { grid-template-columns: 1fr; }
+      .village-cards { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .slide-content { padding: 1.2rem 1.5rem; }
+      .timeline::before { left: 70px; }
+      .tl-entry { grid-template-columns: 70px 1fr; gap: 0 1rem; }
+      .tl-dot { left: 62px; }
+      .tl-dot.major { left: 60px; }
+      .tl-date strong { font-size: 0.85rem; }
+      .pull-quote blockquote { font-size: 1.1rem; }
+    }
+    /* ─── Overview Map Section ───────────────────────────────────────────────── */
+    .overview-map-section {
+      background: var(--text-dark);
+      padding: 2.5rem 0;
+    }
+    .overview-map-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .overview-map-inner .section-heading {
+      color: var(--gold);
+      border-bottom-color: var(--ochre);
+      margin-bottom: 0.6rem;
+    }
+    .overview-map-inner .map-intro {
+      color: rgba(247,240,227,0.75);
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+      max-width: 760px;
+    }
+    #overview-map {
+      width: 100%;
+      height: 460px;
+      border: 3px solid rgba(200,130,42,0.4);
+    }
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.4rem;
+      margin-top: 0.8rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(247,240,227,0.75);
+      letter-spacing: 0.04em;
+    }
+    .legend-swatch {
+      width: 14px; height: 14px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+  
+    /* diaspora section */
+    .diaspora-section { background: var(--cream); padding: 3rem 0; }
+    .diaspora-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .diaspora-intro { font-size: 0.97rem; color: var(--text-mid); max-width: 820px; margin: 0 0 2rem; line-height: 1.75; }
+    .diaspora-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+    .diaspora-card { background: #fff; border: 1px solid #e0d5c0; border-top: 4px solid var(--river); padding: 1.4rem 1.5rem; border-radius: 2px; }
+    .diaspora-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--earth); margin-bottom: 0.7rem; }
+    .diaspora-card .d-flag { font-size: 1.4rem; margin-right: 0.4rem; vertical-align: middle; }
+    .diaspora-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.75; }
+    @media (max-width: 700px) { .diaspora-grid { grid-template-columns: 1fr; } }
+
+    /* culture with images */
+    .culture-item-img { display: grid; grid-template-columns: 210px 1fr; gap: 1.4rem; align-items: start; border-left: 3px solid var(--ochre); padding-left: 1rem; }
+    .culture-img-wrap { flex-shrink: 0; }
+    .culture-img { width: 100%; height: 148px; object-fit: cover; border-radius: 2px; display: block; border: 2px solid rgba(200,130,42,0.25); }
+    .culture-img-ph { width: 100%; height: 148px; background: rgba(0,0,0,0.28); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; color: rgba(247,240,227,0.45); text-align: center; padding: 0.5rem; border-radius: 2px; }
+    .culture-img-caption { font-size: 0.71rem; color: rgba(247,240,227,0.48); margin-top: 0.3rem; font-style: italic; line-height: 1.3; }
+    .culture-text h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--gold); margin-bottom: 0.5rem; }
+    .culture-text p { font-size: 0.87rem; color: rgba(247,240,227,0.82); line-height: 1.75; }
+    .culture-grid-img { display: grid; grid-template-columns: 1fr; gap: 1.8rem; margin-top: 1.5rem; }
+    @media (max-width: 700px) { .culture-item-img { grid-template-columns: 1fr; } }
+
+    
+    .lang-hero{background:linear-gradient(135deg,#0d2b1a 0%,#1a4a2e 60%,#2d6b45 100%);padding:3.5rem 0 2.5rem}
+    .lang-hero-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    .lang-hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--gold);margin-bottom:.4rem}
+    .lang-hero p{color:rgba(247,240,227,.8);font-size:1rem;max-width:700px}
+    .explainer-section{background:var(--cream);padding:2.5rem 0;border-bottom:3px solid var(--ochre)}
+    .explainer-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    .explainer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-top:1.5rem}
+    .explainer-box{background:#fff;border-top:4px solid var(--earth);padding:1.4rem;border-radius:2px}
+    .explainer-box h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--earth);margin-bottom:.7rem}
+    .explainer-box p{font-size:.87rem;color:var(--text-mid);line-height:1.75}
+    @media(max-width:800px){.explainer-grid{grid-template-columns:1fr}}
+    .lang-intro-section{background:#fff;padding:2rem 0}
+    .lang-intro-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    .lang-intro-text{font-size:.97rem;color:var(--text-mid);line-height:1.8;max-width:860px}
+    .languages-section{background:var(--forest);padding:3rem 0}
+    .languages-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    .languages-inner .section-heading{color:var(--gold);border-bottom-color:var(--ochre)}
+    .lang-cards{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem}
+    @media(max-width:900px){.lang-cards{grid-template-columns:1fr}}
+    .lang-card{background:rgba(0,0,0,.22);border-top:4px solid var(--gold);padding:1.5rem;border-radius:2px}
+    .lang-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
+    .lang-card-header h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold)}
+    .iso-badge{font-family:'Raleway',monospace;font-size:.7rem;background:rgba(200,130,42,.2);color:var(--ochre);padding:3px 8px;border-radius:2px;white-space:nowrap;margin-top:3px}
+    .spec-table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:.83rem}
+    .spec-label{color:var(--ochre);font-weight:600;padding:3px 8px 3px 0;width:35%;vertical-align:top}
+    .spec-value{color:rgba(247,240,227,.8);padding:3px 0}
+    .lang-desc p{font-size:.87rem;color:rgba(247,240,227,.82);line-height:1.75;margin-bottom:1.2rem}
+    .sample-block{background:rgba(0,0,0,.2);border-left:3px solid var(--river);padding:1rem 1.2rem;margin-bottom:1.2rem;border-radius:0 2px 2px 0}
+    .sample-block h4{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--river);margin-bottom:.6rem}
+    .sample-text{font-size:.92rem;color:rgba(247,240,227,.9);line-height:1.7;font-style:italic;margin:0 0 .6rem;border:none;padding:0}
+    .sample-translation{font-size:.83rem;color:rgba(247,240,227,.6);margin-bottom:.4rem}
+    .sample-source{font-size:.74rem;color:rgba(247,240,227,.4)}
+    .play-sample-btn{margin-top:.6rem;background:var(--river);color:#fff;border:none;padding:6px 14px;font-size:.8rem;cursor:pointer;border-radius:2px;font-family:'Raleway',sans-serif}
+    .play-sample-btn:hover{background:var(--canopy)}
+    .play-sample-btn.speaking{background:var(--earth)}
+    .phrases-block h4{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--gold);margin-bottom:.6rem}
+    .phrases-table{width:100%;border-collapse:collapse;font-size:.83rem}
+    .phrases-table th{color:var(--ochre);font-family:'Raleway',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;padding:4px 0;border-bottom:1px solid rgba(200,130,42,.3);text-align:left}
+    .ph-src{color:rgba(247,240,227,.9);padding:5px 8px 5px 0;font-style:italic;width:38%}
+    .ph-tgt{color:rgba(247,240,227,.6);padding:5px 8px 5px 0;width:42%}
+    .ph-listen{width:20%}
+    .listen-btn{background:transparent;border:1px solid rgba(200,130,42,.4);color:var(--ochre);padding:3px 8px;font-size:.72rem;cursor:pointer;border-radius:2px;white-space:nowrap}
+    .listen-btn:hover{background:rgba(200,130,42,.15)}
+    .listen-btn.speaking{background:rgba(200,130,42,.25);color:#fff}
+    .resources-section{background:var(--cream);padding:3rem 0}
+    .resources-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    .resource-link{display:block;background:#fff;border-left:3px solid var(--river);padding:.9rem 1.1rem;margin-bottom:.8rem;color:var(--text-mid);font-size:.87rem;line-height:1.6;text-decoration:none;transition:border-color .2s}
+    .resource-link:hover{border-left-color:var(--earth)}
+    .resource-link strong{color:var(--earth);display:block;margin-bottom:.2rem}
+    .speech-note{font-size:.78rem;color:rgba(247,240,227,.6);font-style:italic;margin-bottom:1rem}
+
+  </style>
+
+  <!-- Trilingual support -->
+  <style>
+    .lang-toggle {
+      display: flex; gap: 4px; align-items: center; margin-left: 1.5rem;
+    }
+    .lang-btn {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 9px; border-radius: 2px;
+      border: 1px solid rgba(247,240,227,0.3);
+      background: transparent; color: rgba(247,240,227,0.6);
+      cursor: pointer; transition: all 0.2s;
+      text-decoration: none;
+    }
+    .lang-btn:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
+    .lang-btn.active { background: var(--ochre); color: white; border-color: var(--ochre); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo-wrap" href="index.html">
+      <!-- SVG logo: stylised adinkra-inspired motif -->
+      <svg class="logo-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="26" r="25" stroke="#c8822a" stroke-width="2"/>
+        <circle cx="26" cy="26" r="16" stroke="#c8822a" stroke-width="1" stroke-dasharray="4 3"/>
+        <path d="M26 6 L26 46 M6 26 L46 26" stroke="#e8b04a" stroke-width="1.5"/>
+        <path d="M26 10 Q34 18 26 26 Q18 18 26 10Z" fill="#c8822a" opacity="0.8"/>
+        <path d="M26 42 Q18 34 26 26 Q34 34 26 42Z" fill="#c8822a" opacity="0.8"/>
+        <circle cx="26" cy="26" r="4" fill="#e8b04a"/>
+      </svg>
+      <div class="logo-text">
+        <strong>Maroon Villages</strong>
+        <span>in Suriname</span>
+      </div>
+    </a>
+
+    <nav>
+      <ul class="nav-list">
+        <li>
+          <a href="villages.html">Villages</a>
+          <ul class="dropdown">
+            <li><a href="villages.html">Village Directory (318)</a></li>
+            <li><a href="groups/ndyuka.html">Ndyuka</a></li>
+            <li><a href="groups/saramaka.html">Saramaka</a></li>
+            <li><a href="groups/matawai.html">Matawai</a></li>
+            <li><a href="groups/paramaka.html">Paramaka</a></li>
+            <li><a href="groups/aluku.html">Aluku</a></li>
+            <li><a href="groups/kwinti.html">Kwinti</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#history">History</a>
+          <ul class="dropdown">
+            <li><a href="#history">Origins &amp; Escape</a></li>
+            <li><a href="#history">Wars of Freedom</a></li>
+            <li><a href="#history">Peace Treaties 1760–1887</a></li>
+            <li><a href="#history">Interior War 1986–1992</a></li>
+            <li><a href="moiwana.html">Moiwana Massacre 1986</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#present">Present Day</a>
+          <ul class="dropdown">
+            <li><a href="#present">Land Rights Today</a></li>
+            <li><a href="#present">Gold Mining</a></li>
+            <li><a href="#present">Urban Migration</a></li>
+            <li><a href="#present">Diaspora in Netherlands</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#culture">Culture</a>
+          <ul class="dropdown">
+            <li><a href="#culture">Textile Art</a></li>
+            <li><a href="#culture">Woodcarving</a></li>
+            <li><a href="#culture">Music &amp; Dance</a></li>
+            <li><a href="#culture">Language</a></li>
+            <li><a href="#culture">Governance</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="bibliography.html">Resources</a>
+          <ul class="dropdown">
+            <li><a href="bibliography.html">Bibliography &amp; Sources</a></li>
+            <li><a href="RESEARCH_NOTES.md">Research Notes</a></li>
+            <li><a href="maroon_villages.csv">Village Data (CSV)</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="lang-toggle">
+      <a href="index.html" class="lang-btn active">EN</a>
+      <a href="index_nl.html" class="lang-btn">NL</a>
+      <a href="index_sr.html" class="lang-btn">SR</a>
+    </div>
+  </div>
+</header>
+
+<section class="lang-hero">
+  <div class="lang-hero-inner">
+    <div class="lang-toggle"><a href="languages.html" class="lang-btn">EN</a><a href="languages_nl.html" class="lang-btn">NL</a><a href="languages_sr.html" class="lang-btn active">SR</a></div>
+    <h1>Tongo Fu Den Sranan Marron Sma</h1>
+    <p>Creool Talen, Den Ortu, Nanga Den Presi Na Ini A Wreld</p>
+  </div>
+</section>
+
+<section class="lang-intro-section">
+  <div class="lang-intro-inner">
+    <p class="lang-intro-text">Den Marron sma fu Sranan nanga Frans Guyana e taki soms fu den moro bijzonder talen ini a Amerika's. Meki fu a gewelddadige botsing fu West nanga Centraal Afrika talen nanga Ingels, Portugees, nanga Olandse na ini a plantagestelsel fu a 17de nanga 18de ieuwtenti, den Sranan Marron creool talen na volledig ontwikkelde, grammaticaal complete talen — moeder talen di e gi fu owri na pikin fu moro dan dri ieuwtenti. Den na no gebroken Ingels nanga no vereenvoudigd Olandse. Den na talen na den srefi, nanga den e drai Afrika ortu sporen di no wan taalfamilie ini a Western Hemisphere e kibri so diep.</p>
+  </div>
+</section>
+
+<section class="explainer-section">
+  <div class="explainer-inner">
+    <div class="explainer-grid">
+      <div class="explainer-box"><h3>San Na Wan Pidgin Tongo?</h3><p>Wan pidgin e kon opkisi baka di sprekers fu tu nanga moro talen di den no e ferstan makandra e go ini regulere contact — moro moro ini situasies fu handel, koloniale arbeid, nanga slavernij — nanga e improviseer wan gedeelde communicatiemiddel. Wan pidgin na nobody en moeder tongo: a na wan tweede tongo fu ala sma di e yusri en, nanga vereenvoudigde grammatica, beperkte vocabulaire, nanga variabele uitspraak afhankelijk fu a moeder tongo achtergrond fu a spreker.</p><p>Voorbeelden fu historische pidgins ombati a oorspronkelijke Chinese Pidgin English fu a Canton handel, a Chinook Jargon fu a Pacific Northwest, nanga den fosi Plantation Pidgins fu a Caribisch gebied nanga Zuid-Amerika. A Ndyuka–Trio Pidgin — wan contact tongo tra Ndyuka Marron sma nanga Tiriyó Ingi sma na ini a Sranan busi — na wan zeldzame voorbeeld fu wan pidgin di kon opkisi tra tu niet-Europese gemeenschappen.</p></div>
+      <div class="explainer-box"><h3>San Na Wan Creool Tongo?</h3><p>Wan creool e kon opkisi baka di wan pidgin kon a ferste tongo fu wan nyun generatie pikin sma. Baka di pikin sma e bigi nanga wan pidgin taki wan, den pikin brein e automatisch advoeg grammaticale structuur, e regulariseer werkwoords vormen, e spreidi vocabulaire, nanga e meki wan volledig gearticuleerde tongo. Dati prosess — creolisering — e normaal e pasa ini wan enkeling generatie.</p><p>A resultaat na wan tongo di kan e shar fisi fu en vocabulaire nanga en "moeder" Europese tongo (a superstrate nanga lexifier), ma e firi moro-moro verschil ini grammatica, fonologie, nanga betekenis — moro moro e weerspiegelen den grammatica patronen fu den Afrika substraat talen fu pe den tot slaaf gemaakte sma ben komopo. <strong>Saramaccaans, fu voorbeeld, abi bijna 50% Afrika vocabulaire baka di rituele taki e mitell</strong>, nanga en tonensysteem e weerspiegelen West-Afrikaanse talen moro fu Ingels nanga Portugees. Ndyuka seriële werkwoordsconstructies — e string werkwoords makandra sonder voegwoorden — na wan direkti overleving fu West-Afrikaanse grammatica patronen.</p></div>
+      <div class="explainer-box"><h3>Den Atlantische Creool Talen: Context Nanga Familie</h3><p>Den Sranan Marron creool talen e tapu na a familie fu Atlantisch Ingels-gebaseerde creool talen, di e shar structurele kenmerken afgeleid fu den gemeenschappelijk Afrika substraat — den Kwa talen fu a Goudkust (Akan, Fon, Ewe) nanga den Bantu talen fu Centraal-Afrika (KiKongo, Kimbundu). Disi substraat talen gi no wan nomo vocabulaire ma tu fundamentele grammatica: tonale onderscheidingen, seriële werkwoordsconstructies, aspect markeringen in plaats fu tijds markeringen.</p><p>San e meki den Sranan Marron creool talen — fu de Saramaccaans nanga Ndyuka — verschil fu andere Atlantische creool talen na den buitengewone graad fu Afrika bewaring. Bika den Marron sma ben furu fu den plantages so fosi (c.1690–1712) nanga ben libi ini volledig isolatie fu Europees contact fu moro dan wan ieuwtenti, den talen ben no onderhevig na a geleidelijke "decreoliseringsproces". Saramaccaans nanga Ndyuka e piki taki den moro conservatieve nanga "diepste" fu ala Atlantische creool talen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="languages-section">
+  <div class="languages-inner">
+    <h2 class="section-heading">Den Talen</h2>
+    <p class="speech-note">Den "Speel" knoppen e yusri yu browser en ingebouwde tekst-naar-spraak. Disi na alleen benaderende uitspraakleidraad. Fu authentieke opnames, luku den SIL nanga ELAR links ondro.</p>
+    <div class="lang-cards">
+<div class="lang-card" id="lang-djk"><div class="lang-card-header"><h3>Ndyuka (Aukan / Okanisi)</h3><span class="iso-badge">ISO 639: djk</span></div><table class="spec-table"><tbody><tr><td class="spec-label">Spreker sma</td><td class="spec-value">50.000–90.000</td></tr><tr><td class="spec-label">Tak</td><td class="spec-value">Oostelijke Marron Creool</td></tr><tr><td class="spec-label">Lexifier bronnen</td><td class="spec-value">Ingels (46%), Olandse (16%), Portugees (35%), Afrika (3% dokumenteri, moro hogi ini rituele taki)</td></tr><tr><td class="spec-label">E taki doro</td><td class="spec-value">Ndyuka, Aluku, Paramaka sma; Sranan nanga Frans Guyana</td></tr><tr><td class="spec-label">Skrifi sisteem</td><td class="spec-value">Latin alfabet (moderne Ingels-gebaseerde orthografie fu 1984); Afaka syllabarium (1910)</td></tr><tr><td class="spec-label">Tonaal</td><td class="spec-value">Ja — toon na fonemisch (na = "na"; ná = "na no")</td></tr><tr><td class="spec-label">Status</td><td class="spec-value">Stabiel ma ofisieel no erkend; no wan skoro tongo na Sranan</td></tr></tbody></table><div class="lang-desc"><p>Ndyuka na wan op Ingels gebaseerde creool tongo nanga sterke Afrika grammaticale kenmerken. Seriële werkwoordsconstructies — bijv. <em>a teki a nefi koti a brede</em> ("en naki a nefi koti a brede") — e weerspiegelen Kwa/Gbe grammatica patronen. A tongo e elimineer a letter "r" (aanwezig na Sranan Tongo), nanga e yusri prenasale medeklinkers nanga <em>mb</em> nanga <em>ng</em>, gewoon na West nanga Centraal-Afrika. A Afaka syllabarium — wan sisteem fu 56 tekens — ben meki na 1910 fu Ndyuka nanga e tan na beperkt ma voortgezet gebruik.</p></div><div class="sample-block"><h4>Skrifi Fragment</h4><blockquote class="sample-text">En so den be abaa na a líba, dísi wi kai Kawína Líba. Di den abaa de, den abaa teke gwe na opu fu Kawína. En so den be waka langa langa gwe te na Mama Ndyuka ede, pe wi kai Mama Ndyuka.</blockquote><p class="sample-translation"><em>En so den ben krosi a liba, di wi e kori "Kawína Liba". Baka di den krosi kaba, den teke gwe moro hogi na ini Kawína. So den ben waka langa, langa te na a tap fu Tapanahony, a presi di wi e kori "Mama Ndyuka".</em></p><p class="sample-source">Bron: SIL International / Wikipedia: Ndyuka tongo</p><button class="play-sample-btn" onclick="speakText(this,&#34;En so den be abaa na a líba, dísi wi kai Kawína Líba. Di den abaa de, den abaa teke gwe na opu fu Kawína. En so den be waka langa langa gwe te na Mama Ndyuka ede, pe wi kai Mama Ndyuka.&#34;)">▶ Speel</button></div><div class="phrases-block"><h4>Gewone Zinnen</h4><table class="phrases-table"><thead><tr><th>Tongo</th><th>Vertaling</th><th>Audio</th></tr></thead><tbody><tr><td class="ph-src">Mi lobi yu.</td><td class="ph-tgt">Mi e lobi yu.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Mi lobi yu.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">A waka go a busi.</td><td class="ph-tgt">A ben go na ini a busi.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;A waka go a busi.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">Den be feti nanga a bakkra.</td><td class="ph-tgt">Den ben feti nanga a bakkra sma.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Den be feti nanga a bakkra.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">Grontapu na wi grontapu.</td><td class="ph-tgt">A grontapu na wi eigi grontapu.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Grontapu na wi grontapu.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">Mi no sabi.</td><td class="ph-tgt">Mi no sabi.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Mi no sabi.&#34;)">&#9658; Play</button></td></tr></tbody></table></div></div>
+
+<div class="lang-card" id="lang-srm"><div class="lang-card-header"><h3>Saramaccaans (Saamáka)</h3><span class="iso-badge">ISO 639: srm</span></div><table class="spec-table"><tbody><tr><td class="spec-label">Spreker sma</td><td class="spec-value">~58.000 na Sranan; 25.000 na Frans Guyana; 8.000 na Olanda</td></tr><tr><td class="spec-label">Tak</td><td class="spec-value">Centrale Marron Creool</td></tr><tr><td class="spec-label">Lexifier bronnen</td><td class="spec-value">Ingels (30%), Portugees (20%), Afrika talen (50% nanga rituele taki)</td></tr><tr><td class="spec-label">E taki doro</td><td class="spec-value">Saramaka nanga Matawai sma; Sranan, Frans Guyana, Olanda</td></tr><tr><td class="spec-label">Skrifi sisteem</td><td class="spec-value">Latin alfabet (SIL orthografie, 1982; no universeel geadopteerd)</td></tr><tr><td class="spec-label">Tonaal</td><td class="spec-value">Ja — tonensisteem vergelijkbaar nanga West-Afrikaanse talen</td></tr><tr><td class="spec-label">Status</td><td class="spec-value">Kwetsbaar; skoro onderwijs no de na busi kondre</td></tr></tbody></table><div class="lang-desc"><p>Saramaccaans na linguistisch bijzonder: a na a nomo creool tongo na ini a wreld nanga tu Europese lexifiers (Ingels nanga Portugees) ini vergelijkbare verhoudingen. A Portugese component — woorden nanga <em>mujee</em> (mulher, "ouman"), <em>womi</em> (homem, "manpikin"), <em>da</em> (dar, "gi"), <em>bunu</em> (bom, "bun") — e weerspiegelen a tongo fu plantage opzichters, fu wan fisi Sefardisch-Joodse kooplieden fu Brazilië. A Afrika component, na bijna 50% nanga ceremonieel gebruik, na a moro hogi fu enig creool tongo na a Amerika's.</p></div><div class="sample-block"><h4>Skrifi Fragment</h4><blockquote class="sample-text">De waka te de aan sinkii möön. U ta mindi kanda fu dee soni dee ta pasa ku u. A suku di soni te wojo fëën ko bëë.</blockquote><p class="sample-translation"><em>"Den ben waka te den kaba mati." "Wi e meki liedjes fu sani di e pasa nanga wi." "A ben suku en tevergeefs."</em></p><p class="sample-source">Bron: SIL International Saramaccaans–Ingels Woordenboek</p><button class="play-sample-btn" onclick="speakText(this,&#34;De waka te de aan sinkii möön. U ta mindi kanda fu dee soni dee ta pasa ku u. A suku di soni te wojo fëën ko bëë.&#34;)">▶ Speel</button></div><div class="phrases-block"><h4>Gewone Zinnen</h4><table class="phrases-table"><thead><tr><th>Tongo</th><th>Vertaling</th><th>Audio</th></tr></thead><tbody><tr><td class="ph-src">Mi lobi yu.</td><td class="ph-tgt">Mi e lobi yu.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Mi lobi yu.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">A waka go a wosu.</td><td class="ph-tgt">A ben go na oso.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;A waka go a wosu.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">Bunu dee andi u ta du.</td><td class="ph-tgt">Bun, san wi e du.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Bunu dee andi u ta du.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">A goon na u goon.</td><td class="ph-tgt">A grontapu na wi grontapu.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;A goon na u goon.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">Mi no sabi.</td><td class="ph-tgt">Mi no sabi.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Mi no sabi.&#34;)">&#9658; Play</button></td></tr></tbody></table></div></div>
+
+<div class="lang-card" id="lang-srn"><div class="lang-card-header"><h3>Sranan Tongo</h3><span class="iso-badge">ISO 639: srn</span></div><table class="spec-table"><tbody><tr><td class="spec-label">Spreker sma</td><td class="spec-value">300.000–400.000 (taki wan nanga tu tongo na Sranan)</td></tr><tr><td class="spec-label">Tak</td><td class="spec-value">Atlantische Ingels creool; Sranan sisei creool tongo</td></tr><tr><td class="spec-label">Lexifier bronnen</td><td class="spec-value">Ingels (meerderheid), Olandse, Portugees, Afrika talen</td></tr><tr><td class="spec-label">E taki doro</td><td class="spec-value">Sranan bevolking breedscala; bigi gebruik na Olandse diaspora</td></tr><tr><td class="spec-label">Skrifi sisteem</td><td class="spec-value">Latin alfabet; ofisieel spellingsisteem vastgesteld 1987</td></tr><tr><td class="spec-label">Tonaal</td><td class="spec-value">No — klem-gebaseerd, no tonaal</td></tr><tr><td class="spec-label">Status</td><td class="spec-value">Vitaal; de facto lingua franca fu Sranan alwel Olandse ofisieel na</td></tr></tbody></table><div class="lang-desc"><p>Sranan Tongo ("Sranan tongo") na a gedeelde lingua franca fu Sranan en fisi-fisi etnische bevolking. A ben gwa fu a soede Plantation Creool voorvader taki Ndyuka nanga Saramaccaans rowtu 1690–1700, ma e tan na contact nanga Olandse nanga Ingels. Skrifi fu a 18de ieuwtenti — den fosi bekende teksten e de fu den 1750 yari. Ofisieel spellingsisteem vastgesteld na 1987.</p></div><div class="sample-block"><h4>Skrifi Fragment</h4><blockquote class="sample-text">Ala den man gebore fri èn leki wan ini grani èn den leti. Den ben gi den rutu èn konsensi. Den musu abi lespeki gi ibriwan.</blockquote><p class="sample-translation"><em>Ala sma e kon na wreld fri nanga gelijkwaardig na eer nanga reti. Den e gi nanga rede nanga geweten, nanga den musu e libi nanga respekt gi makandra.</em></p><p class="sample-source">Bron: Artikel 1, Universal Declaration of Human Rights (Sranan Tongo versie)</p><button class="play-sample-btn" onclick="speakText(this,&#34;Ala den man gebore fri èn leki wan ini grani èn den leti. Den ben gi den rutu èn konsensi. Den musu abi lespeki gi ibriwan.&#34;)">▶ Speel</button></div><div class="phrases-block"><h4>Gewone Zinnen</h4><table class="phrases-table"><thead><tr><th>Tongo</th><th>Vertaling</th><th>Audio</th></tr></thead><tbody><tr><td class="ph-src">Fa yu tan?</td><td class="ph-tgt">Fa yu e tan?</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Fa yu tan?&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">Mi bun, grantangi.</td><td class="ph-tgt">Mi e tan bun, tangi.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Mi bun, grantangi.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">Mi lobi yu.</td><td class="ph-tgt">Mi e lobi yu.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Mi lobi yu.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">Wi abi wan bigi kondre.</td><td class="ph-tgt">Wi abi wan bigi kondre.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Wi abi wan bigi kondre.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">A Marron sma ben feti fu den libi fri.</td><td class="ph-tgt">Den Marron sma ben feti fu libi fri.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;A Marron sma ben feti fu den libi fri.&#34;)">&#9658; Play</button></td></tr></tbody></table></div></div>
+
+<div class="lang-card" id="lang-mbt"><div class="lang-card-header"><h3>Matawai</h3><span class="iso-badge">ISO 639: mbt</span></div><table class="spec-table"><tbody><tr><td class="spec-label">Spreker sma</td><td class="spec-value">~8.500</td></tr><tr><td class="spec-label">Tak</td><td class="spec-value">Centrale Marron Creool (verwant nanga Saramaccaans)</td></tr><tr><td class="spec-label">Lexifier bronnen</td><td class="spec-value">Ingels nanga Portugees basis, nanga Afrika substraat</td></tr><tr><td class="spec-label">E taki doro</td><td class="spec-value">Matawai sma; Boven Saramacca Liba, Sranan</td></tr><tr><td class="spec-label">Skrifi sisteem</td><td class="spec-value">Latin (beperkt); no gestandaardiseerde orthografie na breed gebruik</td></tr><tr><td class="spec-label">Tonaal</td><td class="spec-value">Ja</td></tr><tr><td class="spec-label">Status</td><td class="spec-value">Kwetsbaar — hoge graad fu code-switching nanga Sranan Tongo</td></tr></tbody></table><div class="lang-desc"><p>Matawai na nauw verwant nanga Saramaccaans — den tu grupu e shar a Centrale Marron Creool tak — ma ben gwa baka di den Matawai ben tekenen wan aparte vredesverdrag nanga den Olandse na 1767. A tongo e libi ondro bijzondere druk fu Sranan Tongo, nanga code-switching na gangbaar, speciaal tra jongu sprekers.</p></div><div class="sample-block"><h4>Skrifi Fragment</h4><blockquote class="sample-text">A suku di a goon fu en. Den be waka go a busi fu feni wáta.</blockquote><p class="sample-translation"><em>"A ben suku en grontapu." "Den ben go na ini a busi fu feni watra."</em></p><p class="sample-source">Bron: Aangepast fu SIL Saramaccaans documentatie; Matawai variant</p><button class="play-sample-btn" onclick="speakText(this,&#34;A suku di a goon fu en. Den be waka go a busi fu feni wáta.&#34;)">▶ Speel</button></div><div class="phrases-block"><h4>Gewone Zinnen</h4><table class="phrases-table"><thead><tr><th>Tongo</th><th>Vertaling</th><th>Audio</th></tr></thead><tbody><tr><td class="ph-src">Mi lobi yu.</td><td class="ph-tgt">Mi e lobi yu.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Mi lobi yu.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">A wata bigi.</td><td class="ph-tgt">A watra na hogi.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;A wata bigi.&#34;)">&#9658; Play</button></td></tr>
+<tr><td class="ph-src">Wi ta go a kondre.</td><td class="ph-tgt">Wi e go na kondre.</td><td class="ph-listen"><button class="listen-btn" onclick="speakText(this,&#34;Wi ta go a kondre.&#34;)">&#9658; Play</button></td></tr></tbody></table></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="resources-section">
+  <div class="resources-inner">
+    <h2 class="section-heading">Tongo Dokumentatie Bronnen</h2>
+    <a href="https://suriname-languages.sil.org/" class="resource-link" target="_blank" rel="noopener"><strong>SIL International — Sranan Talen</strong>A primaire archief fu taaldocumentatie fu Sranan talen, nanga Ndyuka, Saramaccaans, Matawai, Sranan Tongo nanga Kwinti. Woordenboeken, grammatica, teksten nanga alfabetiseringsmaterialen. Vrij toegankelijk online.</a>
+<a href="https://www.elararchive.org/" class="resource-link" target="_blank" rel="noopener"><strong>ELAR — Endangered Languages Archive</strong>Wan digitaal archief na a Berlijn-Brandenburgse Akademie fu Wetenschappen. E kibri audio, video, nanga tekst materiaal fu kwetsbare talen wreld-wide.</a>
+<a href="https://livingtongues.org/" class="resource-link" target="_blank" rel="noopener"><strong>Living Tongues Institute</strong>Wan non-profit research instituut gewijd na dokumentering fu kwetsbare talen. E meki Living Dictionaries — multimedia digitaal woordenboeken nanga audio opnames doro moeder tongo sprekers.</a>
+<a href="http://www.language-archives.org/" class="resource-link" target="_blank" rel="noopener"><strong>OLAC — Open Language Archives Community</strong>Wan multi-institutioneel database nanga tongo bronnen. Suku na ISO kodes: Ndyuka (djk), Saramaccaans (srm), Sranan Tongo (srn), Matawai (mbt).</a>
+<a href="https://apics-online.info/" class="resource-link" target="_blank" rel="noopener"><strong>APiCS Online</strong>Max Planck Instituut database fu structuurkenmerken fu 76 pidgin nanga creool talen, nanga gedetailleerde hoofdstukken tra Ndyuka, Saramaccaans nanga Sranan Tongo.</a>
+<a href="https://www.ethnologue.com/" class="resource-link" target="_blank" rel="noopener"><strong>Ethnologue</strong>A standaard referentiedatabase fu tong klassificatie, spreker bevolkingen nanga vitaliteitsbeoordelingen.</a>
+<a href="https://languageconservancy.org/" class="resource-link" target="_blank" rel="noopener"><strong>The Language Conservancy</strong>E sribi tongo gemeenschappen ini dokumentatie nanga revitalisering. E wroko na a Amerika's nanga wreld-wide.</a>
+<a href="https://en.wal.unesco.org/" class="resource-link" target="_blank" rel="noopener"><strong>UNESCO Atlas Endangered Languages</strong>UNESCO interactieve kaart nanga database fu kwetsbare talen. E klassificeer Matawai nanga Kwinti taki kwetsbaar.</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-inner">
+
+    <div class="footer-col">
+      <h4>Maroon Villages in Suriname</h4>
+      <p>This project documents the Maroon communities of Suriname — their villages, cultural heritage, governance structures, and the ongoing struggle for land rights and self-determination.</p>
+      <p style="margin-top:0.8rem;">
+        <a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" style="color:var(--gold);">View on GitHub</a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Villages</h4>
+      <ul>
+        <li><a href="groups/ndyuka.html">Ndyuka Villages</a></li>
+        <li><a href="groups/saramaka.html">Saramaka Villages</a></li>
+        <li><a href="groups/matawai.html">Matawai Villages</a></li>
+        <li><a href="groups/paramaka.html">Paramaka Villages</a></li>
+        <li><a href="groups/aluku.html">Aluku Villages</a></li>
+        <li><a href="groups/kwinti.html">Kwinti Villages</a></li>
+        <li><a href="villages.html">Village Directory</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>History & Rights</h4>
+      <ul>
+        <li><a href="#history">History of Resilience</a></li>
+        <li><a href="#history">Peace Treaties 1760–1887</a></li>
+        <li><a href="#history">Interior War 1986–1992</a></li>
+        <li><a href="moiwana.html">Moiwana Massacre 1986</a></li>
+        <li><a href="bibliography.html">IACtHR Rulings</a></li>
+        <li><a href="#present">Land Rights Today</a></li>
+        <li><a href="bibliography.html">Advocacy &amp; Organisations</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>About & Contact</h4>
+      <ul>
+        <li><a href="https://github.com/kwierenga/Maroon-villages-in-Surinam" target="_blank" rel="noopener">About This Project ↗</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="RESEARCH_NOTES.md">Research Notes</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="villages.html">Village Directory</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Maroon Villages in Suriname &nbsp;|&nbsp; All rights reserved &nbsp;|&nbsp; v1.2 &nbsp;|&nbsp; Sources: Wikipedia, Minority Rights Group, Cultural Survival
+  </div>
+</footer>
+
+<script>
+function speakText(btn, text) {
+  if (!window.speechSynthesis) { btn.textContent = "Audio N/A"; return; }
+  window.speechSynthesis.cancel();
+  var utt = new SpeechSynthesisUtterance(text);
+  var voices = window.speechSynthesis.getVoices();
+  var eng = null;
+  for (var i=0; i<voices.length; i++) { if (voices[i].lang.startsWith("en")) { eng=voices[i]; break; } }
+  if (eng) utt.voice = eng;
+  utt.rate = 0.82; utt.pitch = 1.0;
+  btn.classList.add("speaking");
+  utt.onend = function(){ btn.classList.remove("speaking"); };
+  utt.onerror = function(){ btn.classList.remove("speaking"); };
+  window.speechSynthesis.speak(utt);
+}
+if (window.speechSynthesis) window.speechSynthesis.getVoices();
+</script>
+</body>
+</html>

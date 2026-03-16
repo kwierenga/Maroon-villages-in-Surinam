@@ -907,7 +907,30 @@
       flex-shrink: 0;
       opacity: 0.75;
     }
-  </style>
+  
+    /* diaspora section */
+    .diaspora-section { background: var(--cream); padding: 3rem 0; }
+    .diaspora-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .diaspora-intro { font-size: 0.97rem; color: var(--text-mid); max-width: 820px; margin: 0 0 2rem; line-height: 1.75; }
+    .diaspora-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+    .diaspora-card { background: #fff; border: 1px solid #e0d5c0; border-top: 4px solid var(--river); padding: 1.4rem 1.5rem; border-radius: 2px; }
+    .diaspora-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--earth); margin-bottom: 0.7rem; }
+    .diaspora-card .d-flag { font-size: 1.4rem; margin-right: 0.4rem; vertical-align: middle; }
+    .diaspora-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.75; }
+    @media (max-width: 700px) { .diaspora-grid { grid-template-columns: 1fr; } }
+
+    /* culture with images */
+    .culture-item-img { display: grid; grid-template-columns: 210px 1fr; gap: 1.4rem; align-items: start; border-left: 3px solid var(--ochre); padding-left: 1rem; }
+    .culture-img-wrap { flex-shrink: 0; }
+    .culture-img { width: 100%; height: 148px; object-fit: cover; border-radius: 2px; display: block; border: 2px solid rgba(200,130,42,0.25); }
+    .culture-img-ph { width: 100%; height: 148px; background: rgba(0,0,0,0.28); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; color: rgba(247,240,227,0.45); text-align: center; padding: 0.5rem; border-radius: 2px; }
+    .culture-img-caption { font-size: 0.71rem; color: rgba(247,240,227,0.48); margin-top: 0.3rem; font-style: italic; line-height: 1.3; }
+    .culture-text h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--gold); margin-bottom: 0.5rem; }
+    .culture-text p { font-size: 0.87rem; color: rgba(247,240,227,0.82); line-height: 1.75; }
+    .culture-grid-img { display: grid; grid-template-columns: 1fr; gap: 1.8rem; margin-top: 1.5rem; }
+    @media (max-width: 700px) { .culture-item-img { grid-template-columns: 1fr; } }
+
+    </style>
 
   <!-- Trilingual support -->
   <style>
@@ -1671,42 +1694,124 @@
   </div>
 </section>
 
+<!-- ─── Diaspora Section ─────────────────────────────────────────────────── -->
+<section class="diaspora-section">
+  <div class="diaspora-inner">
+    <h2 class="section-heading">A Marron Diaspora</h2>
+    <p class="diaspora-intro">Marron sma tide no tan na den liba kondre fu a busi nomo. Ieuwen fu wegstuuri — fu a Brokopondo onderwata, a Binnenlandse Woro, ekonomisch marginaliseringsma, nanga a suku fu gezonheid nanga onderwijs — meki wan wreld-wide Marron diaspora. <strong>Na 2013, bijna 210.000 Marron sma ben libi na Sranan nanga Frans Guyana kaba</strong>, nanga telori moro na Olanda, Frankryk, nanga libi-abra.</p>
+    <div class="diaspora-grid">
+      <div class="diaspora-card">
+        <h4><span class="d-flag">🇬🇫</span>Frans Guyana (Guyane)</h4>
+        <p>Frans Guyana abi a moro biksi concentratie Marron sma buten Sranan. A Aluku (Boni) ben libi na a Lawa liba — di e meki a grensi tra Sranan nanga Guyane — fu a laste pisi fu a 18de ieuwtenti, nanga na 25 mei 1891 ofisieel kon Frans burgers, gi den EU paspoort. Den Ndyuka ben bigin krosi go na Guyane taki loon-wroko fu cargotransport na a Maroni liba fu den 1860 yari. Na den 1960 yari, a Kourou space centre gi wroko na bijna 600 Marron wroko-sma. A Binnenlandse Woro (1986–1992) meki wan bigi wegstuuri: ten minste 10.000 Ndyuka furu go na vluchtelingenkampen ini nanga rowtu Saint-Laurent-du-Maroni. Na 1993, Grand-Santi municipality — meki fu scission fu Papaïchton — kon wan Ndyuka kondre na Frans grontapu. Price nanga Price (2013) e skat taki <strong>30% fu ala Marron sma tide e libi na Frans Guyana</strong> — fu de Ndyuka, Saramaka, nanga Aluku. Den legaliteti e firi moro-moro: Aluku na EU burgers; meni Ndyuka nanga Saramaka na geen papieren nanga kwetsbaar fu uitzetting.</p>
+      </div>
+
+      <div class="diaspora-card">
+        <h4><span class="d-flag">🇳🇱</span>Olanda</h4>
+        <p>Olanda abi a moro biksi Marron kondre na Europa. A CBS dokumenteri <strong>349.978 sma nanga Sranan achtergrond</strong> na 2018 — bijna 2% fu a Olandse bevolking — alwel dati nomru e ombati ala Sranan etnische grupu. Marron-specifieke estimation e tra tra 11.000 nanga 20.000, ini Amsterdam (Bijlmermeer), Rotterdam, Den Haag, nanga Almere. Migratie ben e go doro ini golf: wan ferste golf rowtu Sranan onafhankelijkheid (1975), wan moro bigi golf baka a Binnenlandse Woro (1986–1992), nanga aanhoudend ekonomisch migratie fu dati. Na Olanda, Marron kondre e kibri Winti religie, Ndyuka nanga Saramaccaans tongo-taksi, nanga kulturele seremonie. Organisaties nanga <em>Stichting Kibri wi Kulturu</em> nanga <em>Wan Pipel</em> e feti fu kulturu kibri. A diaspora e seni bigi moni go na busi kondre na Sranan — wan finansieel kibri ini presi pe no abi formele ekonomi.</p>
+      </div>
+
+      <div class="diaspora-card">
+        <h4><span class="d-flag">🇸🇷</span>Paramaribo &amp; Sisei Sranan</h4>
+        <p>A moro biksi wan concentratie fu Marron sma buten owru grontapu na Paramaribo srefi. Foto migratie ben bigin sirieus na den 1960 yari baka a Brokopondo Dam verplaatsi telori Saramaka, nanga ben sneller ini a Binnenlandse Woro. <strong>Estimation e suggereri taki moro fu 40.000 Marron sma tide e libi ini nanga rowtu Paramaribo</strong> — ini Wanica, Commewijne, nanga Para — e meki Paramaribo evenzo wan Marron foto taki wan Creool wan. Foto Marron sma e wroko tra wan dubbel libi: e kibri tongo, seremonie-libi nanga kopmeki nanga busi kondre, en wan tide e wroko ini a sisei arbeidsmarkt. Discriminatie ini onderwijs nanga wroko e tan wan dokumenteri probleem.</p>
+      </div>
+
+      <div class="diaspora-card">
+        <h4><span class="d-flag">🌍</span>Frankryk, Europa &amp; Libi-Abra</h4>
+        <p>Bika den Aluku abi Frans burgerschap — nanga bika Guyane na wan integraaldeel fu Frankryk nanga wan EU outermost regio — soms Aluku nanga lang-tem Guyane-libi Ndyuka ben muvi go na metropolitaan Frankryk, fu de Parijs nanga rowtu. Nomru e firi moeilijk fu tel bika Frans tellingdata no e registreri Marron etnisiteit apart. Pikin Marron kondre tu de na a VS (fu de rowtu New York nanga Florida) doro Sranan diaspora netwerken. Na Guyana (owru Ingels Guiana) Marron kondre ben de wan ten ma no moro dokumenteri. Na ala diaspora presi, kulturele overdracht na wan sentrale sorgosma: jongu generatie di ben bigi na Europese foto e kibri kopmeki doro tongo-taksi na ini oso, periodieke reisi go na Sranan nanga Guyane fu begrafenissen nanga seremonie, nanga toenemend doro social media.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Culture Band ───────────────────────────────────────────────────────── -->
 <!-- ─── Culture Band ───────────────────────────────────────────────────────── -->
 <section class="culture-band">
   <div class="culture-inner">
-    <h2 class="section-heading">Cultural Heritage</h2>
-    <div class="culture-grid">
-
-      <div class="culture-item">
-        <h4>Woodcarving</h4>
-        <p>Maroon men are renowned for intricate woodcarving — canoe paddles, stools, combs, food-preparation objects, and architectural elements. Each piece carries symbolic meaning rooted in West African aesthetics and adapted to forest life over centuries. There is a strong performance and oratorical tradition alongside the visual arts.</p>
+    <h2 class="section-heading">Kulturele Erfgoed</h2>
+    <div class="culture-grid-img">
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Maroon_woodcarving_Suriname_paddles.jpg/400px-Maroon_woodcarving_Suriname_paddles.jpg" alt="Marron ingi-kapwerk, Boven Sranan Liba" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Marron ingi-kapwerk, Boven Sranan Liba</div>
+          <p class="culture-img-caption">Marron ingi-kapwerk, Boven Sranan Liba</p>
+        </div>
+        <div class="culture-text">
+          <h4>Ingi-Kapwerk</h4>
+          <p>Ingi-kapwerk na a foorste visuele art fu Marron manpikin nanga na wan fu den moro geavanceerde tradisies ini a Afrika diaspora. Objekten ombati kanu-pagara, fodi-meki-planki (<em>kuutu</em>), stoeroe, kamfu, dienblad, nanga oso-bild sani. Ala fesi na bedekt nanga ingewikkelde geometrische patronen — no tu stuku na tak-tak. Patronen e drai symbolische betekenis fu West nanga Centraal Afrika esthetische traditie, aangepast ova dri ieuwtenti fu busi libi. Ingi-kapwerk na no nomo fu mooi luku: wan man e kapu fu en ouman, en libi, nanga taki wan spirituele gifti. A presentasie fu wan ingi-kapu stuku na wan sosraal dadi nanga seremonieel gewicht. Richard nanga Sally Price, di ben studie Saramaka art fu telori yari, e taki a na wan fu den bigi artistieke tradisies fu a Amerika's. Artiest Marcel Pinas bringi Ndyuka visuele traditie na internationaal galerie konteksten.</p>
+        </div>
       </div>
 
-      <div class="culture-item">
-        <h4>Textile Art</h4>
-        <p>Women produce distinctive strip-woven cloths and embroidered garments using vibrant geometric patterns. These textiles are among the most sophisticated in the African diaspora, serving social, spiritual, and aesthetic functions. Life-cycle rituals mark key transitions: the <em>gi pangi</em> ceremony offers a girl a piece of fabric; the <em>gi kamisa</em> presents a boy with adult clothing.</p>
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Saamaka_patchwork_strips.jpg/400px-Saamaka_patchwork_strips.jpg" alt="Saramaka strip-wevi patchwork doeku" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Saramaka strip-wevi patchwork doeku</div>
+          <p class="culture-img-caption">Saramaka strip-wevi patchwork doeku</p>
+        </div>
+        <div class="culture-text">
+          <h4>Textiel Art</h4>
+          <p>Textiel art na a foorste creatieve domein fu Marron ouman nanga e internationaal piki taki wan fu den moro complexe nanga mooie textiel tradisies ini a Afrika diaspora. Ouman e meki tu mero vorm: <em>pangi</em> (strip-wevi doeku nanga handgeweven strips naai kaba ini geometrische arrangementen) nanga borduur kledingstukken (<em>neni</em>) nanga dik kruissteek patronen ini levendige kleuren. A geometrische vocabulaire — driehoeken, ruiten, zigzags — e drai gecodeerde betekenis: specifieke patronen kan taki wan ouman en clan, huwelijksstatus, nanga spirituele affiliatie. Libi-loop seremonie gi textiel en moro-moro diepe sosraal betekenis: a <em>gi pangi</em> seremonie e gi wan frowtu pikin en ferste volwassen doeku; a <em>gi kamisa</em> e gi wan manpikin volwassen kleding. Na riesent dekaden, Marron textiel ben go na Europese mode, tentoonstelling presi nanga museum collecties — a Tropenmuseum na Amsterdam abi bigi holdings.</p>
+        </div>
       </div>
 
-      <div class="culture-item">
-        <h4>Winti — Traditional Religion</h4>
-        <p>The traditional Surinamese Maroon religion is called <em>Winti</em> — a syncretisation of African religious beliefs and practices, brought primarily by Akan and Fon enslaved peoples. Ancestor veneration is central. Winti has no written sources and no central authority. It was prohibited by law for nearly a century. Since the 1970s it has gained renewed momentum among Maroons in Suriname and the Netherlands.</p>
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Winti_prei_dance_Suriname.jpg/400px-Winti_prei_dance_Suriname.jpg" alt="Winti seremonie, Sranan" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Winti seremonie, Sranan</div>
+          <p class="culture-img-caption">Winti seremonie, Sranan</p>
+        </div>
+        <div class="culture-text">
+          <h4>Winti — Owru Religie</h4>
+          <p>Winti na a owru Afro-Sranan spirituele sisteem di Marron sma nanga sisei Creool sma e praktiseri. A na wan synthese fu West nanga Centraal Afrika religieuze tradisies — fu de Akan (Ghana), Fon (Benin), nanga Kongo (Centraal Afrika) — omgevormd ova ieuwtenti na Sranan. Winti e taki wan universe bevolkt doro geesten (<em>wintis</em>) fu fesi-fesi rijken: hemel (<em>leba</em>), busi (<em>apuku</em>), watra (<em>watrawinti</em>), nanga gron (<em>gronwinti</em>). Owru-sma memre na wan sentrale sani: den dede sma e tan aktieve leden fu a kondre. Winti ben ferbeid doro koloniale wet na 1874 nanga tan ofisieel verboden bijna wan ieuwtenti. Fu den 1970 yari a kisi wan bigi libi-baka na Sranan nanga e moro-moro praktiseri na Olanda diaspora kondre. No de wan skrifi buku nanga no wan sentrale religieuze autoriteit — kennis e gi doro olo doro specialisten (<em>bonuman</em> nanga <em>lukuman</em>).</p>
+        </div>
       </div>
 
-      <div class="culture-item">
-        <h4>Governance &amp; Leadership</h4>
-        <p>Each Maroon group (except the Kwinti) is led by a <em>granman</em> (paramount chief), supported by <em>kapiteins</em> (village captains) and <em>basias</em> (heralds and monitors). This governance structure blends African communal models with practices developed over three centuries of autonomous forest life. Society is matrilineal — descent and inheritance pass through the female line.</p>
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Maroon_apinti_drum.jpg/400px-Maroon_apinti_drum.jpg" alt="Marron drumming nanga dans seremonie" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Marron drumming nanga dans seremonie</div>
+          <p class="culture-img-caption">Marron drumming nanga dans seremonie</p>
+        </div>
+        <div class="culture-text">
+          <h4>Muziek, Dans &amp; Mondelinge Traditie</h4>
+          <p>Muziek nanga dans na Marron kulturu no na plezier — a na communicatie: nanga owru-sma, nanga geesten, nanga a kondre. Ala Marron grupu abi en eigi liederen, ritmische patronen, nanga dans-vormen. A <em>seketi</em> (wan pikin, hogi trom) nanga a moro bigi <em>apinti</em> trom e communiceri complexe berichten ini seremonie. A Saramaka <em>awasa</em> nanga a Ndyuka <em>songe</em> na formele dans-traditie di e opvoere na begrafenissen nanga seremonie. Begrafenissen (<em>begi doti</em>) na bigi meerdag evenementen nanga drummen, zang nanga vraag-en-antwoord patronen. Richard Price toon taki Marron kondre abi wan moro exacte mondeling archief fu a 17de nanga 18de ieuwtenti feti-woro dan a Nederlandse koloniale archieven.</p>
+        </div>
       </div>
 
-      <div class="culture-item">
-        <h4>Tongo</h4>
-        <p>Each Maroon group has its own creole language rooted in West and Central African languages, English, Portuguese, and Dutch. Ndyuka is spoken by the Ndyuka, Aluku, and Paramaka; Saramaccan by the Saramaka and Matawai. These languages remain central to community identity, oral history, and daily life across villages.</p>
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Granman_Suriname_ceremonial.jpg/400px-Granman_Suriname_ceremonial.jpg" alt="Granman — opperste kapiteini — e verwelkomi gasten" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Granman — opperste kapiteini — e verwelkomi gasten</div>
+          <p class="culture-img-caption">Granman — opperste kapiteini — e verwelkomi gasten</p>
+        </div>
+        <div class="culture-text">
+          <h4>Besturu &amp; Leiderschap</h4>
+          <p>Marron politiki organisatie na wan fu den moro geavanceerde voorbeelden fu autonome governance na a Amerika's. Ala grupu (baide Kwinti) na geleid doro wan <em>granman</em> (opperste kapiteini), wan positie di na erfelijk ini wan matrilineaire clan. Ondro a granman, <em>kapiteins</em> (kondre kapiteini) e besturu individuele kondre, nanga <em>basias</em> (herauten nanga monitoren) na tussenpersonen. Besluitvorming na consensueel nanga deliberatief, geworteld ini Afrika communale modellen. A samenleving na strikt matrilineair: afstamming, erfenis nanga clan-lidmaatschap e go doro a vrouwelijke lijn. Den vredesverdragen fu den 1760–1767 yari formaliseer dati besturu-strukturen in relatie nanga a Nederlandse koloniale staat, nanga Marron leiders tide no e tan wroko nanga machtsspreiding ini a busi.</p>
+        </div>
       </div>
 
-      <div class="culture-item">
-        <h4>Music, Dance &amp; Oral Tradition</h4>
-        <p>Drumming, singing, and dance are central to ceremonies, funerals, and community gatherings. Specific rhythmic patterns carry spiritual significance, communicating with ancestors and deities. The Saramaka and other groups maintain a rich oral tradition, preserving their history of resistance and the stories of their formative years through generations of storytelling.</p>
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Afaka_script_signs.jpg/400px-Afaka_script_signs.jpg" alt="A Afaka syllabarium — Ndyuka skrifi-sisteem meki 1910" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">A Afaka syllabarium — Ndyuka skrifi-sisteem meki 1910</div>
+          <p class="culture-img-caption">A Afaka syllabarium — Ndyuka skrifi-sisteem meki 1910</p>
+        </div>
+        <div class="culture-text">
+          <h4>Tongo &amp; a Afaka Skrifi-Sisteem</h4>
+          <p>Ala Marron grupu abi en eigi creool tongo. Ndyuka (tu e kori Aukan) na taki doro Ndyuka, Aluku nanga Paramaka — a Oostelijke branch — nanga abi bijna 50.000–90.000 taki-sma. Saramaccaans na taki doro Saramaka nanga Matawai — a Centrale branch — nanga na bijzonder bika bijna 50% fu en vocabulaire e kon fu Portugees nanga West-Afrikaanse talen. Bede talen na foorste olo, alwel Ndyuka abi wan bijzondere uitzondering: a <em>Afaka</em> syllabarium, wan syllabisch skrifi-sisteem meki rowtu 1910 doro wan Ndyuka man di ben nen Afaka Atumisi. En taki a skrifi-sisteem kon na en ini wan dren. A ben adopteri doro wan kondre fu beoefenaars nanga e kibri taki wan libi skrifi-sisteem fu moro dan wan ieuwtenti. Na Moengo nanga a Cottica regio, hedendaagse Ndyuka artiesten nanga Marcel Pinas bringi Afaka tekens ini visuele art, e gi a skrifi nieuwe dimensies.</p>
+        </div>
       </div>
 
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Maroon_woodcarving_Suriname_paddles.jpg/400px-Maroon_woodcarving_Suriname_paddles.jpg" alt="Sieri kalebasvat, Sranan Marron traditie" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Sieri kalebasvat, Sranan Marron traditie</div>
+          <p class="culture-img-caption">Sieri kalebasvat, Sranan Marron traditie</p>
+        </div>
+        <div class="culture-text">
+          <h4>Kalebaskunst &amp; Materiële Kulturu</h4>
+          <p>Baide ingi-kapwerk nanga textiel, Marron ouman e meki sieri kalebasvaten (<em>kweki</em>) — droog, kapu, nanga zwart kalebas e yusri fu fodi-kibri nanga serveri. Den fesi e ingegrift nanga geometrische patronen di e sori wan tak-tak visueel tongo tra fosi-fosi media. Kalebasdecoratie na wan privé art — meki doro ouman, fu oso yusri — no taki ingi-kapwerk di na publik. A totaliteit fu Marron visuele kulturu — ingi-kapwerk, textiel, kalebaswerk, opo-fesi art nanga oso-bild — e meki wan fu den moro coherente nanga visueel riku artistieke systemen di wan kondre na a Western Hemisphere ben meki, erkend doro geleerden nanga Sally Price (<em>Maroon Arts</em>, 1999).</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -907,7 +907,30 @@
       flex-shrink: 0;
       opacity: 0.75;
     }
-  </style>
+  
+    /* diaspora section */
+    .diaspora-section { background: var(--cream); padding: 3rem 0; }
+    .diaspora-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .diaspora-intro { font-size: 0.97rem; color: var(--text-mid); max-width: 820px; margin: 0 0 2rem; line-height: 1.75; }
+    .diaspora-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+    .diaspora-card { background: #fff; border: 1px solid #e0d5c0; border-top: 4px solid var(--river); padding: 1.4rem 1.5rem; border-radius: 2px; }
+    .diaspora-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--earth); margin-bottom: 0.7rem; }
+    .diaspora-card .d-flag { font-size: 1.4rem; margin-right: 0.4rem; vertical-align: middle; }
+    .diaspora-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.75; }
+    @media (max-width: 700px) { .diaspora-grid { grid-template-columns: 1fr; } }
+
+    /* culture with images */
+    .culture-item-img { display: grid; grid-template-columns: 210px 1fr; gap: 1.4rem; align-items: start; border-left: 3px solid var(--ochre); padding-left: 1rem; }
+    .culture-img-wrap { flex-shrink: 0; }
+    .culture-img { width: 100%; height: 148px; object-fit: cover; border-radius: 2px; display: block; border: 2px solid rgba(200,130,42,0.25); }
+    .culture-img-ph { width: 100%; height: 148px; background: rgba(0,0,0,0.28); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; color: rgba(247,240,227,0.45); text-align: center; padding: 0.5rem; border-radius: 2px; }
+    .culture-img-caption { font-size: 0.71rem; color: rgba(247,240,227,0.48); margin-top: 0.3rem; font-style: italic; line-height: 1.3; }
+    .culture-text h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--gold); margin-bottom: 0.5rem; }
+    .culture-text p { font-size: 0.87rem; color: rgba(247,240,227,0.82); line-height: 1.75; }
+    .culture-grid-img { display: grid; grid-template-columns: 1fr; gap: 1.8rem; margin-top: 1.5rem; }
+    @media (max-width: 700px) { .culture-item-img { grid-template-columns: 1fr; } }
+
+    </style>
 
   <!-- Trilingual support -->
   <style>
@@ -1005,7 +1028,8 @@
         <li>
           <a href="bibliography.html">Resources</a>
           <ul class="dropdown">
-            <li><a href="bibliography.html">Bibliography &amp; Sources</a></li>
+            <li><a href="languages.html">Languages</a></li>
+          <li><a href="bibliography.html">Bibliography &amp; Sources</a></li>
             <li><a href="RESEARCH_NOTES.md">Research Notes</a></li>
             <li><a href="maroon_villages.csv">Village Data (CSV)</a></li>
           </ul>
@@ -1671,42 +1695,124 @@
   </div>
 </section>
 
+<!-- ─── Diaspora Section ─────────────────────────────────────────────────── -->
+<section class="diaspora-section">
+  <div class="diaspora-inner">
+    <h2 class="section-heading">The Maroon Diaspora</h2>
+    <p class="diaspora-intro">Maroons today are not confined to the river villages of the interior. Centuries of displacement — from the Brokopondo flooding, the Interior War, economic marginalisation, and the search for healthcare and education — have created a global Maroon diaspora. <strong>By 2013, an estimated 210,000 Maroons lived across Suriname and French Guiana combined</strong>, with tens of thousands more in the Netherlands, France, and beyond.</p>
+    <div class="diaspora-grid">
+      <div class="diaspora-card">
+        <h4><span class="d-flag">🇬🇫</span>French Guiana (Guyane)</h4>
+        <p>French Guiana has the largest concentration of Maroons outside Suriname. The Aluku (Boni) have lived on the Lawa River — which straddles the Suriname-Guyane border — since the late 18th century, and on 25 May 1891 officially became French citizens, giving them European Union passports. The Ndyuka began crossing into Guyane as wage labourers as early as the 1860s, working cargo transport on the Maroni River. By the 1960s, the Kourou space centre employed roughly 600 Maroon workers. The Interior War (1986–1992) triggered a mass flight: at least 10,000 Ndyuka fled to refugee camps in and around Saint-Laurent-du-Maroni, and thousands more Saramaka moved as undocumented migrants. By the time the camps closed in 1992, many had settled permanently. Grand-Santi commune — created by scission from Papaïchton in 1993 — became a predominantly Ndyuka settlement on French territory. Prices and Price (2013) estimate that <strong>30% of all Maroons now live in French Guiana</strong>, predominantly Ndyuka (Grand-Santi, Saint-Laurent, Maripasoula), Saramaka (Kourou, where ~4,000 lived in 2003), and Aluku (Papaïchton, Maripasoula). Their legal status varies sharply: Aluku are EU citizens; many Ndyuka and Saramaka are undocumented and vulnerable to expulsion under immigration policies made in Paris.</p>
+      </div>
+
+      <div class="diaspora-card">
+        <h4><span class="d-flag">🇳🇱</span>The Netherlands</h4>
+        <p>The Netherlands is home to the largest Maroon community in Europe. The CBS (Statistics Netherlands) recorded <strong>349,978 people of Surinamese background</strong> in 2018 — roughly 2% of the Dutch population — though this figure encompasses all Surinamese ethnic groups. Maroon-specific estimates range between 11,000 and 20,000, concentrated in Amsterdam (Bijlmermeer/Amsterdam Zuidoost), Rotterdam, The Hague, and Almere. Migration occurred in waves: an initial wave around Surinamese independence (1975), a larger wave following the Interior War (1986–1992), and ongoing economic migration since. In the Netherlands, Maroon communities maintain Winti religious practices, Ndyuka and Saramaccan language use, and cultural ceremonies including <em>kondre foto</em> (community gatherings). Organisations such as <em>Stichting Kibri wi Kulturu</em> (Preserve Our Culture) and <em>Wan Pipel</em> advocate for cultural preservation and connections to communities in Suriname. Maroon artists — woodcarvers, textile artists — exhibit and sell in Dutch markets. The diaspora sends significant remittances to interior villages in Suriname, providing a financial lifeline in areas with no formal economy.</p>
+      </div>
+
+      <div class="diaspora-card">
+        <h4><span class="d-flag">🇸🇷</span>Paramaribo &amp; Coastal Suriname</h4>
+        <p>The largest single concentration of Maroons outside the traditional interior is Paramaribo itself. Urban migration began in earnest in the 1960s as the Brokopondo Dam displaced thousands of Saramaka, and accelerated through the Interior War. <strong>Estimates suggest over 40,000 Maroons now live in and around Paramaribo</strong> — in districts including Wanica, Commewijne, and Para — making Paramaribo as much a Maroon city as a Creole one. Urban Maroons navigate a dual existence: maintaining language, ceremonial life, and connections to interior villages, while participating in the coastal labour market. Discrimination in education and employment remains a documented challenge. Interior-born Maroons moving to Paramaribo often find themselves without the qualifications or networks to access formal employment, a structural disadvantage that advocacy organisations and the Maroon political parties have raised repeatedly in the National Assembly.</p>
+      </div>
+
+      <div class="diaspora-card">
+        <h4><span class="d-flag">🌍</span>France, Europe &amp; Beyond</h4>
+        <p>Because the Aluku hold French citizenship — and because Guyane is an integral part of France and an EU Outermost Region — some Aluku and longtime Guyane-resident Ndyuka have migrated onward to metropolitan France, particularly to Paris and its suburbs. Numbers are difficult to quantify as French census data does not record Maroon ethnicity separately. Small Maroon communities also exist in the United States (particularly in the New York and Florida metropolitan areas) among Surinamese diaspora networks. In Guyana (formerly British Guiana), Maroon communities once existed but are no longer documented. Across all diaspora locations, cultural transmission is a central concern: younger generations raised in European cities maintain connections through language use at home, periodic returns to Suriname or Guyane for funerals and ceremonies, and increasingly through social media and online community networks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Culture Band ───────────────────────────────────────────────────────── -->
 <!-- ─── Culture Band ───────────────────────────────────────────────────────── -->
 <section class="culture-band">
   <div class="culture-inner">
     <h2 class="section-heading">Cultural Heritage</h2>
-    <div class="culture-grid">
-
-      <div class="culture-item">
-        <h4>Woodcarving</h4>
-        <p>Maroon men are renowned for intricate woodcarving — canoe paddles, stools, combs, food-preparation objects, and architectural elements. Each piece carries symbolic meaning rooted in West African aesthetics and adapted to forest life over centuries. There is a strong performance and oratorical tradition alongside the visual arts.</p>
+    <div class="culture-grid-img">
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Maroon_woodcarving_Suriname_paddles.jpg/400px-Maroon_woodcarving_Suriname_paddles.jpg" alt="Maroon woodcarving, Upper Suriname River" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Maroon woodcarving, Upper Suriname River</div>
+          <p class="culture-img-caption">Maroon woodcarving, Upper Suriname River</p>
+        </div>
+        <div class="culture-text">
+          <h4>Woodcarving</h4>
+          <p>Woodcarving is the pre-eminent visual art of Maroon men and is among the most sophisticated traditions in the African diaspora. Objects include canoe paddles, food-preparation boards (<em>kuutu</em>), stools, combs, trays, and architectural elements. Every surface is covered with intricate low-relief geometric patterning — no two pieces are identical. Patterns carry symbolic meaning rooted in West and Central African aesthetic traditions adapted over three centuries of forest life. Carving is not merely decorative: a man carves for his wife, his lover, or as a spiritual offering. The presentation of a carved object is a social act with ceremonial weight. Richard and Sally Price, who have studied Saramaka art for decades, describe it as one of the great artistic traditions of the Americas. Since the Interior War of 1986–1992, Maroon woodcarvers — particularly Saramaka men in French Guiana — have also sold their work at roadside stalls, in craft markets, and to European collectors. Artist Marcel Pinas has brought Ndyuka visual traditions into contemporary gallery contexts internationally.</p>
+        </div>
       </div>
 
-      <div class="culture-item">
-        <h4>Textile Art</h4>
-        <p>Women produce distinctive strip-woven cloths and embroidered garments using vibrant geometric patterns. These textiles are among the most sophisticated in the African diaspora, serving social, spiritual, and aesthetic functions. Life-cycle rituals mark key transitions: the <em>gi pangi</em> ceremony offers a girl a piece of fabric; the <em>gi kamisa</em> presents a boy with adult clothing.</p>
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Saamaka_patchwork_strips.jpg/400px-Saamaka_patchwork_strips.jpg" alt="Saramaka strip-woven patchwork cloth" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Saramaka strip-woven patchwork cloth</div>
+          <p class="culture-img-caption">Saramaka strip-woven patchwork cloth</p>
+        </div>
+        <div class="culture-text">
+          <h4>Textile Art</h4>
+          <p>Textile art is the pre-eminent creative domain of Maroon women and is globally recognised as among the most complex and beautiful fabric traditions in the African diaspora. Women produce two main forms: <em>pangi</em> (strip-woven cloth using hand-loomed strips sewn together in geometric arrangements) and embroidered garments (<em>neni</em>) with dense cross-stitch patterns in vibrant colours. The geometric vocabulary — triangles, diamonds, zigzags, checkerboard patterns — carries encoded meaning: specific patterns can indicate a woman's clan membership, marital status, or spiritual affiliation. Life-cycle ceremonies give textiles their deepest social function: the <em>gi pangi</em> ceremony presents a girl with her first adult cloth; the <em>gi kamisa</em> presents a boy with adult clothing. Textiles also function as gifts mediating relationships between men and women, and as offerings in Winti religious contexts. In recent decades, Maroon textiles have entered European fashion, exhibition spaces, and museum collections — the Tropenmuseum in Amsterdam holds significant holdings.</p>
+        </div>
       </div>
 
-      <div class="culture-item">
-        <h4>Winti — Traditional Religion</h4>
-        <p>The traditional Surinamese Maroon religion is called <em>Winti</em> — a syncretisation of African religious beliefs and practices, brought primarily by Akan and Fon enslaved peoples. Ancestor veneration is central. Winti has no written sources and no central authority. It was prohibited by law for nearly a century. Since the 1970s it has gained renewed momentum among Maroons in Suriname and the Netherlands.</p>
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Winti_prei_dance_Suriname.jpg/400px-Winti_prei_dance_Suriname.jpg" alt="Winti ceremony, Suriname" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Winti ceremony, Suriname</div>
+          <p class="culture-img-caption">Winti ceremony, Suriname</p>
+        </div>
+        <div class="culture-text">
+          <h4>Winti — Traditional Religion</h4>
+          <p>Winti is the traditional Afro-Surinamese spiritual system practiced by Maroons and coastal Creoles alike. It is a synthesis of West and Central African religious traditions — primarily Akan (Ghana), Fon (Benin), and Kongo (Central Africa) — reshaped over centuries in Suriname. Winti posits a universe populated by spirits (<em>wintis</em>) of different realms: sky (<em>leba</em>), forest (<em>apuku</em>), water (<em>watrawinti</em>), and earth (<em>gronwinti</em>). These spirits can inhabit humans, communicate through possession, and require propitiation through ceremony, offerings, and prescribed behaviour. Ancestor veneration is central: the dead remain active members of the community, capable of blessing or cursing the living. Winti was prohibited by colonial law in 1874 and remained officially banned for nearly a century. Since the 1970s it has undergone significant revival in Suriname, and is increasingly practiced in the Netherlands by Surinamese diaspora communities. There is no written scripture and no central religious authority — knowledge is transmitted orally through specialists (<em>bonuman</em> and <em>lukuman</em>).</p>
+        </div>
       </div>
 
-      <div class="culture-item">
-        <h4>Governance &amp; Leadership</h4>
-        <p>Each Maroon group (except the Kwinti) is led by a <em>granman</em> (paramount chief), supported by <em>kapiteins</em> (village captains) and <em>basias</em> (heralds and monitors). This governance structure blends African communal models with practices developed over three centuries of autonomous forest life. Society is matrilineal — descent and inheritance pass through the female line.</p>
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Maroon_apinti_drum.jpg/400px-Maroon_apinti_drum.jpg" alt="Maroon drumming and dance ceremony" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Maroon drumming and dance ceremony</div>
+          <p class="culture-img-caption">Maroon drumming and dance ceremony</p>
+        </div>
+        <div class="culture-text">
+          <h4>Music, Dance &amp; Oral Tradition</h4>
+          <p>Music and dance are not entertainment in Maroon culture — they are communication: with ancestors, with spirits, with the community. Each Maroon group has its own body of songs, rhythmic patterns, and dance forms. The <em>seketi</em> (a small, high-pitched drum) and the larger <em>apinti</em> drum communicate complex messages during ceremonies. The Saramaka <em>awasa</em> and the Ndyuka <em>songe</em> are formal dance traditions performed at funerals, ceremonies, and communal celebrations. Funerals (<em>begi doti</em>) are elaborate multi-day events involving drumming, singing, and call-and-response patterns that communicate with the newly deceased. The oral tradition is equally rich: Maroon communities preserve their history through <em>awasa tori</em> (historical narratives), praise songs for ancestors, and the riddling art of <em>obia tori</em>. Richard Price's recordings and transcriptions of Saramaka oral history (published as <em>First-Time</em>, 1983) showed that Maroon communities hold a more detailed and accurate oral record of the 17th and 18th century resistance wars than the Dutch colonial archives.</p>
+        </div>
       </div>
 
-      <div class="culture-item">
-        <h4>Language</h4>
-        <p>Each Maroon group has its own creole language rooted in West and Central African languages, English, Portuguese, and Dutch. Ndyuka is spoken by the Ndyuka, Aluku, and Paramaka; Saramaccan by the Saramaka and Matawai. These languages remain central to community identity, oral history, and daily life across villages.</p>
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Granman_Suriname_ceremonial.jpg/400px-Granman_Suriname_ceremonial.jpg" alt="Granman — paramount chief — receiving guests" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Granman — paramount chief — receiving guests</div>
+          <p class="culture-img-caption">Granman — paramount chief — receiving guests</p>
+        </div>
+        <div class="culture-text">
+          <h4>Governance &amp; Leadership</h4>
+          <p>Maroon political organisation is one of the most sophisticated examples of autonomous governance in the Americas. Each group (except the Kwinti, who have a <em>basía</em> system) is headed by a <em>granman</em> (paramount chief), a position that is hereditary within a matrilineal clan. Below the granman, <em>kapiteins</em> (village captains) govern individual villages, and <em>basias</em> (heralds and monitors) serve as intermediaries and enforcers of community norms. Decision-making is consensual and deliberative, rooted in African communal models adapted over three centuries. Society is strictly matrilineal: descent, inheritance, and clan membership pass through the female line. This means a man's primary obligations are to his mother's family, not his wife's. The system creates social cohesion across dispersed villages along long river corridors. The peace treaties of the 1760s–1767 formalised this governance structure in relation to the Dutch colonial state, and Maroon leaders continue to exercise authority in the interior today — though their relationship with the Surinamese state remains contested, particularly over land rights and resource concessions.</p>
+        </div>
       </div>
 
-      <div class="culture-item">
-        <h4>Music, Dance &amp; Oral Tradition</h4>
-        <p>Drumming, singing, and dance are central to ceremonies, funerals, and community gatherings. Specific rhythmic patterns carry spiritual significance, communicating with ancestors and deities. The Saramaka and other groups maintain a rich oral tradition, preserving their history of resistance and the stories of their formative years through generations of storytelling.</p>
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Afaka_script_signs.jpg/400px-Afaka_script_signs.jpg" alt="The Afaka syllabary — Ndyuka writing system invented 1910" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">The Afaka syllabary — Ndyuka writing system invented 1910</div>
+          <p class="culture-img-caption">The Afaka syllabary — Ndyuka writing system invented 1910</p>
+        </div>
+        <div class="culture-text">
+          <h4>Language &amp; the Afaka Script</h4>
+          <p>Each Maroon group has its own creole language. Ndyuka (also called Aukan) is spoken by the Ndyuka, Aluku, and Paramaka — the Eastern branch — and has approximately 50,000–90,000 speakers. Saramaccan is spoken by the Saramaka and Matawai — the Central branch — and is notable for having approximately 50% of its vocabulary derived from Portuguese (reflecting the language of plantation overseers) and West African languages, making it linguistically distinct from other Atlantic creoles. Both languages are primarily oral, though Ndyuka has a remarkable exception: the <em>Afaka</em> syllabary, a syllabic writing system invented around 1910 by an Ndyuka man named Afaka Atumisi (also written Afaaka). He claimed the script came to him in a dream. It was adopted by a community of practitioners and has been maintained as a living writing system for over a century, used in religious and community contexts. Afaka is one of the only documented independently invented scripts in the Americas in the modern period. In Moengo and the Cottica region, contemporary Ndyuka artists including Marcel Pinas have incorporated Afaka characters into visual art, giving the script new cultural dimensions.</p>
+        </div>
       </div>
 
+      <div class="culture-item-img">
+        <div class="culture-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Maroon_woodcarving_Suriname_paddles.jpg/400px-Maroon_woodcarving_Suriname_paddles.jpg" alt="Decorated calabash vessel, Suriname Maroon tradition" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="culture-img-ph" style="display:none">Decorated calabash vessel, Suriname Maroon tradition</div>
+          <p class="culture-img-caption">Decorated calabash vessel, Suriname Maroon tradition</p>
+        </div>
+        <div class="culture-text">
+          <h4>Calabash Art &amp; Material Culture</h4>
+          <p>Beyond woodcarving and textiles, Maroon women produce distinctive decorated calabash vessels (<em>kweki</em>) — dried, carved, and blackened gourds used for food storage and serving. The interior and exterior surfaces are incised with geometric patterns that mirror the textile vocabulary, demonstrating a coherent visual language across different media. Calabash decoration is a private art — made by women, for domestic use, within the household — in contrast to woodcarving, which is public and often presented as a gift. Other material culture traditions include body adornment (beadwork, scarification in some historical contexts), plaited cane furniture, and the construction and ornamentation of <em>apuku</em> shrines for forest spirits. The totality of Maroon visual culture — across woodcarving, textiles, calabash work, body art, and architecture — constitutes one of the most coherent and visually rich artistic systems produced by any community in the Western Hemisphere, and has been recognised as such by scholars including Sally Price (<em>Maroon Arts</em>, 1999).</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
