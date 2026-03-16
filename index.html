@@ -174,9 +174,6 @@
     }
     .slide.active .slide-bg { transform: scale(1); }
     /* SVG pattern overlays simulate rainforest / river imagery */
-    .slide-1 .slide-bg { background: linear-gradient(165deg, #0d2b1a 0%, #1a5c35 40%, #2d7a4f 70%, #3a9660 100%); }
-    .slide-2 .slide-bg { background: linear-gradient(135deg, #1a2a40 0%, #1d4a5a 40%, #236b60 70%, #2d8a72 100%); }
-    .slide-3 .slide-bg { background: linear-gradient(155deg, #3a1a0a 0%, #7a3518 40%, #a85a25 70%, #c87830 100%); }
     .slide-overlay {
       position: absolute;
       inset: 0;
@@ -987,7 +984,7 @@
         <li>
           <a href="villages.html">Villages</a>
           <ul class="dropdown">
-            <li><a href="villages.html">Village Directory (259)</a></li>
+            <li><a href="villages.html">Village Directory (258)</a></li>
             <li><a href="groups/ndyuka.html">Ndyuka</a></li>
             <li><a href="groups/saramaka.html">Saramaka</a></li>
             <li><a href="groups/matawai.html">Matawai</a></li>
@@ -1053,35 +1050,212 @@
 
 <!-- ─── Hero Slider ────────────────────────────────────────────────────────── -->
 <section class="hero" id="home">
-  <div class="slide active slide-1">
-    <div class="slide-bg"></div>
+  <div class="slide active slide-1" data-index="0">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Maroon_village%2C_Suriname_River%2C_1955.jpg/1200px-Maroon_village%2C_Suriname_River%2C_1955.jpg')"></div>
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <h2>A Story of Resistance & Resilience</h2>
-      <p>The Surinamese Maroons — descendants of Africans who escaped enslavement, fought colonial armies to a standstill, and built free societies in the rainforest — represent one of the most remarkable stories of human determination in the Americas. Their struggle for sovereignty did not end in 1760. It continues today.</p>
+      <p>The Surinamese Maroons — descendants of Africans who escaped enslavement, fought colonial armies to a standstill, and built free societies in the rainforest — represent one of the most remarkable stories of human determination in the Americas.</p>
     </div>
+    <div class="slide-photo-credit">Maroon village on the Suriname River — Wikimedia Commons — public domain</div>
   </div>
-  <div class="slide slide-2">
-    <div class="slide-bg"></div>
+  <div class="slide slide-2" data-index="1">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Upper_Suriname_River%2C_Suriname_%2812077289104%29.jpg/1200px-Upper_Suriname_River%2C_Suriname_%2812077289104%29.jpg')"></div>
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <h2>Six Nations Along the Rivers</h2>
-      <p>Ndyuka, Saramaka, Matawai, Paramaka, Aluku, and Kwinti — six distinct Maroon peoples, each with their own language, governance, and traditions, settled along the interior rivers of Suriname. Each has faced — and survived — colonial warfare, a modern civil war, displacement, and the ongoing threat of land dispossession.</p>
+      <p>Ndyuka, Saramaka, Matawai, Paramaka, Aluku, and Kwinti — six distinct peoples, each with their own language, governance, and traditions, settled along the interior rivers of Suriname and French Guiana.</p>
     </div>
+    <div class="slide-photo-credit">Upper Suriname River — CC BY 2.0 / Wikimedia Commons</div>
   </div>
-  <div class="slide slide-3">
-    <div class="slide-bg"></div>
+  <div class="slide slide-3" data-index="2">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Washing_and_bathing_-_Maroon_village_%2823703797335%29.jpg/1200px-Washing_and_bathing_-_Maroon_village_%2823703797335%29.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Life Along the Rivers</h2>
+      <p>Villages are built close to the water. The river is transport, source of food, washing place, and gathering point — the rhythm of daily life has been shaped by the rivers for more than three centuries.</p>
+    </div>
+    <div class="slide-photo-credit">Daily life — washing at the river, Maroon village — CC BY 2.0 / Wikimedia Commons</div>
+  </div>
+  <div class="slide slide-4" data-index="3">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/KITLV_-_39074_-_Muller%2C_Julius_Eduard_-_Paramaribo_-_The_entrance_to_a_forest_village_-_around_1885.jpg/1200px-KITLV_-_39074_-_Muller%2C_Julius_Eduard_-_Paramaribo_-_The_entrance_to_a_forest_village_-_around_1885.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>The Interior, 1885</h2>
+      <p>The Dutch colonial photographer Julius Eduard Muller documented Maroon villages in the 1880s — the earliest photographs of communities that had been free and independent for over a century.</p>
+    </div>
+    <div class="slide-photo-credit">Entrance to a forest village, c.1885 — Julius Eduard Muller / KITLV Leiden — public domain</div>
+  </div>
+  <div class="slide slide-5" data-index="4">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Motorized_Canoe_%2814229423788%29.jpg/1200px-Motorized_Canoe_%2814229423788%29.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>On the Water</h2>
+      <p>The korjaal — dugout canoe — remains the primary means of reaching the interior villages. Carved from a single trunk and powered by outboard motor, it connects the rainforest communities to the outside world.</p>
+    </div>
+    <div class="slide-photo-credit">Motorised canoe on the Suriname River — CC BY 2.0 / Wikimedia Commons</div>
+  </div>
+  <div class="slide slide-6" data-index="5">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Maroon_wood_carving%2C_Suriname_%28cropped%29.jpg/1200px-Maroon_wood_carving%2C_Suriname_%28cropped%29.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>The Art of the Forest</h2>
+      <p>Maroon woodcarving is one of the most sophisticated traditions in the African diaspora. Men carve paddles, stools, combs, and food boards with geometric designs that encode personal and clan identity.</p>
+    </div>
+    <div class="slide-photo-credit">Maroon woodcarving, Suriname — CC BY-SA 3.0 / Wikimedia Commons</div>
+  </div>
+  <div class="slide slide-7" data-index="6">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/NMvW_-_Haarkam_%28RV-581-10%29.jpg/1200px-NMvW_-_Haarkam_%28RV-581-10%29.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>The Carved Comb</h2>
+      <p>The haarkam — a carved wooden comb — is among the most personal of Maroon art objects. Men carve them as gifts for women, each comb unique, its geometric interlace a form of visual language.</p>
+    </div>
+    <div class="slide-photo-credit">Carved comb (haarkam) — National Museum of World Cultures — CC0 / National Museum of World Cultures (NMvW)</div>
+  </div>
+  <div class="slide slide-8" data-index="7">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/NMvW_-_Haarkam_%28RV-581-11%29.jpg/1200px-NMvW_-_Haarkam_%28RV-581-11%29.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Form & Meaning</h2>
+      <p>Maroon art is not decorative in the Western sense — each object carries meaning within systems of kinship, exchange, and spiritual protection that have been maintained for three centuries.</p>
+    </div>
+    <div class="slide-photo-credit">Carved comb — National Museum of World Cultures — CC0 / National Museum of World Cultures (NMvW)</div>
+  </div>
+  <div class="slide slide-9" data-index="8">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1400-1_Houten_zetel%2C_een_zogenaamde_koningsban.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1400-1_Houten_zetel%2C_een_zogenaamde_koningsban.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>The Chief's Seat</h2>
+      <p>The carved stool is a seat of authority. Among the Maroons, as among their West African ancestors, the stool embodies the continuity of leadership — the chief sits in the presence of those who came before.</p>
+    </div>
+    <div class="slide-photo-credit">Ceremonial stool (koningsbank) — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-10" data-index="9">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1400-12_Houten_vrouwenhaarkam_met_siersnijwerk.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1400-12_Houten_vrouwenhaarkam_met_siersnijwerk.jpg')"></div>
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <h2>Winti, Art & Living Heritage</h2>
-      <p>From Winti — a synthesis of West and Central African religious traditions — to intricate woodcarving, vibrant strip-woven textiles, and creole languages spoken by no one else on earth, Maroon cultural expression is one of the richest in the African diaspora.</p>
+      <p>From intricate woodcarving and vibrant strip-woven textiles to creole languages spoken by no one else on earth, Maroon cultural expression is one of the richest in the African diaspora.</p>
     </div>
+    <div class="slide-photo-credit">Woman's carved comb with decorative work — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-11" data-index="10">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1556-3a_Gehalveerde_kalebasschaal_met_ingesned.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1556-3a_Gehalveerde_kalebasschaal_met_ingesned.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Calabash Art</h2>
+      <p>Calabash carving — primarily a women's art form — transforms dried gourds into vessels of extraordinary geometric precision. These objects were traded, gifted, and passed between generations.</p>
+    </div>
+    <div class="slide-photo-credit">Engraved calabash bowl — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-12" data-index="11">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1066-1_Drinknap_van_kalebasschaal_met_ingesned.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1066-1_Drinknap_van_kalebasschaal_met_ingesned.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Objects of Exchange</h2>
+      <p>In Maroon society, art objects are fundamental to social relations. A woman carves to give; a man carves to give. The exchange of made things is the currency of kinship.</p>
+    </div>
+    <div class="slide-photo-credit">Calabash drinking vessel with incised decoration — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-13" data-index="12">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10031753_Groepsportret_van_Aukaner_Marrons_in.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10031753_Groepsportret_van_Aukaner_Marrons_in.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>The Ndyuka (Aukaner) People</h2>
+      <p>The Ndyuka — also known as Aukaner or Okanisi — are the largest Maroon group, with around 90,000 people settled along the Cottica, Commewijne, Marowijne, and Tapanahoni rivers.</p>
+    </div>
+    <div class="slide-photo-credit">Group portrait of Aukaner Maroons — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-14" data-index="13">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10031754_Groepsportret_met_Aukaner_Marron_kind.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10031754_Groepsportret_met_Aukaner_Marron_kind.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Continuity</h2>
+      <p>Every generation inherits a world built by those who escaped. The names of the first runaways, the paths they took, the treaties they signed — these are remembered and retold.</p>
+    </div>
+    <div class="slide-photo-credit">Aukaner Maroon group with child — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-15" data-index="14">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60036342_Portret_van_Granman_Atudendu_van_de_S.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60036342_Portret_van_Granman_Atudendu_van_de_S.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Leadership & Governance</h2>
+      <p>Each Maroon group has a granman — a paramount chief — assisted by kapiteins and basias. Governance is rooted in the oral law of the ancestors and the authority of village elders.</p>
+    </div>
+    <div class="slide-photo-credit">Granman Atudendu of the Saramaka — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-16" data-index="15">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60006654_Marrons_roeien_tegen_de_stroom_van_de.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60006654_Marrons_roeien_tegen_de_stroom_van_de.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Against the Current</h2>
+      <p>The resistance of the Maroons was not only military. It was the daily refusal to be absorbed — to maintain language, ceremony, governance, and art on their own terms, against every pressure to abandon them.</p>
+    </div>
+    <div class="slide-photo-credit">Maroons paddling against the current — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-17" data-index="16">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10018983_Interieur_van_een_marrontempel_in_het.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10018983_Interieur_van_een_marrontempel_in_het.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Winti — Faith of the Forest</h2>
+      <p>Winti is the Maroon synthesis of West and Central African religious traditions — a pantheon of nature spirits, ancestor veneration, and healing practices that was outlawed by the Dutch for nearly a century and survived underground.</p>
+    </div>
+    <div class="slide-photo-credit">Interior of a Maroon temple — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-18" data-index="17">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60007018_Marron_dans_in_of_bij_Poeloegoedoe.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60007018_Marron_dans_in_of_bij_Poeloegoedoe.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Dance & Ceremony</h2>
+      <p>Communal dance is inseparable from Winti ceremony, death rites, and celebration. Drumming patterns, song forms, and choreography encode religious meaning that has been transmitted orally for generations.</p>
+    </div>
+    <div class="slide-photo-credit">Maroon dance ceremony at Poeloegoedoe — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-19" data-index="18">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10030413_Het_stampen_van_rijst_in_een_Marron_d.jpg/1200px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10030413_Het_stampen_van_rijst_in_een_Marron_d.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>The Ground of Daily Life</h2>
+      <p>The Maroon ancestors hid rice grains in their hair when they escaped from the plantations. Rice cultivation — brought from Africa — has been central to Maroon subsistence and identity ever since.</p>
+    </div>
+    <div class="slide-photo-credit">Pounding rice in a Maroon village — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum Royal Tropical Institute</div>
+  </div>
+  <div class="slide slide-20" data-index="19">
+    <div class="slide-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Marrons_Maroons_of_Boschnegers_van_Nederlandsch_Guiana%2C_bestaande_uit_Aucaners_en_Saramacaners_%28titel_op_object%29_Les_Habitants_de_Suriname._Notes_recueillies_%C3%A0_l%27Exposition_Coloniale_d%27Amsterdam_en_1883_%28serietitel%29%2C_RP-F-1994-12-2.jpg/1200px-Marrons_Maroons_of_Boschnegers_van_Nederlandsch_Guiana%2C_bestaande_uit_Aucaners_en_Saramacaners_%28titel_op_object%29_Les_Habitants_de_Suriname._Notes_recueillies_%C3%A0_l%27Exposition_Coloniale_d%27Amsterdam_en_1883_%28serietitel%29%2C_RP-F-1994-12-2.jpg')"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Displayed & Defiant</h2>
+      <p>In 1883 a group of Maroons were brought to Amsterdam for the Colonial Exhibition. They are photographed in their finest dress — the same geometric textile patterns, the same carved combs — entirely themselves, on foreign soil.</p>
+    </div>
+    <div class="slide-photo-credit">Maroons at the Colonial Exhibition, Amsterdam 1883 — Rijksmuseum — Rijksmuseum Amsterdam — public domain</div>
   </div>
   <div class="slide-controls">
     <button class="slide-dot active" data-index="0" aria-label="Slide 1"></button>
     <button class="slide-dot" data-index="1" aria-label="Slide 2"></button>
     <button class="slide-dot" data-index="2" aria-label="Slide 3"></button>
+    <button class="slide-dot" data-index="3" aria-label="Slide 4"></button>
+    <button class="slide-dot" data-index="4" aria-label="Slide 5"></button>
+    <button class="slide-dot" data-index="5" aria-label="Slide 6"></button>
+    <button class="slide-dot" data-index="6" aria-label="Slide 7"></button>
+    <button class="slide-dot" data-index="7" aria-label="Slide 8"></button>
+    <button class="slide-dot" data-index="8" aria-label="Slide 9"></button>
+    <button class="slide-dot" data-index="9" aria-label="Slide 10"></button>
+    <button class="slide-dot" data-index="10" aria-label="Slide 11"></button>
+    <button class="slide-dot" data-index="11" aria-label="Slide 12"></button>
+    <button class="slide-dot" data-index="12" aria-label="Slide 13"></button>
+    <button class="slide-dot" data-index="13" aria-label="Slide 14"></button>
+    <button class="slide-dot" data-index="14" aria-label="Slide 15"></button>
+    <button class="slide-dot" data-index="15" aria-label="Slide 16"></button>
+    <button class="slide-dot" data-index="16" aria-label="Slide 17"></button>
+    <button class="slide-dot" data-index="17" aria-label="Slide 18"></button>
+    <button class="slide-dot" data-index="18" aria-label="Slide 19"></button>
+    <button class="slide-dot" data-index="19" aria-label="Slide 20"></button>
   </div>
+
+  <button class="slide-arrow prev" aria-label="Previous">&#8249;</button>
+  <button class="slide-arrow next" aria-label="Next">&#8250;</button>
+  <div class="slide-counter"></div>
 </section>
 
 <!-- Textile-inspired pattern bar -->
@@ -1736,7 +1910,7 @@
     <div class="culture-grid-img">
       <div class="culture-item-img" id="woodcarving">
         <div class="culture-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Maroon_woodcarving_Suriname_paddles.jpg/400px-Maroon_woodcarving_Suriname_paddles.jpg" alt="Maroon woodcarving, Upper Suriname River" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Maroon_wood_carving%2C_Upper_Suriname_River%2C_Suriname_%2814518085249%29.jpg/400px-Maroon_wood_carving%2C_Upper_Suriname_River%2C_Suriname_%2814518085249%29.jpg" alt="Maroon woodcarving paddle, Upper Suriname River" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="culture-img-ph" style="display:none">Maroon woodcarving, Upper Suriname River</div>
           <p class="culture-img-caption">Maroon woodcarving, Upper Suriname River</p>
         </div>
@@ -1748,7 +1922,7 @@
 
       <div class="culture-item-img" id="textile">
         <div class="culture-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Saamaka_patchwork_strips.jpg/400px-Saamaka_patchwork_strips.jpg" alt="Saramaka strip-woven patchwork cloth" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/NMvW_-_Haarkam_%28RV-581-10%29.jpg/400px-NMvW_-_Haarkam_%28RV-581-10%29.jpg" alt="Maroon carved comb, National Museum of World Cultures" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="culture-img-ph" style="display:none">Saramaka strip-woven patchwork cloth</div>
           <p class="culture-img-caption">Saramaka strip-woven patchwork cloth</p>
         </div>
@@ -1760,7 +1934,7 @@
 
       <div class="culture-item-img" id="winti">
         <div class="culture-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Winti_prei_dance_Suriname.jpg/400px-Winti_prei_dance_Suriname.jpg" alt="Winti ceremony, Suriname" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10018983_Interieur_van_een_marrontempel_in_het.jpg/400px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10018983_Interieur_van_een_marrontempel_in_het.jpg" alt="Interior of a Maroon ritual temple" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="culture-img-ph" style="display:none">Winti ceremony, Suriname</div>
           <p class="culture-img-caption">Winti ceremony, Suriname</p>
         </div>
@@ -1772,7 +1946,7 @@
 
       <div class="culture-item-img" id="music">
         <div class="culture-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Maroon_apinti_drum.jpg/400px-Maroon_apinti_drum.jpg" alt="Maroon drumming and dance ceremony" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_0-94_Kegelvormige_trom_van_hout.jpg/400px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_0-94_Kegelvormige_trom_van_hout.jpg" alt="Maroon conical wooden drum" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="culture-img-ph" style="display:none">Maroon drumming and dance ceremony</div>
           <p class="culture-img-caption">Maroon drumming and dance ceremony</p>
         </div>
@@ -1784,7 +1958,7 @@
 
       <div class="culture-item-img" id="governance">
         <div class="culture-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Granman_Suriname_ceremonial.jpg/400px-Granman_Suriname_ceremonial.jpg" alt="Granman — paramount chief — receiving guests" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Maroon_village%2C_Suriname_River%2C_1955.jpg/400px-Maroon_village%2C_Suriname_River%2C_1955.jpg" alt="Maroon village on the Suriname River 1955" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="culture-img-ph" style="display:none">Granman — paramount chief — receiving guests</div>
           <p class="culture-img-caption">Granman — paramount chief — receiving guests</p>
         </div>
@@ -1796,7 +1970,7 @@
 
       <div class="culture-item-img" id="language">
         <div class="culture-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Afaka_script_signs.jpg/400px-Afaka_script_signs.jpg" alt="The Afaka syllabary — Ndyuka writing system invented 1910" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Afaka_syllabary.png/400px-Afaka_syllabary.png" alt="Afaka syllabary — Ndyuka writing system invented 1910" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="culture-img-ph" style="display:none">The Afaka syllabary — Ndyuka writing system invented 1910</div>
           <p class="culture-img-caption">The Afaka syllabary — Ndyuka writing system invented 1910</p>
         </div>
@@ -1808,7 +1982,7 @@
 
       <div class="culture-item-img" id="calabash">
         <div class="culture-img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Maroon_woodcarving_Suriname_paddles.jpg/400px-Maroon_woodcarving_Suriname_paddles.jpg" alt="Decorated calabash vessel, Suriname Maroon tradition" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10018986_Altaar_met_godenbeelden_en_dansattrib.jpg/400px-Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10018986_Altaar_met_godenbeelden_en_dansattrib.jpg" alt="Maroon altar with deity figures and dance attributes" class="culture-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="culture-img-ph" style="display:none">Decorated calabash vessel, Suriname Maroon tradition</div>
           <p class="culture-img-caption">Decorated calabash vessel, Suriname Maroon tradition</p>
         </div>
@@ -1932,17 +2106,31 @@
 <!-- ─── Slider + Map JS ──────────────────────────────────────────────────────── -->
 <script>
   /* ── Hero slider ── */
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.slide-dot');
+    const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.slide-dot');
+  const counter = document.querySelector('.slide-counter');
   let current = 0, timer;
+  function updateCounter() {
+    if (counter) counter.textContent = (current + 1) + ' / ' + slides.length;
+  }
   function goTo(i) {
     slides[current].classList.remove('active'); dots[current].classList.remove('active');
-    current = i;
+    current = (i + slides.length) % slides.length;
     slides[current].classList.add('active'); dots[current].classList.add('active');
+    updateCounter();
   }
-  function next() { goTo((current + 1) % slides.length); }
-  function startTimer() { timer = setInterval(next, 5000); }
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+  function startTimer() { timer = setInterval(next, 10000); }
   function resetTimer() { clearInterval(timer); startTimer(); }
+  dots.forEach(d => d.addEventListener('click', () => { goTo(parseInt(d.dataset.index)); resetTimer(); }));
+  document.querySelectorAll('.slide-arrow.next').forEach(b => b.addEventListener('click', () => { next(); resetTimer(); }));
+  document.querySelectorAll('.slide-arrow.prev').forEach(b => b.addEventListener('click', () => { prev(); resetTimer(); }));
+  // Pause on hover
+  document.querySelector('.hero')?.addEventListener('mouseenter', () => clearInterval(timer));
+  document.querySelector('.hero')?.addEventListener('mouseleave', () => startTimer());
+  updateCounter();
+  startTimer(); }
   dots.forEach(d => d.addEventListener('click', () => { goTo(parseInt(d.dataset.index)); resetTimer(); }));
   startTimer();
 </script>
