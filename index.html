@@ -149,12 +149,6 @@
     }
 
     /* ─── Hero Slider ────────────────────────────────────────────────────── */
-    .hero {
-      position: relative;
-      height: 480px;
-      overflow: hidden;
-      background: var(--forest);
-    }
     .slide {
       position: absolute;
       inset: 0;
@@ -838,7 +832,6 @@
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .nav-list { display: none; }
       .slide-content h2 { font-size: 1.6rem; }
-      .hero { height: 360px; }
       .present-grid { grid-template-columns: 1fr; }
       .timeline::before { left: 90px; }
       .tl-entry { grid-template-columns: 90px 1fr; }
@@ -927,7 +920,130 @@
     .culture-grid-img { display: grid; grid-template-columns: 1fr; gap: 1.8rem; margin-top: 1.5rem; }
     @media (max-width: 700px) { .culture-item-img { grid-template-columns: 1fr; } }
 
-    </style>
+    
+    /* ── Hero: text left, rotating photo right ──────────────────────────── */
+    .hero {
+      background: var(--forest);
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      min-height: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-text {
+      flex: 1 1 45%;
+      padding: 2.2rem 2rem 2.2rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: var(--cream);
+    }
+    .hero-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.85rem;
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--gold);
+      margin: 0 0 0.9rem 0;
+    }
+    .hero-text p {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: rgba(247,240,227,0.85);
+      margin: 0;
+      max-width: 440px;
+    }
+    .hero-slideshow {
+      flex: 1 1 55%;
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    .slide.active { opacity: 1; }
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      transition: transform 15s ease;
+    }
+    .slide.active .slide-bg { transform: scale(1.0); }
+    .slide-credit {
+      position: absolute;
+      bottom: 0.35rem;
+      right: 0.45rem;
+      font-size: 0.56rem;
+      color: rgba(247,240,227,0.38);
+      font-style: italic;
+      z-index: 5;
+      max-width: 260px;
+      text-align: right;
+      line-height: 1.3;
+    }
+    .slide-dots {
+      position: absolute;
+      bottom: 0.55rem;
+      left: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      z-index: 10;
+      max-width: 160px;
+    }
+    .slide-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.28);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      padding: 0;
+    }
+    .slide-dot.active { background: var(--gold); }
+    .slide-arr {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(26,58,42,0.55);
+      border: 1px solid rgba(232,176,74,0.25);
+      color: var(--gold);
+      font-size: 1.1rem;
+      width: 1.8rem; height: 1.8rem;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .slide-arr:hover { background: rgba(26,58,42,0.9); }
+    .slide-arr.prev { left: 0.35rem; }
+    .slide-arr.next { right: 0.35rem; }
+    .slide-counter {
+      position: absolute;
+      top: 0.45rem;
+      right: 0.55rem;
+      font-size: 0.62rem;
+      color: rgba(247,240,227,0.38);
+      font-family: 'Raleway', sans-serif;
+      z-index: 10;
+    }
+    @media (max-width: 700px) {
+      .hero { flex-direction: column; }
+      .hero-text { padding: 1.4rem 1.1rem; }
+      .hero-text h2 { font-size: 1.4rem; }
+      .hero-slideshow { min-height: 220px; }
+    }
+  </style>
 
   <!-- Trilingual support -->
   <style>
@@ -1050,118 +1166,116 @@
 
 <!-- ─── Hero Slider ────────────────────────────────────────────────────────── -->
 <section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <h2>A Story of Resistance &amp; Resilience</h2>
-      <p>The Surinamese Maroons — descendants of Africans who escaped enslavement, fought colonial armies to a standstill, and built free societies in the rainforest — represent one of the most remarkable stories of human determination in the Americas. Their struggle for sovereignty did not end in 1760. It continues today.</p>
+  <div class="hero-text">
+    <h2>A Story of Resistance &amp; Resilience</h2>
+    <p>The Surinamese Maroons — descendants of Africans who escaped enslavement, fought colonial armies to a standstill, and built free societies in the rainforest — represent one of the most remarkable stories of human determination in the Americas. Their struggle for sovereignty did not end in 1760. It continues today.</p>
+  </div>
+  <div class="hero-slideshow">
+  <div class="slide active" data-index="0">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Maroon_village%2C_Suriname_River%2C_1955.jpg?width=900')"></div>
+    <div class="slide-credit">Maroon village on the Suriname River, 1955 — Wikimedia Commons — public domain</div>
+  </div>
+  <div class="slide" data-index="1">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Upper_Suriname_River%2C_Suriname_%2812077289104%29.jpg?width=900')"></div>
+    <div class="slide-credit">Upper Suriname River — CC BY 2.0 / Wikimedia Commons</div>
+  </div>
+  <div class="slide" data-index="2">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Washing_and_bathing_-_Maroon_village_%2823703797335%29.jpg?width=900')"></div>
+    <div class="slide-credit">Daily life — washing at the river — CC BY 2.0 / Wikimedia Commons</div>
+  </div>
+  <div class="slide" data-index="3">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/KITLV_-_39074_-_Muller%2C_Julius_Eduard_-_Paramaribo_-_The_entrance_to_a_forest_village_-_around_1885.jpg?width=900')"></div>
+    <div class="slide-credit">Entrance to a forest village, c.1885 — Julius Eduard Muller — KITLV Leiden — public domain</div>
+  </div>
+  <div class="slide" data-index="4">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Motorized_Canoe_%2814229423788%29.jpg?width=900')"></div>
+    <div class="slide-credit">Motorised canoe on the Suriname River — CC BY 2.0 / Wikimedia Commons</div>
+  </div>
+  <div class="slide" data-index="5">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Maroon_wood_carving%2C_Suriname_%28cropped%29.jpg?width=900')"></div>
+    <div class="slide-credit">Maroon woodcarving, Suriname — CC BY-SA 3.0 / Wikimedia Commons</div>
+  </div>
+  <div class="slide" data-index="6">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/NMvW_-_Haarkam_%28RV-581-10%29.jpg?width=900')"></div>
+    <div class="slide-credit">Carved comb (haarkam) — National Museum of World Cultures — CC0 / National Museum of World Cultures</div>
+  </div>
+  <div class="slide" data-index="7">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/NMvW_-_Haarkam_%28RV-581-11%29.jpg?width=900')"></div>
+    <div class="slide-credit">Carved comb — National Museum of World Cultures — CC0 / National Museum of World Cultures</div>
+  </div>
+  <div class="slide" data-index="8">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1400-1_Houten_zetel%2C_een_zogenaamde_koningsban.jpg?width=900')"></div>
+    <div class="slide-credit">Ceremonial stool (koningsbank) — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="9">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1400-12_Houten_vrouwenhaarkam_met_siersnijwerk.jpg?width=900')"></div>
+    <div class="slide-credit">Woman's carved comb — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="10">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1556-3a_Gehalveerde_kalebasschaal_met_ingesned.jpg?width=900')"></div>
+    <div class="slide-credit">Engraved calabash bowl — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="11">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1066-1_Drinknap_van_kalebasschaal_met_ingesned.jpg?width=900')"></div>
+    <div class="slide-credit">Calabash drinking vessel — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="12">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10031753_Groepsportret_van_Aukaner_Marrons_in.jpg?width=900')"></div>
+    <div class="slide-credit">Group portrait of Aukaner Maroons — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="13">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10031754_Groepsportret_met_Aukaner_Marron_kind.jpg?width=900')"></div>
+    <div class="slide-credit">Aukaner Maroon group with child — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="14">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60036342_Portret_van_Granman_Atudendu_van_de_S.jpg?width=900')"></div>
+    <div class="slide-credit">Granman Atudendu of the Saramaka — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="15">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60006654_Marrons_roeien_tegen_de_stroom_van_de.jpg?width=900')"></div>
+    <div class="slide-credit">Maroons paddling against the current — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="16">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10018983_Interieur_van_een_marrontempel_in_het.jpg?width=900')"></div>
+    <div class="slide-credit">Interior of a Maroon temple — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="17">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60007018_Marron_dans_in_of_bij_Poeloegoedoe.jpg?width=900')"></div>
+    <div class="slide-credit">Maroon dance ceremony at Poeloegoedoe — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="18">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10030413_Het_stampen_van_rijst_in_een_Marron_d.jpg?width=900')"></div>
+    <div class="slide-credit">Pounding rice in a Maroon village — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
+  </div>
+  <div class="slide" data-index="19">
+    <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Marrons_Maroons_of_Boschnegers_van_Nederlandsch_Guiana%2C_bestaande_uit_Aucaners_en_Saramacaners_%28titel_op_object%29_Les_Habitants_de_Suriname._Notes_recueillies_%C3%A0_l%27Exposition_Coloniale_d%27Amsterdam_en_1883_%28serietitel%29%2C_RP-F-1994-12-2.jpg?width=900')"></div>
+    <div class="slide-credit">Maroons at the Colonial Exhibition, Amsterdam 1883 — Rijksmuseum — Rijksmuseum Amsterdam — public domain</div>
+  </div>
+    <button class="slide-arr prev" aria-label="Previous">&#8249;</button>
+    <button class="slide-arr next" aria-label="Next">&#8250;</button>
+    <div class="slide-dots">
+    <button class="slide-dot  active" data-index="0" aria-label="Photo 1"></button>
+    <button class="slide-dot" data-index="1" aria-label="Photo 2"></button>
+    <button class="slide-dot" data-index="2" aria-label="Photo 3"></button>
+    <button class="slide-dot" data-index="3" aria-label="Photo 4"></button>
+    <button class="slide-dot" data-index="4" aria-label="Photo 5"></button>
+    <button class="slide-dot" data-index="5" aria-label="Photo 6"></button>
+    <button class="slide-dot" data-index="6" aria-label="Photo 7"></button>
+    <button class="slide-dot" data-index="7" aria-label="Photo 8"></button>
+    <button class="slide-dot" data-index="8" aria-label="Photo 9"></button>
+    <button class="slide-dot" data-index="9" aria-label="Photo 10"></button>
+    <button class="slide-dot" data-index="10" aria-label="Photo 11"></button>
+    <button class="slide-dot" data-index="11" aria-label="Photo 12"></button>
+    <button class="slide-dot" data-index="12" aria-label="Photo 13"></button>
+    <button class="slide-dot" data-index="13" aria-label="Photo 14"></button>
+    <button class="slide-dot" data-index="14" aria-label="Photo 15"></button>
+    <button class="slide-dot" data-index="15" aria-label="Photo 16"></button>
+    <button class="slide-dot" data-index="16" aria-label="Photo 17"></button>
+    <button class="slide-dot" data-index="17" aria-label="Photo 18"></button>
+    <button class="slide-dot" data-index="18" aria-label="Photo 19"></button>
+    <button class="slide-dot" data-index="19" aria-label="Photo 20"></button>
     </div>
-    <div class="hero-photo">
-      <div class="slide active slide-1" data-index="0">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Maroon_village%2C_Suriname_River%2C_1955.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Maroon village on the Suriname River, 1955 — Wikimedia Commons — public domain</div>
-      </div>
-      <div class="slide slide-2" data-index="1">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Upper_Suriname_River%2C_Suriname_%2812077289104%29.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Upper Suriname River — CC BY 2.0 / Wikimedia Commons</div>
-      </div>
-      <div class="slide slide-3" data-index="2">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Washing_and_bathing_-_Maroon_village_%2823703797335%29.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Daily life — washing at the river — CC BY 2.0 / Wikimedia Commons</div>
-      </div>
-      <div class="slide slide-4" data-index="3">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/KITLV_-_39074_-_Muller%2C_Julius_Eduard_-_Paramaribo_-_The_entrance_to_a_forest_village_-_around_1885.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Entrance to a forest village, c.1885 — Julius Eduard Muller — KITLV Leiden — public domain</div>
-      </div>
-      <div class="slide slide-5" data-index="4">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Motorized_Canoe_%2814229423788%29.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Motorised canoe on the Suriname River — CC BY 2.0 / Wikimedia Commons</div>
-      </div>
-      <div class="slide slide-6" data-index="5">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Maroon_wood_carving%2C_Suriname_%28cropped%29.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Maroon woodcarving, Suriname — CC BY-SA 3.0 / Wikimedia Commons</div>
-      </div>
-      <div class="slide slide-7" data-index="6">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/NMvW_-_Haarkam_%28RV-581-10%29.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Carved comb (haarkam) — National Museum of World Cultures — CC0 / National Museum of World Cultures</div>
-      </div>
-      <div class="slide slide-8" data-index="7">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/NMvW_-_Haarkam_%28RV-581-11%29.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Carved comb — National Museum of World Cultures — CC0 / National Museum of World Cultures</div>
-      </div>
-      <div class="slide slide-9" data-index="8">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1400-1_Houten_zetel%2C_een_zogenaamde_koningsban.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Ceremonial stool (koningsbank) — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-10" data-index="9">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1400-12_Houten_vrouwenhaarkam_met_siersnijwerk.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Woman's carved comb — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-11" data-index="10">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1556-3a_Gehalveerde_kalebasschaal_met_ingesned.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Engraved calabash bowl — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-12" data-index="11">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_1066-1_Drinknap_van_kalebasschaal_met_ingesned.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Calabash drinking vessel — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-13" data-index="12">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10031753_Groepsportret_van_Aukaner_Marrons_in.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Group portrait of Aukaner Maroons — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-14" data-index="13">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10031754_Groepsportret_met_Aukaner_Marron_kind.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Aukaner Maroon group with child — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-15" data-index="14">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60036342_Portret_van_Granman_Atudendu_van_de_S.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Granman Atudendu of the Saramaka — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-16" data-index="15">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60006654_Marrons_roeien_tegen_de_stroom_van_de.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Maroons paddling against the current — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-17" data-index="16">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10018983_Interieur_van_een_marrontempel_in_het.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Interior of a Maroon temple — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-18" data-index="17">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_60007018_Marron_dans_in_of_bij_Poeloegoedoe.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Maroon dance ceremony at Poeloegoedoe — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-19" data-index="18">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tropenmuseum_Royal_Tropical_Institute_Objectnumber_10030413_Het_stampen_van_rijst_in_een_Marron_d.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Pounding rice in a Maroon village — Tropenmuseum — CC BY-SA 3.0 NL / Tropenmuseum</div>
-      </div>
-      <div class="slide slide-20" data-index="19">
-        <div class="slide-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Marrons_Maroons_of_Boschnegers_van_Nederlandsch_Guiana%2C_bestaande_uit_Aucaners_en_Saramacaners_%28titel_op_object%29_Les_Habitants_de_Suriname._Notes_recueillies_%C3%A0_l%27Exposition_Coloniale_d%27Amsterdam_en_1883_%28serietitel%29%2C_RP-F-1994-12-2.jpg?width=900')"></div>
-        <div class="slide-photo-credit">Maroons at the Colonial Exhibition, Amsterdam 1883 — Rijksmuseum — Rijksmuseum Amsterdam — public domain</div>
-      </div>
-      <button class="slide-arrow prev" aria-label="Previous">&#8249;</button>
-      <button class="slide-arrow next" aria-label="Next">&#8250;</button>
-      <div class="hero-controls">
-        <button class="slide-dot  active" data-index="0" aria-label="Slide 1"></button>
-        <button class="slide-dot" data-index="1" aria-label="Slide 2"></button>
-        <button class="slide-dot" data-index="2" aria-label="Slide 3"></button>
-        <button class="slide-dot" data-index="3" aria-label="Slide 4"></button>
-        <button class="slide-dot" data-index="4" aria-label="Slide 5"></button>
-        <button class="slide-dot" data-index="5" aria-label="Slide 6"></button>
-        <button class="slide-dot" data-index="6" aria-label="Slide 7"></button>
-        <button class="slide-dot" data-index="7" aria-label="Slide 8"></button>
-        <button class="slide-dot" data-index="8" aria-label="Slide 9"></button>
-        <button class="slide-dot" data-index="9" aria-label="Slide 10"></button>
-        <button class="slide-dot" data-index="10" aria-label="Slide 11"></button>
-        <button class="slide-dot" data-index="11" aria-label="Slide 12"></button>
-        <button class="slide-dot" data-index="12" aria-label="Slide 13"></button>
-        <button class="slide-dot" data-index="13" aria-label="Slide 14"></button>
-        <button class="slide-dot" data-index="14" aria-label="Slide 15"></button>
-        <button class="slide-dot" data-index="15" aria-label="Slide 16"></button>
-        <button class="slide-dot" data-index="16" aria-label="Slide 17"></button>
-        <button class="slide-dot" data-index="17" aria-label="Slide 18"></button>
-        <button class="slide-dot" data-index="18" aria-label="Slide 19"></button>
-        <button class="slide-dot" data-index="19" aria-label="Slide 20"></button>
-      </div>
-      <div class="slide-counter"></div>
-    </div>
+    <div class="slide-counter"></div>
   </div>
 </section>
 
@@ -2013,7 +2127,7 @@
 <!-- ─── Slider + Map JS ──────────────────────────────────────────────────────── -->
 <script>
   /* ── Hero slider ── */
-      const slides  = document.querySelectorAll('.hero-photo .slide');
+        const slides  = document.querySelectorAll('.hero-slideshow .slide');
   const dots    = document.querySelectorAll('.slide-dot');
   const counter = document.querySelector('.slide-counter');
   let current = 0, timer;
@@ -2030,6 +2144,13 @@
   function prev() { goTo(current - 1); }
   function startTimer() { timer = setInterval(next, 15000); }
   function resetTimer() { clearInterval(timer); startTimer(); }
+  dots.forEach(d => d.addEventListener('click', () => { goTo(parseInt(d.dataset.index)); resetTimer(); }));
+  document.querySelectorAll('.slide-arr.next').forEach(b => b.addEventListener('click', () => { next(); resetTimer(); }));
+  document.querySelectorAll('.slide-arr.prev').forEach(b => b.addEventListener('click', () => { prev(); resetTimer(); }));
+  document.querySelector('.hero-slideshow')?.addEventListener('mouseenter', () => clearInterval(timer));
+  document.querySelector('.hero-slideshow')?.addEventListener('mouseleave', () => startTimer());
+  updateCounter();
+  startTimer(); }
   dots.forEach(d => d.addEventListener('click', () => { goTo(parseInt(d.dataset.index)); resetTimer(); }));
   document.querySelectorAll('.slide-arrow.next').forEach(b => b.addEventListener('click', () => { next(); resetTimer(); }));
   document.querySelectorAll('.slide-arrow.prev').forEach(b => b.addEventListener('click', () => { prev(); resetTimer(); }));
