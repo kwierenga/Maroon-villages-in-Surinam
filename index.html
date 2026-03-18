@@ -542,6 +542,40 @@
     }
     .mission-block ul li::before { content: '◆  '; color: var(--ochre); font-size: 0.55rem; vertical-align: middle; }
 
+    /* ─── Main content — forest green with light text ────────────────────── */
+    .main-wrap {
+      background: var(--forest);
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .main-wrap > main { padding: 2rem; }
+    .main-wrap > aside.sidebar { padding: 2rem 1.5rem; background: var(--forest); border-left: 1px solid rgba(255,255,255,0.06); }
+    .welcome-block h2 { color: var(--gold); }
+    .welcome-block p { color: rgba(247,240,227,0.88); }
+    .welcome-block strong { color: var(--gold); }
+    .main-wrap .section-heading { color: var(--gold); border-bottom-color: var(--ochre); }
+    .news-card { background: var(--canopy); box-shadow: none; }
+    .news-body h3 { color: var(--cream); }
+    .news-body p { color: rgba(247,240,227,0.78); }
+    .read-more { color: var(--gold); }
+    .shared-traits { background: rgba(0,0,0,0.2); border-left-color: var(--gold); }
+    .shared-traits h3 { color: var(--gold); }
+    .trait-item { color: rgba(247,240,227,0.82); border-bottom-color: rgba(200,130,42,0.25); }
+    .comparison-table td { color: rgba(247,240,227,0.82); border-bottom-color: rgba(255,255,255,0.07); }
+    .comparison-table tbody tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
+    .comparison-table tbody tr:hover td { background: rgba(255,255,255,0.08); }
+    .sidebar-box { background: rgba(0,0,0,0.2); border-top-color: var(--gold); box-shadow: none; }
+    .sidebar-box h3 { color: var(--gold); border-bottom-color: rgba(200,130,42,0.3); }
+    .sidebar-links li { border-bottom-color: rgba(255,255,255,0.07); }
+    .sidebar-links li a { color: rgba(247,240,227,0.75); }
+    .sidebar-links li a:hover { color: var(--gold); }
+    .bulletin-list li { border-bottom-color: rgba(255,255,255,0.07); }
+    .bulletin-list li a { color: var(--gold); }
+    .sidebar-box p { color: rgba(247,240,227,0.65); }
+
     /* ─── Footer ──────────────────────────────────────────────────────────── */
     footer {
       background: var(--text-dark);
